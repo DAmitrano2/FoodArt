@@ -2,7 +2,7 @@ package model.amministratore;
 
 public class AmministratoreBean {
 
-	private int idUtente;
+	private int idUtente; //commento
 	private String ruolo;
 	
 	public AmministratoreBean() {
