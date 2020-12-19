@@ -93,7 +93,6 @@ public class UtenteDAOImp implements UtenteDAO {
 				bean.setRivenditore(rs.getBoolean("rivenditore"));
 				bean.setBloccato(rs.getBoolean("bloccato"));
 				
-				
 				flag=true;
 			}
 			
