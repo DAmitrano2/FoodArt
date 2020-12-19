@@ -5,7 +5,7 @@ public class ProdottoBean {
 	private int idProdotto;
 	private String titolo;
 	private String descrizione;
-	private String unitaMisuta;
+	private String unitaMisura;
 	private float prezzo;
 	private float quantitaMinima;
 	private float quantitaDisponibile;
@@ -41,12 +41,12 @@ public class ProdottoBean {
 		this.descrizione = descrizione;
 	}
 
-	public String getUnitaMisuta() {
-		return unitaMisuta;
+	public String getUnitaMisura() {
+		return unitaMisura;
 	}
 
-	public void setUnitaMisuta(String unitaMisuta) {
-		this.unitaMisuta = unitaMisuta;
+	public void setUnitaMisura(String unitaMisura) {
+		this.unitaMisura = unitaMisura;
 	}
 
 	public float getPrezzo() {
