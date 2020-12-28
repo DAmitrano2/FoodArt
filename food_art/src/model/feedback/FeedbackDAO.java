@@ -24,7 +24,7 @@ public interface FeedbackDAO {
 	/**
 	 * Restituisce tutti i feedback inseriti da un determinato utente
 	 * @param idUtente
-	 * @return Collezone di FeedbackBean
+	 * @return Collezione di FeedbackBean
 	 * @throws SQLException
 	 */
 	public Collection<FeedbackBean> doRetriveByUser (int idUtente) throws SQLException;
@@ -32,15 +32,15 @@ public interface FeedbackDAO {
 	/**
 	 * Restituisce tutti i feedback ricevuti da un determinato rivenditore
 	 * @param idUtenteRivenditore
-	 * @return Collezone di FeedbackBean
+	 * @return Collezione di FeedbackBean
 	 * @throws SQLException
 	 */
 	public Collection<FeedbackBean> doRetriveByDealer (int idUtenteRivenditore) throws SQLException;
 	
 	/**
-	 * Restituisce titti i feedback ricevuti da un determinato prodotto
+	 * Restituisce tutti i feedback ricevuti da un determinato prodotto
 	 * @param idProdotto
-	 * @return Collezone di FeedbackBean
+	 * @return Collezione di FeedbackBean
 	 * @throws SQLException
 	 */
 	public Collection<FeedbackBean> doRetriveByProduct (int idProdotto) throws SQLException;
