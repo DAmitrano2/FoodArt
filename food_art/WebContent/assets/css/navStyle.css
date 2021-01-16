@@ -1,0 +1,61 @@
+.navbar-main-link {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+}
+
+.navbar-main-link .nav-item .nav-link {
+    padding-right: .8rem;
+    padding-left: .8rem;
+}
+
+@media (min-width: 1007px){
+	.navbar-super-lg .navbar-nav .nav-link {
+	    padding-right: .8rem;
+	    padding-left: .8rem;
+	}
+}
+
+@media (min-width: 1007px){
+	.navbar-super-lg .navbar-nav {
+	    -webkit-box-orient: horizontal;
+	    -webkit-box-direction: normal;
+	    -ms-flex-direction: row;
+	    flex-direction: row;
+	}
+}
+
+/* Bootstrap 4 text input with search icon */
+
+.has-search .form-control {
+    padding-left: 2.375rem;
+}
+
+.has-search .form-control-feedback {
+    position: absolute;
+    z-index: 2;
+    display: block;
+    width: 2.375rem;
+    height: 2.375rem;
+    line-height: 2.375rem;
+    text-align: center;
+    pointer-events: none;
+    color: #aaa;
+}
+
+.mainNavBar {
+    width: 40%;
+}
+
+@media (min-width: 405px){
+	#nav-search{
+		display: none;
+	}
+}
+
+@media (max-width: 404px){
+	.navbar .mainNavBar{
+		display: none;
+	}
+}
