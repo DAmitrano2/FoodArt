@@ -18,6 +18,7 @@
   <!-- Icon CSS -->
   <link rel="stylesheet" href="./assets/css/all.css">
   
+  <link rel="icon" href="./images/icon.png" type="image/icon type">
   <title>FoodArt</title>
 </head>
 <body>

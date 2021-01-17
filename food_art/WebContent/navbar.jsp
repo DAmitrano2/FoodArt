@@ -2,7 +2,7 @@
 <div class="sticky-top">
   <nav class="navbar navbar-light" style="background-color: #fcba03;">
  	<a class="navbar-brand" href="#">
-   	  <img src="./images/logoLungo.png" width="auto" height="45" class="d-inline-block align-top" alt="">
+   	  <img src="./images/logoLungoL.png" width="auto" height="45" class="d-inline-block align-top" alt="">
 	</a>
 	<div class="input-group mainNavBar">
 	  <input type="text" class="form-control" placeholder="Cerca">
