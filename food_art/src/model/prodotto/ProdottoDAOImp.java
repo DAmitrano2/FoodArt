@@ -145,7 +145,6 @@ public class ProdottoDAOImp implements ProdottoDAO {
 	public Collection<ProdottoBean> getProductByIdCategory(int idCategoria) throws SQLException {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
-		ProdottoBean singol_product = new ProdottoBean();
 		Collection<ProdottoBean> products = new LinkedList<ProdottoBean>();
 		
 		String selectSQL = "SELECT * FROM "+ ProdottoDAOImp.TABLE_NAME +" where idCategoria = ?";
@@ -157,6 +156,7 @@ public class ProdottoDAOImp implements ProdottoDAO {
 		ResultSet rs = preparedStatement.executeQuery();
 		
 		while (rs.next()) {
+			ProdottoBean singol_product = new ProdottoBean();
 			singol_product.setIdProdotto(rs.getInt("idProdotto"));
 			singol_product.setTitolo(rs.getString("titolo"));
 			singol_product.setDescrizione(rs.getString("descrizione"));

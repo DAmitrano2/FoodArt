@@ -128,7 +128,6 @@ public class CategoriaDAOImp implements CategoriaDAO {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 		Collection<CategoriaBean> all_categories = new LinkedList<CategoriaBean>();
-		CategoriaBean categoria = new CategoriaBean();
 
 		String selectSQL = "SELECT * FROM " + CategoriaDAOImp.TABLE_NAME;
 		
@@ -139,6 +138,7 @@ public class CategoriaDAOImp implements CategoriaDAO {
 			ResultSet rs = preparedStatement.executeQuery();
 									
 			while(rs.next()) {
+				CategoriaBean categoria = new CategoriaBean();
 				categoria.setIdCategoria(rs.getInt("idCategoria"));
 				categoria.setNome(rs.getString("nome"));
 				

@@ -92,7 +92,6 @@ public class FeedbackDAOImp implements FeedbackDAO {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 		Collection<FeedbackBean> feedback = new LinkedList<FeedbackBean>();
-		FeedbackBean feed = new FeedbackBean();
 
 		String selectSQL = "SELECT * FROM " + FeedbackDAOImp.TABLE_NAME +" where idCommentatore= ? ";
 		
@@ -106,6 +105,7 @@ public class FeedbackDAOImp implements FeedbackDAO {
 			boolean flag = false;
 			
 			while(rs.next()) {
+				FeedbackBean feed = new FeedbackBean();
 				feed.setIdFeedback(rs.getInt("idFeedback"));
 				feed.setTitolo(rs.getString("titolo"));
 				feed.setCommento(rs.getString("commento"));
@@ -140,7 +140,6 @@ public class FeedbackDAOImp implements FeedbackDAO {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 		Collection<FeedbackBean> feedback = new LinkedList<FeedbackBean>();
-		FeedbackBean feed = new FeedbackBean();
 
 		String selectSQL = "SELECT * FROM " + FeedbackDAOImp.TABLE_NAME +" where idRivenditore= ? ";
 		
@@ -154,6 +153,7 @@ public class FeedbackDAOImp implements FeedbackDAO {
 			boolean flag = false;
 			
 			while(rs.next()) {
+				FeedbackBean feed = new FeedbackBean();
 				feed.setIdFeedback(rs.getInt("idFeedback"));
 				feed.setTitolo(rs.getString("titolo"));
 				feed.setCommento(rs.getString("commento"));
@@ -188,7 +188,6 @@ public class FeedbackDAOImp implements FeedbackDAO {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 		Collection<FeedbackBean> feedback = new LinkedList<FeedbackBean>();
-		FeedbackBean feed = new FeedbackBean();
 
 		String selectSQL = "SELECT * FROM " + FeedbackDAOImp.TABLE_NAME +" where idProdotto= ? ";
 		
@@ -202,6 +201,7 @@ public class FeedbackDAOImp implements FeedbackDAO {
 			boolean flag = false;
 			
 			while(rs.next()) {
+				FeedbackBean feed = new FeedbackBean();
 				feed.setIdFeedback(rs.getInt("idFeedback"));
 				feed.setTitolo(rs.getString("titolo"));
 				feed.setCommento(rs.getString("commento"));
