@@ -67,7 +67,6 @@ Collection<CategoriaBean> categorie = model.doRetrieveAll();
   <title>FoodArt</title>
 </head>
 <body>
-<!-- <jsp:include page="./assets/css/navStyle.css" /> -->
 <div class="sticky-top">
   <nav class="navbar navbar-light" style="background-color: #fcba03;">
  	<a class="navbar-brand" href="#">
