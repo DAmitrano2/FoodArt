@@ -43,7 +43,7 @@ else {
 
 //Categorie
 CategoriaDAOImp model = new CategoriaDAOImp();
-Collection<CategoriaBean> categorie = model.doRetrieveAll();
+//Collection<CategoriaBean> categorie = model.doRetrieveAll();
 %>
 <!DOCTYPE html>
 <html lang="it">
@@ -96,15 +96,15 @@ Collection<CategoriaBean> categorie = model.doRetrieveAll();
  	</button>
  	<div class="collapse align-content-center navbar-collapse" id="navbarMain">
       <ul class="navbar-nav mx-auto">
-      <%
+      <!-- %
 		if (categorie != null && categorie.size() != 0) {
 			for (CategoriaBean category: categorie) {
-			%>
+			%> -->
         <li class="nav-item">
-          <a class="nav-link" href=""><%=category.getNome() %></a>
+          <a class="nav-link" href=""><!-- %=category.getNome() %> --></a>
         </li>
-        <%}} %>
-        <!-- 
+        <!-- %}} %> -->
+        
         <li class="nav-item">
           <a class="nav-link" href="#">Pesce</a>
      	</li>
@@ -128,7 +128,7 @@ Collection<CategoriaBean> categorie = model.doRetrieveAll();
    	  	</li>
    	  	<li class="nav-item">
        	  <a class="nav-link" href="#">Condimenti</a>
-   	  	</li> -->
+   	  	</li>
       </ul>
     </div>
   </nav>
