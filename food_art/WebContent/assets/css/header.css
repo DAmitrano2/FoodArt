@@ -48,13 +48,13 @@
     width: 40%;
 }
 
-@media (min-width: 405px){
+@media (min-width: 421px){
 	#nav-search{
 		display: none;
 	}
 }
 
-@media (max-width: 404px){
+@media (max-width: 420px){
 	.navbar .mainNavBar{
 		display: none;
 	}

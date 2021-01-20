@@ -54,10 +54,10 @@ Collection<CategoriaBean> categorie = model.doRetrieveAll();
     
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-  <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="./assets/css/bootstrap/bootstrap.min.css">
   
   <!-- Default CSS -->
-  <link rel="stylesheet" href="./assets/css/navStyle.css">
+  <link rel="stylesheet" href="./assets/css/header.css">
   <link rel="stylesheet" href="./assets/css/style.css">
   
   <!-- Icon CSS -->
@@ -68,12 +68,12 @@ Collection<CategoriaBean> categorie = model.doRetrieveAll();
 </head>
 <body>
 <div class="sticky-top">
-  <nav class="navbar navbar-light" style="background-color: #fcba03;">
+  <nav class="navbar navbar-light" style="background-color:  #fcba03;">
  	<a class="navbar-brand" href="#">
    	  <img src="./images/logoLungoL.png" width="auto" height="45" class="d-inline-block align-top" alt="">
 	</a>
 	<div class="input-group mainNavBar">
-	  <input type="text" class="form-control" placeholder="Cerca">
+	  <input type="text" class="form-control" placeholder="Cerca...">
 	  <div class="input-group-append">
 	    <button class="btn btn-secondary" type="button"><i class="fa fa-search"></i></button>
 	  </div>
@@ -90,15 +90,21 @@ Collection<CategoriaBean> categorie = model.doRetrieveAll();
 	  </li>
     </ul>
   </nav>
-  <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #ffdb75;">
+  <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #ffdd00;">
  	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMain" aria-controls="navbarMain" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
  	</button>
  	<div class="collapse align-content-center navbar-collapse" id="navbarMain">
       <ul class="navbar-nav mx-auto">
+      <%
+		if (categorie != null && categorie.size() != 0) {
+			for (CategoriaBean category: categorie) {
+			%>
         <li class="nav-item">
-          <a class="nav-link" href="#">Carne</a>
+          <a class="nav-link" href=""><%=category.getNome() %></a>
         </li>
+        <%}} %>
+        <!-- 
         <li class="nav-item">
           <a class="nav-link" href="#">Pesce</a>
      	</li>
@@ -122,7 +128,7 @@ Collection<CategoriaBean> categorie = model.doRetrieveAll();
    	  	</li>
    	  	<li class="nav-item">
        	  <a class="nav-link" href="#">Condimenti</a>
-   	  	</li>
+   	  	</li> -->
       </ul>
     </div>
   </nav>

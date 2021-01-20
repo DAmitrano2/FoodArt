@@ -1,0 +1,114 @@
+@charset "ISO-8859-1";
+
+.carousel-inner{
+	max-height: 40rem!important;
+}
+
+.carousel-item-next, .carousel-item-prev, .carousel-item.active {
+	transition: transform 2.2s ease;
+}
+
+.carousel-indicators li{
+	width: 40px;
+	height: 6px;
+	margin-right: 4px;
+	margin-left: 4px;
+}
+.carousel-caption{
+	position:absolute;
+	top: 47%;
+	transform: translateY(-50%);
+}
+.bg-dark{
+	background-color: rgba(0, 0, 0, .7)!important;
+	border-radius: 1.5rem;
+	padding: 1rem;
+}
+.bg-white{
+	background-color: rgba(255, 255, 255, .65)!important;
+	border-radius: 1.5rem;
+	padding: 1rem;
+}
+.carousel-caption h3{
+	font-weight: 300;
+	font-size: 2.3rem;
+}
+p.lead{
+	font-size: 1.4rem;
+}
+.btn-primary{
+	background-color: #fcba03!important;
+	color: black!important;
+	border-color: black;
+}
+.btn-primary:hover{
+	background-color: transparent!important;
+	color: white!important;
+	border: 1px solid #fcba03!important;
+}
+.navbar-light .navbar-nav .nav-link{
+	color: black!important;
+}
+/*
+.owl-carousel{
+	display: block!important;
+	width: 100%!important;
+	z-index: 1!important;
+}
+
+main .blog{
+	background: url('../img/backgroundCategory.jpg');
+	background-repeat: no-repeat;
+	background-position: right;
+	height: 100vh;
+	width: 100%;
+}
+main .blog .blog-post{
+	padding-top: 6rem;
+}
+main .blog-post .blog-content{
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+	width: 80%;
+	margin: 3rem 2rem;
+	box-shadow: 0 15px 20px rgba(0, 0, 0, 0.2);
+}
+main .blog-content .blog-title{
+	padding: 2rem 0;
+}
+main .blog-content .btn-blog{
+	padding: .7rem 2rem;
+	background: #fcba03;
+	margin: .5rem;
+}
+main .blog-content{
+	
+}
+*/
+
+
+/* Mediaqueries */
+@media (max-width: 1200px){
+	.carousel-caption h3{
+		font-size: 1.8rem;
+	}
+	p.lead{
+		font-size: 1.2rem;
+	}
+}
+@media (max-width: 992px){
+	.carousel-indicators li{
+	width: 30px;
+	height: 4px;
+	margin-right: 3px;
+	margin-left: 3px;
+}
+}
+
+@media (max-width: 456px){
+	.carousel-control-next-icon, .carousel-control-prev-icon{
+		width: 15px;
+		height: 15px;
+	}
+}
