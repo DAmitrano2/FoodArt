@@ -9,9 +9,9 @@
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
-	<classpathentry kind="lib" path="C:/Users/Alfonso Zappia/Documents/FoodArt/RepositoryFoodArt/FoodArt-1/food_art/WebContent/WEB-INF/lib/gson-2.8.6.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Alfonso Zappia/Documents/FoodArt/RepositoryFoodArt/FoodArt-1/food_art/WebContent/WEB-INF/lib/javax.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Alfonso Zappia/Documents/FoodArt/RepositoryFoodArt/FoodArt-1/food_art/WebContent/WEB-INF/lib/mysql-connector-java-8.0.12.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Alfonso Zappia/Downloads/servlet-api.jar"/>
+	<classpathentry kind="lib" path="./WebContent/WEB-INF/lib/gson-2.8.6.jar"/>
+	<classpathentry kind="lib" path="./WebContent/WEB-INF/lib/javax.jar"/>
+	<classpathentry kind="lib" path="./WebContent/WEB-INF/lib/mysql-connector-java-8.0.12.jar"/>
+	<classpathentry kind="lib" path="./WebContent/WEB-INF/lib/servlet-api.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
