@@ -12,8 +12,6 @@ import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
 
-import model.order.OrderBean;
-import model.order.OrderDAOImp;
 
 public class OrdineDAOImp implements OrdineDAO {
 
@@ -68,7 +66,6 @@ public class OrdineDAOImp implements OrdineDAO {
 
 	@Override
 	public OrdineBean doRetrieveSingleOrder(int idOrdine) throws SQLException {
-		ic synchronized OrderBean doRetrieveSingleOrder(int idOrdine) throws SQLException {
 			Connection connection = null;
 			PreparedStatement preparedStatement = null;
 
