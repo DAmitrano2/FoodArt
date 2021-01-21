@@ -48,6 +48,15 @@
     width: 40%;
 }
 
+.btn-secondary, .btn-secondary:hover, .btn-secondary:focus, .btn-secondary:active{
+    background-color: #000;
+    border-color: #000;
+}
+.btn-secondary:not(:disabled):not(.disabled).active, .btn-secondary:not(:disabled):not(.disabled):active, .show>.btn-secondary.dropdown-toggle{
+	background-color: #404040;
+    border-color: #404040;
+}
+
 @media (min-width: 421px){
 	#nav-search{
 		display: none;
