@@ -25,7 +25,10 @@
 						<input type="password" class="form-control" placeholder="password">
 					</div>
 					<div class="row align-items-center remember">
-						<input type="checkbox">Resta connesso.
+						<label class="checkbox-container">Resta connesso.
+							<input type="checkbox" checked="checked">
+							<span class="checkmark"></span>
+						</label>
 					</div>
 					<div class="form-group">
 						<input type="submit" value="Accedi" class="btn float-right login_btn">
@@ -34,10 +37,10 @@
 			</div>
 			<div class="card-footer">
 				<div class="d-flex justify-content-center links">
-					Non hai un account?<a href="#">Registrati</a>
+					Non hai un account?<a href="<%=path %>/register">Registrati</a>
 				</div>
 				<div class="d-flex justify-content-center">
-					<a href="#">Hai dimenticato la password?</a>
+					<a href="<%=path %>/recovery">Hai dimenticato la password?</a>
 				</div>
 			</div>
 		</div>

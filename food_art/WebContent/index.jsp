@@ -62,29 +62,8 @@
 	  <span class="sr-only">Successivo</span>
 	</a>
   </div>
-  <!-- Carosello Principale-->
 
-  <!-- Carosello Categorie-->
-  <section>
-	  <div class="categoryCarousel">
-		  <div class="categoryContainer">
-			<div class="owl-carousel owl-theme category-card">
-				<div class="category-content">
-					<img src="./images/category/C1_Carne.jpg" alt="CT1">
-					<div class="category-title">
-						<h3>CARNE</h3>
-						<button class="btn btn-category">Visualizza prodotti</button>
-						<span></span>
-					</div>
-				</div>
-			</div>
-		  </div>
-	  </div>
-  </section>
-
- 
   <%@include file="./include/footer.html" %>
-  
   <%@include file="./include/script.html" %>
 </body>
 </html>
