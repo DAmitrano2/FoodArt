@@ -66,17 +66,103 @@
 
   <!-- Carosello Categorie-->
   <section>
-	  <div class="categoryCarousel">
-		  <div class="categoryContainer">
+	  <div class="category">
+		  <div class="category-container">
 			<div class="owl-carousel owl-theme category-card">
 				<div class="category-content">
+					<div class="image-container">
 					<img src="./images/category/C1_Carne.jpg" alt="CT1">
+					</div>
 					<div class="category-title">
 						<h3>CARNE</h3>
 						<button class="btn btn-category">Visualizza prodotti</button>
 						<span></span>
 					</div>
 				</div>
+				<div class="category-content">
+					<div class="image-container">
+					<img src="./images/category/C2_Pesce.jpeg" alt="CT2">
+					</div>
+					<div class="category-title">
+						<h3>PESCE</h3>
+						<button class="btn btn-category">Visualizza prodotti</button>
+						<span></span>
+					</div>
+				</div>
+				<div class="category-content">
+					<div class="image-container">
+					<img src="./images/category/C3_Cereali.jpg" alt="CT3">
+					</div>
+					<div class="category-title">
+						<h3>CEREALI E DERIVATI</h3>
+						<button class="btn btn-category">Visualizza prodotti</button>
+						<span></span>
+					</div>
+				</div>
+				<div class="category-content">
+					<div class="image-container">
+					<img src="./images/category/C4_LatteDerivatiUova.jpg" alt="CT4">
+					</div>
+					<div class="category-title">
+						<h3 id="latte">LATTE, DERIVATI E UOVA</h3>
+						<button class="btn btn-category">Visualizza prodotti</button>
+						<span></span>
+					</div>
+				</div>
+				<div class="category-content">
+					<div class="image-container">
+					<img src="./images/category/C5_Pasticceria.jpg" alt="CT5">
+					</div>
+					<div class="category-title">
+						<h3>PASTICCERIA</h3>
+						<button class="btn btn-category">Visualizza prodotti</button>
+						<span></span>
+					</div>
+				</div>
+				<div class="category-content">
+					<div class="image-container">
+					<img src="./images/category/C6_FruttaVerdura.jpg" alt="CT6">
+					</div>
+					<div class="category-title">
+						<h3>FRUTTA E VERDURA</h3>
+						<button class="btn btn-category">Visualizza prodotti</button>
+						<span></span>
+					</div>
+				</div>
+				<div class="category-content">
+					<div class="image-container">
+					<img src="./images/category/C7_Bevande.jpg" alt="CT7">
+					</div>
+					<div class="category-title">
+						<h3>BEVANDE</h3>
+						<button class="btn btn-category">Visualizza prodotti</button>
+						<span></span>
+					</div>
+				</div>
+				<div class="category-content">
+					<div class="image-container">
+					<img src="./images/category/C8_Conserve.jpg" alt="CT8">
+					</div>
+					<div class="category-title">
+						<h3>CONSERVE</h3>
+						<button class="btn btn-category">Visualizza prodotti</button>
+						<span></span>
+					</div>
+				</div>
+				<div class="category-content">
+					<div class="image-container">
+					<img src="./images/category/C9_Condimenti.jpeg" alt="CT9">
+					</div>
+					<div class="category-title">
+						<h3>CONDIMENTI</h3>
+						<button class="btn btn-category">Visualizza prodotti</button>
+						<span></span>
+					</div>
+				</div>
+			</div>
+			<div class="owl-navigation">
+				<span class="owl-nav-prev"><i class="fas fa-arrow-left"></i></span>
+				<span class="owl-nav-next"><i class="fas fa-arrow-right"></i></span>
 			</div>
 		  </div>
 	  </div>

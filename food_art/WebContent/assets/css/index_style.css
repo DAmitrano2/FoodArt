@@ -49,45 +49,79 @@ p.lead{
 .navbar-light .navbar-nav .nav-link{
 	color: black!important;
 }
-/*
-.owl-carousel{
-	display: block!important;
-	width: 100%!important;
-	z-index: 1!important;
+.category .category-card{
+	padding-top: 2rem;
 }
-
-main .blog{
-	background: url('../img/backgroundCategory.jpg');
-	background-repeat: no-repeat;
-	background-position: right;
-	height: 100vh;
-	width: 100%;
-}
-main .blog .blog-post{
-	padding-top: 6rem;
-}
-main .blog-post .blog-content{
+.category-card .category-content{
 	display: flex;
 	flex-direction: column;
 	text-align: center;
 	width: 80%;
-	margin: 3rem 2rem;
+	margin: 2rem 1rem;
 	box-shadow: 0 15px 20px rgba(0, 0, 0, 0.2);
 }
-main .blog-content .blog-title{
+.category-content .category-title{
 	padding: 2rem 0;
 }
-main .blog-content .btn-blog{
+.category-content .category-title h3{
+	font-size: 1.25rem;
+}
+.category-content .btn-category{
 	padding: .7rem 2rem;
 	background: #fcba03;
 	margin: .5rem;
+	border-radius: 25px;
+	color: black!important;
 }
-main .blog-content{
-	
+.category-content .btn-category:hover{
+	border: 1px solid #fcba03;
+	background: transparent;
 }
-*/
+.category-content span{
+	display: block;
+}
+.category-container{
+	margin: 0 5vw;
+}
+section .category-container .owl-nav{
+	position: absolute;
+	top: 0%;
+	margin: auto!important;
+}
 
-
+.owl-nav .owl-prev .owl-nav-prev, .owl-nav .owl-next .owl-nav-next{
+	color: black;
+	background: transparent;
+	font-size: 2rem;
+}
+.owl-nav .owl-prev .owl-nav-prev{
+	text-align: left!important;
+}
+.owl-nav .owl-next .owl-nav-next{
+	text-align: right!important;
+	margin-left: auto!important;
+}
+.image-container{
+	overflow: hidden;
+}
+.image-container:hover img{
+	-webkit-transform: scale(1.12);
+	transform: scale(1.12);
+	cursor: pointer;
+}
+.image-container img{
+	-webkit-transition: all 0.7s ease;
+  	 transition: all 0.7s ease;
+}
+.owl-prev{
+	left: -20px;
+}
+.owl-next{
+	right: -20px;
+}
+.owl-prev i, .owl-next i{
+	transform: scale(2,5);
+}
 /* Mediaqueries */
 @media (max-width: 1200px){
 	.carousel-caption h3{
@@ -110,5 +144,24 @@ main .blog-content{
 	.carousel-control-next-icon, .carousel-control-prev-icon{
 		width: 15px;
 		height: 15px;
+	}
+}
+
+@media (max-width: 500px){
+	.category-card .category-content{
+		margin: 2rem 2rem;
+	}
+}
+@media (max-width: 590px){
+	.category-title h3{
+		font-size: 1.15rem!important;
+	}
+	.btn-category{
+		font-size: .9rem;
+	}
+}
+@media (max-width: 625px){
+	.category-title h3{
+		font-size: 1.18rem!important;
 	}
 }
