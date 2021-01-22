@@ -4,7 +4,7 @@
 // Check user credentials
 UtenteBean user = (UtenteBean) request.getSession(false).getAttribute("user");
 String pagina = (String) request.getAttribute("page");
-
+String path = request.getContextPath();
 
 boolean auth;
 
@@ -44,7 +44,7 @@ else {
 
 //Categorie
 CategoriaDAOImp model = new CategoriaDAOImp();
-//Collection<CategoriaBean> categorie = model.doRetrieveAll();
+Collection<CategoriaBean> categorie = model.doRetrieveAll();
 %>
 <!DOCTYPE html>
 <html lang="it">
@@ -61,7 +61,7 @@ CategoriaDAOImp model = new CategoriaDAOImp();
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
   
   <!-- Default CSS -->
-  <link rel="stylesheet" href="./assets/css/header.css">
+  <link rel="stylesheet" href="./assets/css/header_style.css">
   <link rel="stylesheet" href="./assets/css/<%=pagina %>_style.css">
   
   <!-- Icon CSS -->
@@ -73,11 +73,11 @@ CategoriaDAOImp model = new CategoriaDAOImp();
 <body>
 <div class="sticky-top">
   <nav class="navbar navbar-light" style="background-color:  #fcba03;">
- 	<a class="navbar-brand" href="#">
+ 	<a class="navbar-brand" href="<%=path%>/index">
    	  <img src="./images/logoLungoL.png" width="auto" height="45" class="d-inline-block align-top" alt="">
 	</a>
 	<div class="input-group mainNavBar">
-	  <input type="text" class="form-control" placeholder="Cerca...">
+	  <input type="text" class="form-control">
 	  <div class="input-group-append">
 	    <button class="btn btn-secondary" type="button"><i class="fa fa-search"></i></button>
 	  </div>
@@ -87,10 +87,10 @@ CategoriaDAOImp model = new CategoriaDAOImp();
 	    <a class="nav-link" href="#"><i class="fa fa-search"></i></a>
 	  </li>
 	  <li class="nav-item">
-	    <a class="nav-link" href="#"><i class="fas fa-user"></i></a>
+	    <a class="nav-link" href="<%=path %>/login"><i class="fas fa-user"></i></a>
 	  </li>
 	  <li class="nav-item">
-	    <a class="nav-link" href="#"><i class="fas fa-shopping-cart"></i></a>
+	    <a class="nav-link" href="<%=path %>/cart"><i class="fas fa-shopping-cart"></i></a>
 	  </li>
     </ul>
   </nav>
@@ -100,39 +100,14 @@ CategoriaDAOImp model = new CategoriaDAOImp();
  	</button>
  	<div class="collapse align-content-center navbar-collapse" id="navbarMain">
       <ul class="navbar-nav mx-auto">
-      <!-- %
+      <%
 		if (categorie != null && categorie.size() != 0) {
 			for (CategoriaBean category: categorie) {
-			%> -->
+			%>
         <li class="nav-item">
-          <a class="nav-link" href=""><!-- %=category.getNome() %> --></a>
+          <a class="nav-link" href=""><%=category.getNome() %></a>
         </li>
-        <!-- %}} %> -->
-        
-        <li class="nav-item">
-          <a class="nav-link" href="#">Pesce</a>
-     	</li>
-     	<li class="nav-item">
-       	  <a class="nav-link" href="#">Cereali e Derivati</a>
-   	  	</li>
-   	  	<li class="nav-item">
-       	  <a class="nav-link" href="#">Latte, Derivati e Uova</a>
-   	  	</li>
-   	  	<li class="nav-item">
-       	  <a class="nav-link" href="#">Pasticceria</a>
-   	  	</li>
-   	  	<li class="nav-item">
-       	  <a class="nav-link" href="#">Frutta e Verdura</a>
-   	  	</li>
-   	  	<li class="nav-item">
-       	  <a class="nav-link" href="#">Bevande</a>
-   	  	</li>
-   	  	<li class="nav-item">
-       	  <a class="nav-link" href="#">Conserve</a>
-   	  	</li>
-   	  	<li class="nav-item">
-       	  <a class="nav-link" href="#">Condimenti</a>
-   	  	</li>
+        <%}} %>
       </ul>
     </div>
   </nav>
