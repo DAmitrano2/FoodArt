@@ -4,11 +4,6 @@
 		<div class="card">
 			<div class="card-header">
 				<h3>Accedi</h3>
-				<!-- <div class="d-flex justify-content-end social_icon"> //accesso tramite social non attivo
-					<span><i class="fab fa-facebook-square"></i></span>
-					<span><i class="fab fa-google-plus-square"></i></span>
-					<span><i class="fab fa-twitter-square"></i></span>
-				</div> -->
 			</div>
 			<div class="card-body">
 				<form>
@@ -25,10 +20,8 @@
 						<input type="password" class="form-control" placeholder="password">
 					</div>
 					<div class="row align-items-center remember">
-						<label class="checkbox-container">Resta connesso.
-							<input type="checkbox" checked="checked">
-							<span class="checkmark"></span>
-						</label>
+						<input type="checkbox" id="remember-check">
+						<label for="remember-check">Resta connesso.</label>
 					</div>
 					<div class="form-group">
 						<input type="submit" value="Accedi" class="btn float-right login_btn">
