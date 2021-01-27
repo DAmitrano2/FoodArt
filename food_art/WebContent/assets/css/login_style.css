@@ -30,18 +30,6 @@ color: black;
 border:0 !important;
 }
 
-.remember{
-color: white;
-}
-
-.remember input
-{
-width: 20px;
-height: 20px;
-margin-left: 15px;
-margin-right: 5px;
-}
-
 .login_btn{
 color: black;
 background-color: #FFC312;
@@ -75,6 +63,19 @@ color: white;
 .form-group input[type="submit"] {
 	margin-top: .5rem;
 }
+
+.remember{
+color: white;
+}
+
+.remember input
+{
+width: 20px;
+height: 20px;
+margin-left: 15px;
+margin-right: 5px;
+}
+
 
 .remember input[type="checkbox"] {
     appearance: none;
