@@ -1,5 +1,5 @@
-<%@ page language="java" import="java.util.*,model.utente.UtenteBean,model.categoria.*" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" import="java.util.*,model.utente.UtenteBean,model.categoria.*, java.sql.Date" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%
 // Check user credentials
 UtenteBean user = (UtenteBean) request.getSession(false).getAttribute("user");
@@ -62,10 +62,15 @@ Collection<CategoriaBean> categorie = model.doRetrieveAll();
   
   <!-- Default CSS -->
   <link rel="stylesheet" href="./assets/css/header_style.css">
-  <link rel="stylesheet" href="./assets/css/<%=pagina %>_style.css">
-  
+  <% if(pagina != null && pagina.equalsIgnoreCase("register")) { %>
+	  <link rel="stylesheet" href="./assets/css/login_style.css">
+  <% }else{ %>
+  	  <link rel="stylesheet" href="./assets/css/<%=pagina %>_style.css">
+  <% } %>
   <!-- Icon CSS -->
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
   <link rel="stylesheet" href="./assets/css/all.css">
+  <script src="https://kit.fontawesome.com/2a789f15df.js" crossorigin="anonymous"></script>
   
   <link rel="icon" href="./images/icon.png" type="image/icon type">
   <title>FoodArt</title>
@@ -105,7 +110,7 @@ Collection<CategoriaBean> categorie = model.doRetrieveAll();
 			for (CategoriaBean category: categorie) {
 			%>
         <li class="nav-item">
-          <a class="nav-link" href=""><%=category.getNome() %></a>
+          <a class="nav-link" href="categoria?nome=<%=category.getNome()%>"><%=category.getNome() %></a>
         </li>
         <%}} %>
       </ul>

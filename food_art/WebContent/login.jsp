@@ -4,31 +4,24 @@
 		<div class="card">
 			<div class="card-header">
 				<h3>Accedi</h3>
-				<!-- <div class="d-flex justify-content-end social_icon"> //accesso tramite social non attivo
-					<span><i class="fab fa-facebook-square"></i></span>
-					<span><i class="fab fa-google-plus-square"></i></span>
-					<span><i class="fab fa-twitter-square"></i></span>
-				</div> -->
 			</div>
 			<div class="card-body">
-				<form>
+				<form action="login" method="post">
 					<div class="input-group form-group">
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-user"></i></span>
 						</div>
-						<input type="text" class="form-control" placeholder="e-mail">
+						<input type="text" name="email" class="form-control" placeholder="e-mail">
 					</div>
 					<div class="input-group form-group">
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-key"></i></span>
 						</div>
-						<input type="password" class="form-control" placeholder="password">
+						<input type="password" name="password" class="form-control" placeholder="password">
 					</div>
 					<div class="row align-items-center remember">
-						<label class="checkbox-container">Resta connesso.
-							<input type="checkbox" checked="checked">
-							<span class="checkmark"></span>
-						</label>
+						<input type="checkbox" name="remember" id="remember-check">
+						<label for="remember-check">Resta connesso.</label>
 					</div>
 					<div class="form-group">
 						<input type="submit" value="Accedi" class="btn float-right login_btn">
@@ -46,6 +39,33 @@
 		</div>
 	</div>
 </div>
+<script>
+$(document).ready(function() {
+	  $('#form_login').on("submit", function(e) {
+	    e.preventDefault();
+	    $.ajax({
+	       type: "POST",
+	       url: './login',
+	       data: $(this).serialize(),
+	       context: this,
+	       success: function(data) {
+	    	   this.submit();
+	       },
+	       error: function(data, status) {
+	    	   if( data.status === 401 ) {
+	    		   var json = JSON.parse(data.responseJSON);
+	    		   $('#errorAlert').html( json.message );
+	    		   $('#alert').show();
+	    		   //Reset form
+	    		   $('#username').val('');
+	    		   $('#password').val('');
+	    	   }
+	       }
+	   });
+	    return false;
+	 });
+});
+</script>
 <%@include file="./include/footer.html" %>
 <%@include file="./include/script.html" %>
 </body>
