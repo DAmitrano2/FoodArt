@@ -7,7 +7,7 @@
 			</div>
 			<div class="card-body">
 				<form>
-					<!-- user -->
+				<!-- user -->
 					<div class="input-group form-group">
 						<input name="nome" type="text" class="form-control" placeholder="nome">
 					</div>

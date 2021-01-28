@@ -10,7 +10,8 @@ import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
-import javax.servlet.http.*;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpServletRequest;
 
 import com.google.gson.Gson;
 
@@ -69,7 +70,7 @@ public class LoginControl extends HttpServlet {
 				
 				PrintWriter out = response.getWriter();
 				response.setContentType("application/json");
-				//response.setCharacterEncoding("UTF-8");
+				response.setCharacterEncoding("UTF-8");
 				response.setStatus(401);
 			    
 				Gson json = new Gson();

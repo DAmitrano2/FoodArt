@@ -1,0 +1,130 @@
+html,body{
+background-image: url('');
+background-size: cover;
+background-repeat: no-repeat;
+height: 100%;
+}
+
+.container{
+height: 100%;
+align-content: center;
+}
+
+.card{
+height: auto;
+margin-top: auto;
+margin-bottom: auto;
+width: 700px;
+background-color: rgba(0,0,0,0.45) !important;
+}
+
+.card-header h3{
+color: white;
+}
+
+.input-group-prepend span{
+width: 50px;
+background-color: #fcba03;
+color: black;
+border:0 !important;
+}
+
+.login_btn{
+color: black;
+background-color: #FFC312;
+width: 100px;
+}
+
+.login_btn:hover{
+color: black;
+background-color: white;
+}
+
+.links{
+color: white;
+}
+
+.links a{
+	margin-left: 4px;
+}
+
+.card-footer a{
+	color: #ffc312;
+    text-decoration: none;
+    background-color: transparent;
+}
+
+.card-footer a:hover {
+    color: #e6ac00;
+    text-decoration: underline;
+}
+
+.form-group input[type="submit"] {
+	margin-top: .5rem;
+}
+
+.remember{
+color: white;
+}
+
+.remember input
+{
+width: 20px;
+height: 20px;
+margin-left: 15px;
+margin-right: 5px;
+}
+
+.remember input[type="checkbox"] {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 20px;
+    height: 20px;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 2px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    outline: none;
+}
+
+.remember input[type="checkbox"]:after{
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    content: '\f00c';
+    font-size: 1rem;
+    color: black;
+    display: none;
+}
+.remember input[type="checkbox"]:checked{
+    background-color: #FFC312;
+}
+.remember input[type="checkbox"]:checked:after{
+    display: block;
+}
+.remember label{
+    margin-bottom: 0;
+    font-size: 1rem;
+    height: auto;
+    cursor: pointer;
+}
+
+.input-group:not(.has-validation)>.custom-file:not(:last-child) .custom-file-label::after, .input-group:not(.has-validation)>.custom-select:not(:last-child), .input-group:not(.has-validation)>.form-control:not(:last-child) {
+    border-top-right-radius: 0.25rem;
+    border-bottom-right-radius: 0.25rem;
+    margin-right: 1rem;
+}
+
+.input-group>.custom-select:not(:first-child), .input-group>.form-control:not(:first-child) {
+    border-top-left-radius: 0.25rem;
+    border-bottom-left-radius: 0.25rem;
+    margin-left: 1rem;
+}
+
+.card-body hr{
+	height:2px;
+	border-width:0;
+	background-color:gray;
+}
