@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.google.gson.Gson;
+import com.google.gson.*;
 
 import model.utente.UtenteBean;
 import model.utente.UtenteDAOImp;
@@ -59,28 +59,26 @@ public class LoginControl extends HttpServlet {
 		Base64.Encoder enc = Base64.getEncoder();
 		String encodedPass = enc.encodeToString(password.getBytes());
 		String jsonMessage = null;
-		System.out.println("Email: "+email+ " password: "+ encodedPass);
 		
 		try {
 			
 			if( !model.isEmail(email) ) {
-				Gson json = new Gson();
 				PrintWriter out = response.getWriter();
+				response.setContentType("application/json");
+				response.setCharacterEncoding("UTF-8");
+				response.setStatus(401);
+				
+				Gson json = new Gson();
+				
 				jsonMessage = "{\"message\":\"Email non esistente\"}";
 				String jsonString = json.toJson(jsonMessage);
-				
-				response.setContentType("application/json");
-			    response.setCharacterEncoding("UTF-8");
-				response.setStatus(401);
-			    
-				
-				
 				
 				out.print(jsonString);
 				out.flush();
 				return;
 			}
 			UtenteBean user = model.doRetrieveByKey(email, encodedPass);
+			
 			if( user == null ) {
 				PrintWriter out = response.getWriter();
 				response.setContentType("application/json");
