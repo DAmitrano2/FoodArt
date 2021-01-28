@@ -167,6 +167,285 @@
 		  </div>
 	  </div>
   </section>
+  <!-- In Primo Piano -->
+  <div class="small-container justify-content-center">
+	<h2 class="title">Prodotti In Primo Piano</h2>
+	<div class="row">
+		<div class="col-4 text-center">
+			<img src="images/primo-piano-1.jpg" alt="">
+			<h4>Confettura Albicocche</h4>
+			<span>SOCIET&#192; AGRICOLA AMITRANO</span>
+			<div class="rating">
+				<i class="fas fa-star"></i>
+				<i class="fas fa-star"></i>
+				<i class="fas fa-star"></i>
+				<i class="fas fa-star"></i>
+				<i class="far fa-star"></i>
+			</div>
+			<p>&#8364; 6.00, pz</p>
+			<button type="button" class="btn bg-cart"><i class="fas fa-cart-plus mr-2"></i>Aggiungi al Carrello</button>
+		</div>
+		<div class="col-4 text-center">
+			<img src="images/primo-piano-2.jpg" alt="">
+			<h4>Salame Toscano</h4>
+			<span>SALUMERIA GROSSETANA</span>
+			<div class="rating">
+				<i class="fas fa-star"></i>
+				<i class="fas fa-star"></i>
+				<i class="fas fa-star"></i>
+				<i class="fas fa-star"></i>
+				<i class="far fa-star"></i>
+			</div>
+			<p>&#8364; 11.50, pz</p>
+			<button type="button" class="btn bg-cart"><i class="fas fa-cart-plus mr-2"></i>Aggiungi al Carrello</button>
+		</div>
+		<div class="col-4 text-center">
+			<img src="images/primo-piano-3.jpg" alt="">
+			<h4>Pere Santa Maria</h4>
+			<span>FRUTTETO ZAPPIA</span>
+			<div class="rating">
+				<i class="fas fa-star"></i>
+				<i class="fas fa-star"></i>
+				<i class="fas fa-star"></i>
+				<i class="fas fa-star-half-alt"></i>
+				<i class="far fa-star"></i>
+			</div>
+			<p>&#8364; 1.25, kg</p>
+			<button type="button" class="btn bg-cart"><i class="fas fa-cart-plus mr-2"></i>Aggiungi al Carrello</button>
+		</div>
+		<div class="col-4 text-center">
+			<img src="images/primo-piano-4.jpg" alt="">
+			<h4>Birra Artigianale 0,3l</h4>
+			<span>BIRRIFICIO MIRANDA</span>
+			<div class="rating">
+				<i class="fas fa-star"></i>
+				<i class="fas fa-star"></i>
+				<i class="fas fa-star"></i>
+				<i class="fas fa-star"></i>
+				<i class="fas fa-star-half-alt"></i>
+			</div>
+			<p>&#8364; 9.20></i></button></p>
+			<button type="button" class="btn bg-cart"><i class="fas fa-cart-plus mr-2"></i>Aggiungi al Carrello</button>
+		</div>
+	</div>
+	<!-- Ultimi Arrivi -->
+	<h2 class="title">Ultimi Arrivi</h2>
+	<div class="row">
+		<div class="col-4 text-center">
+			<img src="images/ultimo-1.jpg" alt="">
+			<h4>Cannoli Siciliani</h4>
+			<span>PASTICCERIA PICCIOTTO</span>
+			<div class="rating">
+				<i class="fas fa-star"></i>
+				<i class="fas fa-star"></i>
+				<i class="fas fa-star"></i>
+				<i class="far fa-star"></i>
+				<i class="far fa-star"></i>
+			</div>
+			<p>&#8364; 3.00, pz</p>
+			<button type="button" class="btn bg-cart"><i class="fas fa-cart-plus mr-2"></i>Aggiungi al Carrello</button>
+		</div>
+		<div class="col-4 text-center">
+			<img src="images/ultimo-2.jpg" alt="">
+			<h4>Strozzapreti</h4>
+			<span>PASTIFICIO ALBA</span>
+			<div class="rating">
+				<i class="fas fa-star"></i>
+				<i class="fas fa-star"></i>
+				<i class="fas fa-star-half-alt"></i>
+				<i class="far fa-star"></i>
+				<i class="far fa-star"></i>
+			</div>
+			<p>&#8364; 4.00, kg</p>
+			<button type="button" class="btn bg-cart"><i class="fas fa-cart-plus mr-2"></i>Aggiungi al Carrello</button>
+		</div>
+		<div class="col-4 text-center">
+			<img src="images/ultimo-3.jpg" alt="">
+			<h4>Uovo di Struzzo</h4>
+			<span>AGRITURISMO TORINO</span>
+			<div class="rating">
+				<i class="fas fa-star"></i>
+				<i class="fas fa-star"></i>
+				<i class="fas fa-star"></i>
+				<i class="fas fa-star-half-alt"></i>
+				<i class="far fa-star"></i>
+			</div>
+			<p>&#8364; 25.00, pz</p>
+			<button type="button" class="btn bg-cart"><i class="fas fa-cart-plus mr-2"></i>Aggiungi al Carrello</button>
+		</div>
+		<div class="col-4 text-center">
+			<img src="images/ultimo-4.jpg" alt="">
+			<h4>Peperoni Sott'olio</h4>
+			<span>CONSERVIFICIO DALIA</span>
+			<div class="rating">
+				<i class="fas fa-star"></i>
+				<i class="fas fa-star"></i>
+				<i class="fas fa-star-half-alt"></i>
+				<i class="far fa-star"></i>
+				<i class="far fa-star"></i>
+			</div>
+			<p>&#8364; 7.50, pz</p>
+			<button type="button" class="btn bg-cart"><i class="fas fa-cart-plus mr-2"></i>Aggiungi al Carrello</button>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-4 text-center">
+			<img src="images/ultimo-5.jpg" alt="">
+			<h4>Panettone Pistacchio</h4>
+			<span>PASTICCERIA PICCIOTTO</span>
+			<div class="rating">
+				<i class="fas fa-star"></i>
+				<i class="fas fa-star"></i>
+				<i class="fas fa-star"></i>
+				<i class="fas fa-star"></i>
+				<i class="fas fa-star-half-alt"></i>
+			</div>
+			<p>&#8364; 44.50, pz</p>
+			<button type="button" class="btn bg-cart"><i class="fas fa-cart-plus mr-2"></i>Aggiungi al Carrello</button>
+		</div>
+		<div class="col-4 text-center">
+			<img src="images/ultimo-6.jpg" alt="">
+			<h4>Mano di Buddha</h4>
+			<span>FRUTTETO ZAPPIA</span>
+			<div class="rating">
+				<i class="fas fa-star"></i>
+				<i class="fas fa-star"></i>
+				<i class="fas fa-star"></i>
+				<i class="far fa-star"></i>
+				<i class="far fa-star"></i>
+			</div>
+			<p>&#8364; 33.90, pz</p>
+			<button type="button" class="btn bg-cart"><i class="fas fa-cart-plus mr-2"></i>Aggiungi al Carrello</button>
+		</div>
+		<div class="col-4 text-center">
+			<img src="images/ultimo-7.jpg" alt="">
+			<h4>Braciola di Cervo</h4>
+			<span>BAITA ESPOSITO</span>
+			<div class="rating">
+				<i class="fas fa-star"></i>
+				<i class="fas fa-star"></i>
+				<i class="fas fa-star"></i>
+				<i class="far fa-star"></i>
+				<i class="far fa-star"></i>
+			</div>
+			<p>&#8364; 30.80, pz</p>
+			<button type="button" class="btn bg-cart"><i class="fas fa-cart-plus mr-2"></i>Aggiungi al Carrello</button>
+		</div>
+		<div class="col-4 text-center">
+			<img src="images/ultimo-8.jpeg" alt="">
+			<h4>Astice Jumbo</h4>
+			<span>PESCHERIA "VIEN O MAR"</span>
+			<div class="rating">
+				<i class="fas fa-star"></i>
+				<i class="fas fa-star"></i>
+				<i class="fas fa-star"></i>
+				<i class="fas fa-star"></i>
+				<i class="far fa-star"></i>
+			</div>
+			<p>&#8364; 273.50, pz</p>
+			<button type="button" class="btn bg-cart"><i class="fas fa-cart-plus mr-2"></i>Aggiungi al Carrello</button>
+		</div>
+	</div>
+  </div>
+  <!--Recensioni-->
+   <!--
+  <div class="testimonial text-center">
+	  <div class="small-container">
+		  <div class="row">
+			  <div class="col-3 text-center">
+				<i id="quote" class="fas fa-quote-left"></i>
+				  <p class="citazione">Uso FoodArt da oltre tre anni e fin da subito mi sono trovato davanti 
+					  estrema professionalit&#224; e rispetto sia per i clienti che per i rivenditori.
+					  Sono felice di essere un cliente e continuer&#242; ad acquistare prodotti da voi</p>
+					  <div class="rating">
+						<i class="fas fa-star"></i>
+						<i class="fas fa-star"></i>
+						<i class="fas fa-star"></i>
+						<i class="fas fa-star"></i>
+						<i class="fas fa-star"></i>
+					</div>
+					<img src="images/user-1.jpg" alt="">
+					<h3>Eminem</h3>
+			  </div>
+			  <div class="col-3 text-center">
+				<i id="quote" class="fas fa-quote-left"></i>
+				  <p class="citazione">La pandemia da Covid-19 ha colpito molto anche i nostri piccoli negozi di provincia.
+					&#200; grazie a FoodArt che siamo riusciti a farci conoscere anche in tutta Italia. Ancora una volta, grazie!
+				  </p>
+					  <div class="rating">
+						<i class="fas fa-star"></i>
+						<i class="fas fa-star"></i>
+						<i class="fas fa-star"></i>
+						<i class="fas fa-star"></i>
+						<i class="fas fa-star"></i>
+					</div>
+					<img src="images/user-2.jpg" alt="">
+					<h3>Jay-Z</h3>
+			  </div>
+			  <div class="col-3 text-center">
+				<i id="quote" class="fas fa-quote-left"></i>
+				  <p class="citazione">La soluzione che tutti stavamo cercando. FoodArt &#232; storia!</p>
+					  <div class="rating">
+						<i class="fas fa-star"></i>
+						<i class="fas fa-star"></i>
+						<i class="fas fa-star"></i>
+						<i class="fas fa-star"></i>
+						<i class="fas fa-star"></i>
+					</div>
+					<img src="images/user-3.jpg" alt="">
+					<h3>Bradley Cooper</h3>
+			  </div>
+		  </div>
+	  </div>
+  </div>
+  -->
+  <!--Footer-->
+  <section id="footer">
+	  <div class="container">
+		  <div class="row text-center text-xs-center text-sm-left text-md-left">
+			  <div class="col-xs-12 col-sm-4 col-md-4">
+				  <h5>  Supporto</h5>
+				  <ul class="list-unstyled quick-links">
+					  <li><a href="#"></a>Consegne</li>
+					  <li><a href="#"></a>Resi</li>
+					  <li><a href="#"></a>FAQ</li>
+				  </ul>
+			  </div>
+			  <div class="col-xs-12 col-sm-4 col-md-4">
+				<h5>  Informazioni</h5>
+				<ul class="list-unstyled quick-links">
+					<li><a href="#"></a>Chi siamo?</li>
+					<li><a href="#"></a>Come selezioniamo?</li>
+					<li><a href="#"></a>Come vendere su FoodArt?</li>
+					<li><a href="#"></a>Termini e Condizioni</li>
+					<li><a href="#"></a>Privacy e Cookie</li>
+				</ul>
+			</div>
+			<div class="col-xs-12 col-sm-4 col-md-4">
+				<h5>  Contatti</h5>
+				<ul class="list-unstyled quick-links">
+					<li><a href="#"></a><i class="fas fa-map-marker-alt"></i> Via Filettine, 194, Pagani, Salerno</li>
+					<li><a href="#"></a><i class="fas fa-envelope"></i> support@foodart.com</li>
+				</ul>
+			</div>
+		  </div>
+		  <div id="social" class="row">
+			  <div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-5">
+				<ul>
+					<li><a href="#"><i class="fab fa-facebook"></i></a></li>
+					<li><a href="#"><i class="fab fa-twitter"></i></a></li>
+					<li><a href="#"><i class="fab fa-instagram"></i></a></li>
+				</ul>
+			  </div>
+			  <hr>
+		  </div>
+		</div>
+		<div class="sub-footer">
+			<div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-2 text-center text-white">
+				<p class="h6"><i class="far fa-copyright"></i> Tutti i diritti Riservati <a class="text-green ml-2" href="#" target="_blank">| FoodArt&#153;</a></p>
+			</div>
+		</div>
+  </section>
 
   <%@include file="./include/footer.html" %>
   <%@include file="./include/script.html" %>
