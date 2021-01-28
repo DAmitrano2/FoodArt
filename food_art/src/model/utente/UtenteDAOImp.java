@@ -102,6 +102,7 @@ public class UtenteDAOImp implements UtenteDAO {
 			
 		}
 		catch(SQLException e) {
+			System.out.println(e);
 			return null;
 		}
 		finally {
@@ -114,6 +115,7 @@ public class UtenteDAOImp implements UtenteDAO {
 			}
 		}
 		return bean;
+		
 	}
 
 	@Override
