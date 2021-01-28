@@ -10,8 +10,7 @@ import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.*;
 
 import com.google.gson.Gson;
 
@@ -20,6 +19,9 @@ import model.utente.UtenteDAOImp;
 
 @WebServlet("/login")
 public class LoginControl extends HttpServlet {
+
+	private static final long serialVersionUID = 1L;
+	private UtenteDAOImp model;
 
 	public LoginControl() {
 		super();
@@ -64,17 +66,16 @@ public class LoginControl extends HttpServlet {
 		try {
 			
 			if( !model.isEmail(email) ) {
-				Gson json = new Gson();
-				PrintWriter out = response.getWriter();
-				jsonMessage = "{\"message\":\"Email non esistente\"}";
-				String jsonString = json.toJson(jsonMessage);
 				
+				PrintWriter out = response.getWriter();
 				response.setContentType("application/json");
-			    response.setCharacterEncoding("UTF-8");
+				//response.setCharacterEncoding("UTF-8");
 				response.setStatus(401);
 			    
+				Gson json = new Gson();
 				
-				
+				String jsonString = json.toJson(jsonMessage);
+				jsonMessage = "{\"message\":\"Email non esistente\"}";
 				
 				out.print(jsonString);
 				out.flush();
@@ -84,6 +85,8 @@ public class LoginControl extends HttpServlet {
 			if( user == null ) {
 				PrintWriter out = response.getWriter();
 				response.setContentType("application/json");
+				response.setCharacterEncoding("UTF-8");
+				System.out.println("set: "+ response.getCharacterEncoding());
 				response.setStatus(401);
 				
 				Gson json = new Gson();
@@ -120,9 +123,5 @@ public class LoginControl extends HttpServlet {
 		} catch (SQLException e) {
 			System.out.println("Error: "+e.getMessage());
 		}
-		
 	}
-	
-	private static final long serialVersionUID = 1L;
-	private UtenteDAOImp model;
 }
