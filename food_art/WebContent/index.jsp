@@ -65,7 +65,7 @@
   <!-- Carosello Principale-->
 
   <!-- Carosello Categorie-->
-  <section>
+  <section id="categoryCarousel" data-ride="carouselCat">
 	  <div class="category">
 		  <div class="category-container">
 			<div class="owl-carousel owl-theme category-card">
@@ -160,12 +160,9 @@
 					</div>
 				</div>
 			</div>
-			<div class="owl-navigation">
-				<span class="owl-nav-prev"><i class="fas fa-arrow-left"></i></span>
-				<span class="owl-nav-next"><i class="fas fa-arrow-right"></i></span>
-			</div>
 		  </div>
-	  </div>
+		 </div>
+	  
   </section>
   <!-- In Primo Piano -->
   <div class="small-container justify-content-center">
