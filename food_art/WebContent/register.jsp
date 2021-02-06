@@ -1,6 +1,4 @@
 <%@include file="./include/header.jsp"%>
-<%boolean toggle=false;
-  String str="disabled";%>
 <div class="container">
 	<div class="d-flex justify-content-center h-100">
 		<div class="card">
@@ -67,7 +65,7 @@
 						<input name="fPartitaIVA" type="file" class="form-control" accept=".pdf" id="fPartitaIVA" />
 						<input name="fCartaIdentita" type="file" class="form-control" accept=".jpg, .jpeg, .png" id="fCartaIdentita"/>					
 						<label for="fCartaIdentita" class="custom-file-upload form-control">
-						    <i class="fa fa-cloud-upload"></i> Inserisci la carta di identità
+						    <i class="fa fa-cloud-upload"></i> Inserisci la carta di identitï¿½
 						</label>
 					</div>
 					
