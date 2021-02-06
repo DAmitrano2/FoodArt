@@ -65,7 +65,7 @@
 						<input name="fPartitaIVA" type="file" class="form-control" accept=".pdf" id="fPartitaIVA" />
 						<input name="fCartaIdentita" type="file" class="form-control" accept=".jpg, .jpeg, .png" id="fCartaIdentita"/>					
 						<label for="fCartaIdentita" class="custom-file-upload form-control">
-						    <i class="fa fa-cloud-upload"></i> Inserisci la carta di identit�
+						    <i class="fa fa-cloud-upload"></i> Inserisci la carta di identit&#224;
 						</label>
 					</div>
 					
