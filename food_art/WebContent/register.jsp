@@ -1,5 +1,6 @@
 <%@include file="./include/header.jsp"%>
-<%boolean toggle=false; %>
+<%boolean toggle=false;
+  String str="disabled";%>
 <div class="container">
 	<div class="d-flex justify-content-center h-100">
 		<div class="card">
@@ -7,18 +8,18 @@
 				<h3>Registrati</h3>
 			</div>
 			<div class="card-body">
-				<form action="login" method="post">
+				<form action="register" method="post">
 				<!-- user -->
 					<div class="input-group form-group">
-						<input name="nome" type="text" class="form-control" placeholder="nome">
-						<input name="congnome" type="text" class="form-control" placeholder="congnome">
+						<input name="nome" type="text" class="form-control" placeholder="nome" required>
+						<input name="congnome" type="text" class="form-control" placeholder="congnome" required>
 					</div>
 					<div class="input-group form-group">
-						<input name="email" type="text" class="form-control" placeholder="e-mail">
-						<input name="password" type="password" class="form-control" placeholder="password">
+						<input name="email" type="text" class="form-control" placeholder="e-mail" required>
+						<input name="password" type="password" class="form-control" placeholder="password" required>
 					</div>
 					<div class="row align-items-center remember">
-						<input type="checkbox" name="rivenditore" value="rivenditore-check" id="rivenditore-check" onclick="toggle()">
+						<input name="rivenditore" type="checkbox" value="rivenditore-check" id="rivenditore-check" onclick="toggle()">
 						<label for="rivenditore-check">Registrarti come rivenditore.</label>
 					</div>
 				<!-- rivenditore -->
@@ -27,37 +28,37 @@
 						<h4>Dati Anagrafici</h4>
 					</div>
 					<div class="input-group form-group">
-						<input name="data" type="date" min="1900-01-01" max="<%=new java.sql.Date(System.currentTimeMillis())%>" class="form-control">
+						<input name="data" id="data" type="date" min="1900-01-01" max="<%=new java.sql.Date(System.currentTimeMillis())%>" class="form-control">
 						<select name="sesso" class="form-control" id="sesso">
 							<option value="m">Maschio</option>
 							<option value="f">Femmina</option>
 						</select>
 					</div>
 					<div class="input-group form-group">
-						<input name="citta" type="text" class="form-control" placeholder="citt&#224;">
+						<input name="citta" id="citta" type="text" class="form-control" placeholder="citt&#224;" >
 						<input name="provincia" type="text" class="form-control" placeholder="provincia">
 					</div>
 					<div class="input-group form-group">
-						<input name="codiceFiscale" type="text" maxlength="16" minlength="16" class="form-control" placeholder="codice fiscale">
+						<input name="codiceFiscale" id="codiceFiscale" type="text" maxlength="16" minlength="16" class="form-control" placeholder="codice fiscale">
 					</div>
 					
 					<div class="card-header-sm">
 						<h4>Sede Legale</h4>
 					</div>
 					<div class="input-group form-group">
-						<input name="ragioneSociale" type="text" class="form-control" placeholder="ragione sociale">
-						<input name="provinciaSedeLegale" type="text" class="form-control" placeholder="provincia">
+						<input name="ragioneSociale" id="ragioneSociale" type="text" class="form-control" placeholder="ragione sociale" >
+						<input name="provinciaSedeLegale" id="provinciaSedeLegale" type="text" class="form-control" placeholder="provincia">
 					</div>
 					<div class="input-group form-group">
-						<input name="cittaSedeLegale" type="text" class="form-control" placeholder="citt&#224;">
-						<input name="viaSedeLegale" type="text" class="form-control" placeholder="via">
+						<input name="cittaSedeLegale" id="cittaSedeLegale" type="text" class="form-control" placeholder="citt&#224;">
+						<input name="viaSedeLegale" id="viaSedeLegale" type="text" class="form-control" placeholder="via">
 					</div>
 					<div class="input-group form-group">
-						<input name="capSedeLegale" type="text" class="form-control" placeholder="cap">
-						<input name="nCivicoSedeLegale" type="text" class="form-control" placeholder="numero civico">
+						<input name="capSedeLegale" id="capSedeLegale" type="text" class="form-control" placeholder="cap">
+						<input name="nCivicoSedeLegale" id="nCivicoSedeLegale" type="text" class="form-control" placeholder="numero civico">
 					</div>
 					<div class="input-group form-group">
-						<input name="nPartitaIVA" type="text" maxlength="11" minlength="11" class="form-control" placeholder="partita IVA">
+						<input name="nPartitaIVA" id="nPartitaIva" type="text" maxlength="11" minlength="11" class="form-control" placeholder="partita IVA">
 					</div>
 					<div class="input-group form-group">
 						<label for="fPartitaIVA" class="custom-file-upload form-control">
@@ -87,12 +88,27 @@
 </div>
 <script type="text/javascript">
 function toggle(){
+	var req=false;
 	var tog = document.getElementById('rivenditore-form');
 	if(document.getElementById('rivenditore-check').checked){
 		tog.style.display = 'block';
+		req=true;
 	}else{
 		tog.style.display = 'none';
+		req=false;
 	}
+	document.getElementById('data').required=req;
+	document.getElementById('citta').required=req;
+	document.getElementById('codiceFiscale').required=req;
+	document.getElementById('ragioneSociale').required=req;
+	document.getElementById('provinciaSedeLegale').required=req;
+	document.getElementById('cittaSedeLegale').required=req;
+	document.getElementById('viaSedeLegale').required=req;
+	document.getElementById('capSedeLegale').required=req;
+	document.getElementById('nCivicoSedeLegale').required=req;
+	document.getElementById('nPartitaIva').required=req;
+	document.getElementById('fPartitaIVA').required=req;
+	document.getElementById('fCartaIdentita').required=req;
 }
 </script>
 <%@include file="./include/footer.html" %>
