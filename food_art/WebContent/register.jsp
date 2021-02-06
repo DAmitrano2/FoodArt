@@ -1,5 +1,4 @@
 <%@include file="./include/header.jsp"%>
-<%boolean toggle=false; %>
 <div class="container">
 	<div class="d-flex justify-content-center h-100">
 		<div class="card">
@@ -7,7 +6,7 @@
 				<h3>Registrati</h3>
 			</div>
 			<div class="card-body">
-				<form action="login" method="post">
+				<form action="register" method="post">
 				<!-- user -->
 					<div class="input-group form-group">
 						<input name="nome" type="text" class="form-control" placeholder="nome">
@@ -18,7 +17,7 @@
 						<input name="password" type="password" class="form-control" placeholder="password">
 					</div>
 					<div class="row align-items-center remember">
-						<input type="checkbox" name="rivenditore" value="rivenditore-check" id="rivenditore-check" onclick="toggle()">
+						<input name="rivenditore" type="checkbox" value="rivenditore-check" id="rivenditore-check" onclick="toggle()">
 						<label for="rivenditore-check">Registrarti come rivenditore.</label>
 					</div>
 				<!-- rivenditore -->
