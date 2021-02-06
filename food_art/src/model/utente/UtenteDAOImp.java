@@ -29,7 +29,7 @@ public class UtenteDAOImp implements UtenteDAO {
 	}
 	
 	@Override
-	public void doSave(UtenteBean user) throws SQLException {
+	public int doSave(UtenteBean user) throws SQLException {
 		
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
@@ -61,7 +61,50 @@ public class UtenteDAOImp implements UtenteDAO {
 					connection.close();
 			}
 		}
-		
+		if(user.isRivenditore()) {
+		connection = null;
+		preparedStatement = null;
+
+		int id=0;
+
+		String selectSQL = "SELECT * FROM " + UtenteDAOImp.TABLE_NAME + " WHERE email = ? ";
+
+		try {
+			connection = ds.getConnection();
+			preparedStatement = connection.prepareStatement(selectSQL);
+			preparedStatement.setString(1,user.getEmail());
+
+			ResultSet rs = preparedStatement.executeQuery();
+
+			boolean flag=false;
+			
+			while (rs.next()) {
+				id=rs.getInt("idUtente");
+				
+				flag=true;
+			}
+			
+			if( !flag ) {
+				return -1;
+			}
+			
+		}
+		catch(SQLException e) {
+			System.out.println(e);
+			return -1;
+		}
+		finally {
+			try {
+				if (preparedStatement != null)
+					preparedStatement.close();
+			} finally {
+				if (connection != null)
+					connection.close();
+			}
+		}
+		return id;
+		}
+	return -1;
 	}
 
 	@Override

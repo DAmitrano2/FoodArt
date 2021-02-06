@@ -13,7 +13,7 @@ public interface UtenteDAO {
 	 * @return null
 	 * @throws SQLException
 	 */
-    public void doSave(UtenteBean user) throws SQLException;
+    public int doSave(UtenteBean user) throws SQLException;
 	
 	/**
 	 * Controlla se esiste un utente con una determinata email
