@@ -12,9 +12,9 @@ align-content: center;
 
 .card{
 height: auto;
-margin-top: auto;
+margin-top: 15rem;
 margin-bottom: auto;
-width: 700px;
+width: 600px;
 background-color: rgba(0,0,0,0.45) !important;
 }
 
@@ -111,20 +111,41 @@ margin-right: 5px;
     cursor: pointer;
 }
 
-.input-group:not(.has-validation)>.custom-file:not(:last-child) .custom-file-label::after, .input-group:not(.has-validation)>.custom-select:not(:last-child), .input-group:not(.has-validation)>.form-control:not(:last-child) {
+form .input-group:not(.has-validation)>.custom-file:not(:last-child) .custom-file-label::after, form .input-group:not(.has-validation)>.custom-select:not(:last-child), form .input-group:not(.has-validation)>.form-control:not(:last-child) {
     border-top-right-radius: 0.25rem;
     border-bottom-right-radius: 0.25rem;
     margin-right: 1rem;
 }
 
-.input-group>.custom-select:not(:first-child), .input-group>.form-control:not(:first-child) {
+form .input-group>.custom-select:not(:first-child), form .input-group>.form-control:not(:first-child) {
     border-top-left-radius: 0.25rem;
     border-bottom-left-radius: 0.25rem;
     margin-left: 1rem;
 }
 
 .card-body hr{
-	height:2px;
-	border-width:0;
+	height: 2px;
+	border-width: 0;
 	background-color:gray;
+}
+
+.row.align-items-center.remember *::selection{
+  	background-color: transparent;
+}
+
+.row.align-items-center.remember{
+	margin-bottom: 1rem;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+.custom-file-upload {
+    cursor: pointer;
+}
+
+.card-header-sm h4{
+	color: white;
+	margin-bottom: 1rem;
 }

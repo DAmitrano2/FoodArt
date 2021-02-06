@@ -7,42 +7,17 @@
     <script data-search-pseudo-elements defer src="https://use.fontawesome.com/releases/latest/js/all.js" integrity="sha384-L469/ELG4Bg9sDQbl0hvjMq8pOcqFgkSpwhwnslzvVVGpDjYJ6wJJyYjvG3u8XW7" crossorigin="anonymous"></script>
 
     <style>
-      .remember input[type="checkbox"] {
-          appearance: none;
-          -webkit-appearance: none;
-          width: 20px;
-          height: 20px;
-          background-color: white;
-          border: 1px solid black;
-          border-radius: 2px;
-          cursor: pointer;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          outline: none;
-      }
-      .remember input[type="checkbox"]:after{
-          font-family: "Font Awesome 5 Free";
-          font-weight: 900;
-          content: "\f00c";
-          font-size: 1rem;
-          color:black;
-          display: none;
-      }
-      .remember input[type="checkbox"]:checked{
-          background-color: #FFC312;
-      }
-      .remember input[type="checkbox"]:checked:after{
-          display: block;
-      }
-      .remember label{
-          margin-bottom: 0;
-          color: white;
-          font-size: 1rem;
-          height: auto;
-          cursor: pointer;
-      }
-
+      
+		.custom-file-upload input[type="file"] {
+		    display: none;
+		}
+		.custom-file-upload .custom-file-upload1 {
+		    border: 1px solid #ccc;
+		    display: inline-block;
+		    padding: 6px 12px;
+		    cursor: pointer;
+		}
+		
     </style>
     <!-- Icon CSS -->
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
@@ -50,10 +25,14 @@
     <link rel="icon" href="./images/icon.png" type="image/icon type">
     <title>FoodArt</title>
   </head>
-  <body style="background-color: brown;">
-    <div class="row align-items-center remember">
-      <input type="checkbox" id="remember-check">
-        <label for="remember-check">Resta connesso.</label>
-    </div>
+  <body>
+
+	<div class="custom-file-upload">
+		<label for="file-upload" class="custom-file-upload1">
+		    <i class="fa fa-cloud-upload"></i> Custom Upload
+		</label>
+		<input id="file-upload" type="file"/>
+	</div>
+
   </body>
 </html>

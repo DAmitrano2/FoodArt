@@ -100,15 +100,22 @@ margin-right: 5px;
     color: black;
     display: none;
 }
+
 .remember input[type="checkbox"]:checked{
     background-color: #FFC312;
 }
+
 .remember input[type="checkbox"]:checked:after{
     display: block;
 }
+
 .remember label{
     margin-bottom: 0;
     font-size: 1rem;
     height: auto;
     cursor: pointer;
+}
+
+.row.align-items-center.remember *::selection{
+  	background-color: transparent;
 }
