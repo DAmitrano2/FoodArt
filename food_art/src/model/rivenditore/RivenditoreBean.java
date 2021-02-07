@@ -60,8 +60,8 @@ public class RivenditoreBean {
 		return sesso;
 	}
 
-	public void setSesso(String sesso) {
-		this.sesso = sesso;
+	public void setSesso(String string) {
+		this.sesso = string;
 	}
 
 	public String getCodiceFiscale() {

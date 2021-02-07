@@ -1,7 +1,11 @@
 package control.register;
 
 import java.io.IOException;
+import java.sql.Date;
 import java.sql.SQLException;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Base64;
 
 import javax.servlet.RequestDispatcher;
@@ -40,6 +44,8 @@ public class RegisterControl extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		int id=0;
+		
 		System.out.println("sesso");
 		String email = request.getParameter("email");
 		String password = request.getParameter("password");
@@ -47,9 +53,35 @@ public class RegisterControl extends HttpServlet {
 		String cognome = request.getParameter("cognome");
 		String rivenditore = request.getParameter("rivenditore");
 		
-		if(rivenditore!=null) {
-			if( rivenditore.equalsIgnoreCase("rivenditore-check") ) {
-				String data = request.getParameter("data");
+		UtenteBean user = new UtenteBean();
+		
+		//Codifica della password
+				Base64.Encoder enc = Base64.getEncoder();
+				String encodedPass = enc.encodeToString(password.getBytes());
+				
+				user.setEmail(email);
+				user.setPassword(encodedPass);
+				user.setNome(nome);
+				user.setCognome(cognome);
+		
+		String jsonMessage = null;
+		
+		try {
+			if(user!=null) {
+				id=modelUser.doSave(user);
+				request.getSession(true);
+				request.getSession().setAttribute("user",user);
+				response.setStatus(200);
+				
+				RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/index.jsp");
+				dispatcher.forward(request, response);
+			}
+			
+			String data = request.getParameter("data");
+			
+			if(data!="") {
+				
+				
 				String sesso = request.getParameter("sesso");
 				String citta = request.getParameter("citta");
 				String provincia = request.getParameter("provincia");
@@ -63,28 +95,28 @@ public class RegisterControl extends HttpServlet {
 				String nPartitaIVA = request.getParameter("nPartitaIVA");
 				String fPartitaIVA = request.getParameter("fPartitaIVA");
 				String fCartaIdentita = request.getParameter("fCartaIdentita");
-				System.out.println("sesso: "+ sesso);
-			}
-		}
-		
-		UtenteBean user = new UtenteBean();
-		RivenditoreBean seller = new RivenditoreBean();
-		
-		Base64.Encoder enc = Base64.getEncoder();
-		String encodedPass = enc.encodeToString(password.getBytes());
-		String jsonMessage = null;
-		
-		try {
-			if(user!=null) {
-				modelUser.doSave(user);
-				request.getSession(true);
-				request.getSession().setAttribute("user",user);
-				response.setStatus(200);
 				
-				RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/index.jsp");
-				dispatcher.forward(request, response);
-			}
-			if(seller!=null) {
+				DateFormat format = new SimpleDateFormat("yyyy-mm-dd");
+				Date date = (Date) format.parse(data);
+				
+				RivenditoreBean  seller = new RivenditoreBean();
+				
+				seller.setIdUtente(id);
+				seller.setDataNascita(date);
+				seller.setSesso(sesso);
+				seller.setCitta(citta);
+				seller.setProvincia(provincia);
+				seller.setCodiceFiscale(codiceFiscale);
+				seller.setRagioneSociale(ragioneSociale);
+				seller.setProvinciaSedeLegale(provinciaSedeLegale);
+				seller.setCittaSedeLegale(cittaSedeLegale);
+				seller.setViaSedeLegale(viaSedeLegale);
+				seller.setCapSedeLegale(capSedeLegale);
+				seller.setNumeroCivicoSedeLegale(nCivicoSedeLegale);
+				seller.setNumeroPartitaIva(nPartitaIVA);
+				seller.setFilePartitaIva(fPartitaIVA);
+				seller.setFileDocumentoIdentita(fCartaIdentita);
+				
 				modelSeller.doSave(seller);
 				request.getSession(true);
 				request.getSession().setAttribute("seller",seller);
@@ -96,6 +128,9 @@ public class RegisterControl extends HttpServlet {
 		} catch (SQLException e) {
 			System.out.println("Error: "+e.getMessage());
 			return;
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 	}
 
