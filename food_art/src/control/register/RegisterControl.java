@@ -1,7 +1,11 @@
 package control.register;
 
 import java.io.IOException;
+import java.sql.Date;
 import java.sql.SQLException;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Base64;
 
 import javax.servlet.RequestDispatcher;
@@ -29,6 +33,7 @@ public class RegisterControl extends HttpServlet {
     public RegisterControl() {
         super();
         this.modelUser = new UtenteDAOImp();
+        this.modelSeller = new RivenditoreDAOImp();
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -40,38 +45,25 @@ public class RegisterControl extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("sesso");
+		int id=0;
+		
 		String email = request.getParameter("email");
 		String password = request.getParameter("password");
 		String nome = request.getParameter("nome");
 		String cognome = request.getParameter("cognome");
 		String rivenditore = request.getParameter("rivenditore");
 		
-		if(rivenditore!=null) {
-			if( rivenditore.equalsIgnoreCase("rivenditore-check") ) {
-				String data = request.getParameter("data");
-				String sesso = request.getParameter("sesso");
-				String citta = request.getParameter("citta");
-				String provincia = request.getParameter("provincia");
-				String codiceFiscale = request.getParameter("codiceFiscale");
-				String ragioneSociale = request.getParameter("ragioneSociale");
-				String provinciaSedeLegale = request.getParameter("provinciaSedeLegale");
-				String cittaSedeLegale = request.getParameter("cittaSedeLegale");
-				String viaSedeLegale = request.getParameter("viaSedeLegale");
-				String capSedeLegale = request.getParameter("capSedeLegale");
-				String nCivicoSedeLegale = request.getParameter("nCivicoSedeLegale");
-				String nPartitaIVA = request.getParameter("nPartitaIVA");
-				String fPartitaIVA = request.getParameter("fPartitaIVA");
-				String fCartaIdentita = request.getParameter("fCartaIdentita");
-				System.out.println("sesso: "+ sesso);
-			}
-		}
-		
 		UtenteBean user = new UtenteBean();
-		RivenditoreBean seller = new RivenditoreBean();
 		
+		//Codifica della password
 		Base64.Encoder enc = Base64.getEncoder();
 		String encodedPass = enc.encodeToString(password.getBytes());
+		
+		user.setEmail(email);
+		user.setPassword(encodedPass);
+		user.setNome(nome);
+		user.setCognome(cognome);
+		
 		String jsonMessage = null;
 		
 		try {
@@ -80,22 +72,63 @@ public class RegisterControl extends HttpServlet {
 				request.getSession(true);
 				request.getSession().setAttribute("user",user);
 				response.setStatus(200);
+			}
+			RivenditoreBean seller = new RivenditoreBean();
+			
+			if(rivenditore!=null) {
+				if( rivenditore.equalsIgnoreCase("rivenditore-check") ) {
+					
+					user.setAmministratore(true);
+					id=modelUser.doSave(user);
+					
+					String data = request.getParameter("data");
+					String sesso = request.getParameter("sesso");
+					String citta = request.getParameter("citta");
+					String provincia = request.getParameter("provincia");
+					String codiceFiscale = request.getParameter("codiceFiscale");
+					String ragioneSociale = request.getParameter("ragioneSociale");
+					String provinciaSedeLegale = request.getParameter("provinciaSedeLegale");
+					String cittaSedeLegale = request.getParameter("cittaSedeLegale");
+					String viaSedeLegale = request.getParameter("viaSedeLegale");
+					String capSedeLegale = request.getParameter("capSedeLegale");
+					String nCivicoSedeLegale = request.getParameter("nCivicoSedeLegale");
+					String nPartitaIVA = request.getParameter("nPartitaIVA");
+					String fPartitaIVA = request.getParameter("fPartitaIVA");
+					String fCartaIdentita = request.getParameter("fCartaIdentita");
 				
-				RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/index.jsp");
-				dispatcher.forward(request, response);
+					DateFormat format = new SimpleDateFormat("yyyy-mm-dd");
+					Date date = (Date) format.parse(data);
+					
+					seller.setIdUtente(id);
+					seller.setDataNascita(date);
+					seller.setSesso(sesso);
+					seller.setCitta(citta);
+					seller.setProvincia(provincia);
+					seller.setCodiceFiscale(codiceFiscale);
+					seller.setRagioneSociale(ragioneSociale);
+					seller.setProvinciaSedeLegale(provinciaSedeLegale);
+					seller.setCittaSedeLegale(cittaSedeLegale);
+					seller.setViaSedeLegale(viaSedeLegale);
+					seller.setCapSedeLegale(capSedeLegale);
+					seller.setNumeroCivicoSedeLegale(nCivicoSedeLegale);
+					seller.setNumeroPartitaIva(nPartitaIVA);
+					seller.setFilePartitaIva(fPartitaIVA);
+					seller.setFileDocumentoIdentita(fCartaIdentita);
+				}
 			}
 			if(seller!=null) {
 				modelSeller.doSave(seller);
 				request.getSession(true);
 				request.getSession().setAttribute("seller",seller);
 				response.setStatus(200);
-				
-				RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/index.jsp");
-				dispatcher.forward(request, response);
 			}
+			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/index.jsp");
+			dispatcher.forward(request, response);
 		} catch (SQLException e) {
 			System.out.println("Error: "+e.getMessage());
 			return;
+		} catch (ParseException e) {
+			e.printStackTrace();
 		}
 	}
 
