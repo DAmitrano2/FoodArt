@@ -10,7 +10,7 @@
 				<!-- user -->
 					<div class="input-group form-group">
 						<input name="nome" type="text" class="form-control" placeholder="nome" required>
-						<input name="congnome" type="text" class="form-control" placeholder="congnome" required>
+						<input name="cognome" type="text" class="form-control" placeholder="cognome" required>
 					</div>
 					<div class="input-group form-group">
 						<input name="email" type="text" class="form-control" placeholder="e-mail" required>
@@ -28,8 +28,8 @@
 					<div class="input-group form-group">
 						<input name="data" id="data" type="date" min="1900-01-01" max="<%=new java.sql.Date(System.currentTimeMillis())%>" class="form-control">
 						<select name="sesso" class="form-control" id="sesso">
-							<option value="m">Maschio</option>
-							<option value="f">Femmina</option>
+							<option value="maschio">Maschio</option>
+							<option value="femmina">Femmina</option>
 						</select>
 					</div>
 					<div class="input-group form-group">
@@ -52,7 +52,7 @@
 						<input name="viaSedeLegale" id="viaSedeLegale" type="text" class="form-control" placeholder="via">
 					</div>
 					<div class="input-group form-group">
-						<input name="capSedeLegale" id="capSedeLegale" type="text" class="form-control" placeholder="cap">
+						<input name="capSedeLegale" id="capSedeLegale" maxlength="5" minlength="5" type="text" class="form-control" placeholder="cap">
 						<input name="nCivicoSedeLegale" id="nCivicoSedeLegale" type="text" class="form-control" placeholder="numero civico">
 					</div>
 					<div class="input-group form-group">

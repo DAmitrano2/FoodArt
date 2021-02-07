@@ -68,7 +68,7 @@ public class RegisterControl extends HttpServlet {
 			
 		if( rivenditore.equalsIgnoreCase("rivenditore-check") ) {
 					
-			user.setAmministratore(true);
+			user.setRivenditore(true);
 			
 			String data = request.getParameter("data");
 			String sesso = request.getParameter("sesso");
@@ -84,9 +84,9 @@ public class RegisterControl extends HttpServlet {
 			String nPartitaIVA = request.getParameter("nPartitaIVA");
 			String fPartitaIVA = request.getParameter("fPartitaIVA");
 			String fCartaIdentita = request.getParameter("fCartaIdentita");
-		
-			DateFormat format = new SimpleDateFormat("yyyy-mm-dd");
-			Date date = (Date) format.parse(data);
+			
+			Date date=new Date(0);
+			date=Date.valueOf(data);
 			
 			seller.setDataNascita(date);
 			seller.setSesso(sesso);
@@ -123,8 +123,6 @@ public class RegisterControl extends HttpServlet {
 		} catch (SQLException e) {
 			System.out.println("Error: "+e.getMessage());
 			return;
-		} catch (ParseException e) {
-			e.printStackTrace();
 		}
 	}
 
