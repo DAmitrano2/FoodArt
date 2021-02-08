@@ -221,7 +221,7 @@
 				<i class="fas fa-star"></i>
 				<i class="fas fa-star-half-alt"></i>
 			</div>
-			<p>&#8364; 9.20></i></button></p>
+			<p>&#8364; 9.20</button></p>
 			<button type="button" class="btn bg-cart"><i class="fas fa-cart-plus mr-2"></i>Aggiungi al Carrello</button>
 		</div>
 	</div>

@@ -58,7 +58,7 @@ Collection<CategoriaBean> categorie = model.doRetrieveAll();
   <link rel="stylesheet" href="./assets/css/owl.theme.default.min.css">
     
   <!-- Bootstrap CSS CDN-->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
   
   <!-- Default CSS -->
   <link rel="stylesheet" href="./assets/css/header_style.css">
@@ -69,9 +69,9 @@ Collection<CategoriaBean> categorie = model.doRetrieveAll();
   	  <link rel="stylesheet" href="./assets/css/<%=pagina %>_style.css">
   <% } %>
   <!-- Icon CSS -->
-  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"/>
   <link rel="stylesheet" href="./assets/css/all.css">
-  <script src="https://kit.fontawesome.com/2a789f15df.js" crossorigin="anonymous"></script>
+  <script src="https://kit.fontawesome.com/2a789f15df.js"></script>
   
   <link rel="icon" href="./images/icon.png" type="image/icon type">
   <title>FoodArt</title>

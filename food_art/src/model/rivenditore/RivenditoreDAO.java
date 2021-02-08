@@ -3,9 +3,6 @@ package model.rivenditore;
 import java.sql.SQLException;
 import java.util.Collection;
 
-import model.rivenditore.RivenditoreBean;
-
-
 public interface RivenditoreDAO {
 
 	/**

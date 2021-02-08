@@ -3,8 +3,6 @@ package model.amministratore;
 import java.sql.SQLException;
 import java.util.Collection;
 
-import model.amministratore.AmministratoreBean;
-
 public interface AmministratoreDAO {
 	
 	/**

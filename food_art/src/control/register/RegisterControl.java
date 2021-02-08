@@ -3,9 +3,6 @@ package control.register;
 import java.io.IOException;
 import java.sql.Date;
 import java.sql.SQLException;
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.Base64;
 
 import javax.servlet.RequestDispatcher;
@@ -84,6 +81,21 @@ public class RegisterControl extends HttpServlet {
 			String nPartitaIVA = request.getParameter("nPartitaIVA");
 			String fPartitaIVA = request.getParameter("fPartitaIVA");
 			String fCartaIdentita = request.getParameter("fCartaIdentita");
+			
+			System.out.println("data: "+data);
+			System.out.println("sesso: "+sesso);
+			System.out.println("provincia: "+citta);
+			System.out.println("codiceFiscale: "+codiceFiscale);
+			System.out.println("provincia: "+provincia);
+			System.out.println("ragioneSociale: "+ragioneSociale);
+			System.out.println("provinciaSedeLegale: "+provinciaSedeLegale);
+			System.out.println("cittaSedeLegale: "+cittaSedeLegale);
+			System.out.println("viaSedeLegale: "+viaSedeLegale);
+			System.out.println("capSedeLegale: "+capSedeLegale);
+			System.out.println("nCivicoSedeLegale: "+nCivicoSedeLegale);
+			System.out.println("nPartitaIVA: "+nPartitaIVA);
+			System.out.println("fPartitaIVA: "+fPartitaIVA);
+			System.out.println("fCartaIdentita: "+fCartaIdentita);
 			
 			Date date=new Date(0);
 			date=Date.valueOf(data);

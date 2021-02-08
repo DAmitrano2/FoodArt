@@ -3,8 +3,6 @@ package model.utente;
 import java.sql.SQLException;
 import java.util.Collection;
 
-import model.utente.UtenteBean;
-
 public interface UtenteDAO {
 	
 	/**
