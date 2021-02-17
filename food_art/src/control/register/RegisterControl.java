@@ -1,25 +1,28 @@
 package control.register;
 
+import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.sql.Date;
 import java.sql.SQLException;
 import java.util.Base64;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
+import javax.servlet.http.Part;
 
 import model.rivenditore.RivenditoreBean;
 import model.rivenditore.RivenditoreDAOImp;
 import model.utente.UtenteBean;
 import model.utente.UtenteDAOImp;
 
-@SuppressWarnings("serial")
 @WebServlet("/register")
+@MultipartConfig(maxFileSize = 50000000)
 public class RegisterControl extends HttpServlet {
 
 
@@ -79,23 +82,11 @@ public class RegisterControl extends HttpServlet {
 			String capSedeLegale = request.getParameter("capSedeLegale");
 			String nCivicoSedeLegale = request.getParameter("nCivicoSedeLegale");
 			String nPartitaIVA = request.getParameter("nPartitaIVA");
-			String fPartitaIVA = request.getParameter("fPartitaIVA");
-			String fCartaIdentita = request.getParameter("fCartaIdentita");
 			
-			System.out.println("data: "+data);
-			System.out.println("sesso: "+sesso);
-			System.out.println("provincia: "+citta);
-			System.out.println("codiceFiscale: "+codiceFiscale);
-			System.out.println("provincia: "+provincia);
-			System.out.println("ragioneSociale: "+ragioneSociale);
-			System.out.println("provinciaSedeLegale: "+provinciaSedeLegale);
-			System.out.println("cittaSedeLegale: "+cittaSedeLegale);
-			System.out.println("viaSedeLegale: "+viaSedeLegale);
-			System.out.println("capSedeLegale: "+capSedeLegale);
-			System.out.println("nCivicoSedeLegale: "+nCivicoSedeLegale);
-			System.out.println("nPartitaIVA: "+nPartitaIVA);
-			System.out.println("fPartitaIVA: "+fPartitaIVA);
-			System.out.println("fCartaIdentita: "+fCartaIdentita);
+			InputStream inputStream = null; 
+			
+			Part fPartitaIVA = request.getPart("fPartitaIVA");
+			File fCartaIdentita = new File(request.getParameter("fCartaIdentita"));
 			
 			Date date=new Date(0);
 			date=Date.valueOf(data);

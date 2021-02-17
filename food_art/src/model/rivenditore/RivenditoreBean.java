@@ -1,5 +1,8 @@
 package model.rivenditore;
 
+import java.io.File;
+import java.io.InputStream;
+import java.sql.Blob;
 import java.sql.Date;
 
 public class RivenditoreBean {
@@ -11,8 +14,8 @@ public class RivenditoreBean {
 	private String sesso;
 	private String codiceFiscale;
 	private String numeroPartitaIva;
-	private String filePartitaIva;
-	private String fileDocumentoIdentita;
+	private File filePartitaIva;
+	private File fileDocumentoIdentita;
 	private String ragioneSociale;
 	private String provinciaSedeLegale;
 	private String cittaSedeLegale;
@@ -80,19 +83,19 @@ public class RivenditoreBean {
 		this.numeroPartitaIva = numeroPartitaIva;
 	}
 
-	public String getFilePartitaIva() {
+	public File getFilePartitaIva() {
 		return filePartitaIva;
 	}
 
-	public void setFilePartitaIva(String filePartitaIva) {
-		this.filePartitaIva = filePartitaIva;
+	public void setFilePartitaIva(File fPartitaIVA) {
+		this.filePartitaIva = fPartitaIVA;
 	}
 
-	public String getFileDocumentoIdentita() {
+	public File getFileDocumentoIdentita() {
 		return fileDocumentoIdentita;
 	}
 
-	public void setFileDocumentoIdentita(String fileDocumentoIdentita) {
+	public void setFileDocumentoIdentita(File fileDocumentoIdentita) {
 		this.fileDocumentoIdentita = fileDocumentoIdentita;
 	}
 

@@ -1,5 +1,7 @@
 package model.rivenditore;
 
+import java.io.File;
+import java.sql.Blob;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -34,7 +36,7 @@ public class RivenditoreDAOImp implements RivenditoreDAO {
 		
 		String insertSQL = "INSERT INTO " + RivenditoreDAOImp.TABLE_NAME
 				+ " (idUtente, dataNascita, citta, provincia, sesso, codiceFiscale, numeroPartitaIva, filePartitaIva, fileDocumentoIdentita,"
-				+ " ragioneSociale, provinciaSedeLegale, cittaSedeLegale, viaSedeLegale, nCivicoSedeLegale, capSedeLegale "
+				+ " ragioneSociale, provinciaSedeLegale, cittaSedeLegale, viaSedeLegale, nCivicoSedeLegale, capSedeLegale) "
 				+ " VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 		connection = ds.getConnection();
 		preparedStatement = connection.prepareStatement(insertSQL);
@@ -47,8 +49,8 @@ public class RivenditoreDAOImp implements RivenditoreDAO {
 		preparedStatement.setString(5, dealer.getSesso());
 		preparedStatement.setString(6, dealer.getCodiceFiscale());
 		preparedStatement.setString(7, dealer.getNumeroPartitaIva());
-		preparedStatement.setString(8, dealer.getFilePartitaIva());
-		preparedStatement.setString(9, dealer.getFileDocumentoIdentita());
+		preparedStatement.set(8, dealer.getFilePartitaIva());
+		preparedStatement.setFile(9, dealer.getFileDocumentoIdentita());
 		preparedStatement.setString(10, dealer.getRagioneSociale());
 		preparedStatement.setString(11, dealer.getProvinciaSedeLegale());
 		preparedStatement.setString(12, dealer.getCittaSedeLegale());
@@ -95,8 +97,8 @@ public class RivenditoreDAOImp implements RivenditoreDAO {
 			bean.setSesso(rs.getString("sesso"));
 			bean.setCodiceFiscale(rs.getString("codiceFiscale"));
 			bean.setNumeroPartitaIva(rs.getString("numeropartitaIva"));
-			bean.setFilePartitaIva(rs.getString("filePartitaIva"));
-			bean.setFileDocumentoIdentita(rs.getString("fileDocumentoIdentita"));
+			bean.setFilePartitaIva((File)rs.getBlob("filePartitaIva"));
+			bean.setFileDocumentoIdentita((File)rs.getBlob("fileDocumentoIdentita"));
 			bean.setRagioneSociale(rs.getString("ragioneSociale"));
 			bean.setProvinciaSedeLegale(rs.getString("provinciaSedeLegale"));
 			bean.setCittaSedeLegale(rs.getString("cittaSedeLegale"));
@@ -151,8 +153,8 @@ public class RivenditoreDAOImp implements RivenditoreDAO {
 				bean.setSesso(rs.getString("sesso"));
 				bean.setCodiceFiscale(rs.getString("codiceFiscale"));
 				bean.setNumeroPartitaIva(rs.getString("numeropartitaIva"));
-				bean.setFilePartitaIva(rs.getString("filePartitaIva"));
-				bean.setFileDocumentoIdentita(rs.getString("fileDocumentoIdentita"));
+				bean.setFilePartitaIva((File)rs.getBlob("filePartitaIva"));
+				bean.setFileDocumentoIdentita((File)rs.getBlob("fileDocumentoIdentita"));
 				bean.setRagioneSociale(rs.getString("ragioneSociale"));
 				bean.setProvinciaSedeLegale(rs.getString("provinciaSedeLegale"));
 				bean.setCittaSedeLegale(rs.getString("cittaSedeLegale"));
