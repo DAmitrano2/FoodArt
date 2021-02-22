@@ -6,7 +6,7 @@
 				<h3>Registrati</h3>
 			</div>
 			<div class="card-body">
-				<form action="register" method="post" enctype="multipart/form-data">
+				<form action="register" method="post">
 				<!-- user -->
 					<div class="input-group form-group">
 						<input name="nome" type="text" class="form-control" placeholder="nome" required>

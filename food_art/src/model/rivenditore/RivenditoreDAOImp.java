@@ -49,8 +49,8 @@ public class RivenditoreDAOImp implements RivenditoreDAO {
 		preparedStatement.setString(5, dealer.getSesso());
 		preparedStatement.setString(6, dealer.getCodiceFiscale());
 		preparedStatement.setString(7, dealer.getNumeroPartitaIva());
-		preparedStatement.set(8, dealer.getFilePartitaIva());
-		preparedStatement.setFile(9, dealer.getFileDocumentoIdentita());
+		preparedStatement.setBytes(8, dealer.getFilePartitaIva());
+		preparedStatement.setBytes(9, dealer.getFileDocumentoIdentita());
 		preparedStatement.setString(10, dealer.getRagioneSociale());
 		preparedStatement.setString(11, dealer.getProvinciaSedeLegale());
 		preparedStatement.setString(12, dealer.getCittaSedeLegale());
@@ -97,8 +97,10 @@ public class RivenditoreDAOImp implements RivenditoreDAO {
 			bean.setSesso(rs.getString("sesso"));
 			bean.setCodiceFiscale(rs.getString("codiceFiscale"));
 			bean.setNumeroPartitaIva(rs.getString("numeropartitaIva"));
-			bean.setFilePartitaIva((File)rs.getBlob("filePartitaIva"));
-			bean.setFileDocumentoIdentita((File)rs.getBlob("fileDocumentoIdentita"));
+			Blob filePartitaIva = rs.getBlob("filePartitaIva");
+			bean.setFilePartitaIva(filePartitaIva.getBytes(idUtente, (int)filePartitaIva.length()));
+			Blob fileDocumentoIdentita = rs.getBlob("fileDocumentoIdentita");
+			bean.setFileDocumentoIdentita(fileDocumentoIdentita.getBytes(idUtente, (int)fileDocumentoIdentita.length()));
 			bean.setRagioneSociale(rs.getString("ragioneSociale"));
 			bean.setProvinciaSedeLegale(rs.getString("provinciaSedeLegale"));
 			bean.setCittaSedeLegale(rs.getString("cittaSedeLegale"));
@@ -146,15 +148,18 @@ public class RivenditoreDAOImp implements RivenditoreDAO {
 
 			while (rs.next()) {
 				RivenditoreBean bean = new RivenditoreBean();
-				bean.setIdUtente(rs.getInt("idUtente"));
+				int idUtente = rs.getInt("idUtente");
+				bean.setIdUtente(idUtente);
 			    bean.setDataNascita(rs.getDate("dataNascita"));
 			    bean.setCitta(rs.getString("citta"));
 			    bean.setProvincia(rs.getString("provincia"));
 				bean.setSesso(rs.getString("sesso"));
 				bean.setCodiceFiscale(rs.getString("codiceFiscale"));
 				bean.setNumeroPartitaIva(rs.getString("numeropartitaIva"));
-				bean.setFilePartitaIva((File)rs.getBlob("filePartitaIva"));
-				bean.setFileDocumentoIdentita((File)rs.getBlob("fileDocumentoIdentita"));
+				Blob filePartitaIva = rs.getBlob("filePartitaIva");
+				bean.setFilePartitaIva(filePartitaIva.getBytes(idUtente, (int)filePartitaIva.length()));
+				Blob fileDocumentoIdentita = rs.getBlob("fileDocumentoIdentita");
+				bean.setFileDocumentoIdentita(fileDocumentoIdentita.getBytes(idUtente, (int)fileDocumentoIdentita.length()));
 				bean.setRagioneSociale(rs.getString("ragioneSociale"));
 				bean.setProvinciaSedeLegale(rs.getString("provinciaSedeLegale"));
 				bean.setCittaSedeLegale(rs.getString("cittaSedeLegale"));

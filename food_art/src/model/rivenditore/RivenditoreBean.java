@@ -14,8 +14,8 @@ public class RivenditoreBean {
 	private String sesso;
 	private String codiceFiscale;
 	private String numeroPartitaIva;
-	private File filePartitaIva;
-	private File fileDocumentoIdentita;
+	private byte[] filePartitaIva;
+	private byte[] fileDocumentoIdentita;
 	private String ragioneSociale;
 	private String provinciaSedeLegale;
 	private String cittaSedeLegale;
@@ -83,19 +83,19 @@ public class RivenditoreBean {
 		this.numeroPartitaIva = numeroPartitaIva;
 	}
 
-	public File getFilePartitaIva() {
+	public byte[] getFilePartitaIva() {
 		return filePartitaIva;
 	}
 
-	public void setFilePartitaIva(File fPartitaIVA) {
-		this.filePartitaIva = fPartitaIVA;
+	public void setFilePartitaIva(byte[] inputStream) {
+		this.filePartitaIva = inputStream;
 	}
 
-	public File getFileDocumentoIdentita() {
+	public byte[] getFileDocumentoIdentita() {
 		return fileDocumentoIdentita;
 	}
 
-	public void setFileDocumentoIdentita(File fileDocumentoIdentita) {
+	public void setFileDocumentoIdentita(byte[] fileDocumentoIdentita) {
 		this.fileDocumentoIdentita = fileDocumentoIdentita;
 	}
 
