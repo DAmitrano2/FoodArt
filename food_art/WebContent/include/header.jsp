@@ -1,4 +1,4 @@
-<%@ page language="java" import="java.util.*,model.utente.UtenteBean,model.categoria.*, java.sql.Date" contentType="text/html; charset=UTF-8"
+<%@ page language="java" import="java.util.*, model.utente.UtenteBean, model.categoria.*, java.sql.Date" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
 // Check user credentials

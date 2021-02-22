@@ -6,7 +6,7 @@
 				<h3>Registrati</h3>
 			</div>
 			<div class="card-body">
-				<form action="register" method="post">
+				<form action="register" method="post" enctype="multipart/form-data">
 				<!-- user -->
 					<div class="input-group form-group">
 						<input name="nome" type="text" class="form-control" placeholder="nome" required>
@@ -108,6 +108,16 @@ function toggle(){
 	document.getElementById('fPartitaIVA').required=req;
 	document.getElementById('fCartaIdentita').required=req;
 }
+
+const fPartitaIVA = document.getElementById('fPartitaIVA');
+fPartitaIVA.addEventListener('change', (event) => {
+  console.log(event.target.files[0]);
+});
+
+const fCartaIdentita = document.getElementById('fCartaIdentita');
+fCartaIdentita.addEventListener('change', (event) => {
+  console.log(event.target.files[0]);
+});
 </script>
 <%@include file="./include/footer.html" %>
 <%@include file="./include/script.html" %>

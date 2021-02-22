@@ -1,8 +1,7 @@
 package control.register;
 
-import java.io.File;
 import java.io.IOException;
-import java.nio.file.Files;
+import java.io.InputStream;
 import java.nio.file.Paths;
 import java.sql.Date;
 import java.sql.SQLException;
@@ -45,7 +44,6 @@ public class RegisterControl extends HttpServlet {
 		dispatcher.forward(request, response);
 	}
 
-	@SuppressWarnings("deprecation")
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		int id=0;
 		
@@ -143,13 +141,21 @@ public class RegisterControl extends HttpServlet {
 			seller.setNumeroPartitaIva(nPartitaIVA);
 			
 			byte[] bytes = null;
-			File fPartitaIVA = new File(request.getRealPath(request.getParameter("fPartitaIVA")));
-			bytes = Files.readAllBytes(fPartitaIVA.toPath());
+			
+		    Part filePart = request.getPart("fPartitaIVA");
+		    //String fileName = Paths.get(filePart.getSubmittedFileName()).getFileName().toString();
+		    //InputStream fileContent = filePart.getInputStream();
+		    
+			
+//			File fPartitaIVA = new File(request.getRealPath(request.getParameter("fPartitaIVA")));
+//			bytes = Files.readAllBytes(fPartitaIVA.toPath());
+		    bytes = filePart.getInputStream().readAllBytes();
 			seller.setFilePartitaIva(bytes);
 			
 			bytes = null;
-			File fCartaIdentita = new File(request.getRealPath(request.getParameter("fCartaIdentita"))); 
-			bytes = Files.readAllBytes(fCartaIdentita.toPath());
+//			bytes = Files.readAllBytes(fCartaIdentita.toPath());
+			filePart = request.getPart("fCartaIdentita");
+			bytes = filePart.getInputStream().readAllBytes();
 			seller.setFileDocumentoIdentita(bytes);
 		}
 
