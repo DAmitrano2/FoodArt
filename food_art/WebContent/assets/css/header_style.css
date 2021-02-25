@@ -93,3 +93,22 @@ input:focus, button:focus{
 		display: none;
 	}
 }
+
+.navbar-nav .dropdown-menu {
+	position: absolute;
+    background: #ffc312;
+}
+
+.dropdown-divider {
+    border-top: 1px solid rgba(0,0,0,.15);
+}
+
+a.dropdown-item {
+	transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+.dropdown-item:focus, .dropdown-item:hover {
+    color: #000;
+    text-decoration: none;
+    background-color: #fff;
+}

@@ -1,4 +1,4 @@
-package control.utente;
+package control.category;
 
 import java.io.IOException;
 
@@ -9,18 +9,24 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/area_utente")
-public class AreaUtenteControl extends HttpServlet {
+@WebServlet("/categoria")
+public class CategoriaControl extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    public AreaUtenteControl() {
+	private int idCategoria;
+    
+    public CategoriaControl() {
         super();
+        idCategoria=0;
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setAttribute("page","areaUtente");
 		
-		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/area_utente.jsp");
+		idCategoria=Integer.parseInt(request.getParameter("idCategoria"));
+		request.setAttribute("idCategoria", idCategoria);
+		
+		request.setAttribute("page","categoria");
+		
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/test.jsp");
 		dispatcher.forward(request, response);
 	}
 

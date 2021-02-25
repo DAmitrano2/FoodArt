@@ -1,4 +1,4 @@
-<%@ page language="java" import="java.util.*, model.utente.UtenteBean, model.categoria.*, java.sql.Date" contentType="text/html; charset=UTF-8"
+<%@ page language="java" import="java.util.*, model.utente.UtenteBean, model.categoria.*, model.prodotto.*, model.immagine.*, java.sql.Date" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
 // Check user credentials
@@ -39,12 +39,12 @@ if( pagina != null ) {
 	}
 }
 else {
-	response.sendRedirect("./index");
+	//response.sendRedirect("./index");
 }
 
 //Categorie
-CategoriaDAOImp model = new CategoriaDAOImp();
-Collection<CategoriaBean> categorie = model.doRetrieveAll();
+CategoriaDAOImp modelCategoria = new CategoriaDAOImp();
+Collection<CategoriaBean> categorie = modelCategoria.doRetrieveAll();
 %>
 <!DOCTYPE html>
 <html lang="it">
@@ -62,6 +62,7 @@ Collection<CategoriaBean> categorie = model.doRetrieveAll();
   
   <!-- Default CSS -->
   <link rel="stylesheet" href="./assets/css/header_style.css">
+  <link rel="stylesheet" href="./assets/css/card_style.css">
   <% if(pagina != null && pagina.equalsIgnoreCase("register")) { %>
 	  <link rel="stylesheet" href="./assets/css/login_style.css">
 	  <link rel="stylesheet" href="./assets/css/<%=pagina %>_style.css">
@@ -92,8 +93,13 @@ Collection<CategoriaBean> categorie = model.doRetrieveAll();
 	  <li class="nav-item" id="nav-search">
 	    <a class="nav-link" href="#"><i class="fa fa-search"></i></a>
 	  </li>
-	  <li class="nav-item">
-	    <a class="nav-link" href="<%=path %>/login"><i class="fas fa-user"></i></a>
+	  <li class="nav-item dropdown">
+	    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user"></i></a>
+	  	<div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="<%=path %>/login">Login</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="<%=path %>/register">Sei nuovo? Registrati</a>
+        </div>
 	  </li>
 	  <li class="nav-item">
 	    <a class="nav-link" href="<%=path %>/cart"><i class="fas fa-shopping-cart"></i></a>
@@ -107,11 +113,11 @@ Collection<CategoriaBean> categorie = model.doRetrieveAll();
  	<div class="collapse align-content-center navbar-collapse" id="navbarMain">
       <ul class="navbar-nav mx-auto">
       <%
-		if (categorie != null && categorie.size() != 0) {
-			for (CategoriaBean category: categorie) {
+			if (categorie != null && categorie.size() != 0) {
+				for (CategoriaBean category: categorie) {
 			%>
         <li class="nav-item">
-          <a class="nav-link" href="categoria?nome=<%=category.getNome()%>"><%=category.getNome() %></a>
+          <a class="nav-link" href="categoria?idCategoria=<%=category.getIdCategoria()%>"><%=category.getNome()%></a>
         </li>
         <%}} %>
       </ul>

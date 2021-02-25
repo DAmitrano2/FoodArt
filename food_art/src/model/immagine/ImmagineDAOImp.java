@@ -161,5 +161,38 @@ public class ImmagineDAOImp implements ImmagineDAO {
 	
 	private DataSource ds;
 
+	@Override
+	public byte[] doRetrieveByKeyProdotto(int idProdotto) throws SQLException {
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+
+		byte[] path = null;
+
+		String selectSQL = "SELECT * FROM " + ImmagineDAOImp.TABLE_NAME + " WHERE idProdotto = ?";
+
+		try {
+			connection = ds.getConnection();
+			preparedStatement = connection.prepareStatement(selectSQL);
+			preparedStatement.setInt(1, idProdotto);
+
+			ResultSet rs = preparedStatement.executeQuery();
+
+			while (rs.next()) {
+				path = rs.getBytes("pathname");
+				continue;
+			}
+
+		} finally {
+			try {
+				if (preparedStatement != null)
+					preparedStatement.close();
+			} finally {
+				if (connection != null)
+					connection.close();
+			}
+		}
+		return path;
+	}
+
 
 }

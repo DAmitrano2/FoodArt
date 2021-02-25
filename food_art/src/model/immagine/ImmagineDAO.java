@@ -30,6 +30,14 @@ public interface ImmagineDAO {
 	public ImmagineBean doRetrieveByKey(int idImmagine) throws SQLException;
 
 	/**
+	 * Restituisce un immagine in base all'identificativo del prodotto
+	 * @param idProdotto
+	 * @return ImmagineBean
+	 * @throws SQLException
+	 */
+	public byte[] doRetrieveByKeyProdotto(int idProdotto) throws SQLException;
+
+	/**
 	 * Restituisce una collezione di immagini in base all'identificativo del prodotto che rappresentano 
 	 * @param idProdotto
 	 * @return Collezione di ImmagineBean

@@ -68,7 +68,7 @@ public class LoginControl extends HttpServlet {
 			if( !model.isEmail(email) ) {
 				PrintWriter out = response.getWriter();
 				response.setContentType("application/json");
-				//response.setCharacterEncoding("UTF-8");
+				response.setCharacterEncoding("UTF-8");
 				response.setStatus(401);
 				
 				Gson json = new Gson();
@@ -85,7 +85,7 @@ public class LoginControl extends HttpServlet {
 			if( user == null ) {
 				PrintWriter out = response.getWriter();
 				response.setContentType("application/json");
-				//response.setCharacterEncoding("UTF-8");
+				response.setCharacterEncoding("UTF-8");
 				response.setStatus(401);
 				
 				Gson json = new Gson();

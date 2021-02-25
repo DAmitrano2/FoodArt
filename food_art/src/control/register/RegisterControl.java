@@ -83,47 +83,6 @@ public class RegisterControl extends HttpServlet {
 			String nCivicoSedeLegale = request.getParameter("nCivicoSedeLegale");
 			String nPartitaIVA = request.getParameter("nPartitaIVA");
 			
-//			String contentType = request.getContentType();
-//		    
-//		    if ((contentType != null) && (contentType.indexOf("multipart/form-data") >= 0)) {
-//		        DataInputStream in = new DataInputStream(request.getInputStream());
-//		        
-//		        int formDataLength = request.getContentLength();
-//		        byte dataBytes[] = new byte[formDataLength];
-//		        int byteRead = 0;
-//		        int totalBytesRead = 0;
-//		        
-//		        while (totalBytesRead < formDataLength) {
-//		            byteRead = in.read(dataBytes, totalBytesRead, formDataLength);
-//		            totalBytesRead += byteRead;
-//		        }
-//
-//		        String file = new String(dataBytes);
-//		        //for saving the file name
-//		        String saveFile = file.substring(file.indexOf("filename=\"") + 10);
-//		        saveFile = saveFile.substring(0, saveFile.indexOf("\n"));
-//		        saveFile = saveFile.substring(saveFile.lastIndexOf("\\") + 1, saveFile.indexOf("\""));
-//		        int lastIndex = contentType.lastIndexOf("=");
-//		        String boundary = contentType.substring(lastIndex + 1, contentType.length());
-//		        int pos;
-//		        //extracting the index of file 
-//		        pos = file.indexOf("filename=\"");
-//		        pos = file.indexOf("\n", pos) + 1;
-//		        pos = file.indexOf("\n", pos) + 1;
-//		        pos = file.indexOf("\n", pos) + 1;
-//		        int boundaryLocation = file.indexOf(boundary, pos) - 4;
-//		        int startPos = ((file.substring(0, pos)).getBytes()).length;
-//		        int endPos = ((file.substring(0, boundaryLocation)).getBytes()).length;
-//		        // creating a new file with the same name and writing the content in new file
-//                FileOutputStream fileOut = new FileOutputStream(saveFile);
-//                fileOut.write(dataBytes, startPos, (endPos - startPos));
-//                fileOut.flush();
-//                fileOut.close();
-
-			//InputStream fPartitaIVA = new FileInputStream(request.getRealPath("fPartitaIVA"));
-			//File fCartaIdentita = new File(request.getRealPath("fCartaIdentita"));
-			
-			
 			Date date=new Date(0);
 			date=Date.valueOf(data);
 			
@@ -143,17 +102,11 @@ public class RegisterControl extends HttpServlet {
 			byte[] bytes = null;
 			
 		    Part filePart = request.getPart("fPartitaIVA");
-		    //String fileName = Paths.get(filePart.getSubmittedFileName()).getFileName().toString();
-		    //InputStream fileContent = filePart.getInputStream();
-		    
-			
-//			File fPartitaIVA = new File(request.getRealPath(request.getParameter("fPartitaIVA")));
-//			bytes = Files.readAllBytes(fPartitaIVA.toPath());
+
 		    bytes = filePart.getInputStream().readAllBytes();
 			seller.setFilePartitaIva(bytes);
 			
 			bytes = null;
-//			bytes = Files.readAllBytes(fCartaIdentita.toPath());
 			filePart = request.getPart("fCartaIdentita");
 			bytes = filePart.getInputStream().readAllBytes();
 			seller.setFileDocumentoIdentita(bytes);

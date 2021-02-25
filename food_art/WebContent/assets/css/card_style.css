@@ -1,0 +1,99 @@
+.small-container{
+	max-width: 1080px;
+	margin: auto;
+	padding-left: 25px;
+	padding-right: 25px;
+}
+.title{
+	text-align: center;
+	margin: 0 auto 50px;
+	position: relative;
+	line-height: 60px;
+	color: black;
+}
+.title::after{
+	content: '';
+	background: #FCBA03;
+	width: 80px;
+	height: 5px;
+	border-radius: 5px;
+	position: absolute;
+	bottom: 0;
+	left: 50%;
+	transform: translateX(-50%);
+}
+.row{
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+}
+#footer .container .row {
+    padding-top: 20px;
+}
+.bg-cart{
+	background-color: #FCBA03;
+	color: #000;
+}
+.bg-cart:hover{
+	color: #fff;
+}
+
+.col-4{
+	flex-basis: 25%;
+	padding: 10px;
+	min-width: 200px;
+	margin-bottom: 50px;
+}
+.col-4 img{
+	width: 100%;
+	cursor: pointer;
+	padding-bottom: 0.5em;
+}
+.col-4 h4{
+	font-size: 1.3rem!important;
+	color: black;
+	font-weight: normal;
+	cursor: pointer;
+}
+.col-4 p{
+	font-size: 14px;
+}
+.rating{
+	color: #FCBA03;
+}
+.col-4 span:hover{
+	text-decoration: underline;
+	cursor: pointer;
+}
+.col-4 .btn-cart{
+	align-items: flex-end;
+}
+
+@media (max-width: 1001px){
+	.col-4 span{
+		font-size: .9rem;
+	}
+}
+@media (max-width: 912px){
+	.col-4 span{
+		font-size: .8rem!important;
+	}
+	.col-4 h4{
+		font-size: 1.2rem!important;
+	}
+}
+@media (max-width: 849px){
+	.col-4 h4{
+		font-size: 1.1rem!important;
+	}
+}
+@media (max-width: 820px){
+	.col-4 span{
+		font-size: .7rem!important;
+	}
+}
+@media (max-width: 868px){
+	.bg-cart{
+		font-size: .9rem;
+	}
+}
