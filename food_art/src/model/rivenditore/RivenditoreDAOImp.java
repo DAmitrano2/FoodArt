@@ -1,6 +1,5 @@
 package model.rivenditore;
 
-import java.io.File;
 import java.sql.Blob;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -80,7 +79,7 @@ public class RivenditoreDAOImp implements RivenditoreDAO {
 		
 		RivenditoreBean bean = new RivenditoreBean();
 
-		String selectSQL = "SELECT * FROM" + RivenditoreDAOImp.TABLE_NAME +"where idUtente = ? ";
+		String selectSQL = "SELECT * FROM "+ RivenditoreDAOImp.TABLE_NAME +" where idUtente = ? ";
 		try {
 			connection = ds.getConnection();
 			preparedStatement = connection.prepareStatement(selectSQL);
@@ -184,4 +183,46 @@ public class RivenditoreDAOImp implements RivenditoreDAO {
     private static final String TABLE_NAME = "rivenditore";
 	
 	private DataSource ds;
+
+	@Override
+	public String doRetriveNameById(int idUtente) throws SQLException {
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+		
+		String nome = "";
+
+		String selectSQL = "SELECT ragioneSociale FROM "+ RivenditoreDAOImp.TABLE_NAME +" where idUtente = ? ";
+		try {
+			connection = ds.getConnection();
+			preparedStatement = connection.prepareStatement(selectSQL);
+			preparedStatement.setInt(1, idUtente);
+			ResultSet rs = preparedStatement.executeQuery();
+
+			boolean flag = false;
+		
+			while (rs.next()) {
+				nome = rs.getString("ragioneSociale");
+
+				flag=true;
+			}
+			
+			if( !flag ) {
+				return null;
+			}
+			
+		}
+		catch(SQLException e) {
+			return null;
+		}
+		finally {
+			try {
+				if (preparedStatement != null)
+					preparedStatement.close();
+			} finally {
+				if (connection != null)
+					connection.close();
+			}
+		}
+		return nome;
+	}
 }

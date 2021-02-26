@@ -14,6 +14,14 @@ public interface RivenditoreDAO {
 	public void doSave(RivenditoreBean dealer) throws SQLException;
 	
 	/**
+	 * Carica il nome di un singolo rivenditore in base al codice identificativo utente.
+	 * @param idUtente
+	 * @return il nome dell'amministratore se l'identificativo utente è realmente corrispondente ad un rivenditore, null altrimenti
+	 * @throws SQLException
+	 */	
+	public String doRetriveNameById(int idUtente) throws SQLException;
+	
+	/**
 	 * Carica i dati di un singolo rivenditore in base al codice identificativo utente.
 	 * @param idUtente
 	 * @return un amministratore se l'identificativo utente è realmente corrispondente ad un rivenditore, null altrimenti

@@ -26,7 +26,7 @@ public class CategoriaControl extends HttpServlet {
 		
 		request.setAttribute("page","categoria");
 		
-		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/test.jsp");
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/category.jsp");
 		dispatcher.forward(request, response);
 	}
 

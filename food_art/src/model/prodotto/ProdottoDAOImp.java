@@ -33,8 +33,8 @@ public class ProdottoDAOImp implements ProdottoDAO {
 		PreparedStatement preparedStatement = null;
 		
 		String insertSQL = "INSERT INTO " + ProdottoDAOImp.TABLE_NAME
-				           + "(titolo, descrizione, unitaMisura, prezzo, quantitaMinimaAcquisto, quantitaDisponibile, cittaProvenienza, provinciaProvenienza, idCategoria)"
-				           + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+				           + "(titolo, descrizione, unitaMisura, prezzo, quantitaMinimaAcquisto, quantitaDisponibile, cittaProvenienza, provinciaProvenienza, idCategoria, idUtente)"
+				           + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 		try {
 			connection = ds.getConnection();
 			preparedStatement = connection.prepareStatement(insertSQL);
@@ -47,6 +47,7 @@ public class ProdottoDAOImp implements ProdottoDAO {
 			preparedStatement.setString(7, product.getCittaProvenienza());
 			preparedStatement.setString(8, product.getProvinciaProvenienza());
 			preparedStatement.setInt(9, product.getIdCategoria());
+			preparedStatement.setInt(10, product.getIdUtente());
 
 			preparedStatement.executeUpdate();
 
@@ -117,6 +118,7 @@ public class ProdottoDAOImp implements ProdottoDAO {
 			product.setCittaProvenienza(rs.getString("cittaProvenienza"));
 			product.setProvinciaProvenienza(rs.getString("provinciaProvenienza"));
 			product.setIdCategoria(rs.getInt("idCategoria"));
+			product.setIdUtente(rs.getInt("idUtente"));
 			
 			flag=true;
 		}
@@ -167,7 +169,7 @@ public class ProdottoDAOImp implements ProdottoDAO {
 			singol_product.setCittaProvenienza(rs.getString("cittaProvenienza"));
 			singol_product.setProvinciaProvenienza(rs.getString("provinciaProvenienza"));
 			singol_product.setIdCategoria(rs.getInt("idCategoria"));
-			singol_product.setIdCategoria(rs.getInt("idRivenditore"));
+			singol_product.setIdUtente(rs.getInt("idUtente"));
 			
 			
 			products.add(singol_product);
