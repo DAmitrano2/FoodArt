@@ -3,7 +3,7 @@ package model.immagine;
 public class ImmagineBean {
 
 	private int idImmagine;
-	private String pathName;
+	private byte[] pathName;
 	private int idProdotto;
 	
 	public ImmagineBean() {
@@ -18,11 +18,11 @@ public class ImmagineBean {
 		this.idImmagine = idImmagine;
 	}
 
-	public String getPathName() {
+	public byte[] getPathName() {
 		return pathName;
 	}
 
-	public void setPathName(String pathName) {
+	public void setPathName(byte[] pathName) {
 		this.pathName = pathName;
 	}
 

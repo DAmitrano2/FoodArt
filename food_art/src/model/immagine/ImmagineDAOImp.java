@@ -20,7 +20,7 @@ public class ImmagineDAOImp implements ImmagineDAO {
 			Context initCtx = new InitialContext();
 			Context envCtx = (Context) initCtx.lookup("java:comp/env");
 
-			ds = (DataSource) envCtx.lookup("jdbc/american");
+			ds = (DataSource) envCtx.lookup("jdbc/food_art");
 
 		} catch (NamingException e) {
 			System.out.println("Error:" + e.getMessage());
@@ -40,7 +40,7 @@ public class ImmagineDAOImp implements ImmagineDAO {
 		try {
 			connection = ds.getConnection();
 			preparedStatement = connection.prepareStatement(insertSQL);
-			preparedStatement.setString(1, image.getPathName());
+			preparedStatement.setBytes(1, image.getPathName());
 			preparedStatement.setInt(2, image.getIdProdotto());
 
 			preparedStatement.executeUpdate();
@@ -104,7 +104,7 @@ public class ImmagineDAOImp implements ImmagineDAO {
 
 			while (rs.next()) {
 				bean.setIdImmagine(rs.getInt("idImmagine"));
-				bean.setPathName(rs.getString("pathName"));
+				bean.setPathName(rs.getBytes("pathName"));
 				bean.setIdProdotto(rs.getInt("idProdotto"));
 				
 			}
@@ -140,7 +140,7 @@ public class ImmagineDAOImp implements ImmagineDAO {
 			while (rs.next()) {
 				ImmagineBean bean = new ImmagineBean();
 				bean.setIdImmagine(rs.getInt("idImmagine"));
-				bean.setPathName(rs.getString("pathname"));
+				bean.setPathName(rs.getBytes("pathname"));
 				bean.setIdProdotto(rs.getInt("idProdotto"));
 				images.add(bean);
 			}
@@ -157,7 +157,7 @@ public class ImmagineDAOImp implements ImmagineDAO {
 		return images;
 	}
 	
-	private static final String TABLE_NAME = "immagini";
+	private static final String TABLE_NAME = "immagine";
 	
 	private DataSource ds;
 

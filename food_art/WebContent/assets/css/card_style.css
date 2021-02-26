@@ -22,7 +22,7 @@
 	left: 50%;
 	transform: translateX(-50%);
 }
-.row{
+.title .row{
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-around;

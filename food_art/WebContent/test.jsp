@@ -1,4 +1,5 @@
-	<%@include file="./include/header.jsp"%>
+	<%@page import="model.rivenditore.RivenditoreDAOImp"%>
+<%@include file="./include/header.jsp"%>
 	<%
 		int idCategoria = (int)request.getAttribute("idCategoria");
 		ProdottoDAOImp modelProdotto = new ProdottoDAOImp();
@@ -23,12 +24,14 @@
 				<%
 					if (prodotti != null && prodotti.size() != 0) {
 						for(ProdottoBean product: prodotti) {
+							RivenditoreDAOImp modelRivenditore = new RivenditoreDAOImp();
+							modelRivenditore = modelRivenditore.doRetriveById(product.getIdUtente());
 				%>
 				<div class="row">
 					<div class="col-4 text-center">
-						<img src="./getImage?idprodotto=<%= product.getIdProdotto()%>" alt="imageProduct.png">
-						<h4>Confettura Albicocche</h4>
-						<span>SOCIET&#192; AGRICOLA AMITRANO</span>
+						<img src="./getImage?idProdotto=<%= product.getIdProdotto()%>" alt="imageProduct.png">
+						<h4><%= product.getTitolo()%></h4>
+						<span><%= product.getDescrizione() %></span>
 						<div class="rating">
 							<i class="fas fa-star"></i>
 							<i class="fas fa-star"></i>
@@ -36,7 +39,7 @@
 							<i class="fas fa-star"></i>
 							<i class="far fa-star"></i>
 						</div>
-						<p>&#8364; 6.00, pz</p>
+						<p><%= product.getPrezzo()%>&#8364; al <%= product.getUnitaMisura()%></p>
 						<button type="button" class="btn bg-cart"><i class="fas fa-cart-plus mr-2"></i>Aggiungi al Carrello</button>
 					</div>
 					<%}}%>

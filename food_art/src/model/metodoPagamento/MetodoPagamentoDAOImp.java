@@ -17,7 +17,7 @@ public class MetodoPagamentoDAOImp implements MetodoPagamentoDAO {
 			Context initCtx = new InitialContext();
 			Context envCtx = (Context) initCtx.lookup("java:comp/env");
 
-			ds = (DataSource) envCtx.lookup("jdbc/american");
+			ds = (DataSource) envCtx.lookup("jdbc/food_art");
 
 		} catch (NamingException e) {
 			System.out.println("Error:" + e.getMessage());
