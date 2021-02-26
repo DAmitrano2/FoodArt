@@ -12,7 +12,16 @@ public class ProdottoBean {
 	private String cittaProvenienza;
 	private String provinciaProvenienza;
 	private int idCategoria;
+	private int idRivenditore;
 	
+	public int getIdRivenditore() {
+		return idRivenditore;
+	}
+
+	public void setIdRivenditore(int idRivenditore) {
+		this.idRivenditore = idRivenditore;
+	}
+
 	public ProdottoBean() {
 		this.idProdotto = -1;
 	}

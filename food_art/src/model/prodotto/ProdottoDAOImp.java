@@ -167,6 +167,8 @@ public class ProdottoDAOImp implements ProdottoDAO {
 			singol_product.setCittaProvenienza(rs.getString("cittaProvenienza"));
 			singol_product.setProvinciaProvenienza(rs.getString("provinciaProvenienza"));
 			singol_product.setIdCategoria(rs.getInt("idCategoria"));
+			singol_product.setIdCategoria(rs.getInt("idRivenditore"));
+			
 			
 			products.add(singol_product);
 		}
