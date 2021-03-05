@@ -39,6 +39,12 @@ public interface ProdottoDAO {
 	 */
 	public Collection<ProdottoBean> getProductByIdCategory(int idCategoria) throws SQLException;
 	
+	/**
+	 * Ritorna i prodotti in ordine decrescente di id
+	 * @return collezione di ProdottoBean
+	 * @throws SQLException
+	 */
+	public Collection<ProdottoBean> getLastArrivals() throws SQLException;
 	
 	/**
 	 * Modifica la quantità di un prodotto in base al suo identificativo

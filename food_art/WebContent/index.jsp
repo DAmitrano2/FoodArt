@@ -1,5 +1,5 @@
   <%@include file="./include/header.jsp"%>
-  <!-- Carosello Principale-->
+  <!-- Inizio Carosello Principale-->
   <div id="carouselMain" class="carousel slide" data-ride="carousel" data-interval="6000">
 	<ol class="carousel-indicators">
 	  <li data-target="#carouselMain" data-slide-to="0" class="active"></li>
@@ -62,9 +62,9 @@
 	  <span class="sr-only">Successivo</span>
 	</a>
   </div>
-  <!-- Carosello Principale-->
+  <!-- Fine Carosello Principale-->
 
-  <!-- Carosello Categorie-->
+  <!-- Inizio Carosello Categorie-->
   <section id="categoryCarousel" data-ride="carouselCat">
 	  <div class="category">
 		  <div class="category-container">
@@ -221,128 +221,38 @@
 				<i class="fas fa-star"></i>
 				<i class="fas fa-star-half-alt"></i>
 			</div>
-			<p>&#8364; 9.20</button></p>
+			<p>&#8364; 9.20</p>
 			<button type="button" class="btn bg-cart"><i class="fas fa-cart-plus mr-2"></i>Aggiungi al Carrello</button>
 		</div>
 	</div>
 	<!-- Ultimi Arrivi -->
+	<%
+		ProdottoDAOImp modelProdotto = new ProdottoDAOImp(); 
+		RivenditoreDAOImp modelRivenditore = new RivenditoreDAOImp();
+		Collection<ProdottoBean> prodotti = modelProdotto.getLastArrivals();
+	%>
 	<h2 class="title">Ultimi Arrivi</h2>
-	<div class="row">
-		<div class="col-4 text-center">
-			<img src="images/ultimo-1.jpg" alt="">
-			<h4>Cannoli Siciliani</h4>
-			<span>PASTICCERIA PICCIOTTO</span>
-			<div class="rating">
-				<i class="fas fa-star"></i>
-				<i class="fas fa-star"></i>
-				<i class="fas fa-star"></i>
-				<i class="far fa-star"></i>
-				<i class="far fa-star"></i>
+		<div class="row">
+			<%
+				if (prodotti != null && prodotti.size() != 0) {
+					for(ProdottoBean product: prodotti) {
+			%>
+				<div class="col-4 text-center">
+					<img src="./getImage?idProdotto=<%= product.getIdProdotto() %>" alt="imageProduct.png">
+					<h4><%= product.getTitolo() %></h4>
+					<span><%= modelRivenditore.doRetriveNameById(product.getIdUtente()) %></span>
+					<div class="rating">
+						<i class="fas fa-star"></i>
+						<i class="fas fa-star"></i>
+						<i class="fas fa-star"></i>
+						<i class="fas fa-star"></i>
+						<i class="far fa-star"></i>
+					</div>
+					<p><%= product.getPrezzo()%>&#8364; al <%= product.getUnitaMisura()%></p>
+					<button type="button" class="btn bg-cart"><i class="fas fa-cart-plus mr-2"></i>Aggiungi al Carrello</button>
+				</div>
+				<%}}%>
 			</div>
-			<p>&#8364; 3.00, pz</p>
-			<button type="button" class="btn bg-cart"><i class="fas fa-cart-plus mr-2"></i>Aggiungi al Carrello</button>
-		</div>
-		<div class="col-4 text-center">
-			<img src="images/ultimo-2.jpg" alt="">
-			<h4>Strozzapreti</h4>
-			<span>PASTIFICIO ALBA</span>
-			<div class="rating">
-				<i class="fas fa-star"></i>
-				<i class="fas fa-star"></i>
-				<i class="fas fa-star-half-alt"></i>
-				<i class="far fa-star"></i>
-				<i class="far fa-star"></i>
-			</div>
-			<p>&#8364; 4.00, kg</p>
-			<button type="button" class="btn bg-cart"><i class="fas fa-cart-plus mr-2"></i>Aggiungi al Carrello</button>
-		</div>
-		<div class="col-4 text-center">
-			<img src="images/ultimo-3.jpg" alt="">
-			<h4>Uovo di Struzzo</h4>
-			<span>AGRITURISMO TORINO</span>
-			<div class="rating">
-				<i class="fas fa-star"></i>
-				<i class="fas fa-star"></i>
-				<i class="fas fa-star"></i>
-				<i class="fas fa-star-half-alt"></i>
-				<i class="far fa-star"></i>
-			</div>
-			<p>&#8364; 25.00, pz</p>
-			<button type="button" class="btn bg-cart"><i class="fas fa-cart-plus mr-2"></i>Aggiungi al Carrello</button>
-		</div>
-		<div class="col-4 text-center">
-			<img src="images/ultimo-4.jpg" alt="">
-			<h4>Peperoni Sott'olio</h4>
-			<span>CONSERVIFICIO DALIA</span>
-			<div class="rating">
-				<i class="fas fa-star"></i>
-				<i class="fas fa-star"></i>
-				<i class="fas fa-star-half-alt"></i>
-				<i class="far fa-star"></i>
-				<i class="far fa-star"></i>
-			</div>
-			<p>&#8364; 7.50, pz</p>
-			<button type="button" class="btn bg-cart"><i class="fas fa-cart-plus mr-2"></i>Aggiungi al Carrello</button>
-		</div>
-	</div>
-	<div class="row">
-		<div class="col-4 text-center">
-			<img src="images/ultimo-5.jpg" alt="">
-			<h4>Panettone Pistacchio</h4>
-			<span>PASTICCERIA PICCIOTTO</span>
-			<div class="rating">
-				<i class="fas fa-star"></i>
-				<i class="fas fa-star"></i>
-				<i class="fas fa-star"></i>
-				<i class="fas fa-star"></i>
-				<i class="fas fa-star-half-alt"></i>
-			</div>
-			<p>&#8364; 44.50, pz</p>
-			<button type="button" class="btn bg-cart"><i class="fas fa-cart-plus mr-2"></i>Aggiungi al Carrello</button>
-		</div>
-		<div class="col-4 text-center">
-			<img src="images/ultimo-6.jpg" alt="">
-			<h4>Mano di Buddha</h4>
-			<span>FRUTTETO ZAPPIA</span>
-			<div class="rating">
-				<i class="fas fa-star"></i>
-				<i class="fas fa-star"></i>
-				<i class="fas fa-star"></i>
-				<i class="far fa-star"></i>
-				<i class="far fa-star"></i>
-			</div>
-			<p>&#8364; 33.90, pz</p>
-			<button type="button" class="btn bg-cart"><i class="fas fa-cart-plus mr-2"></i>Aggiungi al Carrello</button>
-		</div>
-		<div class="col-4 text-center">
-			<img src="images/ultimo-7.jpg" alt="">
-			<h4>Braciola di Cervo</h4>
-			<span>BAITA ESPOSITO</span>
-			<div class="rating">
-				<i class="fas fa-star"></i>
-				<i class="fas fa-star"></i>
-				<i class="fas fa-star"></i>
-				<i class="far fa-star"></i>
-				<i class="far fa-star"></i>
-			</div>
-			<p>&#8364; 30.80, pz</p>
-			<button type="button" class="btn bg-cart"><i class="fas fa-cart-plus mr-2"></i>Aggiungi al Carrello</button>
-		</div>
-		<div class="col-4 text-center">
-			<img src="images/ultimo-8.jpeg" alt="">
-			<h4>Astice Jumbo</h4>
-			<span>PESCHERIA "VIEN O MAR"</span>
-			<div class="rating">
-				<i class="fas fa-star"></i>
-				<i class="fas fa-star"></i>
-				<i class="fas fa-star"></i>
-				<i class="fas fa-star"></i>
-				<i class="far fa-star"></i>
-			</div>
-			<p>&#8364; 273.50, pz</p>
-			<button type="button" class="btn bg-cart"><i class="fas fa-cart-plus mr-2"></i>Aggiungi al Carrello</button>
-		</div>
-	</div>
   </div>
   <!--Recensioni-->
    <!--
@@ -401,6 +311,23 @@
 	  <div class="container">
 		  <div class="row text-center text-xs-center text-sm-left text-md-left">
 			  <div class="col-xs-12 col-sm-4 col-md-4">
+					<h5>  Informazioni</h5>
+					<ul class="list-unstyled quick-links">
+						<li><a href="#"></a>Chi siamo?</li>
+						<li><a href="#"></a>Come selezioniamo?</li>
+						<li><a href="#"></a>Come vendere su FoodArt?</li>
+						<li><a href="#"></a>Termini e Condizioni</li>
+						<li><a href="#"></a>Privacy e Cookie</li>
+					</ul>
+				</div>
+				<div class="col-xs-12 col-sm-4 col-md-4">
+					<h5>  Contatti</h5>
+					<ul class="list-unstyled quick-links">
+						<li><a href="#"></a><i class="fas fa-map-marker-alt"></i> Via Filettine, 194, Pagani, Salerno</li>
+						<li><a href="#"></a><i class="fas fa-envelope"></i> support@foodart.com</li>
+					</ul>
+				</div>
+				<div class="col-xs-12 col-sm-4 col-md-4">
 				  <h5>  Supporto</h5>
 				  <ul class="list-unstyled quick-links">
 					  <li><a href="#"></a>Consegne</li>
@@ -408,23 +335,6 @@
 					  <li><a href="#"></a>FAQ</li>
 				  </ul>
 			  </div>
-			  <div class="col-xs-12 col-sm-4 col-md-4">
-				<h5>  Informazioni</h5>
-				<ul class="list-unstyled quick-links">
-					<li><a href="#"></a>Chi siamo?</li>
-					<li><a href="#"></a>Come selezioniamo?</li>
-					<li><a href="#"></a>Come vendere su FoodArt?</li>
-					<li><a href="#"></a>Termini e Condizioni</li>
-					<li><a href="#"></a>Privacy e Cookie</li>
-				</ul>
-			</div>
-			<div class="col-xs-12 col-sm-4 col-md-4">
-				<h5>  Contatti</h5>
-				<ul class="list-unstyled quick-links">
-					<li><a href="#"></a><i class="fas fa-map-marker-alt"></i> Via Filettine, 194, Pagani, Salerno</li>
-					<li><a href="#"></a><i class="fas fa-envelope"></i> support@foodart.com</li>
-				</ul>
-			</div>
 		  </div>
 		  <div id="social" class="row">
 			  <div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-5">

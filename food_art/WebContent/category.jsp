@@ -1,6 +1,5 @@
-	<%@ page import="model.rivenditore.*" %>
 	<%@include file="./include/header.jsp"%>
-	<%
+	<%	
 		int idCategoria = (int)request.getAttribute("idCategoria");
 		ProdottoDAOImp modelProdotto = new ProdottoDAOImp();
 		RivenditoreDAOImp modelRivenditore = new RivenditoreDAOImp();
@@ -22,11 +21,11 @@
 			</div>
 			<div class="col-lg-9">
 				<h2 class="title"><%= modelCategoria.doRetrieveByKey(idCategoria).getNome() %></h2>
+				<div class="row">
 				<%
 					if (prodotti != null && prodotti.size() != 0) {
 						for(ProdottoBean product: prodotti) {
 				%>
-				<div class="row">
 					<div class="col-4 text-center">
 						<img src="./getImage?idProdotto=<%= product.getIdProdotto() %>" alt="imageProduct.png">
 						<h4><%= product.getTitolo() %></h4>

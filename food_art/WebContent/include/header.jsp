@@ -1,4 +1,4 @@
-<%@ page language="java" import="java.util.*,model.utente.*,model.categoria.*,model.prodotto.*,model.immagine.*,java.sql.Date" contentType="text/html; charset=UTF-8"
+<%@ page language="java" import="java.util.*,model.utente.*,model.rivenditore.*,model.categoria.*,model.prodotto.*,model.immagine.*,java.sql.Date" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
 // Check user credentials
@@ -39,7 +39,7 @@ if( pagina != null ) {
 	}
 }
 else {
-	//response.sendRedirect("./index");
+	response.sendRedirect("./index");
 }
 
 //Categorie
