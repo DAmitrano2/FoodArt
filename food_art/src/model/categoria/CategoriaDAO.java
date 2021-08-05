@@ -19,7 +19,7 @@ public interface CategoriaDAO {
 	 * @return null
 	 * @throws SQLException
 	 */	
-	public void Update (int idCategoria, String NewName) throws SQLException;
+	public void Update(int idCategoria, String NewName) throws SQLException;
 
 	/**
 	 * Elimina i dati di una categoria in base al suo identificativo

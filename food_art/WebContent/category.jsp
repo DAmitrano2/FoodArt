@@ -8,7 +8,7 @@
 	<div class="container justify-content-center">
 		<div class="row">
 			<div class="col-lg-3">
-				<div class="text-info">Select Brand</div>
+				<h3 class="title">Select Brand</h3>
 				<ul class="list-group">
 					<li class="list-group-item">
 						<div class="form-check">

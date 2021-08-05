@@ -25,13 +25,17 @@ public class CategoriaControl extends HttpServlet {
 		request.setAttribute("idCategoria", idCategoria);
 		
 		request.setAttribute("page","categoria");
-		
-		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/category.jsp");
-		dispatcher.forward(request, response);
+		if(idCategoria>0) {
+			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/category.jsp");
+			dispatcher.forward(request, response);
+		}
+		else if(idCategoria==0) {
+			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/all_category.jsp");
+			dispatcher.forward(request, response);	
+		}
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doGet(request, response);
 	}
-
 }

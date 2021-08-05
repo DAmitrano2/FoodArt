@@ -1,50 +1,49 @@
 <%@ page language="java" import="java.util.*,model.utente.*,model.rivenditore.*,model.categoria.*,model.prodotto.*,model.immagine.*,java.sql.Date" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
-// Check user credentials
-UtenteBean user = (UtenteBean) request.getSession(false).getAttribute("user");
-String pagina = (String) request.getAttribute("page");
-String path = request.getContextPath();
-
-boolean auth;
-
-if (user == null)
-{	
-    auth = false;
-}
-else {
-	auth = true;
-}
-
-if( pagina != null ) {
-	if( (pagina.equalsIgnoreCase("login") ) && (auth) )
-	{
-		response.sendRedirect("./index");
+	// Check user credentials
+	UtenteBean user = (UtenteBean) request.getSession(false).getAttribute("user");
+	String pagina = (String) request.getAttribute("page");
+	String path = request.getContextPath();
+	boolean auth;
+	
+	if (user == null)
+	{	
+	    auth = false;
 	}
-	else if( (pagina.equalsIgnoreCase("register") ) && (auth) )
-	{
-		response.sendRedirect("./index");
+	else {
+		auth = true;
 	}
-	else if( (pagina.equalsIgnoreCase("indirizzoPage") ) && (!auth) ) {
-		response.sendRedirect("./index");
+	
+	if( pagina != null ) {
+		if( (pagina.equalsIgnoreCase("login") ) && (auth) )
+		{
+			response.sendRedirect("./index");
+		}
+		else if( (pagina.equalsIgnoreCase("register") ) && (auth) )
+		{
+			response.sendRedirect("./index");
+		}
+		else if( (pagina.equalsIgnoreCase("indirizzoPage") ) && (!auth) ) {
+			response.sendRedirect("./index");
+		}
+		else if( (pagina.equalsIgnoreCase("listaOrdini") ) && (!auth) ) {
+			response.sendRedirect("./index");
+		}
+		else if( (pagina.equalsIgnoreCase("singoloOrdine") ) && (!auth) ) {
+			response.sendRedirect("./index");
+		}
+		else if( (pagina.equalsIgnoreCase("infoUser") ) && (!auth) ) {
+			response.sendRedirect("./index");
+		}
 	}
-	else if( (pagina.equalsIgnoreCase("listaOrdini") ) && (!auth) ) {
-		response.sendRedirect("./index");
+	else {
+		//response.sendRedirect("./index");
 	}
-	else if( (pagina.equalsIgnoreCase("singoloOrdine") ) && (!auth) ) {
-		response.sendRedirect("./index");
-	}
-	else if( (pagina.equalsIgnoreCase("infoUser") ) && (!auth) ) {
-		response.sendRedirect("./index");
-	}
-}
-else {
-	response.sendRedirect("./index");
-}
-
-//Categorie
-CategoriaDAOImp modelCategoria = new CategoriaDAOImp();
-Collection<CategoriaBean> categorie = modelCategoria.doRetrieveAll();
+	
+	//Categorie
+	CategoriaDAOImp modelCategoria = new CategoriaDAOImp();
+	Collection<CategoriaBean> categorie = modelCategoria.doRetrieveAll();
 %>
 <!DOCTYPE html>
 <html lang="it">
@@ -66,9 +65,9 @@ Collection<CategoriaBean> categorie = modelCategoria.doRetrieveAll();
   <% if(pagina != null && pagina.equalsIgnoreCase("register")) { %>
 	  <link rel="stylesheet" href="./assets/css/login_style.css">
 	  <link rel="stylesheet" href="./assets/css/<%=pagina %>_style.css">
-  <% }else{ %>
+  <% System.out.println("pagina: "+pagina);}else{ %>
   	  <link rel="stylesheet" href="./assets/css/<%=pagina %>_style.css">
-  <% } %>
+  <% System.out.println("pagina: "+pagina);} %>
   <!-- Icon CSS -->
   <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"/>
   <link rel="stylesheet" href="./assets/css/all.css">
