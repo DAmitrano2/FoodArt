@@ -8,10 +8,10 @@
 	<div class="container justify-content-center">
 		<div class="row">
 			<div class="col-lg-3">
-				<a href="categoria?idCategoria=0">
-					<div class="text-info">Tutte le categorie</div>
-				</a>
-				<div class="list-group">
+				<div class="title-left-div">
+					<a class="title-left" href="categoria?idCategoria=0">Tutte le categorie</a>
+				</div>
+				<div class="list-group" id="left-list-group">
 					<%
 						if (categorie != null && categorie.size() != 0) {
 							for (CategoriaBean category: categorie) {

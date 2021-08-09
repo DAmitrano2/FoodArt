@@ -1,10 +1,25 @@
 @charset "ISO-8859-1";
 
-div .text-info{
+.title-left{
 	color: black;
-	
 }
-div .container{
+
+.title-left:hover{
+	color: #404040;
+}
+
+.title-left-div{
+	padding-bottom: 5px;
+}
+
+div.container{
 	padding-top: 15px;
-  margin-top: 2%;
+}
+
+#left-list-group>.list-group-item{
+	color: black;
+}
+
+#left-list-group>.list-group-item:active{
+	color: #404040;
 }

@@ -8,8 +8,10 @@
 	<div class="container justify-content-center">
 		<div class="row">
 			<div class="col-lg-3">
-				<h3 class="title">Select Brand</h3>
-				<ul class="list-group">
+				<div class="title-left-div">
+					<a class="title-left" href="categoria?idCategoria=0"><i class="fas fa-arrow-circle-left"></i>Tutte le categorie</a>
+				</div>
+				<ul class="list-group"  id="left-list-group">
 					<li class="list-group-item">
 						<div class="form-check">
 							<label class="form-check-label">

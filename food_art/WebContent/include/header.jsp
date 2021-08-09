@@ -65,9 +65,9 @@
   <% if(pagina != null && pagina.equalsIgnoreCase("register")) { %>
 	  <link rel="stylesheet" href="./assets/css/login_style.css">
 	  <link rel="stylesheet" href="./assets/css/<%=pagina %>_style.css">
-  <% System.out.println("pagina: "+pagina);}else{ %>
+  <% }else{ %>
   	  <link rel="stylesheet" href="./assets/css/<%=pagina %>_style.css">
-  <% System.out.println("pagina: "+pagina);} %>
+  <% } %>
   <!-- Icon CSS -->
   <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"/>
   <link rel="stylesheet" href="./assets/css/all.css">
