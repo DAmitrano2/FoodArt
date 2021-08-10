@@ -20,6 +20,44 @@ div.container{
 	color: black;
 }
 
-#left-list-group>.list-group-item:active{
+.mini-title>a:active{
 	color: #404040;
 }
+
+a.star:not(div.star p){
+	color: #FCBA03;
+	display: block;
+}
+
+
+a.star p{
+	color: black;
+	margin: 0 0 0 5px;
+  display: inline-block;
+  text-decoration: none;
+}
+
+a.star p:hover{
+	color: #404040;
+}
+
+.list-group-item .lead{
+	color: black;
+	display: block;
+	text-decoration: none;
+	font-size: 1rem;
+	font-weight: normal;
+}
+
+.list-group-item .lead:hover{
+	color: #404040;
+}
+
+.mini-title{
+	margin-bottom: 1rem;
+}
+
+.form-check-label>input[type=checkbox]{
+	margin-right: 5px;
+}
+

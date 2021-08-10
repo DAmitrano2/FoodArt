@@ -13,9 +13,31 @@
 				</div>
 				<ul class="list-group"  id="left-list-group">
 					<li class="list-group-item">
-						<div class="form-check">
+						<div class="mini-title">
+							<p class="h6">Media recensioni clienti</p>
+							<a href="#" class="star"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><p>o più</p></a>
+							<a href="#" class="star"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><p>o più</p></a>
+							<a href="#" class="star"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><p>o più</p></a>
+							<a href="#" class="star"><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><p>o più</p></a>
+						</div>
+						<div class="mini-title">
+							<p class="h6">Prezzo</p>
+							<a href="#" class="lead">Fino a 5 EUR</a>
+							<a href="#" class="lead">5 a 10 EUR</a>
+							<a href="#" class="lead">10 a 20 EUR</a>
+							<a href="#" class="lead">20 a 50 EUR</a>
+							<a href="#" class="lead">50 EUR e più</a>
+						</div>
+						<div class="mini-title">
+							<p class="h6">Nuovi arrivi</p>
+							<a href="#" class="lead">Ultimi 30 giorni</a>
+							<a href="#" class="lead">Ultimi 90 giorni</a>
+							<a href="#" class="lead">Prossimi 90 giorni</a>
+						</div>
+						<div class="mini-title">
+							<p class="h6">Spedizione</p>
 							<label class="form-check-label">
-								<input type="checkbox" class="form-check-control product_check" value="" id="">
+								<input type="checkbox" class="form-check-control product_check" value="" id="">Gratis
 							</label>
 						</div>
 					</li>
