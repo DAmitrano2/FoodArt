@@ -264,12 +264,7 @@ public class ProdottoDAOImp implements ProdottoDAO {
 		}
 		
 	}
-	
-	private static final String TABLE_NAME = "prodotto";
-	
-	private DataSource ds;
 
-	@Override
 	public Collection<ProdottoBean> getLastArrivals() throws SQLException {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
@@ -316,5 +311,8 @@ public class ProdottoDAOImp implements ProdottoDAO {
 		}
 		return products;
 	}
-
+	
+	private static final String TABLE_NAME = "prodotto";
+	
+	private DataSource ds;
 }

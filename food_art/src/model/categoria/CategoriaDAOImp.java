@@ -40,6 +40,7 @@ public class CategoriaDAOImp implements CategoriaDAO {
 			connection = ds.getConnection();
 			preparedStatement = connection.prepareStatement(insertSQL);
 			preparedStatement.setString(1, category.getNome());
+			preparedStatement.setBytes(2, category.getPathName());
 			
 			preparedStatement.executeUpdate();
 
@@ -102,6 +103,7 @@ public class CategoriaDAOImp implements CategoriaDAO {
 			
 			while(rs.next()) {
 				categoria.setNome(rs.getString("nome"));
+				categoria.setPathName(rs.getBytes("pathName"));
 				
 				flag = true;
 			}
@@ -141,6 +143,7 @@ public class CategoriaDAOImp implements CategoriaDAO {
 				CategoriaBean categoria = new CategoriaBean();
 				categoria.setIdCategoria(rs.getInt("idCategoria"));
 				categoria.setNome(rs.getString("nome"));
+				categoria.setPathName(rs.getBytes("pathname"));
 				
 				all_categories.add(categoria);
 			}
@@ -170,6 +173,7 @@ public class CategoriaDAOImp implements CategoriaDAO {
 			preparedStatement = connection.prepareStatement(updateSQL);
 			preparedStatement.setString(1, NewName);
 			preparedStatement.setInt(2,idCategoria);
+			
 			
 			preparedStatement.executeUpdate();
 									
