@@ -1,4 +1,5 @@
   <%@include file="./include/header.jsp"%>
+  <!-- cicciobello -->
   <!-- Inizio Carosello Principale-->
   <div id="carouselMain" class="carousel slide" data-ride="carousel" data-interval="6000">
 	<ol class="carousel-indicators">
