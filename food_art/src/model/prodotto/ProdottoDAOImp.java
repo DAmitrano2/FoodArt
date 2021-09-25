@@ -265,6 +265,7 @@ public class ProdottoDAOImp implements ProdottoDAO {
 		
 	}
 
+	@Override
 	public Collection<ProdottoBean> getLastArrivals() throws SQLException {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
