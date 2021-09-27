@@ -1,15 +1,16 @@
-<%@ page language="java" import="java.util.*,model.utente.*,model.rivenditore.*,model.categoria.*,model.prodotto.*,model.immagine.*,java.sql.Date" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" import="java.util.*,model.utente.*,model.rivenditore.*,model.categoria.*,model.prodotto.*,model.immagine.*,java.sql.Date" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<!--%@ page errorPage = "./400.jsp" %-->
 <%
 	// Check user credentials
 	UtenteBean user = (UtenteBean) request.getSession(false).getAttribute("user");
 	String pagina = (String) request.getAttribute("page");
 	String path = request.getContextPath();
+	
 	boolean auth;
 	
 	if (user == null)
 	{	
-	    auth = false;
+		auth = false;
 	}
 	else {
 		auth = true;
@@ -38,7 +39,7 @@
 		}
 	}
 	else {
-		response.sendRedirect("./index");
+		//response.sendRedirect("./index");
 	}
 	
 	//Categorie
@@ -73,14 +74,15 @@
   <link rel="stylesheet" href="./assets/css/all.css">
   <script src="https://kit.fontawesome.com/2a789f15df.js"></script>
   
-  <link rel="icon" href="./images/icon.png" type="image/icon type">
+  <!-- Intestazione di pagina -->
+  <link rel="icon" href="./assets/images/icon.png" type="image/icon type">
   <title>FoodArt</title>
 </head>
 <body>
 <div class="sticky-top">
   <nav class="navbar navbar-light" style="background-color:  #fcba03;">
  	<a class="navbar-brand" href="<%=path%>/index">
-   	  <img src="./images/logoLungoL.png" width="auto" height="45" class="d-inline-block align-top" alt="">
+   	  <img src="./assets/images/logoLungoBordo.png" width="auto" height="45" class="d-inline-block align-top" alt="">
 	</a>
 	<div class="input-group mainNavBar">
 	  <input type="text" class="form-control">
@@ -101,7 +103,7 @@
         </div>
 	  </li>
 	  <li class="nav-item">
-	    <a class="nav-link" href="<%=path %>/cart"><i class="fas fa-shopping-cart"></i></a>
+	    <a class="nav-link" href="<%=path %>/shoppingCart"><i class="fas fa-shopping-cart"></i></a>
 	  </li>
     </ul>
   </nav>
@@ -111,10 +113,10 @@
  	</button>
  	<div class="collapse align-content-center navbar-collapse" id="navbarMain">
       <ul class="navbar-nav mx-auto">
-      <%
-			if (categorie != null && categorie.size() != 0) {
-				for (CategoriaBean category: categorie) {
-			%>
+      	<%
+					if (categorie != null && categorie.size() != 0) {
+						for (CategoriaBean category: categorie) {
+				%>
         <li class="nav-item">
           <a class="nav-link" href="categoria?idCategoria=<%=category.getIdCategoria()%>"><%=category.getNome()%></a>
         </li>
