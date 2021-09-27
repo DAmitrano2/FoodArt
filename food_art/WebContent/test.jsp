@@ -7,7 +7,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-  <link rel="icon" href="./images/icon.png" type="image/icon type">
+  <link rel="icon" href="./assets/images/icon.png" type="image/icon type">
 	<title>FoodArt - Bad Request</title>
 
 	<!-- Google font -->

@@ -8,7 +8,7 @@
 	</ol>
 	<div class="carousel-inner">
 	  <div class="carousel-item active">
-	    <img class="d-block w-100" src="./images/slider1.jpg" alt="Prima slide">
+	    <img class="d-block w-100" src="./assets/images/slider1.jpg" alt="Prima slide">
 	    <div class="carousel-caption">
 		  <div class="container">
 			<div class="row justify-content-end">
@@ -23,7 +23,7 @@
 	 	</div>
 	  </div>
 	  <div class="carousel-item">
-	    <img class="d-block w-100" src="./images/cannavacciuolo.jpg" alt="Seconda slide">
+	    <img class="d-block w-100" src="./assets/images/cannavacciuolo.jpg" alt="Seconda slide">
 	    <div class="carousel-caption">
 		  <div class="container">
 			<div class="row justify-content-end">
@@ -38,7 +38,7 @@
 	 	</div>
 	  </div>
 	  <div class="carousel-item">
-	    <img class="d-block w-100" src="./images/slider3.jpg" alt="Terza slide">
+	    <img class="d-block w-100" src="./assets/images/slider3.jpg" alt="Terza slide">
 	    <div class="carousel-caption">
 		  <div class="container">
 			<div class="row justify-content-end">
@@ -254,58 +254,7 @@
 				<%}}%>
 			</div>
   </div>
-  <!--Recensioni-->
-   <!--
-  <div class="testimonial text-center">
-	  <div class="small-container">
-		  <div class="row">
-			  <div class="col-3 text-center">
-				<i id="quote" class="fas fa-quote-left"></i>
-				  <p class="citazione">Uso FoodArt da oltre tre anni e fin da subito mi sono trovato davanti 
-					  estrema professionalit&#224; e rispetto sia per i clienti che per i rivenditori.
-					  Sono felice di essere un cliente e continuer&#242; ad acquistare prodotti da voi</p>
-					  <div class="rating">
-						<i class="fas fa-star"></i>
-						<i class="fas fa-star"></i>
-						<i class="fas fa-star"></i>
-						<i class="fas fa-star"></i>
-						<i class="fas fa-star"></i>
-					</div>
-					<img src="images/user-1.jpg" alt="">
-					<h3>Eminem</h3>
-			  </div>
-			  <div class="col-3 text-center">
-				<i id="quote" class="fas fa-quote-left"></i>
-				  <p class="citazione">La pandemia da Covid-19 ha colpito molto anche i nostri piccoli negozi di provincia.
-					&#200; grazie a FoodArt che siamo riusciti a farci conoscere anche in tutta Italia. Ancora una volta, grazie!
-				  </p>
-					  <div class="rating">
-						<i class="fas fa-star"></i>
-						<i class="fas fa-star"></i>
-						<i class="fas fa-star"></i>
-						<i class="fas fa-star"></i>
-						<i class="fas fa-star"></i>
-					</div>
-					<img src="images/user-2.jpg" alt="">
-					<h3>Jay-Z</h3>
-			  </div>
-			  <div class="col-3 text-center">
-				<i id="quote" class="fas fa-quote-left"></i>
-				  <p class="citazione">La soluzione che tutti stavamo cercando. FoodArt &#232; storia!</p>
-					  <div class="rating">
-						<i class="fas fa-star"></i>
-						<i class="fas fa-star"></i>
-						<i class="fas fa-star"></i>
-						<i class="fas fa-star"></i>
-						<i class="fas fa-star"></i>
-					</div>
-					<img src="images/user-3.jpg" alt="">
-					<h3>Bradley Cooper</h3>
-			  </div>
-		  </div>
-	  </div>
-  </div>
-  -->
+  
   <!--Footer-->
   <section id="footer">
 	  <div class="container">

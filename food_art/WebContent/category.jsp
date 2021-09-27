@@ -22,11 +22,11 @@
 						</div>
 						<div class="mini-title">
 							<p class="h6">Prezzo</p>
-							<a href="#" class="lead">Fino a 5 EUR</a>
-							<a href="#" class="lead">5 a 10 EUR</a>
-							<a href="#" class="lead">10 a 20 EUR</a>
-							<a href="#" class="lead">20 a 50 EUR</a>
-							<a href="#" class="lead">50 EUR e più</a>
+							<a href="#" class="lead">Fino a 5 &euro;</a>
+							<a href="#" class="lead">da 5 &euro; a 10 &euro;</a>
+							<a href="#" class="lead">da 10 &euro; a 20 &euro;</a>
+							<a href="#" class="lead">da 20 &euro; a 50 &euro;</a>
+							<a href="#" class="lead">50 &euro; o più</a>
 						</div>
 						<div class="mini-title">
 							<p class="h6">Nuovi arrivi</p>
