@@ -68,108 +68,33 @@
   <section id="categoryCarousel" data-ride="carouselCat">
 	  <div class="category">
 		  <div class="category-container">
-			<div class="owl-carousel owl-theme category-card">
-				<div class="category-content">
-					<div class="image-container">
-					<img src="./images/category/C1_Carne.jpg" alt="CT1">
+				<div class="owl-carousel owl-theme category-card">
+					<%
+						if (categorie != null && categorie.size() != 0) {
+							for (CategoriaBean category: categorie) {
+					%>
+					<div class="category-content">
+						<div class="image-container">
+							<img src="" alt="imageCategory">
+						</div>
+						<div class="category-title">
+							<h3><%=category.getNome()%></h3>
+							<a href="categoria?idCategoria=<%=category.getIdCategoria()%>" class="btn btn-category">Visualizza prodotti</a>
+							<span></span>
+						</div>
 					</div>
-					<div class="category-title">
-						<h3>CARNE</h3>
-						<button class="btn btn-category">Visualizza prodotti</button>
-						<span></span>
-					</div>
+					<%}} %>
 				</div>
-				<div class="category-content">
-					<div class="image-container">
-					<img src="./images/category/C2_Pesce.jpeg" alt="CT2">
-					</div>
-					<div class="category-title">
-						<h3>PESCE</h3>
-						<button class="btn btn-category">Visualizza prodotti</button>
-						<span></span>
-					</div>
-				</div>
-				<div class="category-content">
-					<div class="image-container">
-					<img src="./images/category/C3_Cereali.jpg" alt="CT3">
-					</div>
-					<div class="category-title">
-						<h3>CEREALI E DERIVATI</h3>
-						<button class="btn btn-category">Visualizza prodotti</button>
-						<span></span>
-					</div>
-				</div>
-				<div class="category-content">
-					<div class="image-container">
-					<img src="./images/category/C4_LatteDerivatiUova.jpg" alt="CT4">
-					</div>
-					<div class="category-title">
-						<h3 id="latte">LATTE, DERIVATI E UOVA</h3>
-						<button class="btn btn-category">Visualizza prodotti</button>
-						<span></span>
-					</div>
-				</div>
-				<div class="category-content">
-					<div class="image-container">
-					<img src="./images/category/C5_Pasticceria.jpg" alt="CT5">
-					</div>
-					<div class="category-title">
-						<h3>PASTICCERIA</h3>
-						<button class="btn btn-category">Visualizza prodotti</button>
-						<span></span>
-					</div>
-				</div>
-				<div class="category-content">
-					<div class="image-container">
-					<img src="./images/category/C6_FruttaVerdura.jpg" alt="CT6">
-					</div>
-					<div class="category-title">
-						<h3>FRUTTA E VERDURA</h3>
-						<button class="btn btn-category">Visualizza prodotti</button>
-						<span></span>
-					</div>
-				</div>
-				<div class="category-content">
-					<div class="image-container">
-					<img src="./images/category/C7_Bevande.jpg" alt="CT7">
-					</div>
-					<div class="category-title">
-						<h3>BEVANDE</h3>
-						<button class="btn btn-category">Visualizza prodotti</button>
-						<span></span>
-					</div>
-				</div>
-				<div class="category-content">
-					<div class="image-container">
-					<img src="./images/category/C8_Conserve.jpg" alt="CT8">
-					</div>
-					<div class="category-title">
-						<h3>CONSERVE</h3>
-						<button class="btn btn-category">Visualizza prodotti</button>
-						<span></span>
-					</div>
-				</div>
-				<div class="category-content">
-					<div class="image-container">
-					<img src="./images/category/C9_Condimenti.jpeg" alt="CT9">
-					</div>
-					<div class="category-title">
-						<h3>CONDIMENTI</h3>
-						<button class="btn btn-category">Visualizza prodotti</button>
-						<span></span>
-					</div>
-				</div>
-			</div>
 		  </div>
-		 </div>
-	  
+		</div>
   </section>
+  
   <!-- In Primo Piano -->
   <div class="small-container justify-content-center">
 	<h2 class="title">Prodotti In Primo Piano</h2>
 	<div class="row">
 		<div class="col-4 text-center">
-			<img src="images/primo-piano-1.jpg" alt="">
+			<img src="./assets/images/primo-piano-1.jpg" alt="">
 			<h4>Confettura Albicocche</h4>
 			<span>SOCIET&#192; AGRICOLA AMITRANO</span>
 			<div class="rating">
@@ -183,7 +108,7 @@
 			<button type="button" class="btn bg-cart"><i class="fas fa-cart-plus mr-2"></i>Aggiungi al Carrello</button>
 		</div>
 		<div class="col-4 text-center">
-			<img src="images/primo-piano-2.jpg" alt="">
+			<img src="./assets/images/primo-piano-2.jpg" alt="">
 			<h4>Salame Toscano</h4>
 			<span>SALUMERIA GROSSETANA</span>
 			<div class="rating">
@@ -197,7 +122,7 @@
 			<button type="button" class="btn bg-cart"><i class="fas fa-cart-plus mr-2"></i>Aggiungi al Carrello</button>
 		</div>
 		<div class="col-4 text-center">
-			<img src="images/primo-piano-3.jpg" alt="">
+			<img src="./assets/images/primo-piano-3.jpg" alt="">
 			<h4>Pere Santa Maria</h4>
 			<span>FRUTTETO ZAPPIA</span>
 			<div class="rating">
@@ -211,7 +136,7 @@
 			<button type="button" class="btn bg-cart"><i class="fas fa-cart-plus mr-2"></i>Aggiungi al Carrello</button>
 		</div>
 		<div class="col-4 text-center">
-			<img src="images/primo-piano-4.jpg" alt="">
+			<img src="./assets/images/primo-piano-4.jpg" alt="">
 			<h4>Birra Artigianale 0,3l</h4>
 			<span>BIRRIFICIO MIRANDA</span>
 			<div class="rating">

@@ -22,7 +22,6 @@ public class ImmagineControl extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		int idProdotto = Integer.parseInt(request.getParameter("idProdotto"));
-		
 		try {
 			byte[] bytes;
 			ImmagineDAOImp modelImmagine = new ImmagineDAOImp();
