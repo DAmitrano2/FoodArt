@@ -41,9 +41,9 @@ public class ProdottoDAOImp implements ProdottoDAO {
 			preparedStatement.setString(1, product.getTitolo());
 			preparedStatement.setString(2, product.getDescrizione());
 			preparedStatement.setString(3, product.getUnitaMisura());
-			preparedStatement.setFloat(4, product.getPrezzo());
-			preparedStatement.setFloat(5, product.getQuantitaMinima());
-			preparedStatement.setFloat(6, product.getQuantitaDisponibile());
+			preparedStatement.setString(4, product.getPrezzo());
+			preparedStatement.setInt(5, product.getQuantitaMinima());
+			preparedStatement.setInt(6, product.getQuantitaDisponibile());
 			preparedStatement.setString(7, product.getCittaProvenienza());
 			preparedStatement.setString(8, product.getProvinciaProvenienza());
 			preparedStatement.setInt(9, product.getIdCategoria());
@@ -112,9 +112,9 @@ public class ProdottoDAOImp implements ProdottoDAO {
 			product.setTitolo(rs.getString("titolo"));
 			product.setDescrizione(rs.getString("descrizione"));
 			product.setUnitaMisura(rs.getString("unitaMisura"));
-			product.setPrezzo(rs.getFloat("prezzo"));
-			product.setQuantitaMinima(rs.getFloat("quantitaMinimaAcquisto"));
-			product.setQuantitaDisponibile(rs.getFloat("quantitaDisponibile"));
+			product.setPrezzo(rs.getString("prezzo"));
+			product.setQuantitaMinima(rs.getInt("quantitaMinimaAcquisto"));
+			product.setQuantitaDisponibile(rs.getInt("quantitaDisponibile"));
 			product.setCittaProvenienza(rs.getString("cittaProvenienza"));
 			product.setProvinciaProvenienza(rs.getString("provinciaProvenienza"));
 			product.setIdCategoria(rs.getInt("idCategoria"));
@@ -163,9 +163,57 @@ public class ProdottoDAOImp implements ProdottoDAO {
 			singol_product.setTitolo(rs.getString("titolo"));
 			singol_product.setDescrizione(rs.getString("descrizione"));
 			singol_product.setUnitaMisura(rs.getString("unitaMisura"));
-			singol_product.setPrezzo(rs.getFloat("prezzo"));
-			singol_product.setQuantitaMinima(rs.getFloat("quantitaMinimaAcquisto"));
-			singol_product.setQuantitaDisponibile(rs.getFloat("quantitaDisponibile"));
+			singol_product.setPrezzo(rs.getString("prezzo"));
+			singol_product.setQuantitaMinima(rs.getInt("quantitaMinimaAcquisto"));
+			singol_product.setQuantitaDisponibile(rs.getInt("quantitaDisponibile"));
+			singol_product.setCittaProvenienza(rs.getString("cittaProvenienza"));
+			singol_product.setProvinciaProvenienza(rs.getString("provinciaProvenienza"));
+			singol_product.setIdCategoria(rs.getInt("idCategoria"));
+			singol_product.setIdUtente(rs.getInt("idUtente"));
+			
+			
+			products.add(singol_product);
+		}
+			
+		}
+		catch(SQLException e) {
+			return null;
+		}
+		finally {
+			try {
+				if (preparedStatement != null)
+					preparedStatement.close();
+			} finally {
+				if (connection != null)
+					connection.close();
+			}
+		}
+		return products;
+	}
+	
+	@Override
+	public Collection<ProdottoBean> getProductByIdCategory(int idCategoria, int numeroProdotti) throws SQLException {
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+		Collection<ProdottoBean> products = new LinkedList<ProdottoBean>();
+		
+		String selectSQL = "SELECT * FROM "+ ProdottoDAOImp.TABLE_NAME +" where idCategoria = ? limit "+ numeroProdotti;
+		try {
+		connection = ds.getConnection();
+		preparedStatement = connection.prepareStatement(selectSQL);
+		preparedStatement.setInt(1, idCategoria);
+		
+		ResultSet rs = preparedStatement.executeQuery();
+		
+		while (rs.next()) {
+			ProdottoBean singol_product = new ProdottoBean();
+			singol_product.setIdProdotto(rs.getInt("idProdotto"));
+			singol_product.setTitolo(rs.getString("titolo"));
+			singol_product.setDescrizione(rs.getString("descrizione"));
+			singol_product.setUnitaMisura(rs.getString("unitaMisura"));
+			singol_product.setPrezzo(rs.getString("prezzo"));
+			singol_product.setQuantitaMinima(rs.getInt("quantitaMinimaAcquisto"));
+			singol_product.setQuantitaDisponibile(rs.getInt("quantitaDisponibile"));
 			singol_product.setCittaProvenienza(rs.getString("cittaProvenienza"));
 			singol_product.setProvinciaProvenienza(rs.getString("provinciaProvenienza"));
 			singol_product.setIdCategoria(rs.getInt("idCategoria"));
@@ -244,9 +292,9 @@ public class ProdottoDAOImp implements ProdottoDAO {
 			preparedStatement.setString(1, product.getTitolo());
 			preparedStatement.setString(2, product.getDescrizione());
 			preparedStatement.setString(3, product.getUnitaMisura());
-			preparedStatement.setFloat(4, product.getPrezzo());
-			preparedStatement.setFloat(5, product.getQuantitaMinima());
-			preparedStatement.setFloat(6, product.getQuantitaDisponibile());
+			preparedStatement.setString(4, product.getPrezzo());
+			preparedStatement.setInt(5, product.getQuantitaMinima());
+			preparedStatement.setInt(6, product.getQuantitaDisponibile());
 			preparedStatement.setString(7, product.getCittaProvenienza());
 			preparedStatement.setString(8, product.getProvinciaProvenienza());
 			preparedStatement.setInt(9, product.getIdCategoria());
@@ -265,12 +313,12 @@ public class ProdottoDAOImp implements ProdottoDAO {
 		
 	}
 
-	public Collection<ProdottoBean> getLastArrivals() throws SQLException {
+	public Collection<ProdottoBean> getLastArrivals(int numeroProdotti) throws SQLException {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 		Collection<ProdottoBean> products = new LinkedList<ProdottoBean>();
 		
-		String selectSQL = "SELECT * FROM "+ ProdottoDAOImp.TABLE_NAME +" order by idProdotto desc";
+		String selectSQL = "SELECT * FROM "+ ProdottoDAOImp.TABLE_NAME +" order by idProdotto desc limit "+ numeroProdotti;
 		
 		try {
 			connection = ds.getConnection();
@@ -284,9 +332,9 @@ public class ProdottoDAOImp implements ProdottoDAO {
 				singol_product.setTitolo(rs.getString("titolo"));
 				singol_product.setDescrizione(rs.getString("descrizione"));
 				singol_product.setUnitaMisura(rs.getString("unitaMisura"));
-				singol_product.setPrezzo(rs.getFloat("prezzo"));
-				singol_product.setQuantitaMinima(rs.getFloat("quantitaMinimaAcquisto"));
-				singol_product.setQuantitaDisponibile(rs.getFloat("quantitaDisponibile"));
+				singol_product.setPrezzo(rs.getString("prezzo"));
+				singol_product.setQuantitaMinima(rs.getInt("quantitaMinimaAcquisto"));
+				singol_product.setQuantitaDisponibile(rs.getInt("quantitaDisponibile"));
 				singol_product.setCittaProvenienza(rs.getString("cittaProvenienza"));
 				singol_product.setProvinciaProvenienza(rs.getString("provinciaProvenienza"));
 				singol_product.setIdCategoria(rs.getInt("idCategoria"));

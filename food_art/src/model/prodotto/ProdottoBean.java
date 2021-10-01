@@ -6,9 +6,9 @@ public class ProdottoBean {
 	private String titolo;
 	private String descrizione;
 	private String unitaMisura;
-	private float prezzo;
-	private float quantitaMinima;
-	private float quantitaDisponibile;
+	private String prezzo;
+	private int quantitaMinima;
+	private int quantitaDisponibile;
 	private String cittaProvenienza;
 	private String provinciaProvenienza;
 	private int idCategoria;
@@ -50,27 +50,27 @@ public class ProdottoBean {
 		this.unitaMisura = unitaMisura;
 	}
 
-	public float getPrezzo() {
-		return prezzo;
+	public String getPrezzo() {
+		return prezzo.replace(".", ",");
 	}
 
-	public void setPrezzo(float prezzo) {
+	public void setPrezzo(String prezzo) {
 		this.prezzo = prezzo;
 	}
 
-	public float getQuantitaMinima() {
+	public int getQuantitaMinima() {
 		return quantitaMinima;
 	}
 
-	public void setQuantitaMinima(float quantitaMinima) {
+	public void setQuantitaMinima(int quantitaMinima) {
 		this.quantitaMinima = quantitaMinima;
 	}
 
-	public float getQuantitaDisponibile() {
+	public int getQuantitaDisponibile() {
 		return quantitaDisponibile;
 	}
 
-	public void setQuantitaDisponibile(float quantitaDisponibile) {
+	public void setQuantitaDisponibile(int quantitaDisponibile) {
 		this.quantitaDisponibile = quantitaDisponibile;
 	}
 

@@ -44,5 +44,13 @@ public interface CategoriaDAO {
 	 * @throws SQLException
 	 */	
 	public Collection<CategoriaBean> doRetrieveAll() throws SQLException;
+	
+	/**
+	 * Restituisce l'immagine della categoria in base all'id
+	 * @param idCategoria
+	 * @return CategoriaBean
+	 * @throws SQLException
+	 */
+	public byte[] doRetrieveByKeyCategoria(int idCategoria) throws SQLException;
 
 }

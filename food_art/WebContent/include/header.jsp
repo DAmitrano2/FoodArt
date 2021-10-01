@@ -118,7 +118,7 @@
 						for (CategoriaBean category: categorie) {
 				%>
         <li class="nav-item">
-          <a class="nav-link" href="categoria?idCategoria=<%=category.getIdCategoria()%>"><%=category.getNome()%></a>
+          <a class="nav-link" href="category?idCategoria=<%=category.getIdCategoria()%>"><%=category.getNome()%></a>
         </li>
         <%}} %>
       </ul>

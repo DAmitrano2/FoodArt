@@ -12,6 +12,8 @@ import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
 
+import model.immagine.ImmagineDAOImp;
+
 
 public class CategoriaDAOImp implements CategoriaDAO {
 
@@ -195,4 +197,37 @@ public class CategoriaDAOImp implements CategoriaDAO {
 	private static final String TABLE_NAME = "categoria";
 	
 	private DataSource ds;
+
+	@Override
+	public byte[] doRetrieveByKeyCategoria(int idCategoria) throws SQLException {
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+
+		byte[] path = null;
+
+		String selectSQL = "SELECT * FROM " + CategoriaDAOImp.TABLE_NAME + " WHERE idCategoria = ?";
+
+		try {
+			connection = ds.getConnection();
+			preparedStatement = connection.prepareStatement(selectSQL);
+			preparedStatement.setInt(1, idCategoria);
+
+			ResultSet rs = preparedStatement.executeQuery();
+
+			while (rs.next()) {
+				path = rs.getBytes("pathname");
+				continue;
+			}
+
+		} finally {
+			try {
+				if (preparedStatement != null)
+					preparedStatement.close();
+			} finally {
+				if (connection != null)
+					connection.close();
+			}
+		}
+		return path;
+	}
 }

@@ -9,7 +9,7 @@
 		<div class="row">
 			<div class="col-lg-3">
 				<div class="title-left-div">
-					<a class="title-left" href="categoria?idCategoria=0"><i class="fas fa-arrow-circle-left"></i>Tutte le categorie</a>
+					<a class="title-left" href="category?idCategoria=0"><i class="fas fa-arrow-circle-left"></i>Tutte le categorie</a>
 				</div>
 				<ul class="list-group"  id="left-list-group">
 					<li class="list-group-item">
@@ -51,8 +51,10 @@
 						for(ProdottoBean product: prodotti) {
 				%>
 					<div class="col-4 text-center">
-						<img src="./getImage?idProdotto=<%= product.getIdProdotto() %>" alt="imageProduct.png">
-						<h4><%= product.getTitolo() %></h4>
+						<a class="product_link" href="./single_product?idProdotto=<%=product.getIdProdotto()%>">
+							<img src="./getProductImage?idProdotto=<%= product.getIdProdotto() %>" alt="imageProduct.png">
+							<h4><%= product.getTitolo() %></h4>
+						</a>
 						<span><%= modelRivenditore.doRetriveNameById(product.getIdUtente()) %></span>
 						<div class="rating">
 							<i class="fas fa-star"></i>
@@ -61,7 +63,7 @@
 							<i class="fas fa-star"></i>
 							<i class="far fa-star"></i>
 						</div>
-						<p><%= product.getPrezzo()%>&#8364; al <%= product.getUnitaMisura()%></p>
+						<p><%= product.getPrezzo()%> &#8364; al <%= product.getUnitaMisura()%></p>
 						<button type="button" class="btn bg-cart"><i class="fas fa-cart-plus mr-2"></i>Aggiungi al Carrello</button>
 					</div>
 					<%}}%>

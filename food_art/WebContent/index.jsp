@@ -10,47 +10,47 @@
 	  <div class="carousel-item active">
 	    <img class="d-block w-100" src="./assets/images/slider1.jpg" alt="Prima slide">
 	    <div class="carousel-caption">
-		  <div class="container">
-			<div class="row justify-content-end">
-			  <div class="d-none d-md-block col-md-11 col-lg-9 col-xl-8 bg-dark text-right">
-	   	  		<h3 class="pb-3">3&#176; Festival Fruttariano Italiano</h3>
-	   	  		<div class="border-top border-white mb-3 w-75 ml-auto"></div>
-	   	  		<p class="lead">Per la prima volta, Foodart permette di avere l'esclusiva per l'acquisto dei prodotti ecosostenibili preparati al Festival!</p>
-	   	  		<a href="#" class="btn btn-primary btn-md">Leggi di Pi&#249;!</a>
-  		      </div>
-	        </div>
-	 	  </div>
-	 	</div>
+			  <div class="container">
+					<div class="row justify-content-end">
+					  <div class="d-none d-md-block col-md-11 col-lg-9 col-xl-8 bg-dark text-right">
+		   	  		<h3 class="pb-3">3&#176; Festival Fruttariano Italiano</h3>
+		   	  		<div class="border-top border-white mb-3 w-75 ml-auto"></div>
+		   	  		<p class="lead">Per la prima volta, Foodart permette di avere l'esclusiva per l'acquisto dei prodotti ecosostenibili preparati al Festival!</p>
+		   	  		<a href="#" class="btn btn-primary btn-md">Leggi di Pi&#249;!</a>
+	  		    </div>
+		      </div>
+		 	  </div>
+	 		</div>
 	  </div>
 	  <div class="carousel-item">
-	    <img class="d-block w-100" src="./assets/images/cannavacciuolo.jpg" alt="Seconda slide">
+	  	<img class="d-block w-100" src="./assets/images/cannavacciuolo.jpg" alt="Seconda slide">
 	    <div class="carousel-caption">
-		  <div class="container">
-			<div class="row justify-content-end">
-			  <div class="d-none d-md-block col-md-11 col-lg-9 col-xl-8 bg-dark text-right">
-	   	  		<h3 class="pb-3">In cucina vince la fantasia</h3>
-	   	  		<div class="border-top border-white mb-3 w-75 ml-auto"></div>
-	   	  		<p class="lead">Leggi un estratto dell'intervista esclusiva di chef Antonino Cannavacciuolo a FoodArt!</p>
-	   	  		<a href="#" class="btn btn-primary btn-md">Leggi di Pi&#249;!</a>
-   	  		  </div>
-  		    </div>
+			  <div class="container">
+					<div class="row justify-content-end">
+					  <div class="d-none d-md-block col-md-11 col-lg-9 col-xl-8 bg-dark text-right">
+		   	  		<h3 class="pb-3">In cucina vince la fantasia</h3>
+		   	  		<div class="border-top border-white mb-3 w-75 ml-auto"></div>
+		   	  		<p class="lead">Leggi un estratto dell'intervista esclusiva di chef Antonino Cannavacciuolo a FoodArt!</p>
+		   	  		<a href="#" class="btn btn-primary btn-md">Leggi di Pi&#249;!</a>
+  	  		  </div>
+ 		    	</div>
 	      </div>
-	 	</div>
+	 		</div>
 	  </div>
 	  <div class="carousel-item">
 	    <img class="d-block w-100" src="./assets/images/slider3.jpg" alt="Terza slide">
 	    <div class="carousel-caption">
-		  <div class="container">
-			<div class="row justify-content-end">
-			  <div class="d-none d-md-block col-md-11 col-lg-9 col-xl-8 bg-dark text-right">
-	   	  		<h3 class="pb-3">Festival del Formaggio di Campo Tures</h3>
-	   	  		<div class="border-top border-white mb-3 w-75 ml-auto"></div>
-	   	  		<p class="lead">Acquista da noi i migliori formaggi dell'Alto Adige!</p>
-	   	  		<a href="#" class="btn btn-primary btn-md">Leggi di Pi&#249;!</a>
+		  	<div class="container">
+					<div class="row justify-content-end">
+			  		<div class="d-none d-md-block col-md-11 col-lg-9 col-xl-8 bg-dark text-right">
+		   	  		<h3 class="pb-3">Festival del Formaggio di Campo Tures</h3>
+		   	  		<div class="border-top border-white mb-3 w-75 ml-auto"></div>
+		   	  		<p class="lead">Acquista da noi i migliori formaggi dell'Alto Adige!</p>
+		   	  		<a href="#" class="btn btn-primary btn-md">Leggi di Pi&#249;!</a>
 	   	  	  </div>
   		    </div>
 	      </div>
-	 	</div>
+	 		</div>
 	  </div>
 	</div>
 	<a class="carousel-control-prev" href="#carouselMain" role="button" data-slide="prev" onclick="$('#carousel').carousel('prev')">
@@ -75,11 +75,11 @@
 					%>
 					<div class="category-content">
 						<div class="image-container">
-							<img src="" alt="imageCategory">
+							<img src="./getCategoryImage?idCategoria=<%= category.getIdCategoria() %>" alt="imageCategory.png">
 						</div>
 						<div class="category-title">
 							<h3><%=category.getNome()%></h3>
-							<a href="categoria?idCategoria=<%=category.getIdCategoria()%>" class="btn btn-category">Visualizza prodotti</a>
+							<a href="./category?idCategoria=<%=category.getIdCategoria()%>" class="btn btn-category">Visualizza prodotti</a>
 							<span></span>
 						</div>
 					</div>
@@ -154,7 +154,7 @@
 	<%
 		ProdottoDAOImp modelProdotto = new ProdottoDAOImp(); 
 		RivenditoreDAOImp modelRivenditore = new RivenditoreDAOImp();
-		Collection<ProdottoBean> prodotti = modelProdotto.getLastArrivals();
+		Collection<ProdottoBean> prodotti = modelProdotto.getLastArrivals(8);
 	%>
 	<h2 class="title">Ultimi Arrivi</h2>
 		<div class="row">
@@ -162,22 +162,24 @@
 				if (prodotti != null && prodotti.size() != 0) {
 					for(ProdottoBean product: prodotti) {
 			%>
-				<div class="col-4 text-center">
-					<img src="./getImage?idProdotto=<%= product.getIdProdotto() %>" alt="imageProduct.png">
+			<div class="col-4 text-center">
+				<a class="product_link" href="./single_product?idProdotto=<%=product.getIdProdotto()%>">
+					<img src="./getProductImage?idProdotto=<%= product.getIdProdotto() %>" alt="imageProduct.png">
 					<h4><%= product.getTitolo() %></h4>
-					<span><%= modelRivenditore.doRetriveNameById(product.getIdUtente()) %></span>
-					<div class="rating">
-						<i class="fas fa-star"></i>
-						<i class="fas fa-star"></i>
-						<i class="fas fa-star"></i>
-						<i class="fas fa-star"></i>
-						<i class="far fa-star"></i>
-					</div>
-					<p><%= product.getPrezzo()%>&#8364; al <%= product.getUnitaMisura()%></p>
-					<button type="button" class="btn bg-cart"><i class="fas fa-cart-plus mr-2"></i>Aggiungi al Carrello</button>
+				</a>
+				<span><%= modelRivenditore.doRetriveNameById(product.getIdUtente()) %></span>
+				<div class="rating">
+					<i class="fas fa-star"></i>
+					<i class="fas fa-star"></i>
+					<i class="fas fa-star"></i>
+					<i class="fas fa-star"></i>
+					<i class="far fa-star"></i>
 				</div>
-				<%}}%>
+				<p><%= product.getPrezzo()%> &#8364; al <%= product.getUnitaMisura()%></p>
+				<button type="button" class="btn bg-cart"><i class="fas fa-cart-plus mr-2"></i>Aggiungi al Carrello</button>
 			</div>
+			<%}}%>
+		</div>
   </div>
   
   <!--Footer-->

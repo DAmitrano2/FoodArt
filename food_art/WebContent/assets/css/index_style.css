@@ -301,6 +301,7 @@ section .section-title{
 		margin: 2rem 2rem;
 	}
 }
+
 @media (max-width: 590px){
 	.category-title h3{
 		font-size: 1.15rem!important;
@@ -309,6 +310,7 @@ section .section-title{
 		font-size: .9rem;
 	}
 }
+
 @media (max-width: 625px){
 	.category-title h3{
 		font-size: 1.18rem!important;

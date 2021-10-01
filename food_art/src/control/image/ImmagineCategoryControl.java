@@ -10,27 +10,27 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import model.immagine.ImmagineDAOImp;
+import model.categoria.CategoriaDAOImp;
 
-@WebServlet("/getImage")
-public class ImmagineControl extends HttpServlet {
+@WebServlet("/getCategoryImage")
+public class ImmagineCategoryControl extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    public ImmagineControl() {
+    public ImmagineCategoryControl() {
         super();
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		int idProdotto = Integer.parseInt(request.getParameter("idProdotto"));
+		int idCategoria = Integer.parseInt(request.getParameter("idCategoria"));
 		try {
 			byte[] bytes;
-			ImmagineDAOImp modelImmagine = new ImmagineDAOImp();
-			bytes = modelImmagine.doRetrieveByKeyProdotto(idProdotto);
+			CategoriaDAOImp modelImmagine = new CategoriaDAOImp();
+			bytes = modelImmagine.doRetrieveByKeyCategoria(idCategoria);
 			ServletOutputStream out = response.getOutputStream();
 			if(bytes != null)
 			{
 				out.write(bytes);
-				response.setContentType("image");			
+				response.setContentType("image");
 			}
 			out.close();
 		} catch (SQLException e) {

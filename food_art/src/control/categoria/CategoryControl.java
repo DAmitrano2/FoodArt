@@ -1,4 +1,4 @@
-package control.category;
+package control.categoria;
 
 import java.io.IOException;
 
@@ -9,12 +9,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/categoria")
-public class CategoriaControl extends HttpServlet {
+@WebServlet("/category")
+public class CategoryControl extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private int idCategoria;
     
-    public CategoriaControl() {
+    public CategoryControl() {
         super();
         idCategoria=0;
     }
@@ -23,8 +23,7 @@ public class CategoriaControl extends HttpServlet {
 		
 		idCategoria=Integer.parseInt(request.getParameter("idCategoria"));
 		request.setAttribute("idCategoria", idCategoria);
-		
-		request.setAttribute("page","categoria");
+		request.setAttribute("page","category");
 		if(idCategoria>0) {
 			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/category.jsp");
 			dispatcher.forward(request, response);
