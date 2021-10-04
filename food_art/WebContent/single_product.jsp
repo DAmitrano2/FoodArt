@@ -37,7 +37,7 @@
 					<hr>
 			      <h2><%= prodotto.getPrezzo()%> &#8364; al <%= prodotto.getUnitaMisura()%></h2>
 			      <select class="my-3">
-		          <option active>Seleziona la quantit�</option>
+		          <option active>Seleziona la quantit&#224</option>
 		          <%
 		          	int nMin = prodotto.getQuantitaMinima();
 		          	int nMax = prodotto.getQuantitaDisponibile();
