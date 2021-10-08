@@ -360,6 +360,53 @@ public class ProdottoDAOImp implements ProdottoDAO {
 		return products;
 	}
 	
+	@Override
+	public Collection<ProdottoBean> getProductByTitle(String title) throws SQLException {
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+		Collection<ProdottoBean> products = new LinkedList<ProdottoBean>();
+		
+		String selectSQL = "SELECT * FROM "+ ProdottoDAOImp.TABLE_NAME +" where titolo like '%"+title+"%'";
+		try {
+		connection = ds.getConnection();
+		preparedStatement = connection.prepareStatement(selectSQL);
+		
+		ResultSet rs = preparedStatement.executeQuery();
+		
+		while (rs.next()) {
+			ProdottoBean singol_product = new ProdottoBean();
+			singol_product.setIdProdotto(rs.getInt("idProdotto"));
+			singol_product.setTitolo(rs.getString("titolo"));
+			singol_product.setDescrizione(rs.getString("descrizione"));
+			singol_product.setUnitaMisura(rs.getString("unitaMisura"));
+			singol_product.setPrezzo(rs.getString("prezzo"));
+			singol_product.setQuantitaMinima(rs.getInt("quantitaMinimaAcquisto"));
+			singol_product.setQuantitaDisponibile(rs.getInt("quantitaDisponibile"));
+			singol_product.setCittaProvenienza(rs.getString("cittaProvenienza"));
+			singol_product.setProvinciaProvenienza(rs.getString("provinciaProvenienza"));
+			singol_product.setIdCategoria(rs.getInt("idCategoria"));
+			singol_product.setIdUtente(rs.getInt("idUtente"));
+			
+			
+			products.add(singol_product);
+		}
+			
+		}
+		catch(SQLException e) {
+			return null;
+		}
+		finally {
+			try {
+				if (preparedStatement != null)
+					preparedStatement.close();
+			} finally {
+				if (connection != null)
+					connection.close();
+			}
+		}
+		return products;
+	}
+	
 	private static final String TABLE_NAME = "prodotto";
 	
 	private DataSource ds;

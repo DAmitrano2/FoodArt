@@ -59,14 +59,19 @@
     
   <!-- Bootstrap CSS CDN-->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
   
   <!-- Default CSS -->
   <link rel="stylesheet" href="./assets/css/header_style.css">
+  <link rel="stylesheet" href="./assets/css/footer_style.css">
   <link rel="stylesheet" href="./assets/css/card_style.css">
+  
   <% if(pagina != null && pagina.equalsIgnoreCase("register")) { %>
 	  <link rel="stylesheet" href="./assets/css/login_style.css">
 	  <link rel="stylesheet" href="./assets/css/<%=pagina %>_style.css">
-  <% }else{ %>
+  <% }else if(pagina != null && pagina.equalsIgnoreCase("search_page")) { %>
+  <link rel="stylesheet" href="./assets/css/category_style.css">
+	<% }else{ %>
   	  <link rel="stylesheet" href="./assets/css/<%=pagina %>_style.css">
   <% } %>
   <!-- Icon CSS -->
@@ -85,9 +90,9 @@
    	  <img src="./assets/images/logoLungoBordo.png" width="auto" height="45" class="d-inline-block align-top" alt="">
 	</a>
 	<div class="input-group mainNavBar">
-	  <input type="text" class="form-control">
+	  <input type="text" id="searchBar" class="form-control">
 	  <div class="input-group-append">
-	    <button class="btn btn-secondary" type="button"><i class="fa fa-search"></i></button>
+	    <button class="btn btn-secondary" id="btnSearchBar" type="button"><i class="fa fa-search"></i></button>
 	  </div>
 	</div>
 	<ul class="navbar-nav navbar-main-link">

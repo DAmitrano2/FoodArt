@@ -29,7 +29,7 @@ $(document).ready(function(){
     });
 });
 
-var MainImg = document.getElementById('MainImg');
+/*var MainImg = document.getElementById('MainImg');
 var smallImg = document.getElementsByClassName('small-img');
 smallImg[0].onmouseover = function(){
     MainImg.src = smallImg[0].src;
@@ -42,4 +42,9 @@ smallImg[2].onmouseover = function(){
 }
 smallImg[3].onmouseover = function(){
     MainImg.src = smallImg[3].src;
-}
+}*/
+
+$("#btnSearchBar").click(function(){
+	window.location.href='search_page?title='+$("#searchBar").val();
+});
+

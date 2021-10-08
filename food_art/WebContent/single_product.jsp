@@ -1,5 +1,7 @@
+<%@page import="model.feedback.FeedbackBean"%>
+<%@page import="model.feedback.FeedbackDAOImp"%>
 <%@include file="./include/header.jsp"%>
-  <section class="container sproduct my-5 pt-5">
+  <section class="container sproduct my-5">
   	<div class="row mt-5">
 	    <div class="col-lg-5 col-md-12 col-12">
 		    <%
@@ -36,7 +38,7 @@
         	</div>
 					<hr>
 			      <h2><%= prodotto.getPrezzo()%> &#8364; al <%= prodotto.getUnitaMisura()%></h2>
-			      <select class="my-3">
+			      <select class="selectpicker my-3">
 		          <option active>Seleziona la quantit&#224</option>
 		          <%
 		          	int nMin = prodotto.getQuantitaMinima();
@@ -83,12 +85,19 @@
 	<section id="testimonials">
 		<div class="small-container justify-content-center">
 			<h2 class="title">Recensioni in Evidenza</h2>
+			<% 
+						FeedbackDAOImp collectionFb = new FeedbackDAOImp();
+						Collection<FeedbackBean> feedback = collectionFb.doRetriveByProduct(idProdotto);
+						if (feedback != null && feedback.size() != 0) {
+							for(FeedbackBean fb: feedback) {
+			%>
 			<div class="testimonial-box-container">
 				<div class="testimonial-box">
+					
 					<div class="box-top">
 						<div class="profile">
 							<div class="profile-img">
-								<img src="images/recensione1.jpg" alt="">
+								<img src="./assets/images/recensione1.jpg" alt="">
 							</div>
 						</div>
 						<div class="user-informations">
@@ -100,79 +109,28 @@
 									<i class="fas fa-star"></i>
 									<i class="fas fa-star-half-alt"></i>
 								</div>
-								<strong>Buonissima</strong>
+								<strong><%= fb.getTitolo() %></strong>
 							</div>
 							<div class="name-user">
-								<span>Harry Potter</span>
+								<%
+									UtenteDAOImp utenteDao = new UtenteDAOImp();
+									UtenteBean utente = utenteDao.doRetrieveById(fb.getIdCommentatore()); 
+								%>
+								<span><%= utente.getNome() %> <%= utente.getCognome() %></span>
 							</div>
 						</div>
 					</div>
 					<div class="client-comment">
-						<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem, minus minima voluptatem iste sapiente similique perspiciatis temporibus laudantium nesciunt vel? Laudantium culpa tempore reiciendis ipsam aut ad voluptates voluptatem, incidunt qui ut ducimus aliquam neque eius excepturi quas modi eos quo maiores aperiam sequi, laborum ullam accusamus iste non. Aut?</p>
+						<p><%= fb.getCommento() %></p>
 					</div>
+					
 				</div>
 			</div>
-			<div class="testimonial-box-container">
-				<div class="testimonial-box">
-					<div class="box-top">
-						<div class="profile">
-							<div class="profile-img">
-								<img src="images/recensione2.jpg" alt="">
-							</div>
-						</div>
-						<div class="user-informations">
-							<div class="title-review">
-								<div class="rating">
-									<i class="fas fa-star"></i>
-									<i class="fas fa-star"></i>
-									<i class="fas fa-star"></i>
-									<i class="fas fa-star"></i>
-									<i class="far fa-star"></i>
-								</div>
-								<strong>Discreta</strong>
-							</div>
-							<div class="name-user">
-								<span>Silvio Berlusconi</span>
-							</div>
-						</div>
-					</div>
-					<div class="client-comment">
-						<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem, minus minima voluptatem iste sapiente similique perspiciatis temporibus laudantium nesciunt vel? Laudantium culpa tempore reiciendis ipsam aut ad voluptates voluptatem, incidunt qui ut ducimus aliquam neque eius excepturi quas modi eos quo maiores aperiam sequi, laborum ullam accusamus iste non. Aut?</p>
-					</div>
-				</div>
-			</div>
-			<div class="testimonial-box-container">
-				<div class="testimonial-box">
-					<div class="box-top">
-						<div class="profile">
-							<div class="profile-img">
-								<img src="images/recensione3.jpg" alt="">
-							</div>
-						</div>
-					<div class="user-informations">
-						<div class="title-review">
-							<div class="rating">
-								<i class="fas fa-star"></i>
-								<i class="fas fa-star"></i>
-								<i class="fas fa-star"></i>
-								<i class="fas fa-star"></i>
-								<i class="fas fa-star"></i>
-							</div>
-								<strong>Fenomenale</strong>
-							</div>
-							<div class="name-user">
-								<span>Elon Musk</span>
-							</div>
-						</div>
-					</div>
-					<div class="client-comment">
-						<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem, minus minima voluptatem iste sapiente similique perspiciatis temporibus laudantium nesciunt vel? Laudantium culpa tempore reiciendis ipsam aut ad voluptates voluptatem, incidunt qui ut ducimus aliquam neque eius excepturi quas modi eos quo maiores aperiam sequi, laborum ullam accusamus iste non. Aut?</p>
-					</div>
-				</div>
-			</div>
+			<%}} %>
 		</div>
 	</section>
-<%@include file="./include/script.html" %>
-
-
-
+	
+	<%@include file="./include/footer.html" %>
+  <%@include file="./include/script.html" %>
+</body>
+</html>

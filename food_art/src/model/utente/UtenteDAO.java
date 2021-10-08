@@ -53,13 +53,19 @@ public interface UtenteDAO {
 	 */
 	public boolean isAmministratore(int idUtente) throws SQLException;
 	
-	 /**
-		 * Controlla se un utente è rivenditore
-		 * @param idUtente
-		 * @return true se l'utente è rivenditore, false altrimenti
-		 * @throws SQLException
-		 */
+	/**
+	 * Controlla se un utente è rivenditore
+	 * @param idUtente
+	 * @return true se l'utente è rivenditore, false altrimenti
+	 * @throws SQLException
+	 */
 	public boolean isRivenditore(int idUtente) throws SQLException;
-    
 
+	/**
+	 * Restituisce un utente tramite l'id
+	 * @param idUtente
+	 * @return uno specifico utente
+	 * @throws SQLException
+	 */
+	public UtenteBean doRetrieveById(int idUtente) throws SQLException;
 }

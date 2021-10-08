@@ -71,4 +71,12 @@ public interface ProdottoDAO {
 	 */
 	public void doUpdate(ProdottoBean product) throws SQLException;
 
+	/**
+	 * Ricerca dei prodotti in base al titolo
+	 * @param filter
+	 * @return collezione di ProdottoBean
+	 * @throws SQLException
+	 */
+	Collection<ProdottoBean> getProductByTitle(String title) throws SQLException;
+
 }
