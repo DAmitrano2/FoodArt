@@ -1,32 +1,34 @@
-package control.product;
+package control.feedback;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/single_product")
-public class ProductControl extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-	private int idProdotto;
+import model.feedback.FeedbackDAOImp;
 
-    public ProductControl() {
+@WebServlet("/getFeedback")
+public class feedbackControl extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+
+    public feedbackControl() {
         super();
-        idProdotto=0;
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		idProdotto=Integer.parseInt(request.getParameter("idProdotto"));
-		request.setAttribute("idProdotto", idProdotto);
-		request.setAttribute("page","single_product");
-		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/single_product.jsp");
-		dispatcher.forward(request, response);		
+		int idProdotto=Integer.parseInt(request.getParameter("idProdotto"));
+		FeedbackDAOImp fbImp = new FeedbackDAOImp();
+		try {
+			request.setAttribute("collectionFb", fbImp.doRetriveByProduct(idProdotto));
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
-	
+
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doGet(request, response);
 	}

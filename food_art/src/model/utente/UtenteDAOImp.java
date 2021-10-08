@@ -199,6 +199,59 @@ public class UtenteDAOImp implements UtenteDAO {
 		}
 		return users;
 	}
+	
+	@Override
+	public UtenteBean doRetrieveById(int idUtente) throws SQLException {
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+
+		UtenteBean bean = new UtenteBean();
+
+		String selectSQL = "SELECT * FROM " + UtenteDAOImp.TABLE_NAME + " WHERE idUtente = ?";
+
+		try {
+			connection = ds.getConnection();
+			preparedStatement = connection.prepareStatement(selectSQL);
+			preparedStatement.setInt(1, idUtente);
+
+			ResultSet rs = preparedStatement.executeQuery();
+
+			boolean flag=false;
+			
+			while (rs.next()) {
+				bean.setIdUtente(rs.getInt("idUtente"));
+				bean.setNome(rs.getString("nome"));
+				bean.setCognome(rs.getString("cognome"));
+				bean.setEmail(rs.getString("email"));
+				bean.setPassword(rs.getString("password"));
+				bean.setAmministratore(rs.getBoolean("amministratore"));
+				bean.setRivenditore(rs.getBoolean("rivenditore"));
+				bean.setBloccato(rs.getBoolean("bloccato"));
+				
+				flag=true;
+			}
+			
+			if( !flag ) {
+				return null;
+			}
+			
+		}
+		catch(SQLException e) {
+			System.out.println(e);
+			return null;
+		}
+		finally {
+			try {
+				if (preparedStatement != null)
+					preparedStatement.close();
+			} finally {
+				if (connection != null)
+					connection.close();
+			}
+		}
+		return bean;
+		
+	}
 
 	@Override
 	public boolean isEmail(String email) throws SQLException {
