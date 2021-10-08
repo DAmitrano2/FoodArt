@@ -103,7 +103,7 @@
         </div>
 	  </li>
 	  <li class="nav-item">
-	    <a class="nav-link" href="<%=path %>/shoppingCart"><i class="fas fa-shopping-cart"></i></a>
+	    <a class="nav-link" href="<%=path %>/shopping_cart.jsp"><i class="fas fa-shopping-cart"></i></a>
 	  </li>
     </ul>
   </nav>

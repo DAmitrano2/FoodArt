@@ -127,7 +127,7 @@ public class CategoriaDAOImp implements CategoriaDAO {
 		return categoria;
 	}
 
-	@Override
+
 	public Collection<CategoriaBean> doRetrieveAll() throws SQLException {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
