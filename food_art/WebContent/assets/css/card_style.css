@@ -48,6 +48,7 @@
 	width: 100%;
 	cursor: pointer;
 	padding-bottom: 0.5em;
+	height: 50%;
 }
 .col-4 h4{
 	font-size: 1.3rem!important;

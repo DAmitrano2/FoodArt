@@ -15,10 +15,10 @@
 					<li class="list-group-item">
 						<div class="mini-title">
 							<p class="h6">Media recensioni clienti</p>
-							<a href="#" class="star"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><p>o più</p></a>
-							<a href="#" class="star"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><p>o più</p></a>
-							<a href="#" class="star"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><p>o più</p></a>
-							<a href="#" class="star"><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><p>o più</p></a>
+							<a href="#" class="star"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><p>o pi&#249;</p></a>
+							<a href="#" class="star"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><p>o pi&#249;</p></a>
+							<a href="#" class="star"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><p>o pi&#249;</p></a>
+							<a href="#" class="star"><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><p>o pi&#249;</p></a>
 						</div>
 						<div class="mini-title">
 							<p class="h6">Prezzo</p>
@@ -26,7 +26,7 @@
 							<a href="#" class="lead">da 5 &euro; a 10 &euro;</a>
 							<a href="#" class="lead">da 10 &euro; a 20 &euro;</a>
 							<a href="#" class="lead">da 20 &euro; a 50 &euro;</a>
-							<a href="#" class="lead">50 &euro; o più</a>
+							<a href="#" class="lead">50 &euro; o pi&#249;</a>
 						</div>
 						<div class="mini-title">
 							<p class="h6">Nuovi arrivi</p>
