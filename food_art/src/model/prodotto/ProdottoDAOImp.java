@@ -192,12 +192,12 @@ public class ProdottoDAOImp implements ProdottoDAO {
 	}
 	
 	@Override
-	public Collection<ProdottoBean> getProductByIdCategory(int idCategoria, int numeroProdotti) throws SQLException {
+	public Collection<ProdottoBean> getProductByIdCategory(int idCategoria, int numeroProdotti, int idProdotto) throws SQLException {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 		Collection<ProdottoBean> products = new LinkedList<ProdottoBean>();
 		
-		String selectSQL = "SELECT * FROM "+ ProdottoDAOImp.TABLE_NAME +" where idCategoria = ? limit "+ numeroProdotti;
+		String selectSQL = "SELECT * FROM "+ ProdottoDAOImp.TABLE_NAME +" where idCategoria = ? and idProdotto != "+idProdotto+" limit "+ numeroProdotti;
 		try {
 		connection = ds.getConnection();
 		preparedStatement = connection.prepareStatement(selectSQL);
