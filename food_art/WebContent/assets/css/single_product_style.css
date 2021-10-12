@@ -6,13 +6,13 @@
     flex-basis: 24%;
     cursor: pointer;
 }
-.btn{
+.col-lg-6.btn{
 	background-color: #fcba03!important;
 	color: black!important;
   border-radius: 0.2rem;
   margin-bottom: 0.5rem;
 }
-.btn:hover{
+.col-lg-6.btn:hover{
 	color: white!important;
 	border: 1px solid #fcba03!important;
 }
@@ -105,4 +105,34 @@ select:focus{
 .testimonial-box:hover{
     transform: translateY(-10px);
     transition: all ease 0.3s;
+}
+.bootstrap-select .dropdown-toggle:focus, .bootstrap-select>select.mobile-device:focus+.dropdown-toggle{
+	outline: none!important;
+}
+.dropdown-item.active, .dropdown-item:active{
+	color: #000;
+  text-decoration: none;
+  background-color: #fcba03;
+}
+@media (min-width: 768px){
+	.col-md-12 {
+		-ms-flex: 0 0 41.666667%;
+    flex: 0 0 41.666667%;
+    max-width: 41.666667%;
+	}
+}
+.row{
+	margin: 0;
+ 	justify-content: center;
+}
+.bootstrap-select:not([class*=col-]):not([class*=form-control]):not(.input-group-btn) {
+  width: 12rem;
+}
+#addCart{
+	width: 12rem;
+}
+@media (max-width: 768px){
+	.row {
+    text-align: center!important;
+	}
 }

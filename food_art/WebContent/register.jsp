@@ -119,7 +119,6 @@ fCartaIdentita.addEventListener('change', (event) => {
   console.log(event.target.files[0]);
 });
 </script>
-<%@include file="./include/footer.html" %>
 <%@include file="./include/script.html" %>
 </body>
 </html>

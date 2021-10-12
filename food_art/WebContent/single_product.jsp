@@ -27,7 +27,7 @@
 	      </div-->
 	    </div>
         <div class="col-lg-6 col-md-12 col-12">
-	        <h3><%= prodotto.getTitolo() %></h3>
+	        <h2><%= prodotto.getTitolo() %></h2>
 	        <h6>da <a href="#"><%= modelRivenditore.doRetriveNameById(prodotto.getIdUtente()) %></a></h6>
 	        <div class="rating">
 	          <i class="fas fa-star"></i>
@@ -37,7 +37,7 @@
 	          <i class="far fa-star"></i>
         	</div>
 					<hr>
-			      <h2><%= prodotto.getPrezzo()%> &#8364; al <%= prodotto.getUnitaMisura()%></h2>
+			      <h3><%= prodotto.getPrezzo()%> &#8364; al <%= prodotto.getUnitaMisura()%></h3>
 			      <select class="selectpicker my-3">
 		          <option active>Seleziona la quantit&#224</option>
 		          <%
@@ -48,7 +48,7 @@
 		          <option><%= i %></option>
 		          <%} %>
 			      </select>
-			      <button type="button" class="btn bg-cart"><i class="fas fa-cart-plus mr-2"></i>Aggiungi al Carrello</button>
+			      <button type="button" id="addCart" class="btn bg-cart"><i class="fas fa-cart-plus mr-2"></i>Aggiungi al Carrello</button>
 			      <h4 class="mt-3 mb-2">Dettagli sul Prodotto</h4>
 			      <span><%= prodotto.getDescrizione() %></span>
       		</div>
@@ -59,7 +59,7 @@
     <h2 class="title">Prodotti Correlati</h2>
 		<div class="row">
 			<%
-				Collection<ProdottoBean> prodottiCategorizzati = modelProdotto.getProductByIdCategory(prodotto.getIdCategoria(), 4);
+				Collection<ProdottoBean> prodottiCategorizzati = modelProdotto.getProductByIdCategory(prodotto.getIdCategoria(), 4, idProdotto);
 				if (prodottiCategorizzati != null && prodottiCategorizzati.size() != 0) {
 					for(ProdottoBean product: prodottiCategorizzati) {
 			%>
@@ -84,13 +84,17 @@
 	</div>
 	<section id="testimonials">
 		<div class="small-container justify-content-center">
-			<h2 class="title">Recensioni in Evidenza</h2>
-			<% 
+			<%
 						FeedbackDAOImp collectionFb = new FeedbackDAOImp();
 						Collection<FeedbackBean> feedback = collectionFb.doRetriveByProduct(idProdotto);
 						if (feedback != null && feedback.size() != 0) {
+							int i=0;
 							for(FeedbackBean fb: feedback) {
+								i++;
+								if(i==1){
 			%>
+			<h2 class="title">Recensioni in Evidenza</h2>
+			<%} %>
 			<div class="testimonial-box-container">
 				<div class="testimonial-box">
 					
