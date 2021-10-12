@@ -9,8 +9,8 @@
 .btn{
 	background-color: #fcba03!important;
 	color: black!important;
-    border-radius: 0.2rem;
-    margin-bottom: 0.5rem;
+  border-radius: 0.2rem;
+  margin-bottom: 0.5rem;
 }
 .btn:hover{
 	color: white!important;
@@ -28,11 +28,6 @@ select option{
     border-radius: 0.2rem;
     border-color: #fcba03;
 }
-/*
-.container{
-    margin-left: 2rem!important;
-}
-*/
 h3{
     margin-bottom: 0rem!important;
 }

@@ -19,6 +19,7 @@ public class SearchbarControl extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setAttribute("page", "search_page");
+		
 		request.setAttribute("title", request.getParameter("title"));
 		
 		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/search_page.jsp");

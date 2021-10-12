@@ -200,7 +200,6 @@ public class UtenteDAOImp implements UtenteDAO {
 		return users;
 	}
 	
-	@Override
 	public UtenteBean doRetrieveById(int idUtente) throws SQLException {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;

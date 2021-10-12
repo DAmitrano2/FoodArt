@@ -44,7 +44,13 @@ smallImg[3].onmouseover = function(){
     MainImg.src = smallImg[3].src;
 }*/
 
-$("#btnSearchBar").click(function(){
-	window.location.href='search_page?title='+$("#searchBar").val();
+$(document).ready(function(){
+	$("#btnSearchBar").click(function(){
+		window.location.href='search_page?title='+$("#searchBar").val();
+	});
+	$("#searchBar").on('keypress', function(e) {
+    if(e.which == 13) {
+			window.location.href='search_page?title='+$("#searchBar").val();
+		}
+	});
 });
-

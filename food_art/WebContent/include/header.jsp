@@ -68,11 +68,11 @@
   
   <% if(pagina != null && pagina.equalsIgnoreCase("register")) { %>
 	  <link rel="stylesheet" href="./assets/css/login_style.css">
-	  <link rel="stylesheet" href="./assets/css/<%=pagina %>_style.css">
+	  <link rel="stylesheet" href="./assets/css/<%=pagina%>_style.css">
   <% }else if(pagina != null && pagina.equalsIgnoreCase("search_page")) { %>
   <link rel="stylesheet" href="./assets/css/category_style.css">
 	<% }else{ %>
-  	  <link rel="stylesheet" href="./assets/css/<%=pagina %>_style.css">
+  	  <link rel="stylesheet" href="./assets/css/<%=pagina%>_style.css">
   <% } %>
   <!-- Icon CSS -->
   <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"/>
