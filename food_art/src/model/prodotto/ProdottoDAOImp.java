@@ -360,7 +360,6 @@ public class ProdottoDAOImp implements ProdottoDAO {
 		return products;
 	}
 	
-	@Override
 	public Collection<ProdottoBean> getProductByTitle(String title) throws SQLException {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
