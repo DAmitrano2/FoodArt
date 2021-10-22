@@ -2,10 +2,10 @@ package model.indirizzoConsegna;
 
 public class IndirizzoConsegnaBean {
 
-	private int idIndirizzo;
+	private int idIndirizzoConsegna;
 	private String nome;
 	private String cognome;
-	private String numeroTelefono;
+	private String nTelefono;
 	private String via;
 	private String numeroCivico;
 	private String citta;
@@ -18,12 +18,12 @@ public class IndirizzoConsegnaBean {
 		this.idUtente = -1;
 	}
 
-	public int getIdIndirizzo() {
-		return idIndirizzo;
+	public int getIdIndirizzoConsegna() {
+		return idIndirizzoConsegna;
 	}
 
-	public void setIdIndirizzo(int idIndirizzo) {
-		this.idIndirizzo = idIndirizzo;
+	public void setIdIndirizzoConsegna(int idIndirizzoConsegna) {
+		this.idIndirizzoConsegna = idIndirizzoConsegna;
 	}
 
 	public String getNome() {
@@ -43,11 +43,11 @@ public class IndirizzoConsegnaBean {
 	}
 
 	public String getNumeroTelefono() {
-		return numeroTelefono;
+		return nTelefono;
 	}
 
-	public void setNumeroTelefono(String numeroTelefono) {
-		this.numeroTelefono = numeroTelefono;
+	public void setNumeroTelefono(String nTelefono) {
+		this.nTelefono = nTelefono;
 	}
 
 	public String getVia() {

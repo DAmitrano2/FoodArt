@@ -1,4 +1,4 @@
-package control.categoria;
+package control.category;
 
 import java.io.IOException;
 

@@ -33,37 +33,37 @@
 						</select>
 					</div>
 					<div class="input-group form-group">
-						<input name="citta" id="citta" type="text" class="form-control" placeholder="citt&#224;" >
-						<input name="provincia" type="text" class="form-control" placeholder="provincia">
+						<input name="citta" id="citta" type="text" class="form-control" placeholder="citt&#224;" required>
+						<input name="provincia" type="text" class="form-control" placeholder="provincia" required>
 					</div>
 					<div class="input-group form-group">
-						<input name="codiceFiscale" id="codiceFiscale" type="text" maxlength="16" minlength="16" class="form-control" placeholder="codice fiscale">
+						<input name="codiceFiscale" id="codiceFiscale" type="text" maxlength="16" minlength="16" class="form-control" placeholder="codice fiscale" required>
 					</div>
 					
 					<div class="card-header-sm">
 						<h4>Sede Legale</h4>
 					</div>
 					<div class="input-group form-group">
-						<input name="ragioneSociale" id="ragioneSociale" type="text" class="form-control" placeholder="ragione sociale" >
-						<input name="provinciaSedeLegale" id="provinciaSedeLegale" type="text" class="form-control" placeholder="provincia">
+						<input name="ragioneSociale" id="ragioneSociale" type="text" class="form-control" placeholder="ragione sociale" required>
+						<input name="provinciaSedeLegale" id="provinciaSedeLegale" type="text" class="form-control" placeholder="provincia" required>
 					</div>
 					<div class="input-group form-group">
-						<input name="cittaSedeLegale" id="cittaSedeLegale" type="text" class="form-control" placeholder="citt&#224;">
-						<input name="viaSedeLegale" id="viaSedeLegale" type="text" class="form-control" placeholder="via">
+						<input name="cittaSedeLegale" id="cittaSedeLegale" type="text" class="form-control" placeholder="citt&#224;" required>
+						<input name="viaSedeLegale" id="viaSedeLegale" type="text" class="form-control" placeholder="via" required>
 					</div>
 					<div class="input-group form-group">
-						<input name="capSedeLegale" id="capSedeLegale" maxlength="5" minlength="5" type="text" class="form-control" placeholder="cap">
-						<input name="nCivicoSedeLegale" id="nCivicoSedeLegale" type="text" class="form-control" placeholder="numero civico">
+						<input name="capSedeLegale" id="capSedeLegale" maxlength="5" minlength="5" type="text" class="form-control" placeholder="cap"  required>
+						<input name="nCivicoSedeLegale" id="nCivicoSedeLegale" type="text" class="form-control" placeholder="numero civico" required>
 					</div>
 					<div class="input-group form-group">
-						<input name="nPartitaIVA" id="nPartitaIva" type="text" maxlength="11" minlength="11" class="form-control" placeholder="partita IVA">
+						<input name="nPartitaIVA" id="nPartitaIva" type="text" maxlength="11" minlength="11" class="form-control" placeholder="partita IVA" required>
 					</div>
 					<div class="input-group form-group">
 						<label for="fPartitaIVA" class="custom-file-upload form-control">
 						    <i class="fa fa-cloud-upload"></i> Inserisci la partita iva
 						</label>
-						<input name="fPartitaIVA" type="file" class="form-control" accept=".pdf" id="fPartitaIVA" />
-						<input name="fCartaIdentita" type="file" class="form-control" accept=".jpg, .jpeg, .png" id="fCartaIdentita"/>					
+						<input name="fPartitaIVA" type="file" class="form-control" accept=".pdf" id="fPartitaIVA" required/>
+						<input name="fCartaIdentita" type="file" class="form-control" accept=".jpg, .jpeg, .png" id="fCartaIdentita" required/>					
 						<label for="fCartaIdentita" class="custom-file-upload form-control">
 						    <i class="fa fa-cloud-upload"></i> Inserisci la carta di identit&#224;
 						</label>
@@ -119,6 +119,5 @@ fCartaIdentita.addEventListener('change', (event) => {
   console.log(event.target.files[0]);
 });
 </script>
-<%@include file="./include/script.html" %>
 </body>
 </html>

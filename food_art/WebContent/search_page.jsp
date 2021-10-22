@@ -63,7 +63,7 @@
 							<i class="far fa-star"></i>
 						</div>
 						<p><%= product.getPrezzo()%> &#8364; al <%= product.getUnitaMisura()%></p>
-						<button type="button" class="btn bg-cart"><i class="fas fa-cart-plus mr-2"></i>Aggiungi al Carrello</button>
+						<button type="button" class="btn bg-cart" onclick="addCart('add', <%=product.getIdProdotto()%>, '<%=pagina+"?title="+title%>')"><i class="fas fa-cart-plus mr-2"></i>Aggiungi al Carrello</button>
 					</div>
 					<%}}%>
 				</div>
@@ -72,5 +72,6 @@
 	</div>
 	<%@include file="./include/footer.html" %>
 	<%@include file="./include/script.html" %>
+	<script src="./assets/js/shoppingCart.js"></script>
 </body>
 </html>

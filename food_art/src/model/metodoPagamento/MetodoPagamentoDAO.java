@@ -1,6 +1,9 @@
 package model.metodoPagamento;
 
 import java.sql.SQLException;
+import java.util.Collection;
+
+import model.indirizzoConsegna.IndirizzoConsegnaBean;
 
 public interface MetodoPagamentoDAO {
 	
@@ -27,5 +30,13 @@ public interface MetodoPagamentoDAO {
 	 * @throws SQLException
 	 */
 	void effettuaPagamento(String nCarta, float spesa) throws SQLException;
+	
+	/**
+	 * Restituisce una collezione di carte collegate a un determinato utente
+	 * @param idUser
+	 * @return Collection<IndirizzoConsegnaBean>
+	 * @throws SQLException
+	 */
+	Collection<MetodoPagamentoBean> getMetodoPagamentoByIdUser (int idUser) throws SQLException;
 
 }

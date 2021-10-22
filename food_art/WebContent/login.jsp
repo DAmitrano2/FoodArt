@@ -11,13 +11,13 @@
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-user"></i></span>
 						</div>
-						<input type="text" name="email" class="form-control" placeholder="e-mail">
+						<input type="text" name="email" class="form-control" placeholder="e-mail" required>
 					</div>
 					<div class="input-group form-group">
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-key"></i></span>
 						</div>
-						<input type="password" name="password" class="form-control" placeholder="password">
+						<input type="password" name="password" class="form-control" placeholder="password" required>
 					</div>
 					<div class="row align-items-center remember">
 						<input type="checkbox" name="remember" id="remember-check">
@@ -66,6 +66,6 @@ $(document).ready(function() {
 	 });
 });
 </script>
-<%@include file="./include/script.html" %>
+<%@include file="./include/footer.html" %>
 </body>
 </html>

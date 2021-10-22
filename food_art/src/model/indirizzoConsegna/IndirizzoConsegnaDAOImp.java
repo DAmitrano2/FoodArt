@@ -70,7 +70,7 @@ public class IndirizzoConsegnaDAOImp implements IndirizzoConsegnaDAO {
 
 		Collection<IndirizzoConsegnaBean> indirizzo = new LinkedList<IndirizzoConsegnaBean>();
 
-		String selectSQL = "SELECT * FROM rubricaindirizzi WHERE idUtente= ?";
+		String selectSQL = "SELECT * FROM " + IndirizzoConsegnaDAOImp.TABLE_NAME+ " WHERE idUtente= ?";
 		
 		try {
 			connection = ds.getConnection();
@@ -81,10 +81,10 @@ public class IndirizzoConsegnaDAOImp implements IndirizzoConsegnaDAO {
 
 			while (rs.next()) {
 				IndirizzoConsegnaBean bean = new IndirizzoConsegnaBean();
-				bean.setIdIndirizzo(rs.getInt("idIndirizzo"));
+				bean.setIdIndirizzoConsegna(rs.getInt("idIndirizzoConsegna"));
 				bean.setNome(rs.getString("nome"));
 				bean.setCognome(rs.getString("cognome"));
-				bean.setNumeroTelefono(rs.getString("numerotelefono"));
+				bean.setNumeroTelefono(rs.getString("nTelefono"));
 				bean.setVia(rs.getString("via"));
 				bean.setNumeroCivico(rs.getString("nCivico"));
 				bean.setCitta(rs.getString("citta"));
@@ -157,10 +157,10 @@ public class IndirizzoConsegnaDAOImp implements IndirizzoConsegnaDAO {
 			ResultSet rs = preparedStatement.executeQuery();
 
 			while (rs.next()) {
-				bean.setIdIndirizzo(rs.getInt("idIndirizzo"));
+				bean.setIdIndirizzoConsegna(rs.getInt("idIndirizzoConsegna"));
 				bean.setNome(rs.getString("nome"));
 				bean.setCognome(rs.getString("cognome"));
-				bean.setNumeroTelefono(rs.getString("numerotelefono"));
+				bean.setNumeroTelefono(rs.getString("nTelefono"));
 				bean.setVia(rs.getString("via"));
 				bean.setNumeroCivico(rs.getString("nCivico"));
 				bean.setCitta(rs.getString("citta"));
