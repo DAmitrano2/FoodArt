@@ -16,14 +16,3 @@ function addQuantityCart(id, page){
 		window.location.href='cart?action=set&idProdotto='+id+'&page='+page+'&quantita='+quantita;
 	}
 }
-
-/*function setAttribute(id){
-	var label = $(id).parent().find('label');
-	label.value = "<% request.setAttribute('nCarta', "+label.attr('data-id')+");%>";
-}
-
-function completeOrder(id){
-	//$(id).parent().find('label').attr('data-id');
-	$(id).parent().find('.form-check-input').attr
-}*/
-//$('.form-check').find('.form-check-input:checked')

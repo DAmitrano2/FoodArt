@@ -15,6 +15,14 @@ public interface OrdineDAO {
 	 * @throws SQLException
 	 */
 	public OrdineBean doRetrieveSingleOrder(int idOrdine) throws SQLException;
+	
+	/**
+	 * Restituisce l'ultimo ordine
+	 * @param
+	 * @return order
+	 * @throws SQLException
+	 */
+	public int doRetrieveLastOrder(int idUtente) throws SQLException;
 
 	/**
 	 * Restituisce tutti gli ordini di un utente

@@ -12,6 +12,8 @@ import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
 
+import model.rivenditore.RivenditoreDAOImp;
+
 
 public class OrdineDAOImp implements OrdineDAO {
 
@@ -105,6 +107,38 @@ public class OrdineDAOImp implements OrdineDAO {
 				}
 			}
 			return bean;
+	}
+	
+	
+	public int doRetrieveLastOrder(int idUtente) throws SQLException {
+	
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+		
+		int idOrd = 0;
+		
+		String selectSQL = "SELECT * FROM " + OrdineDAOImp.TABLE_NAME + " WHERE idUtente = ? order by idOrdine desc limit 1";
+		
+		try {
+			
+			connection = ds.getConnection();
+			preparedStatement = connection.prepareStatement(selectSQL);
+			preparedStatement.setInt(1, idUtente);
+			ResultSet rs = preparedStatement.executeQuery();
+			
+			while(rs.next()) {
+				idOrd = rs.getInt("idOrdine");
+			}
+		} finally {
+			try {
+				if (preparedStatement != null)
+					preparedStatement.close();
+			} finally {
+				if (connection != null)
+					connection.close();
+			}
+		}
+		return idOrd;
 	}
 
 	@Override
@@ -200,7 +234,7 @@ public class OrdineDAOImp implements OrdineDAO {
 	}
 	
 	private static final String TABLE_NAME = "ordine";
-
+	
 	private DataSource ds;
 
 }

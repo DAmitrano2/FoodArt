@@ -12,9 +12,6 @@ import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
 
-import model.indirizzoConsegna.IndirizzoConsegnaBean;
-import model.indirizzoConsegna.IndirizzoConsegnaDAOImp;
-
 public class MetodoPagamentoDAOImp implements MetodoPagamentoDAO {
 	
 	public MetodoPagamentoDAOImp() {
@@ -158,9 +155,44 @@ public class MetodoPagamentoDAOImp implements MetodoPagamentoDAO {
 		
 	}
 
-	private static final String TABLE_NAME = "metodopagamento";
-	
-	private DataSource ds;
-	
+	@Override
+	public MetodoPagamentoBean getMetodoPagamentoByCard(String card) throws SQLException {
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
 
+		MetodoPagamentoBean bean = new MetodoPagamentoBean();
+
+		String selectSQL = "SELECT * FROM " + MetodoPagamentoDAOImp.TABLE_NAME +" WHERE nCarta = ? ";
+		
+		try {
+			connection = ds.getConnection();
+			preparedStatement = connection.prepareStatement(selectSQL);
+			preparedStatement.setString(1, card);
+
+			ResultSet rs = preparedStatement.executeQuery();
+
+			while (rs.next()) {
+				bean.setNumeroCarta(rs.getString("nCarta"));
+				bean.setIntestatario(rs.getString("intestatario"));
+				bean.setDataScadenza(rs.getDate("dataScadenza"));
+				bean.setCvv(rs.getString("cvv"));
+				bean.setIdUtente(rs.getInt("idUtente"));
+			}
+
+		}
+		finally {
+			try {
+				if (preparedStatement != null)
+					preparedStatement.close();
+			} finally {
+				if (connection != null)
+					connection.close();
+			}
+		}
+		
+		return bean;
+	}
+	
+	private static final String TABLE_NAME = "metodopagamento";
+	private DataSource ds;
 }

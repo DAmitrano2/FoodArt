@@ -34,7 +34,7 @@ public class VoceDAOImp implements VoceDAO {
 
 		String insertSQL = "INSERT INTO " + VoceDAOImp.TABLE_NAME
 				+ " (idOrdine, idProdotto, quantita, prezzo)"
-				+ " VALUES (?, ?, ?, ?, ?, ?)";
+				+ " VALUES (?, ?, ?, ?)";
 
 		try {
 			connection = ds.getConnection();

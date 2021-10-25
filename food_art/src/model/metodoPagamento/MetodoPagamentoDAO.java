@@ -34,9 +34,17 @@ public interface MetodoPagamentoDAO {
 	/**
 	 * Restituisce una collezione di carte collegate a un determinato utente
 	 * @param idUser
-	 * @return Collection<IndirizzoConsegnaBean>
+	 * @return Collezione di MetodoPagamentoBean
 	 * @throws SQLException
 	 */
 	Collection<MetodoPagamentoBean> getMetodoPagamentoByIdUser (int idUser) throws SQLException;
+	
+	/**
+	 * Restituisce una collezione di carte collegate a un determinato utente
+	 * @param idUser
+	 * @return MetodoPagamentoBean
+	 * @throws SQLException
+	 */
+	MetodoPagamentoBean getMetodoPagamentoByCard (String card) throws SQLException;
 
 }
