@@ -68,7 +68,7 @@ public class CartControl extends HttpServlet {
 			    	request.getSession().setAttribute("cart", cart);
 					request.setAttribute("cart", cart);
 
-			        response.sendRedirect("shopping_cart");
+			        response.sendRedirect(page);
 				}
 				else if (action.equalsIgnoreCase("set")) {
 					int idProdotto = Integer.parseInt(request.getParameter("idProdotto"));

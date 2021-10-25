@@ -240,16 +240,16 @@ public class ProdottoDAOImp implements ProdottoDAO {
 	}
 
 	@Override
-	public boolean updateQuantita(int idProdotto, float quantita) throws SQLException {
+	public boolean updateQuantita(int idProdotto, int quantita) throws SQLException {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 		boolean update = false ;
 		
-		String updateSQL = "UPDATE "+ ProdottoDAOImp.TABLE_NAME +" SET quantita = ? where idProdotto = ?";
+		String updateSQL = "UPDATE "+ ProdottoDAOImp.TABLE_NAME +" SET quantitaDisponibile = ? where idProdotto = ?";
 		try {
 		connection = ds.getConnection();
 		preparedStatement = connection.prepareStatement(updateSQL);
-		preparedStatement.setFloat(1, quantita);
+		preparedStatement.setInt(1, quantita);
 		preparedStatement.setInt(2, idProdotto);
 		preparedStatement.executeUpdate();
 		update = true;
