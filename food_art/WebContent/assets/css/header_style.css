@@ -116,3 +116,12 @@ a.dropdown-item {
 .product_link:hover{
 	text-decoration: none;
 }
+
+.badge {
+    height: auto;
+    width: auto;
+    margin-left: 2px;
+}
+.nav-link{
+	display: flex;
+}

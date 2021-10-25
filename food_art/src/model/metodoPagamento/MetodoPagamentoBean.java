@@ -4,22 +4,26 @@ import java.sql.Date;
 
 public class MetodoPagamentoBean {
 
-	private String numeroCarta;
+	private String nCarta;
 	private String intestatario;
 	private Date dataScadenza;
 	private String cvv;
 	private int idUtente;
 	
 	public MetodoPagamentoBean() {
-		this.numeroCarta = "0000000000000000";
+		this.nCarta = "0000000000000000";
 	}
 
+	public String getNumeroCarta(int n) {
+		return nCarta.substring(nCarta.length()-n, nCarta.length());
+	}
+	
 	public String getNumeroCarta() {
-		return numeroCarta;
+		return nCarta;
 	}
 
-	public void setNumeroCarta(String numeroCarta) {
-		this.numeroCarta = numeroCarta;
+	public void setNumeroCarta(String nCarta) {
+		this.nCarta = nCarta;
 	}
 
 	public String getIntestatario() {

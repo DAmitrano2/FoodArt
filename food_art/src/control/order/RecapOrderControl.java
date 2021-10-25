@@ -1,4 +1,4 @@
-package control.aboutUs;
+package control.order;
 
 import java.io.IOException;
 
@@ -9,20 +9,18 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/about_us")
-public class AboutUsControl extends HttpServlet {
+@WebServlet("/recap_order")
+public class RecapOrderControl extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
-    public AboutUsControl() {
+    
+    public RecapOrderControl() {
         super();
-        
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setAttribute("page","aboutUs");
-		
-		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/about_us.jsp");
-		dispatcher.forward(request, response);
+		request.setAttribute("page","recap_order");
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/recap_order.jsp");
+		dispatcher.forward(request, response);	
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

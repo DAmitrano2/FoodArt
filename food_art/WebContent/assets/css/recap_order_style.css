@@ -34,10 +34,31 @@ ul{
     display: none;
 }
 #media-plus{
-    display: none;
+  	display: none;
 }
 #second-address{
-    align-items: flex-end;
+  	align-items: flex-end;
+}
+span.title-card {
+  	display: block;
+  	font-weight: 500;
+  	font-size: 1rem;
+}
+span.number-card {
+  	font-size: 0.8rem;
+}
+.address{
+		display: block;
+  	font-size: 1rem;
+}
+.form-check-paycard .form-check-input{
+		top: 25%;
+}
+.form-check-address .form-check-input{
+		top: 40%;
+}
+input[type=radio]:checked:after {
+    background-color: #fcba03;
 }
 @media(max-width: 567px){
     .mobile{

@@ -1,19 +1,21 @@
-<%@ page language="java" import="java.util.*,model.utente.*,model.rivenditore.*,model.categoria.*,model.prodotto.*,model.immagine.*,java.sql.Date" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<!--%@ page errorPage = "./400.jsp" %-->
+<%@ page language="java" import="java.util.*,model.utente.*,model.rivenditore.*,model.categoria.*,model.metodoPagamento.*,model.indirizzoConsegna.*,model.prodotto.*,model.immagine.*,service.*,java.sql.Date" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%
 	// Check user credentials
 	UtenteBean user = (UtenteBean) request.getSession(false).getAttribute("user");
 	String pagina = (String) request.getAttribute("page");
 	String path = request.getContextPath();
+ 	ShoppingCart cart = (ShoppingCart) request.getSession().getAttribute("cart");
+ 	
+	
 	
 	boolean auth;
 	
-	if (user == null)
-	{	
+	if(user == null)
+	{
 		auth = false;
-	}
-	else {
+	}else {
 		auth = true;
+		request.setAttribute("userAuth", user);
 	}
 	
 	if( pagina != null ) {
@@ -23,18 +25,6 @@
 		}
 		else if( (pagina.equalsIgnoreCase("register") ) && (auth) )
 		{
-			response.sendRedirect("./index");
-		}
-		else if( (pagina.equalsIgnoreCase("indirizzoPage") ) && (!auth) ) {
-			response.sendRedirect("./index");
-		}
-		else if( (pagina.equalsIgnoreCase("listaOrdini") ) && (!auth) ) {
-			response.sendRedirect("./index");
-		}
-		else if( (pagina.equalsIgnoreCase("singoloOrdine") ) && (!auth) ) {
-			response.sendRedirect("./index");
-		}
-		else if( (pagina.equalsIgnoreCase("infoUser") ) && (!auth) ) {
 			response.sendRedirect("./index");
 		}
 	}
@@ -102,13 +92,17 @@
 	  <li class="nav-item dropdown">
 	    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user"></i></a>
 	  	<div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="<%=path %>/login">Login</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="<%=path %>/register">Sei nuovo? Registrati</a>
+          <% if(!auth){ %>
+          	<a class="dropdown-item" href="<%=path %>/login">Login</a>
+		        <div class="dropdown-divider"></div>
+		        <a class="dropdown-item" href="<%=path %>/register">Sei nuovo? Registrati</a>
+          <%}else { %>
+          	<a class="dropdown-item" href="<%=path %>/logout">Logout</a>
+         	<%} %>
         </div>
 	  </li>
 	  <li class="nav-item">
-	    <a class="nav-link" href="<%=path %>/shopping_cart.jsp"><i class="fas fa-shopping-cart"></i></a>
+	    <a class="nav-link" href="<%=path %>/shopping_cart"><i class="fas fa-shopping-cart"></i><%if(cart != null){ %><span class="badge badge-light"><%=cart.getQuantita() %></span><%}else {%><span class="badge badge-light">0</span><%}%></a>
 	  </li>
     </ul>
   </nav>

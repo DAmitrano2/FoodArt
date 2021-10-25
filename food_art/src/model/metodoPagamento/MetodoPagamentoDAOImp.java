@@ -4,11 +4,16 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Collection;
+import java.util.LinkedList;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
+
+import model.indirizzoConsegna.IndirizzoConsegnaBean;
+import model.indirizzoConsegna.IndirizzoConsegnaDAOImp;
 
 public class MetodoPagamentoDAOImp implements MetodoPagamentoDAO {
 	
@@ -29,7 +34,7 @@ public class MetodoPagamentoDAOImp implements MetodoPagamentoDAO {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 
-		String selectSQL = "SELECT * FROM metodopagamento WHERE nCarta = ?";
+		String selectSQL = "SELECT * FROM " + MetodoPagamentoDAOImp.TABLE_NAME+ " WHERE nCarta = ?";
 
 		try {
 			connection = ds.getConnection();
@@ -58,7 +63,7 @@ public class MetodoPagamentoDAOImp implements MetodoPagamentoDAO {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 
-		String selectSQL = "SELECT saldo FROM metodopagamento WHERE nCarta = ?";
+		String selectSQL = "SELECT saldo FROM " + MetodoPagamentoDAOImp.TABLE_NAME+ " WHERE nCarta = ?";
 
 		try {
 			connection = ds.getConnection();
@@ -90,7 +95,7 @@ public class MetodoPagamentoDAOImp implements MetodoPagamentoDAO {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 		
-		String updateSQL = "UPDATE metodopagamento SET saldo=saldo-? WHERE nCarta=?";
+		String updateSQL = "UPDATE " + MetodoPagamentoDAOImp.TABLE_NAME+ " SET saldo=saldo-? WHERE nCarta=?";
 
 		try {
 			connection = ds.getConnection();
@@ -113,6 +118,49 @@ public class MetodoPagamentoDAOImp implements MetodoPagamentoDAO {
 		}
 	}
 	
+	@Override
+	public Collection<MetodoPagamentoBean> getMetodoPagamentoByIdUser(int idUser) throws SQLException {
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+
+		Collection<MetodoPagamentoBean> metodoPagamento = new LinkedList<MetodoPagamentoBean>();
+
+		String selectSQL = "SELECT * FROM " + MetodoPagamentoDAOImp.TABLE_NAME+ " WHERE idUtente= ?";
+		
+		try {
+			connection = ds.getConnection();
+			preparedStatement = connection.prepareStatement(selectSQL);
+			preparedStatement.setInt(1, idUser);
+
+			ResultSet rs = preparedStatement.executeQuery();
+
+			while (rs.next()) {
+				MetodoPagamentoBean bean = new MetodoPagamentoBean();
+				bean.setNumeroCarta(rs.getString("nCarta"));
+				bean.setIntestatario(rs.getString("intestatario"));
+				bean.setDataScadenza(rs.getDate("dataScadenza"));
+				bean.setCvv(rs.getString("cvv"));
+				metodoPagamento.add(bean);
+			}
+
+		}
+		finally {
+			try {
+				if (preparedStatement != null)
+					preparedStatement.close();
+			} finally {
+				if (connection != null)
+					connection.close();
+			}
+		}
+		
+		return metodoPagamento;
+		
+	}
+
+	private static final String TABLE_NAME = "metodopagamento";
+	
 	private DataSource ds;
+	
 
 }

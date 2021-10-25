@@ -26,35 +26,34 @@
 	        </div>
 	      </div-->
 	    </div>
-        <div class="col-lg-6 col-md-12 col-12">
-	        <h2><%= prodotto.getTitolo() %></h2>
-	        <h6>da <a href="#"><%= modelRivenditore.doRetriveNameById(prodotto.getIdUtente()) %></a></h6>
-	        <div class="rating">
-	          <i class="fas fa-star"></i>
-	          <i class="fas fa-star"></i>
-	          <i class="fas fa-star"></i>
-	          <i class="fas fa-star"></i>
-	          <i class="far fa-star"></i>
-        	</div>
-					<hr>
-			      <h3><%= prodotto.getPrezzo()%> &#8364; al <%= prodotto.getUnitaMisura()%></h3>
-			      <select class="selectpicker my-3">
-		          <option active>Seleziona la quantit&#224</option>
-		          <%
-		          	int nMin = prodotto.getQuantitaMinima();
-		          	int nMax = prodotto.getQuantitaDisponibile();
-		          	for(int i=nMin; i<=nMax; i++){
-							%>	
-		          <option><%= i %></option>
-		          <%} %>
-			      </select>
-			      <button type="button" id="addCart" class="btn bg-cart"><i class="fas fa-cart-plus mr-2"></i>Aggiungi al Carrello</button>
-			      <h4 class="mt-3 mb-2">Dettagli sul Prodotto</h4>
-			      <span><%= prodotto.getDescrizione() %></span>
-      		</div>
-		    </div>
-			</section>
-    
+      <div class="col-lg-6 col-md-12 col-12">
+	      <h2><%= prodotto.getTitolo() %></h2>
+	      <h6>da <a href="#"><%= modelRivenditore.doRetriveNameById(prodotto.getIdUtente()) %></a></h6>
+	      <div class="rating">
+	        <i class="fas fa-star"></i>
+	        <i class="fas fa-star"></i>
+	        <i class="fas fa-star"></i>
+	        <i class="fas fa-star"></i>
+	        <i class="far fa-star"></i>
+      	</div>
+				<hr>
+	      <h3><%= prodotto.getPrezzo()%> &#8364; al <%= prodotto.getUnitaMisura()%></h3>
+	     		<select class="selectpicker my-3">
+	          <option active>Seleziona la quantit&#224</option>
+	          <%
+	          	int nMin = prodotto.getQuantitaMinima();
+	          	int nMax = prodotto.getQuantitaDisponibile();
+	          	for(int i=nMin; i<=nMax; i++){
+						%>	
+	          <option class="dropdown-item"><%= i %></option>
+	          <%} %>
+		      </select>
+	      	<button type="button" id="addCart" class="btn bg-cart" onclick="addQuantityCart(<%=prodotto.getIdProdotto()%>, '<%=pagina+"?idProdotto="+idProdotto%>')"><i class="fas fa-cart-plus mr-2"></i>Aggiungi al Carrello</button>
+	      <h4 class="mt-3 mb-2">Dettagli sul Prodotto</h4>
+	      <span><%= prodotto.getDescrizione() %></span>
+    		</div>
+    </div>
+	</section>
 	<div class="small-container justify-content-center">
     <h2 class="title">Prodotti Correlati</h2>
 		<div class="row">
@@ -77,7 +76,7 @@
 					<i class="far fa-star"></i>
 				</div>
 				<p><%= product.getPrezzo()%> &#8364; al <%= product.getUnitaMisura()%></p>
-				<button type="button" class="btn bg-cart"><i class="fas fa-cart-plus mr-2"></i>Aggiungi al Carrello</button>
+				<button type="button" class="btn bg-cart" onclick="addCart('add', <%=product.getIdProdotto()%>, '<%=pagina+"?idProdotto="+idProdotto%>')"><i class="fas fa-cart-plus mr-2"></i>Aggiungi al Carrello</button>
 			</div>
 			<%}}%>
 		</div>
@@ -133,8 +132,8 @@
 			<%}} %>
 		</div>
 	</section>
-	
 	<%@include file="./include/footer.html" %>
-  <%@include file="./include/script.html" %>
+	<%@include file="./include/script.html" %>
+	<script src="./assets/js/shoppingCart.js"></script>
 </body>
 </html>

@@ -46,7 +46,7 @@ public class LoginControl extends HttpServlet {
 		   }
 		}
 		
-		request.setAttribute("page","login");
+		request.setAttribute("page", "login");
 		
 		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/login.jsp");
 		dispatcher.forward(request, response);
@@ -102,7 +102,6 @@ public class LoginControl extends HttpServlet {
 				
 				if(remember!=null) {
 					if( remember.equalsIgnoreCase("remember-me") ) {
-						System.out.println("equals");
 						Cookie ckEmail = new Cookie ("email",email);
 						Cookie ckPassword = new Cookie ("password",password);
 						
@@ -113,10 +112,10 @@ public class LoginControl extends HttpServlet {
 				
 				request.getSession(true);
 				
-				request.getSession().setAttribute("user",user);
+				request.getSession().setAttribute("user", user);
 				response.setStatus(200);
 				
-				RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/index.jsp");
+				RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/index");
 				dispatcher.forward(request, response);
 			}
 		} catch (SQLException e) {
