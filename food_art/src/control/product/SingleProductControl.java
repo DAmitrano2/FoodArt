@@ -10,11 +10,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 @WebServlet("/single_product")
-public class ProductControl extends HttpServlet {
+public class SingleProductControl extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private int idProdotto;
 
-    public ProductControl() {
+    public SingleProductControl() {
         super();
         idProdotto=0;
     }

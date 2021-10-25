@@ -8,14 +8,14 @@
 	</ol>
 	<div class="carousel-inner">
 	  <div class="carousel-item active">
-	    <img class="d-block w-100" src="./assets/images/slider1.jpg" alt="Prima slide">
+	    <img class="d-block w-100" src="./assets/images/slider1.png" alt="Prima slide">
 	    <div class="carousel-caption">
 			  <div class="container">
 					<div class="row justify-content-end">
 					  <div class="d-none d-md-block col-md-11 col-lg-9 col-xl-8 bg-dark text-right">
-		   	  		<h3 class="pb-3">3&#176; Festival Fruttariano Italiano</h3>
+		   	  		<h3 class="pb-3">Festival degli Orti</h3>
 		   	  		<div class="border-top border-white mb-3 w-75 ml-auto"></div>
-		   	  		<p class="lead">Per la prima volta, Foodart permette di avere l'esclusiva per l'acquisto dei prodotti ecosostenibili preparati al Festival!</p>
+		   	  		<p class="lead">Tutto ci&#242; che di buono e salutare l'orto ci regala</p>
 		   	  		<a href="#" class="btn btn-primary btn-md">Leggi di Pi&#249;!</a>
 	  		    </div>
 		      </div>
@@ -23,14 +23,14 @@
 	 		</div>
 	  </div>
 	  <div class="carousel-item">
-	  	<img class="d-block w-100" src="./assets/images/cannavacciuolo.jpg" alt="Seconda slide">
+	  	<img class="d-block w-100" src="./assets/images/slider2.jpg" alt="Seconda slide">
 	    <div class="carousel-caption">
 			  <div class="container">
 					<div class="row justify-content-end">
 					  <div class="d-none d-md-block col-md-11 col-lg-9 col-xl-8 bg-dark text-right">
-		   	  		<h3 class="pb-3">In cucina vince la fantasia</h3>
+		   	  		<h3 class="pb-3">La dieta mediterranea</h3>
 		   	  		<div class="border-top border-white mb-3 w-75 ml-auto"></div>
-		   	  		<p class="lead">Leggi un estratto dell'intervista esclusiva di chef Antonino Cannavacciuolo a FoodArt!</p>
+		   	  		<p class="lead">Pi&#249; tendente allo stile vegetariano e da seguire soprattutto con l'avanzare dell'et&#224;.</p>
 		   	  		<a href="#" class="btn btn-primary btn-md">Leggi di Pi&#249;!</a>
   	  		  </div>
  		    	</div>
@@ -43,9 +43,9 @@
 		  	<div class="container">
 					<div class="row justify-content-end">
 			  		<div class="d-none d-md-block col-md-11 col-lg-9 col-xl-8 bg-dark text-right">
-		   	  		<h3 class="pb-3">Festival del Formaggio di Campo Tures</h3>
+		   	  		<h3 class="pb-3">In Vino Veritas</h3>
 		   	  		<div class="border-top border-white mb-3 w-75 ml-auto"></div>
-		   	  		<p class="lead">Acquista da noi i migliori formaggi dell'Alto Adige!</p>
+		   	  		<p class="lead">Intervista a Luca Gardini, miglior sommelier italiano.</p>
 		   	  		<a href="#" class="btn btn-primary btn-md">Leggi di Pi&#249;!</a>
 	   	  	  </div>
   		    </div>

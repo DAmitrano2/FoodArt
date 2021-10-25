@@ -13,12 +13,12 @@
 						<input name="cognome" type="text" class="form-control" placeholder="cognome" required>
 					</div>
 					<div class="input-group form-group">
-						<input name="email" type="text" class="form-control" placeholder="e-mail" required>
-						<input name="password" type="password" class="form-control" placeholder="password" required>
+						<input pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" name="email" type="text" class="form-control" placeholder="e-mail" required>
+						<input pattern=".{8,}" name="password" type="password" class="form-control" placeholder="password" required>
 					</div>
 					<div class="row align-items-center remember">
 						<input name="rivenditore" type="checkbox" value="rivenditore-check" id="rivenditore-check" onclick="toggle()">
-						<label for="rivenditore-check">Registrarti come rivenditore.</label>
+						<label for="rivenditore-check">Registrati come rivenditore.</label>
 					</div>
 				<!-- rivenditore -->
 				<div id="rivenditore-form" style="display: none;">
