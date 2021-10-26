@@ -95,7 +95,7 @@
 	<div class="row">
 		<div class="col-4 text-center">
 			<a class="product_link" href="./single_product?idProdotto=1">
-				<img src="./assets/images/primo-piano-1.jpg" alt="">
+				<img src="./getProductImage?idProdotto=1" alt="">
 				<h4>Confettura Albicocche</h4>
 			</a>
 			<span>SOCIET&#192; AGRICOLA AMITRANO</span>
@@ -111,7 +111,7 @@
 		</div>
 		<div class="col-4 text-center">
 			<a class="product_link" href="./single_product?idProdotto=2">
-				<img src="./assets/images/primo-piano-2.jpg" alt="">
+				<img src="./getProductImage?idProdotto=2" alt="">
 				<h4>Salame Toscano</h4>
 			</a>
 			<span>SALUMERIA GROSSETANA</span>
@@ -127,7 +127,7 @@
 		</div>
 		<div class="col-4 text-center">
 			<a class="product_link" href="./single_product?idProdotto=3">
-				<img src="./assets/images/primo-piano-3.jpg" alt="">
+				<img src="./getProductImage?idProdotto=3" alt="">
 				<h4>Pere Santa Maria</h4>
 			</a>
 			<span>FRUTTETO ZAPPIA</span>
@@ -143,7 +143,7 @@
 		</div>
 		<div class="col-4 text-center">
 			<a class="product_link" href="./single_product?idProdotto=4">
-				<img src="./assets/images/primo-piano-4.jpg" alt="">
+				<img src="./getProductImage?idProdotto=4" alt="">
 				<h4>Birra Artigianale 0,3l</h4>
 			</a>
 			<span>BIRRIFICIO MIRANDA</span>
