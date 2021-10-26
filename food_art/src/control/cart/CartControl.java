@@ -21,7 +21,7 @@ import service.ShoppingCart;
 public class CartControl extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private ProdottoDAOImp model;
-       
+    
     public CartControl() {
         super();
         this.model = new ProdottoDAOImp();
