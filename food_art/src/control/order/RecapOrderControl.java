@@ -20,7 +20,7 @@ public class RecapOrderControl extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setAttribute("page","recap_order");
 		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/recap_order.jsp");
-		dispatcher.forward(request, response);	
+		dispatcher.forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

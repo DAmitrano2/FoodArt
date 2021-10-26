@@ -40,11 +40,6 @@ public class RegisterControl extends HttpServlet {
 		
 		request.setAttribute("page","register");
 		
-		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/register.jsp");
-		dispatcher.forward(request, response);
-	}
-
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		int id=0;
 		
 		String email = request.getParameter("email");
@@ -132,6 +127,13 @@ public class RegisterControl extends HttpServlet {
 			System.out.println("Error: "+e.getMessage());
 			return;
 		}
+		
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/register.jsp");
+		dispatcher.forward(request, response);
+	}
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		doGet(request, response);
 	}
 
 }
