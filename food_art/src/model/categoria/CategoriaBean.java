@@ -30,7 +30,7 @@ public class CategoriaBean {
 		return pathName;
 	}
 
-	public void setPathName(byte[] bytes) {
+	public void setPathName(byte[] pathName) {
 		this.pathName = pathName;
 	}
 }

@@ -10,10 +10,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 @WebServlet("/area_utente")
-public class AreaUtenteControl extends HttpServlet {
+public class DashboardControl extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    public AreaUtenteControl() {
+    public DashboardControl() {
         super();
     }
 

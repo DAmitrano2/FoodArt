@@ -13,10 +13,10 @@ import javax.servlet.http.HttpServletResponse;
 import model.categoria.CategoriaDAOImp;
 
 @WebServlet("/getCategoryImage")
-public class ImmagineCategoryControl extends HttpServlet {
+public class ImageCategoryControl extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    public ImmagineCategoryControl() {
+    public ImageCategoryControl() {
         super();
     }
 

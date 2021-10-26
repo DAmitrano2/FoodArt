@@ -12,10 +12,10 @@ import javax.servlet.http.HttpServletResponse;
 import model.feedback.FeedbackDAOImp;
 
 @WebServlet("/getFeedback")
-public class feedbackControl extends HttpServlet {
+public class FeedbackControl extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-    public feedbackControl() {
+    public FeedbackControl() {
         super();
     }
 

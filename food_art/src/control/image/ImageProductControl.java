@@ -13,10 +13,10 @@ import javax.servlet.http.HttpServletResponse;
 import model.immagine.ImmagineDAOImp;
 
 @WebServlet("/getProductImage")
-public class ImmagineProductControl extends HttpServlet {
+public class ImageProductControl extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    public ImmagineProductControl() {
+    public ImageProductControl() {
         super();
     }
 
