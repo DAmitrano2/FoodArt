@@ -10,6 +10,9 @@
 .owl-theme .owl-nav [class*=owl-]{
 	margin: 0!important;
 }
+.owl-theme .owl-nav [class*=owl-]:hover {
+    color: #000;
+}
 .carousel-indicators li{
 	width: 40px;
 	height: 6px;
@@ -39,14 +42,14 @@ p.lead{
 	font-size: 1.4rem;
 }
 .btn-primary{
-	background-color: #fbca03!important;
+	background-color: #fcba03!important;
 	color: black!important;
 	border-color: black;
 }
 .btn-primary:hover{
 	background-color: transparent!important;
 	color: white!important;
-	border: 1px solid #fbca03!important;
+	border: 1px solid #fcba03!important;
 }
 .category .category-card{
 	padding-top: 2rem;
@@ -71,13 +74,13 @@ p.lead{
 }
 .category-content .btn-category{
 	padding: .7rem 2rem;
-	background: #fbca03;
+	background: #fcba03;
 	margin: .5rem;
 	border-radius: 25px;
 	color: black!important;
 }
 .category-content .btn-category:hover{
-	border: 1px solid #fbca03;
+	border: 1px solid #fcba03;
 	background: transparent;
 }
 .category-content span{
@@ -147,7 +150,7 @@ svg.svg-inline--fa.fa-angle-left.fa-w-8:hover{
 }
 section .section-title{
 	text-align: center;
-	color: #fbca03;
+	color: #fcba03;
 	margin-bottom: 50px;
 	text-transform: uppercase;
 }

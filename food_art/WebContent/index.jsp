@@ -94,8 +94,10 @@
 	<h2 class="title">Prodotti In Primo Piano</h2>
 	<div class="row">
 		<div class="col-4 text-center">
-			<img src="./assets/images/primo-piano-1.jpg" alt="">
-			<h4>Confettura Albicocche</h4>
+			<a class="product_link" href="./single_product?idProdotto=1">
+				<img src="./assets/images/primo-piano-1.jpg" alt="">
+				<h4>Confettura Albicocche</h4>
+			</a>
 			<span>SOCIET&#192; AGRICOLA AMITRANO</span>
 			<div class="rating">
 				<i class="fas fa-star"></i>
@@ -105,11 +107,13 @@
 				<i class="far fa-star"></i>
 			</div>
 			<p>&#8364; 6.00, pz</p>
-			<button type="button" class="btn bg-cart"><i class="fas fa-cart-plus mr-2"></i>Aggiungi al Carrello</button>
+			<button type="button" class="btn bg-cart" onclick="addCart('add', 1, '<%="index"%>')"><i class="fas fa-cart-plus mr-2"></i>Aggiungi al Carrello</button>
 		</div>
 		<div class="col-4 text-center">
-			<img src="./assets/images/primo-piano-2.jpg" alt="">
-			<h4>Salame Toscano</h4>
+			<a class="product_link" href="./single_product?idProdotto=2">
+				<img src="./assets/images/primo-piano-2.jpg" alt="">
+				<h4>Salame Toscano</h4>
+			</a>
 			<span>SALUMERIA GROSSETANA</span>
 			<div class="rating">
 				<i class="fas fa-star"></i>
@@ -119,11 +123,13 @@
 				<i class="far fa-star"></i>
 			</div>
 			<p>&#8364; 11.50, pz</p>
-			<button type="button" class="btn bg-cart"><i class="fas fa-cart-plus mr-2"></i>Aggiungi al Carrello</button>
+			<button type="button" class="btn bg-cart" onclick="addCart('add', 2, '<%="index"%>')"><i class="fas fa-cart-plus mr-2"></i>Aggiungi al Carrello</button>
 		</div>
 		<div class="col-4 text-center">
-			<img src="./assets/images/primo-piano-3.jpg" alt="">
-			<h4>Pere Santa Maria</h4>
+			<a class="product_link" href="./single_product?idProdotto=3">
+				<img src="./assets/images/primo-piano-3.jpg" alt="">
+				<h4>Pere Santa Maria</h4>
+			</a>
 			<span>FRUTTETO ZAPPIA</span>
 			<div class="rating">
 				<i class="fas fa-star"></i>
@@ -133,11 +139,13 @@
 				<i class="far fa-star"></i>
 			</div>
 			<p>&#8364; 1.25, kg</p>
-			<button type="button" class="btn bg-cart"><i class="fas fa-cart-plus mr-2"></i>Aggiungi al Carrello</button>
+			<button type="button" class="btn bg-cart" onclick="addCart('add', 3, '<%="index"%>')"><i class="fas fa-cart-plus mr-2"></i>Aggiungi al Carrello</button>
 		</div>
 		<div class="col-4 text-center">
-			<img src="./assets/images/primo-piano-4.jpg" alt="">
-			<h4>Birra Artigianale 0,3l</h4>
+			<a class="product_link" href="./single_product?idProdotto=4">
+				<img src="./assets/images/primo-piano-4.jpg" alt="">
+				<h4>Birra Artigianale 0,3l</h4>
+			</a>
 			<span>BIRRIFICIO MIRANDA</span>
 			<div class="rating">
 				<i class="fas fa-star"></i>
@@ -147,7 +155,7 @@
 				<i class="fas fa-star-half-alt"></i>
 			</div>
 			<p>&#8364; 9.20</p>
-			<button type="button" class="btn bg-cart"><i class="fas fa-cart-plus mr-2"></i>Aggiungi al Carrello</button>
+			<button type="button" class="btn bg-cart" onclick="addCart('add', 4, '<%="index"%>')"><i class="fas fa-cart-plus mr-2"></i>Aggiungi al Carrello</button>
 		</div>
 	</div>
 	<!-- Ultimi Arrivi -->

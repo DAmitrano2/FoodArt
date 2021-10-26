@@ -41,14 +41,7 @@ public class CartControl extends HttpServlet {
 		
 		try (PrintWriter out = response.getWriter()){
 			if (action != null) {
-				if (action.equalsIgnoreCase("read")) {
-
-					int idProdotto = Integer.parseInt(request.getParameter("idProdotto"));
-					request.removeAttribute("product");
-					request.setAttribute("product", model.doRetrieveByKey(idProdotto));
-	
-				}
-				else if (action.equalsIgnoreCase("add")) {
+				if (action.equalsIgnoreCase("add")) {
 					int idProdotto = Integer.parseInt(request.getParameter("idProdotto"));
 					ProdottoBean bean = (ProdottoBean) model.doRetrieveByKey(idProdotto);
 					ProductItem prod = new ProductItem(bean);
@@ -68,7 +61,7 @@ public class CartControl extends HttpServlet {
 			    	request.getSession().setAttribute("cart", cart);
 					request.setAttribute("cart", cart);
 
-			        response.sendRedirect(page);
+			        response.sendRedirect("shopping_cart");
 				}
 				else if (action.equalsIgnoreCase("set")) {
 					int idProdotto = Integer.parseInt(request.getParameter("idProdotto"));
