@@ -13,7 +13,7 @@
 		            <%
 	            		}else {
            			%>  
-    	            	<h3>Il tuo carrello è vuoto</h3>
+    	            	<h3>Il tuo carrello &#232; vuoto</h3>
    	            <%
 	            		}
 	            	%>
@@ -53,7 +53,7 @@
                   <div class="price-wrap"><var class="price">&#8364; <%= product.getPrezzo()%></var></div>
 	              </td>
 	              <td class="text-right d-md-block">
-	              	<a href="cart?action=delete&idProdotto=<%=product.getIdProdotto() %>" class="btn btn-light" data-abc="true"><i class="fas fa-trash-alt"></i> Rimuovi</a> 
+	              	<a href="cart?action=delete&idProdotto=<%=product.getIdProdotto() %>" class="btn" data-abc="true"><i class="fas fa-trash-alt"></i> Rimuovi</a> 
 	              </td>
 	            </tr>
 		          <%

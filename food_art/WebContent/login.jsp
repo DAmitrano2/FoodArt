@@ -21,7 +21,7 @@
 					</div>
 					<div class="row align-items-center remember">
 						<input type="checkbox" name="remember" id="remember-check">
-						<label for="remember-check">Resta connesso.</label>
+						<label for="remember-check">Resta connesso</label>
 					</div>
 						
 					<div class="row align-items-center remember">
@@ -44,45 +44,7 @@
 		</div>
 	</div>
 </div>
-<script>
-$(document).ready(function() {
-	  $('#form_login').on("submit", function(e) {
-	    e.preventDefault();
-	    $.ajax({
-	       type: "POST",
-	       url: './login',
-	       data: $(this).serialize(),
-	       context: this,
-	       success: function(data) {
-	    	   this.submit();
-	       },
-	       error: function(data, status) {
-	    	   if( data.status === 401 ) {
-	    		   var json = JSON.parse(data.responseJSON);
-	    		   $('#errorAlert').html( json.message );
-	    		   $('#alert').show();
-	    		   //Reset form
-	    		   $('#username').val('');
-	    		   $('#password').val('');
-	    	   }
-	       }
-	   });
-	    return false;
-	 });
-});
-
-//Show password
-
-function showPassword() {
-  var pass = document.getElementById("password");
-  if (pass.type == "password") {
-    pass.type = "text";
-  } else {
-    pass.type = "password";
-  }
-  
-}
-</script>
+<script src="./assets/js/login.js"></script>
 <%@include file="./include/footer.html" %>
 </body>
 </html>
