@@ -18,6 +18,7 @@ import model.metodoPagamento.MetodoPagamentoBean;
 import model.metodoPagamento.MetodoPagamentoDAOImp;
 import model.ordine.OrdineBean;
 import model.ordine.OrdineDAOImp;
+import model.prodotto.ProdottoDAOImp;
 import model.utente.UtenteBean;
 import model.voce.VoceBean;
 import model.voce.VoceDAOImp;
@@ -83,7 +84,9 @@ public class CompleteOrderControl extends HttpServlet {
 		
 		VoceDAOImp voceDAO = new VoceDAOImp();
 		VoceBean voceBean = new VoceBean();
+		ProdottoDAOImp productDAO = new ProdottoDAOImp();
 		ArrayList<ProductItem> productCart = cart.getProducts();
+		
 		
 		for(ProductItem product: productCart) {
 			try {
@@ -93,12 +96,17 @@ public class CompleteOrderControl extends HttpServlet {
 				voceBean.setPrezzo(Float.parseFloat(product.getPrezzo().replace(",", ".")));
 
 				voceDAO.doSave(voceBean);
+				
+				productDAO.updateQuantita(product.getIdProdotto(), product.getQuantitaDisponibile()-product.getQuantita());
+				
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
 		}
 		
 		
+		
+		request.getSession().removeAttribute("cart");
 		
 		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/complete_order.jsp");
 		dispatcher.forward(request, response);

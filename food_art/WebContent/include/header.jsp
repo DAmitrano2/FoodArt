@@ -61,6 +61,9 @@
 	  <link rel="stylesheet" href="./assets/css/<%=pagina%>_style.css">
   <% }else if(pagina != null && pagina.equalsIgnoreCase("search_page")) { %>
   <link rel="stylesheet" href="./assets/css/category_style.css">
+  <% }else if(pagina != null && pagina.equalsIgnoreCase("error_page")) { %>
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,900" rel="stylesheet">
+  <link type="text/css" rel="stylesheet" href="./assets/css/<%=pagina%>_style.css" />
 	<% }else{ %>
   	  <link rel="stylesheet" href="./assets/css/<%=pagina%>_style.css">
   <% } %>

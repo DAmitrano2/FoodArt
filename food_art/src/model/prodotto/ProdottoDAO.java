@@ -61,7 +61,7 @@ public interface ProdottoDAO {
 	 * @return
 	 * @throws SQLException
 	 */
-	public boolean updateQuantita(int idProdotto, float quantita) throws SQLException;
+	public boolean updateQuantita(int idProdotto, int quantita) throws SQLException;
 	
 	/**
 	 * Modifica i dati di un prodotto 

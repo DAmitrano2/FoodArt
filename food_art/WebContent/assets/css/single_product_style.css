@@ -57,7 +57,7 @@ select:focus{
     width: 100%;
 }
 .testimonial-box{
-    width: 500px;
+    width: 98%;
     box-shadow: 2px 2px 30px rgba(0, 0, 0, 0.1);
     background-color: white;
     padding: 20px;

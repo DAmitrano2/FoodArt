@@ -82,13 +82,13 @@ input:focus, button:focus{
     border-color: rgba(0,0,0,0.5)!important;
 }
 
-@media (min-width: 421px){
+@media (min-width: 461px){
 	#nav-search{
 		display: none;
 	}
 }
 
-@media (max-width: 420px){
+@media (max-width: 460px){
 	.navbar .mainNavBar{
 		display: none;
 	}
