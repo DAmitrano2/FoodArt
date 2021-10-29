@@ -121,14 +121,14 @@ public class RegisterControl extends HttpServlet {
 			if(user!=null) {
 				id=modelUser.doSave(user);
 				request.getSession(true);
-				request.getSession().setAttribute("user",user);
+				request.getSession().setAttribute("user", user);
 				response.setStatus(200);
 			}
 			if(bool) {
 				dealer.setIdUtente(id);
 				modelSeller.doSave(dealer);
 				request.getSession(true);
-				request.getSession().setAttribute("seller",dealer);
+				request.getSession().setAttribute("seller", dealer);
 				response.setStatus(200);
 			}
 			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/index.jsp");

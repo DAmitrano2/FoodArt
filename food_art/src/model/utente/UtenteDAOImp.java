@@ -37,7 +37,7 @@ public class UtenteDAOImp implements UtenteDAO {
 		String insertSQL = "INSERT INTO " + UtenteDAOImp.TABLE_NAME
 				+ " (nome, cognome, email, password,amministratore, rivenditore, bloccato)"
 				+ " VALUES (?, ?, ?, ?, ?, ?, ?)";
-
+		
 		try {
 			connection = ds.getConnection();
 			preparedStatement = connection.prepareStatement(insertSQL);

@@ -38,7 +38,7 @@
 					Non hai un account?<a href="<%=path %>/register">Registrati</a>
 				</div>
 				<div class="d-flex justify-content-center">
-					<a href="<%=path %>/recovery">Hai dimenticato la password?</a>
+					<a href="#">Hai dimenticato la password?</a>
 				</div>
 			</div>
 		</div>

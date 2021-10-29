@@ -93,4 +93,14 @@ public class UtenteBean {
 		this.rivenditore = bloccato;
 	}
 
+	public static final boolean matches(UtenteBean u) {
+		if(!u.getNome().matches("^[A-Za-z ]{1,25}$")
+				|| (!u.getCognome().matches("^[A-Za-z ]{1,25}$"))
+				|| (!u.getEmail().matches("\\S+@\\S+\\.\\S+"))
+				|| (u.getPassword().length()<8)) {
+				
+			return false;
+				
+		} else return true;
+	}
 }

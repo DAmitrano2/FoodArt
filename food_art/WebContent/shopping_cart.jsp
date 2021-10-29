@@ -14,15 +14,15 @@
 	            		}else {
            			%>  
     	            	<h3>Il tuo carrello &#232; vuoto</h3>
-   	            <%
+   	            	<%
 	            		}
 	            	%>
 	            </div>
 	          </thead>
 	          <tbody>
-							<%
-		  					RivenditoreDAOImp modelRivenditore = new RivenditoreDAOImp();
-								if(cart != null && cart.getProducts().size() != 0){
+					<%
+  					RivenditoreDAOImp modelRivenditore = new RivenditoreDAOImp();
+						if(cart != null && cart.getProducts().size() != 0){
 		          		for(ProductItem product: cart.getProducts()){
 							%>
 	         		<tr class="d-flex align-items-center">
@@ -36,13 +36,13 @@
 	              </td>
 	              <td onClick="setQuantityCart('set', <%=product.getIdProdotto()%>, '<%=pagina%>', this)" id="quantita">
 		              <select class="selectpicker my-3">
-		         	 			<option active><%=product.getQuantita() %></option>
-	                  <%
+	         	 			<option active><%=product.getQuantita() %></option>
+                  			<%
 					          	int nMin = product.getQuantitaMinima();
 					          	int nMax = product.getQuantitaDisponibile();
 					          	for(int i=nMin; i<=nMax; i++){
 					          		if(i!=product.getQuantita()){
-										%>	
+							%>	
 										<!-- %setQuantityCart('set', <-%=product.getIdProdotto() %>, 'shopping_cart', this) %-->
 					          <option><%=i %></option>
 					          <%}} %>

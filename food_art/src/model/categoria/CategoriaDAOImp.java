@@ -164,7 +164,7 @@ public class CategoriaDAOImp implements CategoriaDAO {
 	}
 
 	@Override
-	public void Update(int idCategoria, String NewName) throws SQLException {
+	public void update(int idCategoria, String NewName) throws SQLException {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 
@@ -193,10 +193,6 @@ public class CategoriaDAOImp implements CategoriaDAO {
 		
 		
 	}
-	
-	private static final String TABLE_NAME = "categoria";
-	
-	private DataSource ds;
 
 	@Override
 	public byte[] doRetrieveByKeyCategoria(int idCategoria) throws SQLException {
@@ -230,4 +226,8 @@ public class CategoriaDAOImp implements CategoriaDAO {
 		}
 		return path;
 	}
+	
+	private static final String TABLE_NAME = "categoria";
+	
+	private DataSource ds;
 }

@@ -28,8 +28,8 @@
 					<div class="input-group form-group">
 						<input name="data" id="data" type="date" min="1900-01-01" max="<%=new java.sql.Date(System.currentTimeMillis())%>" class="form-control">
 						<select name="sesso" class="form-control" id="sesso">
-							<option value="maschio">Maschio</option>
-							<option value="femmina">Femmina</option>
+							<option id="sessoOption" value="m">Maschio</option>
+							<option id="sessoOption" value="f">Femmina</option>
 						</select>
 					</div>
 					<div class="input-group form-group">
@@ -63,7 +63,7 @@
 						    <i class="fa fa-cloud-upload"></i> Inserisci la partita iva
 						</label>
 						<input name="fPartitaIVA" type="file" class="form-control" accept=".pdf" id="fPartitaIVA"/>
-						<input disabled name="fCartaIdentita" type="file" class="form-control" accept=".jpg, .jpeg, .png" id="fCartaIdentita"/>					
+						<input name="fCartaIdentita" type="file" class="form-control" accept=".jpg, .jpeg, .png" id="fCartaIdentita"/>					
 						<label for="fCartaIdentita" class="custom-file-upload form-control">
 						    <i class="fa fa-cloud-upload"></i> Inserisci la carta di identit&#224;
 						</label>
