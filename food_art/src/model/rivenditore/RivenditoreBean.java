@@ -1,9 +1,11 @@
 package model.rivenditore;
 
-import java.io.File;
-import java.io.InputStream;
-import java.sql.Blob;
 import java.sql.Date;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Locale;
+import java.util.TimeZone;
+
 
 public class RivenditoreBean {
 
@@ -147,5 +149,42 @@ public class RivenditoreBean {
 		this.capSedeLegale = capSedeLegale;
 	}
 
-
+	public static final boolean matches(RivenditoreBean r) {
+		if((!r.isMaggiorenne(r.getDataNascita()))
+				|| (!r.getCitta().matches("^[A-Za-z ]{1,45}$"))
+				|| (!r.getProvincia().matches("^[A-Z]{2,2}$"))
+				|| (!r.getCodiceFiscale().matches("^[a-zA-Z]{6}[0-9]{2}[abcdehlmprstABCDEHLMPRST]{1}[0-9]{2}([a-zA-Z]{1}[0-9]{3})[a-zA-Z]{1}$"))
+				|| ((r.getRagioneSociale().length()<1) || (r.getRagioneSociale().length() > 45))
+				|| (!r.getProvinciaSedeLegale().matches("^[A-Z]{2,2}$"))
+				|| (!r.getCittaSedeLegale().matches("^[A-Za-z ]{1,25}$"))
+				|| (!r.getCapSedeLegale().matches("^[0-9]{5,5}$"))
+				|| (!r.getViaSedeLegale().matches("^[A-Za-z ]{1,25}$"))
+				|| (!r.getNumeroCivicoSedeLegale().matches("^[0-9]{1,25}$"))
+				|| (!r.getNumeroPartitaIva().matches("^[0-9]{11,11}$"))
+				) {
+				
+			return false;
+				
+		} else return true;
+	}
+	
+	public boolean isMaggiorenne(java.sql.Date dataNascita) {
+		Calendar calendar = Calendar.getInstance(TimeZone.getTimeZone("Europe/Rome"),Locale.ITALY);
+		java.util.Date utilNow = calendar.getTime();
+		java.sql.Date sqlNow = new java.sql.Date(utilNow.getTime());
+		
+	    SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy");
+	    int anno = Integer.parseInt(simpleDateFormat.format(sqlNow))-Integer.parseInt(simpleDateFormat.format(dataNascita));
+	    
+	    simpleDateFormat = new SimpleDateFormat("MM");
+		int mese = Integer.parseInt(simpleDateFormat.format(sqlNow))-Integer.parseInt(simpleDateFormat.format(dataNascita));
+		
+		simpleDateFormat = new SimpleDateFormat("dd");
+		int giorno = Integer.parseInt(simpleDateFormat.format(sqlNow))-Integer.parseInt(simpleDateFormat.format(dataNascita));
+		
+		if(anno>18 || (anno == 18 && (mese > 0 || (mese == 0 && giorno >= 0 )))) {
+			return true;
+		}
+		return false;
+	}
 }

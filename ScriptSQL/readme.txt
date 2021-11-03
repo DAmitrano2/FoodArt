@@ -1,0 +1,1 @@
+Nel caso in cui non andasse lo script del database, utilizzare i file dump

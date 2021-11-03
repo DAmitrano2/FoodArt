@@ -1,6 +1,7 @@
 package model.feedback;
 
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.Collection;
 import java.util.LinkedList;
 import java.sql.Connection;
@@ -11,7 +12,6 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
-
 
 public class FeedbackDAOImp implements FeedbackDAO {
 	
@@ -55,7 +55,7 @@ public class FeedbackDAOImp implements FeedbackDAO {
 				if (connection != null)
 					connection.close();
 			}
-		}	
+		}
 
 	}
 

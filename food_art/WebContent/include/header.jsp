@@ -29,7 +29,7 @@
 		}
 	}
 	else {
-		//response.sendRedirect("./index");
+		response.sendRedirect("./index");
 	}
 	
 	//Categorie

@@ -29,7 +29,7 @@ public class LoginControl extends HttpServlet {
 		this.model = new UtenteDAOImp();
 	}
 	
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+	public void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
 		Cookie[] cookies = request.getCookies();
@@ -53,7 +53,7 @@ public class LoginControl extends HttpServlet {
 		
 	}
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+	public void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		String email = request.getParameter("email");
 		String password = request.getParameter("password");
@@ -64,15 +64,15 @@ public class LoginControl extends HttpServlet {
 		String jsonMessage = null;
 		
 		try {
-			
 			if( !model.isEmail(email) ) {
 				PrintWriter out = response.getWriter();
 				response.setContentType("application/json");
 				response.setCharacterEncoding("UTF-8");
 				response.setStatus(401);
 				
-				Gson json = new Gson();
+				request.setAttribute("errorMessage", "email non esistente");
 				
+				Gson json = new Gson();
 				jsonMessage = "{\"message\":\"Email non esistente\"}";
 				String jsonString = json.toJson(jsonMessage);
 				
@@ -87,6 +87,8 @@ public class LoginControl extends HttpServlet {
 				response.setContentType("application/json");
 				response.setCharacterEncoding("UTF-8");
 				response.setStatus(401);
+				
+				request.setAttribute("errorMessage", "email e password non coincidono");
 				
 				Gson json = new Gson();
 				
@@ -114,6 +116,8 @@ public class LoginControl extends HttpServlet {
 				
 				request.getSession().setAttribute("user", user);
 				response.setStatus(200);
+				
+				request.setAttribute("errorMessage", "Login va");
 				
 				RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/index");
 				dispatcher.forward(request, response);

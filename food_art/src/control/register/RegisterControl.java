@@ -40,6 +40,12 @@ public class RegisterControl extends HttpServlet {
 		
 		request.setAttribute("page","register");
 		
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/register.jsp");
+		dispatcher.forward(request, response);
+	}
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
 		int id=0;
 		
 		String email = request.getParameter("email");
@@ -59,66 +65,70 @@ public class RegisterControl extends HttpServlet {
 		user.setNome(nome);
 		user.setCognome(cognome);
 		
-		RivenditoreBean seller = new RivenditoreBean();
-			
-		if( rivenditore.equalsIgnoreCase("rivenditore-check") ) {
-					
-			user.setRivenditore(true);
-			
-			String data = request.getParameter("data");
-			String sesso = request.getParameter("sesso");
-			String citta = request.getParameter("citta");
-			String provincia = request.getParameter("provincia");
-			String codiceFiscale = request.getParameter("codiceFiscale");
-			String ragioneSociale = request.getParameter("ragioneSociale");
-			String provinciaSedeLegale = request.getParameter("provinciaSedeLegale");
-			String cittaSedeLegale = request.getParameter("cittaSedeLegale");
-			String viaSedeLegale = request.getParameter("viaSedeLegale");
-			String capSedeLegale = request.getParameter("capSedeLegale");
-			String nCivicoSedeLegale = request.getParameter("nCivicoSedeLegale");
-			String nPartitaIVA = request.getParameter("nPartitaIVA");
-			
-			Date date=new Date(0);
-			date=Date.valueOf(data);
-			
-			seller.setDataNascita(date);
-			seller.setSesso(sesso);
-			seller.setCitta(citta);
-			seller.setProvincia(provincia);
-			seller.setCodiceFiscale(codiceFiscale);
-			seller.setRagioneSociale(ragioneSociale);
-			seller.setProvinciaSedeLegale(provinciaSedeLegale);
-			seller.setCittaSedeLegale(cittaSedeLegale);
-			seller.setViaSedeLegale(viaSedeLegale);
-			seller.setCapSedeLegale(capSedeLegale);
-			seller.setNumeroCivicoSedeLegale(nCivicoSedeLegale);
-			seller.setNumeroPartitaIva(nPartitaIVA);
-			
-			byte[] bytes = null;
-			
-		    Part filePart = request.getPart("fPartitaIVA");
-
-		    bytes = filePart.getInputStream().readAllBytes();
-			seller.setFilePartitaIva(bytes);
-			
-			bytes = null;
-			filePart = request.getPart("fCartaIdentita");
-			bytes = filePart.getInputStream().readAllBytes();
-			seller.setFileDocumentoIdentita(bytes);
+		boolean bool = false;
+		RivenditoreBean dealer = new RivenditoreBean();
+		if(rivenditore != null) {	
+			if( rivenditore.equalsIgnoreCase("rivenditore-check") ) {
+				
+				user.setRivenditore(true);
+				
+				String data = request.getParameter("data");
+				String sesso = request.getParameter("sesso");
+				String citta = request.getParameter("citta");
+				String provincia = request.getParameter("provincia");
+				String codiceFiscale = request.getParameter("codiceFiscale");
+				String ragioneSociale = request.getParameter("ragioneSociale");
+				String provinciaSedeLegale = request.getParameter("provinciaSedeLegale");
+				String cittaSedeLegale = request.getParameter("cittaSedeLegale");
+				String viaSedeLegale = request.getParameter("viaSedeLegale");
+				String capSedeLegale = request.getParameter("capSedeLegale");
+				String nCivicoSedeLegale = request.getParameter("nCivicoSedeLegale");
+				String nPartitaIVA = request.getParameter("nPartitaIVA");
+				
+				Date date=new Date(0);
+				date=Date.valueOf(data);
+				
+				dealer.setDataNascita(date);
+				dealer.setSesso(sesso);
+				dealer.setCitta(citta);
+				dealer.setProvincia(provincia);
+				dealer.setCodiceFiscale(codiceFiscale);
+				dealer.setRagioneSociale(ragioneSociale);
+				dealer.setProvinciaSedeLegale(provinciaSedeLegale);
+				dealer.setCittaSedeLegale(cittaSedeLegale);
+				dealer.setViaSedeLegale(viaSedeLegale);
+				dealer.setCapSedeLegale(capSedeLegale);
+				dealer.setNumeroCivicoSedeLegale(nCivicoSedeLegale);
+				dealer.setNumeroPartitaIva(nPartitaIVA);
+				
+				byte[] bytes = null;
+				
+			    Part filePart = request.getPart("fPartitaIVA");
+	
+			    bytes = filePart.getInputStream().readAllBytes();
+				dealer.setFilePartitaIva(bytes);
+				
+				bytes = null;
+				filePart = request.getPart("fCartaIdentita");
+				bytes = filePart.getInputStream().readAllBytes();
+				dealer.setFileDocumentoIdentita(bytes);
+				
+				bool = true;
+			}
 		}
 
 		try {
 			if(user!=null) {
 				id=modelUser.doSave(user);
 				request.getSession(true);
-				request.getSession().setAttribute("user",user);
+				request.getSession().setAttribute("user", user);
 				response.setStatus(200);
 			}
-			if(seller!=null) {
-				seller.setIdUtente(id);
-				modelSeller.doSave(seller);
+			if(bool) {
+				dealer.setIdUtente(id);
+				modelSeller.doSave(dealer);
 				request.getSession(true);
-				request.getSession().setAttribute("seller",seller);
+				request.getSession().setAttribute("seller", dealer);
 				response.setStatus(200);
 			}
 			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/index.jsp");
@@ -127,13 +137,6 @@ public class RegisterControl extends HttpServlet {
 			System.out.println("Error: "+e.getMessage());
 			return;
 		}
-		
-		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/register.jsp");
-		dispatcher.forward(request, response);
-	}
-
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doGet(request, response);
 	}
 
 }
