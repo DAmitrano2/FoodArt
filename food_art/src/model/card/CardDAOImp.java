@@ -1,4 +1,4 @@
-package model.metodoPagamento;
+package model.card;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -12,9 +12,9 @@ import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
 
-public class MetodoPagamentoDAOImp implements MetodoPagamentoDAO {
+public class CardDAOImp implements CardDAO {
 	
-	public MetodoPagamentoDAOImp() {
+	public CardDAOImp() {
 		try {
 			Context initCtx = new InitialContext();
 			Context envCtx = (Context) initCtx.lookup("java:comp/env");
@@ -31,7 +31,7 @@ public class MetodoPagamentoDAOImp implements MetodoPagamentoDAO {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 
-		String selectSQL = "SELECT * FROM " + MetodoPagamentoDAOImp.TABLE_NAME+ " WHERE nCarta = ?";
+		String selectSQL = "SELECT * FROM " + CardDAOImp.TABLE_NAME+ " WHERE nCarta = ?";
 
 		try {
 			connection = ds.getConnection();
@@ -60,7 +60,7 @@ public class MetodoPagamentoDAOImp implements MetodoPagamentoDAO {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 
-		String selectSQL = "SELECT saldo FROM " + MetodoPagamentoDAOImp.TABLE_NAME+ " WHERE nCarta = ?";
+		String selectSQL = "SELECT saldo FROM " + CardDAOImp.TABLE_NAME+ " WHERE nCarta = ?";
 
 		try {
 			connection = ds.getConnection();
@@ -92,7 +92,7 @@ public class MetodoPagamentoDAOImp implements MetodoPagamentoDAO {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 		
-		String updateSQL = "UPDATE " + MetodoPagamentoDAOImp.TABLE_NAME+ " SET saldo=saldo-? WHERE nCarta=?";
+		String updateSQL = "UPDATE " + CardDAOImp.TABLE_NAME+ " SET saldo=saldo-? WHERE nCarta=?";
 
 		try {
 			connection = ds.getConnection();
@@ -116,13 +116,13 @@ public class MetodoPagamentoDAOImp implements MetodoPagamentoDAO {
 	}
 	
 	@Override
-	public Collection<MetodoPagamentoBean> getMetodoPagamentoByIdUser(int idUser) throws SQLException {
+	public Collection<CardBean> getMetodoPagamentoByIdUser(int idUser) throws SQLException {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 
-		Collection<MetodoPagamentoBean> metodoPagamento = new LinkedList<MetodoPagamentoBean>();
+		Collection<CardBean> metodoPagamento = new LinkedList<CardBean>();
 
-		String selectSQL = "SELECT * FROM " + MetodoPagamentoDAOImp.TABLE_NAME+ " WHERE idUtente= ?";
+		String selectSQL = "SELECT * FROM " + CardDAOImp.TABLE_NAME+ " WHERE idUtente= ?";
 		
 		try {
 			connection = ds.getConnection();
@@ -132,7 +132,7 @@ public class MetodoPagamentoDAOImp implements MetodoPagamentoDAO {
 			ResultSet rs = preparedStatement.executeQuery();
 
 			while (rs.next()) {
-				MetodoPagamentoBean bean = new MetodoPagamentoBean();
+				CardBean bean = new CardBean();
 				bean.setNumeroCarta(rs.getString("nCarta"));
 				bean.setIntestatario(rs.getString("intestatario"));
 				bean.setDataScadenza(rs.getDate("dataScadenza"));
@@ -156,13 +156,13 @@ public class MetodoPagamentoDAOImp implements MetodoPagamentoDAO {
 	}
 
 	@Override
-	public MetodoPagamentoBean getMetodoPagamentoByCard(String card) throws SQLException {
+	public CardBean getMetodoPagamentoByCard(String card) throws SQLException {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 
-		MetodoPagamentoBean bean = new MetodoPagamentoBean();
+		CardBean bean = new CardBean();
 
-		String selectSQL = "SELECT * FROM " + MetodoPagamentoDAOImp.TABLE_NAME +" WHERE nCarta = ? ";
+		String selectSQL = "SELECT * FROM " + CardDAOImp.TABLE_NAME +" WHERE nCarta = ? ";
 		
 		try {
 			connection = ds.getConnection();

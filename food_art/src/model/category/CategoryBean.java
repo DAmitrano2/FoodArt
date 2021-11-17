@@ -1,12 +1,12 @@
-package model.categoria;
+package model.category;
 
-public class CategoriaBean {
+public class CategoryBean {
 
 	private int idCategoria;
 	private String nome;
 	private byte[] pathName;
 	
-	public CategoriaBean() {
+	public CategoryBean() {
 		this.idCategoria = -1;
 	}
 

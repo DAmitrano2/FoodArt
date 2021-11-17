@@ -7,7 +7,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import junit.framework.TestCase;
-import model.utente.UtenteBean;
+import model.user.UtenteBean;
 
 class TestCliente extends TestCase {
 	UtenteBean userBean;

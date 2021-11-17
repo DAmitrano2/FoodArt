@@ -1,4 +1,4 @@
-package model.utente;
+package model.user;
 
 import java.sql.SQLException;
 import java.util.Collection;
@@ -68,4 +68,12 @@ public interface UtenteDAO {
 	 * @throws SQLException
 	 */
 	public UtenteBean doRetrieveById(int idUtente) throws SQLException;
+	
+	/**
+	 * Restituisce l'immagine di un utente tramite l'id
+	 * @param idUtente
+	 * @return l'immagine di uno specifico utente
+	 * @throws SQLException
+	 */
+	public byte[] doRetrieveImageByKey(int idUtente) throws SQLException;
 }

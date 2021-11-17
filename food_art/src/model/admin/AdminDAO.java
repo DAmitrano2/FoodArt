@@ -1,9 +1,9 @@
-package model.amministratore;
+package model.admin;
 
 import java.sql.SQLException;
 import java.util.Collection;
 
-public interface AmministratoreDAO {
+public interface AdminDAO {
 	
 	/**
 	 * Salva i dati di un amministratore
@@ -11,7 +11,7 @@ public interface AmministratoreDAO {
 	 * @return null
 	 * @throws SQLException
 	 */
-	public void doSave(AmministratoreBean admin) throws SQLException;
+	public void doSave(AdminBean admin) throws SQLException;
 	
 	/**
 	 * Carica i dati di un singolo amministratore in base al codice identificativo utente.
@@ -19,7 +19,7 @@ public interface AmministratoreDAO {
 	 * @return un amministratore se l'identificativo utente è realmente corrispondente ad un amministratore, null altrimenti
 	 * @throws SQLException
 	 */	
-	public AmministratoreBean doRetriveById(int idUtente) throws SQLException;
+	public AdminBean doRetriveById(int idUtente) throws SQLException;
 	
 	/**
 	 * Carica i dati di tutti gli amministratori
@@ -27,7 +27,7 @@ public interface AmministratoreDAO {
 	 * @return una collezione di amministratori
 	 * @throws SQLException
 	 */	
-	public Collection<AmministratoreBean> doRetrieveAll() throws SQLException;
+	public Collection<AdminBean> doRetrieveAll() throws SQLException;
 	
 	
 }

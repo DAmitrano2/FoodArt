@@ -1,11 +1,11 @@
-package model.metodoPagamento;
+package model.card;
 
 import java.sql.SQLException;
 import java.util.Collection;
 
-import model.indirizzoConsegna.IndirizzoConsegnaBean;
+import model.address.AddressBean;
 
-public interface MetodoPagamentoDAO {
+public interface CardDAO {
 	
 	/**
 	 * Controlla se una carta è esistente
@@ -37,7 +37,7 @@ public interface MetodoPagamentoDAO {
 	 * @return Collezione di MetodoPagamentoBean
 	 * @throws SQLException
 	 */
-	Collection<MetodoPagamentoBean> getMetodoPagamentoByIdUser (int idUser) throws SQLException;
+	Collection<CardBean> getMetodoPagamentoByIdUser (int idUser) throws SQLException;
 	
 	/**
 	 * Restituisce una collezione di carte collegate a un determinato utente
@@ -45,6 +45,6 @@ public interface MetodoPagamentoDAO {
 	 * @return MetodoPagamentoBean
 	 * @throws SQLException
 	 */
-	MetodoPagamentoBean getMetodoPagamentoByCard (String card) throws SQLException;
+	CardBean getMetodoPagamentoByCard (String card) throws SQLException;
 
 }

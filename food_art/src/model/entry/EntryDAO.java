@@ -1,12 +1,12 @@
-package model.voce;
+package model.entry;
 
 import java.sql.SQLException;
 import java.util.Collection;
 
-public interface VoceDAO {
+public interface EntryDAO {
 	
-	public void doSave(VoceBean voce) throws SQLException;
+	public void doSave(EntryBean voce) throws SQLException;
 
-	public Collection<VoceBean> doRetrieveByOrderKey(int idOrdine) throws SQLException;
+	public Collection<EntryBean> doRetrieveByOrderKey(int idOrdine) throws SQLException;
 
 }

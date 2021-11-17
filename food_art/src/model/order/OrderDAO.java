@@ -1,12 +1,12 @@
-package model.ordine;
+package model.order;
 
 import java.sql.SQLException;
 import java.util.Collection;
 
 
-public interface OrdineDAO {
+public interface OrderDAO {
 	
-	public void doSave(OrdineBean order) throws SQLException;
+	public void doSave(OrderBean order) throws SQLException;
 
 	/**
 	 * Restituisce un ordine in base all'id
@@ -14,7 +14,7 @@ public interface OrdineDAO {
 	 * @return order
 	 * @throws SQLException
 	 */
-	public OrdineBean doRetrieveSingleOrder(int idOrdine) throws SQLException;
+	public OrderBean doRetrieveSingleOrder(int idOrdine) throws SQLException;
 	
 	/**
 	 * Restituisce l'ultimo ordine
@@ -30,14 +30,14 @@ public interface OrdineDAO {
 	 * @return
 	 * @throws SQLException
 	 */
-	public Collection<OrdineBean> doRetrieveAll(int idUtente) throws SQLException;
+	public Collection<OrderBean> doRetrieveAll(int idUtente) throws SQLException;
 
 	/**
 	 * Restituisce tutti gli ordini presenti del db
 	 * @return
 	 * @throws SQLException
 	 */
-	public Collection<OrdineBean> doRetrieveAll() throws SQLException;
+	public Collection<OrderBean> doRetrieveAll() throws SQLException;
 	
 
 }

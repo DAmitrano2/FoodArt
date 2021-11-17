@@ -1,11 +1,11 @@
-package model.prodotto;
+package model.product;
 
 import java.sql.SQLException;
 import java.util.Collection;
 
 
 
-public interface ProdottoDAO {
+public interface ProductDAO {
 	
 	/**
 	 * Salvataggio dei dati di un prodotto
@@ -13,7 +13,7 @@ public interface ProdottoDAO {
 	 * @return
 	 * @throws SQLException
 	 */
-	public void doSave(ProdottoBean product) throws SQLException;
+	public void doSave(ProductBean product) throws SQLException;
 
 	/**
 	 * Rende invendibile un prodotto
@@ -29,7 +29,7 @@ public interface ProdottoDAO {
 	 * @return un ProdottoBean
 	 * @throws SQLException
 	 */
-	public ProdottoBean doRetrieveByKey(int idProdotto) throws SQLException;
+	public ProductBean doRetrieveByKey(int idProdotto) throws SQLException;
 	
 	/**
 	 * Ricerca dei prodotti in base all'id di categoria
@@ -37,7 +37,7 @@ public interface ProdottoDAO {
 	 * @return collezione di ProdottoBean
 	 * @throws SQLException
 	 */
-	public Collection<ProdottoBean> getProductByIdCategory(int idCategoria) throws SQLException;
+	public Collection<ProductBean> getProductByIdCategory(int idCategoria) throws SQLException;
 	
 	/**
 	 * Ricerca dei prodotti in base all'id di categoria e al numero massimo di prodotti da visualizzare tranne un prodotto
@@ -45,7 +45,7 @@ public interface ProdottoDAO {
 	 * @return collezione di ProdottoBean
 	 * @throws SQLException
 	 */
-	public Collection<ProdottoBean> getProductByIdCategory(int idCategoria, int numeroProdotti, int idProdotto) throws SQLException;
+	public Collection<ProductBean> getProductByIdCategory(int idCategoria, int numeroProdotti, int idProdotto) throws SQLException;
 	
 	/**
 	 * Ritorna i prodotti in ordine decrescente di id
@@ -53,7 +53,7 @@ public interface ProdottoDAO {
 	 * @return collezione di ProdottoBean
 	 * @throws SQLException
 	 */
-	public Collection<ProdottoBean> getLastArrivals(int numeroProdotti) throws SQLException;
+	public Collection<ProductBean> getLastArrivals(int numeroProdotti) throws SQLException;
 	
 	/**
 	 * Modifica la quantità di un prodotto in base al suo identificativo
@@ -69,7 +69,7 @@ public interface ProdottoDAO {
 	 * @return
 	 * @throws SQLException
 	 */
-	public void doUpdate(ProdottoBean product) throws SQLException;
+	public void doUpdate(ProductBean product) throws SQLException;
 
 	/**
 	 * Ricerca dei prodotti in base al titolo
@@ -77,6 +77,6 @@ public interface ProdottoDAO {
 	 * @return collezione di ProdottoBean
 	 * @throws SQLException
 	 */
-	Collection<ProdottoBean> getProductByTitle(String title) throws SQLException;
+	Collection<ProductBean> getProductByTitle(String title) throws SQLException;
 
 }

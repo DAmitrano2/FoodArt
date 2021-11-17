@@ -1,8 +1,8 @@
-package model.metodoPagamento;
+package model.card;
 
 import java.sql.Date;
 
-public class MetodoPagamentoBean {
+public class CardBean {
 
 	private String nCarta;
 	private String intestatario;
@@ -10,7 +10,7 @@ public class MetodoPagamentoBean {
 	private String cvv;
 	private int idUtente;
 	
-	public MetodoPagamentoBean() {
+	public CardBean() {
 		this.nCarta = "0000000000000000";
 	}
 

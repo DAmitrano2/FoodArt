@@ -1,9 +1,9 @@
-package model.categoria;
+package model.category;
 
 import java.sql.SQLException;
 import java.util.Collection;
 
-public interface CategoriaDAO {
+public interface CategoryDAO {
 	
 	/**
 	 * Salva i dati di una categoria
@@ -11,7 +11,7 @@ public interface CategoriaDAO {
 	 * @return null
 	 * @throws SQLException
 	 */	
-	public void doSave(CategoriaBean category) throws SQLException;
+	public void doSave(CategoryBean category) throws SQLException;
 	
 	/**
 	 * Modifica i dati di una categoria in base al suo identificativo
@@ -35,7 +35,7 @@ public interface CategoriaDAO {
 	 * @return CategoriaBean
 	 * @throws SQLException
 	 */	
-	public CategoriaBean doRetrieveByKey(int idCategoria) throws SQLException;
+	public CategoryBean doRetrieveByKey(int idCategoria) throws SQLException;
 	
 	/**
 	 * Restituisce i dati di tutte le categorie
@@ -43,7 +43,7 @@ public interface CategoriaDAO {
 	 * @return collezione di CategoriaBean
 	 * @throws SQLException
 	 */	
-	public Collection<CategoriaBean> doRetrieveAll() throws SQLException;
+	public Collection<CategoryBean> doRetrieveAll() throws SQLException;
 	
 	/**
 	 * Restituisce l'immagine della categoria in base all'id

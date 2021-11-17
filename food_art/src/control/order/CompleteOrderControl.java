@@ -12,16 +12,16 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import model.indirizzoConsegna.IndirizzoConsegnaBean;
-import model.indirizzoConsegna.IndirizzoConsegnaDAOImp;
-import model.metodoPagamento.MetodoPagamentoBean;
-import model.metodoPagamento.MetodoPagamentoDAOImp;
-import model.ordine.OrdineBean;
-import model.ordine.OrdineDAOImp;
-import model.prodotto.ProdottoDAOImp;
-import model.utente.UtenteBean;
-import model.voce.VoceBean;
-import model.voce.VoceDAOImp;
+import model.address.AddressBean;
+import model.address.AddressDAOImp;
+import model.card.CardBean;
+import model.card.CardDAOImp;
+import model.entry.EntryBean;
+import model.entry.EntryDAOImp;
+import model.order.OrderBean;
+import model.order.OrderDAOImp;
+import model.product.ProductDAOImp;
+import model.user.UtenteBean;
 import service.ProductItem;
 import service.ShoppingCart;
 
@@ -42,10 +42,10 @@ public class CompleteOrderControl extends HttpServlet {
 		int idIndirizzoConsegna = Integer.parseInt(request.getParameter("address"));
 		String nCarta = request.getParameter("card");
 		
-		IndirizzoConsegnaDAOImp addressDAO = new IndirizzoConsegnaDAOImp();
-		MetodoPagamentoDAOImp cardDAO = new MetodoPagamentoDAOImp();
-		IndirizzoConsegnaBean addressBean = new IndirizzoConsegnaBean();
-		MetodoPagamentoBean cardBean = new MetodoPagamentoBean();
+		AddressDAOImp addressDAO = new AddressDAOImp();
+		CardDAOImp cardDAO = new CardDAOImp();
+		AddressBean addressBean = new AddressBean();
+		CardBean cardBean = new CardBean();
 		
 		try {
 			addressBean = addressDAO.doRetriveByKey(idIndirizzoConsegna);
@@ -55,10 +55,10 @@ public class CompleteOrderControl extends HttpServlet {
 		}
 		Date dataOra = new java.sql.Date(System.currentTimeMillis());
 		
-		OrdineDAOImp orderDAO = new OrdineDAOImp();
+		OrderDAOImp orderDAO = new OrderDAOImp();
 		
 		try {
-			OrdineBean orderBean = new OrdineBean();
+			OrderBean orderBean = new OrderBean();
 			orderBean.setDataOra(dataOra);
 			orderBean.setVia(addressBean.getVia());
 			orderBean.setNumeroCivico(addressBean.getNumeroCivico());
@@ -82,9 +82,9 @@ public class CompleteOrderControl extends HttpServlet {
 			e.printStackTrace();
 		}
 		
-		VoceDAOImp voceDAO = new VoceDAOImp();
-		VoceBean voceBean = new VoceBean();
-		ProdottoDAOImp productDAO = new ProdottoDAOImp();
+		EntryDAOImp voceDAO = new EntryDAOImp();
+		EntryBean voceBean = new EntryBean();
+		ProductDAOImp productDAO = new ProductDAOImp();
 		ArrayList<ProductItem> productCart = cart.getProducts();
 		
 		
@@ -103,8 +103,6 @@ public class CompleteOrderControl extends HttpServlet {
 				e.printStackTrace();
 			}
 		}
-		
-		
 		
 		request.getSession().removeAttribute("cart");
 		

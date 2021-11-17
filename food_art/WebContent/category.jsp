@@ -1,9 +1,9 @@
 	<%@include file="./include/header.jsp"%>
-	<%	
-		int idCategoria = (int)request.getAttribute("idCategoria");
-		ProdottoDAOImp modelProdotto = new ProdottoDAOImp();
-		RivenditoreDAOImp modelRivenditore = new RivenditoreDAOImp();
-		Collection<ProdottoBean> prodotti = modelProdotto.getProductByIdCategory(idCategoria);
+	<%
+	int idCategoria = (int)request.getAttribute("idCategoria");
+		ProductDAOImp modelProdotto = new ProductDAOImp();
+		DealerDAOImp modelRivenditore = new DealerDAOImp();
+		Collection<ProductBean> prodotti = modelProdotto.getProductByIdCategory(idCategoria);
 	%>
 	<div class="container justify-content-center">
 		<div class="row">
@@ -48,7 +48,7 @@
 				<div class="row">
 				<%
 					if (prodotti != null && prodotti.size() != 0) {
-						for(ProdottoBean product: prodotti) {
+						for(ProductBean product: prodotti) {
 				%>
 					<div class="col-4 text-center">
 						<a class="product_link" href="./single_product?idProdotto=<%=product.getIdProdotto()%>">

@@ -1,4 +1,4 @@
-package control.login;
+package control.auth;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -15,8 +15,8 @@ import javax.servlet.http.HttpServletRequest;
 
 import com.google.gson.*;
 
-import model.utente.UtenteBean;
-import model.utente.UtenteDAOImp;
+import model.user.UtenteBean;
+import model.user.UtenteDAOImp;
 
 @WebServlet("/login")
 public class LoginControl extends HttpServlet {

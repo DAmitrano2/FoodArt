@@ -1,8 +1,8 @@
-package model.ordine;
+package model.order;
 
 import java.sql.Date;
 
-public class OrdineBean {
+public class OrderBean {
 
 	private int idOrdine;
 	private Date dataOra;
@@ -16,7 +16,7 @@ public class OrdineBean {
 	private String descrizione;
 	private int idUtente;
 	
-	public OrdineBean() {
+	public OrderBean() {
 		this.idOrdine = -1;
 	}
 

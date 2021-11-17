@@ -1,4 +1,4 @@
-package control.image;
+package control.content;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import model.immagine.ImmagineDAOImp;
+import model.image.ImageDAOImp;
 
 @WebServlet("/getProductImage")
 public class ImageProductControl extends HttpServlet {
@@ -24,7 +24,7 @@ public class ImageProductControl extends HttpServlet {
 		int idProdotto = Integer.parseInt(request.getParameter("idProdotto"));
 		try {
 			byte[] bytes;
-			ImmagineDAOImp modelImmagine = new ImmagineDAOImp();
+			ImageDAOImp modelImmagine = new ImageDAOImp();
 			bytes = modelImmagine.doRetrieveByKeyProdotto(idProdotto);
 			ServletOutputStream out = response.getOutputStream();
 			if(bytes != null)

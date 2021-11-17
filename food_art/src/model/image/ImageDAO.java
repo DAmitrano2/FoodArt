@@ -1,9 +1,9 @@
-package model.immagine;
+package model.image;
 
 import java.sql.SQLException;
 import java.util.Collection;
 
-public interface ImmagineDAO {
+public interface ImageDAO {
 	
 	/**
 	 * Salva i dati di un immagine 	
@@ -11,7 +11,7 @@ public interface ImmagineDAO {
 	 * @return 
 	 * @throws SQLException
 	 */
-	public void doSave(ImmagineBean image) throws SQLException;
+	public void doSave(ImageBean image) throws SQLException;
 
 	/**
 	 * Elimina i dati di un immagine
@@ -27,7 +27,7 @@ public interface ImmagineDAO {
 	 * @return ImmagineBean
 	 * @throws SQLException
 	 */
-	public ImmagineBean doRetrieveByKey(int idImmagine) throws SQLException;
+	public ImageBean doRetrieveByKey(int idImmagine) throws SQLException;
 
 	/**
 	 * Restituisce un immagine in base all'identificativo del prodotto
@@ -43,6 +43,6 @@ public interface ImmagineDAO {
 	 * @return Collezione di ImmagineBean
 	 * @throws SQLException
 	 */
-	public Collection<ImmagineBean> getImagesByProdotto(int idProdotto) throws SQLException;
+	public Collection<ImageBean> getImagesByProdotto(int idProdotto) throws SQLException;
 
 }

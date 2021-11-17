@@ -1,4 +1,4 @@
-package model.voce;
+package model.entry;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -13,9 +13,9 @@ import javax.naming.NamingException;
 import javax.sql.DataSource;
 
 
-public class VoceDAOImp implements VoceDAO {
+public class EntryDAOImp implements EntryDAO {
 	
-	public VoceDAOImp() {
+	public EntryDAOImp() {
 		try {
 			Context initCtx = new InitialContext();
 			Context envCtx = (Context) initCtx.lookup("java:comp/env");
@@ -28,11 +28,11 @@ public class VoceDAOImp implements VoceDAO {
 	}
 
 	@Override
-	public void doSave(VoceBean voce) throws SQLException {
+	public void doSave(EntryBean voce) throws SQLException {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 
-		String insertSQL = "INSERT INTO " + VoceDAOImp.TABLE_NAME
+		String insertSQL = "INSERT INTO " + EntryDAOImp.TABLE_NAME
 				+ " (idOrdine, idProdotto, quantita, prezzo)"
 				+ " VALUES (?, ?, ?, ?)";
 
@@ -59,13 +59,13 @@ public class VoceDAOImp implements VoceDAO {
 	}
 
 	@Override
-	public Collection<VoceBean> doRetrieveByOrderKey(int idOrdine) throws SQLException {
+	public Collection<EntryBean> doRetrieveByOrderKey(int idOrdine) throws SQLException {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 
-		Collection<VoceBean> composti = new LinkedList<VoceBean>();
+		Collection<EntryBean> composti = new LinkedList<EntryBean>();
 
-		String selectSQL = "SELECT * FROM " + VoceDAOImp.TABLE_NAME + " WHERE idOrdine = ?";
+		String selectSQL = "SELECT * FROM " + EntryDAOImp.TABLE_NAME + " WHERE idOrdine = ?";
 
 		try {
 			connection = ds.getConnection();
@@ -74,7 +74,7 @@ public class VoceDAOImp implements VoceDAO {
 			ResultSet rs = preparedStatement.executeQuery();
 			
 			while (rs.next()) {
-				VoceBean bean = new VoceBean();
+				EntryBean bean = new EntryBean();
 				bean.setIdOrdine( rs.getInt("idOrdine") );
 				bean.setIdProdotto( rs.getInt("idProdotto") );
 				bean.setQuantita( rs.getInt("quantita") );

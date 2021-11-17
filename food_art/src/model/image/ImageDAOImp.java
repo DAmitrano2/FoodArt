@@ -1,4 +1,4 @@
-package model.immagine;
+package model.image;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -13,9 +13,9 @@ import javax.naming.NamingException;
 import javax.sql.DataSource;
 
 
-public class ImmagineDAOImp implements ImmagineDAO {
+public class ImageDAOImp implements ImageDAO {
 	
-	public ImmagineDAOImp() {
+	public ImageDAOImp() {
 		try {
 			Context initCtx = new InitialContext();
 			Context envCtx = (Context) initCtx.lookup("java:comp/env");
@@ -28,12 +28,12 @@ public class ImmagineDAOImp implements ImmagineDAO {
 	}
 
 	@Override
-	public void doSave(ImmagineBean image) throws SQLException {
+	public void doSave(ImageBean image) throws SQLException {
 
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 
-		String insertSQL = "INSERT INTO " + ImmagineDAOImp.TABLE_NAME
+		String insertSQL = "INSERT INTO " + ImageDAOImp.TABLE_NAME
 				+ " (pathname, idProdotto, predefinito)"
 				+ " VALUES (?, ?, ?)";
 
@@ -65,7 +65,7 @@ public class ImmagineDAOImp implements ImmagineDAO {
 
 		int result = 0;
 
-		String deleteSQL = "DELETE FROM " + ImmagineDAOImp.TABLE_NAME + " WHERE idImmagine = ?";
+		String deleteSQL = "DELETE FROM " + ImageDAOImp.TABLE_NAME + " WHERE idImmagine = ?";
 
 		try {
 			connection = ds.getConnection();
@@ -87,13 +87,13 @@ public class ImmagineDAOImp implements ImmagineDAO {
 	}
 
 	@Override
-	public ImmagineBean doRetrieveByKey(int idImmagine) throws SQLException {
+	public ImageBean doRetrieveByKey(int idImmagine) throws SQLException {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 
-		ImmagineBean bean = new ImmagineBean();
+		ImageBean bean = new ImageBean();
 
-		String selectSQL = "SELECT * FROM " + ImmagineDAOImp.TABLE_NAME + " WHERE idImmagine = ?";
+		String selectSQL = "SELECT * FROM " + ImageDAOImp.TABLE_NAME + " WHERE idImmagine = ?";
 
 		try {
 			connection = ds.getConnection();
@@ -122,13 +122,13 @@ public class ImmagineDAOImp implements ImmagineDAO {
 	}
 
 	@Override
-	public Collection<ImmagineBean> getImagesByProdotto(int idProdotto) throws SQLException {
+	public Collection<ImageBean> getImagesByProdotto(int idProdotto) throws SQLException {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 
-		Collection<ImmagineBean> images = new LinkedList<ImmagineBean>();
+		Collection<ImageBean> images = new LinkedList<ImageBean>();
 
-		String selectSQL = "SELECT * FROM "+ ImmagineDAOImp.TABLE_NAME +" WHERE idProdotto = ?";
+		String selectSQL = "SELECT * FROM "+ ImageDAOImp.TABLE_NAME +" WHERE idProdotto = ?";
 
 		try {
 			connection = ds.getConnection();
@@ -138,7 +138,7 @@ public class ImmagineDAOImp implements ImmagineDAO {
 			ResultSet rs = preparedStatement.executeQuery();
 
 			while (rs.next()) {
-				ImmagineBean bean = new ImmagineBean();
+				ImageBean bean = new ImageBean();
 				bean.setIdImmagine(rs.getInt("idImmagine"));
 				bean.setPathName(rs.getBytes("pathname"));
 				bean.setIdProdotto(rs.getInt("idProdotto"));
@@ -168,7 +168,7 @@ public class ImmagineDAOImp implements ImmagineDAO {
 
 		byte[] path = null;
 
-		String selectSQL = "SELECT * FROM " + ImmagineDAOImp.TABLE_NAME + " WHERE idProdotto = ?";
+		String selectSQL = "SELECT * FROM " + ImageDAOImp.TABLE_NAME + " WHERE idProdotto = ?";
 
 		try {
 			connection = ds.getConnection();

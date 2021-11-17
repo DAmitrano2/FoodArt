@@ -1,4 +1,4 @@
-package control.user;
+package control.auth;
 
 import java.io.IOException;
 

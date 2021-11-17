@@ -1,4 +1,4 @@
-package control.searchbar;
+package control.content;
 
 import java.io.IOException;
 

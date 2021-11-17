@@ -1,6 +1,6 @@
-package model.indirizzoConsegna;
+package model.address;
 
-public class IndirizzoConsegnaBean {
+public class AddressBean {
 
 	private int idIndirizzoConsegna;
 	private String nome;
@@ -14,7 +14,7 @@ public class IndirizzoConsegnaBean {
 	private String descrizione;
 	private int idUtente;
 		
-	public IndirizzoConsegnaBean() {
+	public AddressBean() {
 		this.idUtente = -1;
 	}
 

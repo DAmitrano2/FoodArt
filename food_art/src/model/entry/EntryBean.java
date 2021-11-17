@@ -1,13 +1,13 @@
-package model.voce;
+package model.entry;
 
-public class VoceBean {
+public class EntryBean {
 
 	private int idOrdine;
 	private int idProdotto;
 	private float quantita;
 	private float prezzo;
 	
-	public VoceBean() {
+	public EntryBean() {
 		this.idOrdine = -1;
 		this.idProdotto = -1;
 	}

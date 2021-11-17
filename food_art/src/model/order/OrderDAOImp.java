@@ -1,4 +1,4 @@
-package model.ordine;
+package model.order;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -12,12 +12,12 @@ import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
 
-import model.rivenditore.RivenditoreDAOImp;
+import model.dealer.DealerDAOImp;
 
 
-public class OrdineDAOImp implements OrdineDAO {
+public class OrderDAOImp implements OrderDAO {
 
-	public OrdineDAOImp() {
+	public OrderDAOImp() {
 		try {
 			Context initCtx = new InitialContext();
 			Context envCtx = (Context) initCtx.lookup("java:comp/env");
@@ -29,11 +29,11 @@ public class OrdineDAOImp implements OrdineDAO {
 		}
 	}
 	@Override
-	public void doSave(OrdineBean order) throws SQLException {
+	public void doSave(OrderBean order) throws SQLException {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 
-		String insertSQL = "INSERT INTO " + OrdineDAOImp.TABLE_NAME
+		String insertSQL = "INSERT INTO " + OrderDAOImp.TABLE_NAME
 				+ " (dataOra, via, nCivico, citta, provincia, cap, nCarta, stato, descrizione, idUtente)"
 				+ " VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
@@ -67,13 +67,13 @@ public class OrdineDAOImp implements OrdineDAO {
 	}
 
 	@Override
-	public OrdineBean doRetrieveSingleOrder(int idOrdine) throws SQLException {
+	public OrderBean doRetrieveSingleOrder(int idOrdine) throws SQLException {
 			Connection connection = null;
 			PreparedStatement preparedStatement = null;
 
-			OrdineBean bean = new OrdineBean();
+			OrderBean bean = new OrderBean();
 
-			String selectSQL = "SELECT * FROM " + OrdineDAOImp.TABLE_NAME + " WHERE idOrdine = ?";
+			String selectSQL = "SELECT * FROM " + OrderDAOImp.TABLE_NAME + " WHERE idOrdine = ?";
 
 			try {
 				connection = ds.getConnection();
@@ -117,7 +117,7 @@ public class OrdineDAOImp implements OrdineDAO {
 		
 		int idOrd = 0;
 		
-		String selectSQL = "SELECT * FROM " + OrdineDAOImp.TABLE_NAME + " WHERE idUtente = ? order by idOrdine desc limit 1";
+		String selectSQL = "SELECT * FROM " + OrderDAOImp.TABLE_NAME + " WHERE idUtente = ? order by idOrdine desc limit 1";
 		
 		try {
 			
@@ -142,13 +142,13 @@ public class OrdineDAOImp implements OrdineDAO {
 	}
 
 	@Override
-	public Collection<OrdineBean> doRetrieveAll(int idUtente) throws SQLException {
+	public Collection<OrderBean> doRetrieveAll(int idUtente) throws SQLException {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 
-		Collection<OrdineBean> user_orders = new LinkedList<OrdineBean>();
+		Collection<OrderBean> user_orders = new LinkedList<OrderBean>();
 
-		String selectSQL = "SELECT * FROM " + OrdineDAOImp.TABLE_NAME + " WHERE idUtente = ?";
+		String selectSQL = "SELECT * FROM " + OrderDAOImp.TABLE_NAME + " WHERE idUtente = ?";
 
 		try {
 			connection = ds.getConnection();
@@ -158,7 +158,7 @@ public class OrdineDAOImp implements OrdineDAO {
 			ResultSet rs = preparedStatement.executeQuery();
 
 			while (rs.next()) {
-				OrdineBean bean = new OrdineBean();
+				OrderBean bean = new OrderBean();
 				
 				bean.setIdOrdine(rs.getInt("idOrdine"));
 				bean.setDataOra(rs.getDate("dataOra"));
@@ -188,13 +188,13 @@ public class OrdineDAOImp implements OrdineDAO {
 	}
 
 	@Override
-	public Collection<OrdineBean> doRetrieveAll() throws SQLException {
+	public Collection<OrderBean> doRetrieveAll() throws SQLException {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 
-		Collection<OrdineBean> all_orders = new LinkedList<OrdineBean>();
+		Collection<OrderBean> all_orders = new LinkedList<OrderBean>();
 
-		String selectSQL = "SELECT * FROM " + OrdineDAOImp.TABLE_NAME;
+		String selectSQL = "SELECT * FROM " + OrderDAOImp.TABLE_NAME;
 
 		try {
 			connection = ds.getConnection();
@@ -203,7 +203,7 @@ public class OrdineDAOImp implements OrdineDAO {
 			ResultSet rs = preparedStatement.executeQuery();
 
 			while (rs.next()) {
-				OrdineBean bean = new OrdineBean();
+				OrderBean bean = new OrderBean();
 				
 				bean.setIdOrdine(rs.getInt("idOrdine"));
 				bean.setDataOra(rs.getDate("dataOra"));

@@ -1,8 +1,9 @@
-package model.utente;
+package model.user;
 
 public class UtenteBean {
 
 	private int idUtente;
+	private byte[] pathName;
 	private String nome;
 	private String cognome;
 	private String email;
@@ -15,10 +16,17 @@ public class UtenteBean {
 		this.idUtente = -1;
 	}
 	
+	public byte[] getPathName() {
+		return pathName;
+	}
+
+	public void setPathName(byte[] pathName) {
+		this.pathName = pathName;
+	}
+	
 	public int getIdUtente() {
 		return idUtente;
 	}
-
 
 	public void setIdUtente(int idUtente) {
 		this.idUtente = idUtente;

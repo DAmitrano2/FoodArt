@@ -1,4 +1,4 @@
-package model.indirizzoConsegna;
+package model.address;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -12,9 +12,9 @@ import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
 
-public class IndirizzoConsegnaDAOImp implements IndirizzoConsegnaDAO {
+public class AddressDAOImp implements AddressDAO {
 
-	public IndirizzoConsegnaDAOImp() {
+	public AddressDAOImp() {
 		try {
 			Context initCtx = new InitialContext();
 			Context envCtx = (Context) initCtx.lookup("java:comp/env");
@@ -27,12 +27,12 @@ public class IndirizzoConsegnaDAOImp implements IndirizzoConsegnaDAO {
 	}
 
 	@Override
-	public synchronized void doSave(IndirizzoConsegnaBean indirizzo) throws SQLException {
+	public synchronized void doSave(AddressBean indirizzo) throws SQLException {
 
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 
-		String insertSQL = "INSERT INTO " + IndirizzoConsegnaDAOImp.TABLE_NAME
+		String insertSQL = "INSERT INTO " + AddressDAOImp.TABLE_NAME
 				+ " (nome, cognome, nTelefono, via, nCivico, citta, provincia, cap, descrizione, idUtente)"
 				+ " VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
@@ -64,13 +64,13 @@ public class IndirizzoConsegnaDAOImp implements IndirizzoConsegnaDAO {
 		}
 	}
 	
-	public Collection<IndirizzoConsegnaBean> getIndirizzoByIdUser(int idUser) throws SQLException {
+	public Collection<AddressBean> getIndirizzoByIdUser(int idUser) throws SQLException {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 
-		Collection<IndirizzoConsegnaBean> indirizzo = new LinkedList<IndirizzoConsegnaBean>();
+		Collection<AddressBean> indirizzo = new LinkedList<AddressBean>();
 
-		String selectSQL = "SELECT * FROM " + IndirizzoConsegnaDAOImp.TABLE_NAME+ " WHERE idUtente= ?";
+		String selectSQL = "SELECT * FROM " + AddressDAOImp.TABLE_NAME+ " WHERE idUtente= ?";
 		
 		try {
 			connection = ds.getConnection();
@@ -80,7 +80,7 @@ public class IndirizzoConsegnaDAOImp implements IndirizzoConsegnaDAO {
 			ResultSet rs = preparedStatement.executeQuery();
 
 			while (rs.next()) {
-				IndirizzoConsegnaBean bean = new IndirizzoConsegnaBean();
+				AddressBean bean = new AddressBean();
 				bean.setIdIndirizzoConsegna(rs.getInt("idIndirizzoConsegna"));
 				bean.setNome(rs.getString("nome"));
 				bean.setCognome(rs.getString("cognome"));
@@ -117,7 +117,7 @@ public class IndirizzoConsegnaDAOImp implements IndirizzoConsegnaDAO {
 
 		int result = 0;
 
-		String deleteSQL = "DELETE FROM " + IndirizzoConsegnaDAOImp.TABLE_NAME + " WHERE idIndirizzoConsegna = ?";
+		String deleteSQL = "DELETE FROM " + AddressDAOImp.TABLE_NAME + " WHERE idIndirizzoConsegna = ?";
 
 		try {
 			connection = ds.getConnection();
@@ -141,13 +141,13 @@ public class IndirizzoConsegnaDAOImp implements IndirizzoConsegnaDAO {
 	}
 
 	@Override
-	public IndirizzoConsegnaBean doRetriveByKey(int code) throws SQLException {
+	public AddressBean doRetriveByKey(int code) throws SQLException {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 
-		IndirizzoConsegnaBean bean = new IndirizzoConsegnaBean();
+		AddressBean bean = new AddressBean();
 
-		String selectSQL = "SELECT * FROM " + IndirizzoConsegnaDAOImp.TABLE_NAME +" WHERE idIndirizzoConsegna=? ";
+		String selectSQL = "SELECT * FROM " + AddressDAOImp.TABLE_NAME +" WHERE idIndirizzoConsegna=? ";
 		
 		try {
 			connection = ds.getConnection();

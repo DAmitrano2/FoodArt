@@ -1,11 +1,11 @@
-package model.amministratore;
+package model.admin;
 
-public class AmministratoreBean {
+public class AdminBean {
 
 	private int idUtente;
 	private String ruolo;
 	
-	public AmministratoreBean() {
+	public AdminBean() {
 		this.idUtente = -1;
 	}
 

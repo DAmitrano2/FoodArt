@@ -1,4 +1,4 @@
-package control.register;
+package control.auth;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -16,10 +16,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
 
-import model.rivenditore.RivenditoreBean;
-import model.rivenditore.RivenditoreDAOImp;
-import model.utente.UtenteBean;
-import model.utente.UtenteDAOImp;
+import model.dealer.DealerBean;
+import model.dealer.DealerDAOImp;
+import model.user.UtenteBean;
+import model.user.UtenteDAOImp;
 
 @WebServlet("/register")
 @MultipartConfig(maxFileSize = 50000000)
@@ -28,12 +28,12 @@ public class RegisterControl extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
 	private UtenteDAOImp modelUser;
-	private RivenditoreDAOImp modelSeller;
+	private DealerDAOImp modelSeller;
 
     public RegisterControl() {
         super();
         this.modelUser = new UtenteDAOImp();
-        this.modelSeller = new RivenditoreDAOImp();
+        this.modelSeller = new DealerDAOImp();
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -66,7 +66,7 @@ public class RegisterControl extends HttpServlet {
 		user.setCognome(cognome);
 		
 		boolean bool = false;
-		RivenditoreBean dealer = new RivenditoreBean();
+		DealerBean dealer = new DealerBean();
 		if(rivenditore != null) {	
 			if( rivenditore.equalsIgnoreCase("rivenditore-check") ) {
 				

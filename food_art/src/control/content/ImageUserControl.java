@@ -10,22 +10,22 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import model.category.CategoryDAOImp;
+import model.user.UtenteDAOImp;
 
-@WebServlet("/getCategoryImage")
-public class ImageCategoryControl extends HttpServlet {
+@WebServlet("/getUserImage")
+public class ImageUserControl extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    public ImageCategoryControl() {
+    public ImageUserControl() {
         super();
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		int idCategoria = Integer.parseInt(request.getParameter("idCategoria"));
+		int idUtente = Integer.parseInt(request.getParameter("idUtente"));
 		try {
 			byte[] bytes;
-			CategoryDAOImp modelImmagine = new CategoryDAOImp();
-			bytes = modelImmagine.doRetrieveByKeyCategoria(idCategoria);
+			UtenteDAOImp modelImmagine = new UtenteDAOImp();
+			bytes = modelImmagine.doRetrieveImageByKey(idUtente);
 			ServletOutputStream out = response.getOutputStream();
 			if(bytes != null)
 			{

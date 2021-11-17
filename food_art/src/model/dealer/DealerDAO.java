@@ -1,9 +1,9 @@
-package model.rivenditore;
+package model.dealer;
 
 import java.sql.SQLException;
 import java.util.Collection;
 
-public interface RivenditoreDAO {
+public interface DealerDAO {
 
 	/**
 	 * Salva i dati di un rivenditore
@@ -11,7 +11,7 @@ public interface RivenditoreDAO {
 	 * @return null
 	 * @throws SQLException
 	 */
-	public void doSave(RivenditoreBean dealer) throws SQLException;
+	public void doSave(DealerBean dealer) throws SQLException;
 	
 	/**
 	 * Carica il nome di un singolo rivenditore in base al codice identificativo utente.
@@ -27,7 +27,7 @@ public interface RivenditoreDAO {
 	 * @return un amministratore se l'identificativo utente è realmente corrispondente ad un rivenditore, null altrimenti
 	 * @throws SQLException
 	 */	
-	public RivenditoreBean doRetriveById(int idUtente) throws SQLException;
+	public DealerBean doRetriveById(int idUtente) throws SQLException;
 	
 	/**
 	 * Carica i dati di tutti gli rivenditori
@@ -35,6 +35,6 @@ public interface RivenditoreDAO {
 	 * @return una collezione di rivenditori
 	 * @throws SQLException
 	 */	
-	public Collection<RivenditoreBean> doRetrieveAll() throws SQLException;
+	public Collection<DealerBean> doRetrieveAll() throws SQLException;
 	
 }

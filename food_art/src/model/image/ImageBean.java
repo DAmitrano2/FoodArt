@@ -1,12 +1,12 @@
-package model.immagine;
+package model.image;
 
-public class ImmagineBean {
+public class ImageBean {
 
 	private int idImmagine;
 	private byte[] pathName;
 	private int idProdotto;
 	
-	public ImmagineBean() {
+	public ImageBean() {
 		this.idImmagine = -1;
 	}
 

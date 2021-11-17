@@ -1,4 +1,4 @@
-package model.amministratore;
+package model.admin;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -13,9 +13,9 @@ import javax.naming.NamingException;
 import javax.sql.DataSource;
 
 
-public class AmministratoreDAOImp implements AmministratoreDAO {
+public class AdminDAOImp implements AdminDAO {
 	
-	public AmministratoreDAOImp() {
+	public AdminDAOImp() {
 		try {
 			Context initCtx = new InitialContext();
 			Context envCtx = (Context) initCtx.lookup("java:comp/env");
@@ -28,12 +28,12 @@ public class AmministratoreDAOImp implements AmministratoreDAO {
 	}
 
 	@Override
-	public void doSave(AmministratoreBean admin) throws SQLException {
+	public void doSave(AdminBean admin) throws SQLException {
 		
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 		
-		String insertSQL = "INSERT INTO " + AmministratoreDAOImp.TABLE_NAME
+		String insertSQL = "INSERT INTO " + AdminDAOImp.TABLE_NAME
 				+ " (idUtente, ruolo)"
 				+ " VALUES (?, ?)";
 		connection = ds.getConnection();
@@ -58,13 +58,13 @@ public class AmministratoreDAOImp implements AmministratoreDAO {
 	}
 
 	@Override
-	public AmministratoreBean doRetriveById(int idUtente) throws SQLException {
+	public AdminBean doRetriveById(int idUtente) throws SQLException {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 		
-		AmministratoreBean bean = new AmministratoreBean();
+		AdminBean bean = new AdminBean();
 
-		String selectSQL = "SELECT * FROM" + AmministratoreDAOImp.TABLE_NAME +"where idUtente = ? ";
+		String selectSQL = "SELECT * FROM" + AdminDAOImp.TABLE_NAME +"where idUtente = ? ";
 		try {
 			connection = ds.getConnection();
 			preparedStatement = connection.prepareStatement(selectSQL);
@@ -101,13 +101,13 @@ public class AmministratoreDAOImp implements AmministratoreDAO {
 	}
 
 	@Override
-	public Collection<AmministratoreBean> doRetrieveAll() throws SQLException {
+	public Collection<AdminBean> doRetrieveAll() throws SQLException {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 
-		Collection<AmministratoreBean> admins = new LinkedList<AmministratoreBean>();
+		Collection<AdminBean> admins = new LinkedList<AdminBean>();
 
-		String selectSQL = "SELECT * FROM " + AmministratoreDAOImp.TABLE_NAME;
+		String selectSQL = "SELECT * FROM " + AdminDAOImp.TABLE_NAME;
 
 		try {
 			connection = ds.getConnection();
@@ -116,7 +116,7 @@ public class AmministratoreDAOImp implements AmministratoreDAO {
 			ResultSet rs = preparedStatement.executeQuery();
 
 			while (rs.next()) {
-				AmministratoreBean bean = new AmministratoreBean();
+				AdminBean bean = new AdminBean();
 				bean.setIdUtente(rs.getInt("idUtente"));
 				bean.setRuolo(rs.getString("ruolo"));
 				admins.add(bean);

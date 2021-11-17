@@ -1,6 +1,6 @@
-package model.prodotto;
+package model.product;
 
-public class ProdottoBean {
+public class ProductBean {
 
 	private int idProdotto;
 	private String titolo;
@@ -14,7 +14,7 @@ public class ProdottoBean {
 	private int idCategoria;
 	private int idUtente;
 
-	public ProdottoBean() {
+	public ProductBean() {
 		this.idProdotto = -1;
 	}
 

@@ -1,4 +1,4 @@
-package model.utente;
+package model.user;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -11,6 +11,8 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
+
+import model.category.CategoryDAOImp;
 
 
 
@@ -35,19 +37,20 @@ public class UtenteDAOImp implements UtenteDAO {
 		PreparedStatement preparedStatement = null;
 
 		String insertSQL = "INSERT INTO " + UtenteDAOImp.TABLE_NAME
-				+ " (nome, cognome, email, password,amministratore, rivenditore, bloccato)"
-				+ " VALUES (?, ?, ?, ?, ?, ?, ?)";
+				+ " (pathname, nome, cognome, email, password,amministratore, rivenditore, bloccato)"
+				+ " VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 		
 		try {
 			connection = ds.getConnection();
 			preparedStatement = connection.prepareStatement(insertSQL);
 			preparedStatement.setString(1, user.getNome());
-			preparedStatement.setString(2, user.getCognome());
-			preparedStatement.setString(3, user.getEmail());
-			preparedStatement.setString(4, user.getPassword());
-			preparedStatement.setBoolean(5, user.isAmministratore());
-			preparedStatement.setBoolean(6, user.isRivenditore());
-			preparedStatement.setBoolean(7, user.isBloccato());
+			preparedStatement.setBytes(2, user.getPathName());
+			preparedStatement.setString(3, user.getCognome());
+			preparedStatement.setString(4, user.getEmail());
+			preparedStatement.setString(5, user.getPassword());
+			preparedStatement.setBoolean(6, user.isAmministratore());
+			preparedStatement.setBoolean(7, user.isRivenditore());
+			preparedStatement.setBoolean(8, user.isBloccato());
 
 			preparedStatement.executeUpdate();
 
@@ -128,6 +131,7 @@ public class UtenteDAOImp implements UtenteDAO {
 			
 			while (rs.next()) {
 				bean.setIdUtente(rs.getInt("idUtente"));
+				bean.setPathName(rs.getBytes("pathName"));
 				bean.setNome(rs.getString("nome"));
 				bean.setCognome(rs.getString("cognome"));
 				bean.setEmail(rs.getString("email"));
@@ -179,6 +183,7 @@ public class UtenteDAOImp implements UtenteDAO {
 			while (rs.next()) {
 				UtenteBean bean = new UtenteBean();
 				bean.setIdUtente(rs.getInt("idUtente"));
+				bean.setPathName(rs.getBytes("pathname"));
 				bean.setNome(rs.getString("nome"));
 				bean.setCognome(rs.getString("cognome"));
 				bean.setEmail(rs.getString("email"));
@@ -219,6 +224,7 @@ public class UtenteDAOImp implements UtenteDAO {
 			
 			while (rs.next()) {
 				bean.setIdUtente(rs.getInt("idUtente"));
+				bean.setPathName(rs.getBytes("pathName"));
 				bean.setNome(rs.getString("nome"));
 				bean.setCognome(rs.getString("cognome"));
 				bean.setEmail(rs.getString("email"));
@@ -379,6 +385,39 @@ public class UtenteDAOImp implements UtenteDAO {
 					connection.close();
 			}
 		}
+	}
+	
+	@Override
+	public byte[] doRetrieveImageByKey(int idUtente) throws SQLException {
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+
+		byte[] path = null;
+
+		String selectSQL = "SELECT * FROM " + UtenteDAOImp.TABLE_NAME + " WHERE idUtente = ?";
+
+		try {
+			connection = ds.getConnection();
+			preparedStatement = connection.prepareStatement(selectSQL);
+			preparedStatement.setInt(1, idUtente);
+
+			ResultSet rs = preparedStatement.executeQuery();
+
+			while (rs.next()) {
+				path = rs.getBytes("pathname");
+				continue;
+			}
+
+		} finally {
+			try {
+				if (preparedStatement != null)
+					preparedStatement.close();
+			} finally {
+				if (connection != null)
+					connection.close();
+			}
+		}
+		return path;
 	}
 	
 	private static final String TABLE_NAME = "utente";

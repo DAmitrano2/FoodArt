@@ -1,4 +1,4 @@
-package model.rivenditore;
+package model.dealer;
 
 import java.sql.Blob;
 import java.sql.Connection;
@@ -14,9 +14,9 @@ import javax.naming.NamingException;
 import javax.sql.DataSource;
 
 
-public class RivenditoreDAOImp implements RivenditoreDAO {
+public class DealerDAOImp implements DealerDAO {
 
-	public RivenditoreDAOImp() {
+	public DealerDAOImp() {
 		try {
 			Context initCtx = new InitialContext();
 			Context envCtx = (Context) initCtx.lookup("java:comp/env");
@@ -29,11 +29,11 @@ public class RivenditoreDAOImp implements RivenditoreDAO {
 	}
 
 	@Override
-	public void doSave(RivenditoreBean dealer) throws SQLException {
+	public void doSave(DealerBean dealer) throws SQLException {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 		
-		String insertSQL = "INSERT INTO " + RivenditoreDAOImp.TABLE_NAME
+		String insertSQL = "INSERT INTO " + DealerDAOImp.TABLE_NAME
 				+ " (idUtente, dataNascita, citta, provincia, sesso, codiceFiscale, numeroPartitaIva, filePartitaIva, fileDocumentoIdentita,"
 				+ " ragioneSociale, provinciaSedeLegale, cittaSedeLegale, viaSedeLegale, nCivicoSedeLegale, capSedeLegale) "
 				+ " VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
@@ -73,13 +73,13 @@ public class RivenditoreDAOImp implements RivenditoreDAO {
 	}
 
 	@Override
-	public RivenditoreBean doRetriveById(int idUtente) throws SQLException {
+	public DealerBean doRetriveById(int idUtente) throws SQLException {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 		
-		RivenditoreBean bean = new RivenditoreBean();
+		DealerBean bean = new DealerBean();
 
-		String selectSQL = "SELECT * FROM "+ RivenditoreDAOImp.TABLE_NAME +" where idUtente = ? ";
+		String selectSQL = "SELECT * FROM "+ DealerDAOImp.TABLE_NAME +" where idUtente = ? ";
 		try {
 			connection = ds.getConnection();
 			preparedStatement = connection.prepareStatement(selectSQL);
@@ -131,13 +131,13 @@ public class RivenditoreDAOImp implements RivenditoreDAO {
 }
 
 	@Override
-	public Collection<RivenditoreBean> doRetrieveAll() throws SQLException {
+	public Collection<DealerBean> doRetrieveAll() throws SQLException {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 
-		Collection<RivenditoreBean> dealers = new LinkedList<RivenditoreBean>();
+		Collection<DealerBean> dealers = new LinkedList<DealerBean>();
 
-		String selectSQL = "SELECT * FROM " + RivenditoreDAOImp.TABLE_NAME;
+		String selectSQL = "SELECT * FROM " + DealerDAOImp.TABLE_NAME;
 
 		try {
 			connection = ds.getConnection();
@@ -146,7 +146,7 @@ public class RivenditoreDAOImp implements RivenditoreDAO {
 			ResultSet rs = preparedStatement.executeQuery();
 
 			while (rs.next()) {
-				RivenditoreBean bean = new RivenditoreBean();
+				DealerBean bean = new DealerBean();
 				int idUtente = rs.getInt("idUtente");
 				bean.setIdUtente(idUtente);
 			    bean.setDataNascita(rs.getDate("dataNascita"));
@@ -191,7 +191,7 @@ public class RivenditoreDAOImp implements RivenditoreDAO {
 		
 		String nome = "";
 
-		String selectSQL = "SELECT ragioneSociale FROM "+ RivenditoreDAOImp.TABLE_NAME +" where idUtente = ? ";
+		String selectSQL = "SELECT ragioneSociale FROM "+ DealerDAOImp.TABLE_NAME +" where idUtente = ? ";
 		try {
 			connection = ds.getConnection();
 			preparedStatement = connection.prepareStatement(selectSQL);

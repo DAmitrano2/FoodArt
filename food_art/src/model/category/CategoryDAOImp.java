@@ -1,4 +1,4 @@
-package model.categoria;
+package model.category;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -12,12 +12,12 @@ import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
 
-import model.immagine.ImmagineDAOImp;
+import model.image.ImageDAOImp;
 
 
-public class CategoriaDAOImp implements CategoriaDAO {
+public class CategoryDAOImp implements CategoryDAO {
 
-	public CategoriaDAOImp() {
+	public CategoryDAOImp() {
 		try {
 			Context initCtx = new InitialContext();
 			Context envCtx = (Context) initCtx.lookup("java:comp/env");
@@ -30,12 +30,12 @@ public class CategoriaDAOImp implements CategoriaDAO {
 	}
 	
 	@Override
-	public void doSave(CategoriaBean category) throws SQLException {
+	public void doSave(CategoryBean category) throws SQLException {
 		
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 
-		String insertSQL = "INSERT INTO " + CategoriaDAOImp.TABLE_NAME +" (nome) "+
+		String insertSQL = "INSERT INTO " + CategoryDAOImp.TABLE_NAME +" (nome) "+
 		"VALUES ( ? )";
 		
 		try {
@@ -64,7 +64,7 @@ public class CategoriaDAOImp implements CategoriaDAO {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 
-		String deleteSQL = "DELETE FROM " + CategoriaDAOImp.TABLE_NAME +" where idCategoria = ? ";
+		String deleteSQL = "DELETE FROM " + CategoryDAOImp.TABLE_NAME +" where idCategoria = ? ";
 		
 		try {
 			connection = ds.getConnection();
@@ -87,12 +87,12 @@ public class CategoriaDAOImp implements CategoriaDAO {
 	}
 
 	@Override
-	public CategoriaBean doRetrieveByKey(int idCategoria) throws SQLException {
+	public CategoryBean doRetrieveByKey(int idCategoria) throws SQLException {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
-		CategoriaBean categoria = new CategoriaBean();
+		CategoryBean categoria = new CategoryBean();
 
-		String selectSQL = "SELECT * FROM " + CategoriaDAOImp.TABLE_NAME +" where idCategoria = ? ";
+		String selectSQL = "SELECT * FROM " + CategoryDAOImp.TABLE_NAME +" where idCategoria = ? ";
 		
 		try {
 			connection = ds.getConnection();
@@ -128,12 +128,12 @@ public class CategoriaDAOImp implements CategoriaDAO {
 	}
 
 
-	public Collection<CategoriaBean> doRetrieveAll() throws SQLException {
+	public Collection<CategoryBean> doRetrieveAll() throws SQLException {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
-		Collection<CategoriaBean> all_categories = new LinkedList<CategoriaBean>();
+		Collection<CategoryBean> all_categories = new LinkedList<CategoryBean>();
 
-		String selectSQL = "SELECT * FROM " + CategoriaDAOImp.TABLE_NAME;
+		String selectSQL = "SELECT * FROM " + CategoryDAOImp.TABLE_NAME;
 		
 		try {
 			connection = ds.getConnection();
@@ -142,7 +142,7 @@ public class CategoriaDAOImp implements CategoriaDAO {
 			ResultSet rs = preparedStatement.executeQuery();
 									
 			while(rs.next()) {
-				CategoriaBean categoria = new CategoriaBean();
+				CategoryBean categoria = new CategoryBean();
 				categoria.setIdCategoria(rs.getInt("idCategoria"));
 				categoria.setNome(rs.getString("nome"));
 				categoria.setPathName(rs.getBytes("pathname"));
@@ -168,7 +168,7 @@ public class CategoriaDAOImp implements CategoriaDAO {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 
-		String updateSQL = "UPDATE FROM " + CategoriaDAOImp.TABLE_NAME +" SET nome = ? where idCategoria = ?";
+		String updateSQL = "UPDATE FROM " + CategoryDAOImp.TABLE_NAME +" SET nome = ? where idCategoria = ?";
 		
 		try {
 			connection = ds.getConnection();
@@ -201,7 +201,7 @@ public class CategoriaDAOImp implements CategoriaDAO {
 
 		byte[] path = null;
 
-		String selectSQL = "SELECT * FROM " + CategoriaDAOImp.TABLE_NAME + " WHERE idCategoria = ?";
+		String selectSQL = "SELECT * FROM " + CategoryDAOImp.TABLE_NAME + " WHERE idCategoria = ?";
 
 		try {
 			connection = ds.getConnection();

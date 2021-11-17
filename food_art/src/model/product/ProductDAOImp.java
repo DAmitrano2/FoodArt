@@ -1,4 +1,4 @@
-package model.prodotto;
+package model.product;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -13,9 +13,9 @@ import javax.naming.NamingException;
 import javax.sql.DataSource;
 
 
-public class ProdottoDAOImp implements ProdottoDAO {
+public class ProductDAOImp implements ProductDAO {
 	
-	public ProdottoDAOImp() {
+	public ProductDAOImp() {
 		try {
 			Context initCtx = new InitialContext();
 			Context envCtx = (Context) initCtx.lookup("java:comp/env");
@@ -28,11 +28,11 @@ public class ProdottoDAOImp implements ProdottoDAO {
 	}
 
 	@Override
-	public void doSave(ProdottoBean product) throws SQLException {
+	public void doSave(ProductBean product) throws SQLException {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 		
-		String insertSQL = "INSERT INTO " + ProdottoDAOImp.TABLE_NAME
+		String insertSQL = "INSERT INTO " + ProductDAOImp.TABLE_NAME
 				           + "(titolo, descrizione, unitaMisura, prezzo, quantitaMinimaAcquisto, quantitaDisponibile, cittaProvenienza, provinciaProvenienza, idCategoria, idUtente)"
 				           + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 		try {
@@ -70,7 +70,7 @@ public class ProdottoDAOImp implements ProdottoDAO {
 		PreparedStatement preparedStatement = null;
 		boolean deleted = false ;
 		
-		String updateSQL = "UPDATE "+ ProdottoDAOImp.TABLE_NAME +" SET quantita = -1 where idProdotto = ?";
+		String updateSQL = "UPDATE "+ ProductDAOImp.TABLE_NAME +" SET quantita = -1 where idProdotto = ?";
 		try {
 		connection = ds.getConnection();
 		preparedStatement = connection.prepareStatement(updateSQL);
@@ -92,12 +92,12 @@ public class ProdottoDAOImp implements ProdottoDAO {
 	}
 
 	@Override
-	public ProdottoBean doRetrieveByKey(int idProdotto) throws SQLException {
+	public ProductBean doRetrieveByKey(int idProdotto) throws SQLException {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
-		ProdottoBean product = new ProdottoBean();
+		ProductBean product = new ProductBean();
 		
-		String selectSQL = "SELECT * FROM "+ ProdottoDAOImp.TABLE_NAME +" where idProdotto = ?";
+		String selectSQL = "SELECT * FROM "+ ProductDAOImp.TABLE_NAME +" where idProdotto = ?";
 		try {
 		connection = ds.getConnection();
 		preparedStatement = connection.prepareStatement(selectSQL);
@@ -144,12 +144,12 @@ public class ProdottoDAOImp implements ProdottoDAO {
 	}
 
 	@Override
-	public Collection<ProdottoBean> getProductByIdCategory(int idCategoria) throws SQLException {
+	public Collection<ProductBean> getProductByIdCategory(int idCategoria) throws SQLException {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
-		Collection<ProdottoBean> products = new LinkedList<ProdottoBean>();
+		Collection<ProductBean> products = new LinkedList<ProductBean>();
 		
-		String selectSQL = "SELECT * FROM "+ ProdottoDAOImp.TABLE_NAME +" where idCategoria = ?";
+		String selectSQL = "SELECT * FROM "+ ProductDAOImp.TABLE_NAME +" where idCategoria = ?";
 		try {
 		connection = ds.getConnection();
 		preparedStatement = connection.prepareStatement(selectSQL);
@@ -158,7 +158,7 @@ public class ProdottoDAOImp implements ProdottoDAO {
 		ResultSet rs = preparedStatement.executeQuery();
 		
 		while (rs.next()) {
-			ProdottoBean singol_product = new ProdottoBean();
+			ProductBean singol_product = new ProductBean();
 			singol_product.setIdProdotto(rs.getInt("idProdotto"));
 			singol_product.setTitolo(rs.getString("titolo"));
 			singol_product.setDescrizione(rs.getString("descrizione"));
@@ -192,12 +192,12 @@ public class ProdottoDAOImp implements ProdottoDAO {
 	}
 	
 	@Override
-	public Collection<ProdottoBean> getProductByIdCategory(int idCategoria, int numeroProdotti, int idProdotto) throws SQLException {
+	public Collection<ProductBean> getProductByIdCategory(int idCategoria, int numeroProdotti, int idProdotto) throws SQLException {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
-		Collection<ProdottoBean> products = new LinkedList<ProdottoBean>();
+		Collection<ProductBean> products = new LinkedList<ProductBean>();
 		
-		String selectSQL = "SELECT * FROM "+ ProdottoDAOImp.TABLE_NAME +" where idCategoria = ? and idProdotto != "+idProdotto+" limit "+ numeroProdotti;
+		String selectSQL = "SELECT * FROM "+ ProductDAOImp.TABLE_NAME +" where idCategoria = ? and idProdotto != "+idProdotto+" limit "+ numeroProdotti;
 		try {
 		connection = ds.getConnection();
 		preparedStatement = connection.prepareStatement(selectSQL);
@@ -206,7 +206,7 @@ public class ProdottoDAOImp implements ProdottoDAO {
 		ResultSet rs = preparedStatement.executeQuery();
 		
 		while (rs.next()) {
-			ProdottoBean singol_product = new ProdottoBean();
+			ProductBean singol_product = new ProductBean();
 			singol_product.setIdProdotto(rs.getInt("idProdotto"));
 			singol_product.setTitolo(rs.getString("titolo"));
 			singol_product.setDescrizione(rs.getString("descrizione"));
@@ -245,7 +245,7 @@ public class ProdottoDAOImp implements ProdottoDAO {
 		PreparedStatement preparedStatement = null;
 		boolean update = false ;
 		
-		String updateSQL = "UPDATE "+ ProdottoDAOImp.TABLE_NAME +" SET quantitaDisponibile = ? where idProdotto = ?";
+		String updateSQL = "UPDATE "+ ProductDAOImp.TABLE_NAME +" SET quantitaDisponibile = ? where idProdotto = ?";
 		try {
 		connection = ds.getConnection();
 		preparedStatement = connection.prepareStatement(updateSQL);
@@ -269,11 +269,11 @@ public class ProdottoDAOImp implements ProdottoDAO {
 	}
 
 	@Override
-	public void doUpdate(ProdottoBean product) throws SQLException {
+	public void doUpdate(ProductBean product) throws SQLException {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 
-		String insertSQL = "UPDATE " + ProdottoDAOImp.TABLE_NAME
+		String insertSQL = "UPDATE " + ProductDAOImp.TABLE_NAME
 				+ " SET "
 				+ "titolo=?, "
 				+ "descrizione=?, "
@@ -313,12 +313,12 @@ public class ProdottoDAOImp implements ProdottoDAO {
 		
 	}
 
-	public Collection<ProdottoBean> getLastArrivals(int numeroProdotti) throws SQLException {
+	public Collection<ProductBean> getLastArrivals(int numeroProdotti) throws SQLException {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
-		Collection<ProdottoBean> products = new LinkedList<ProdottoBean>();
+		Collection<ProductBean> products = new LinkedList<ProductBean>();
 		
-		String selectSQL = "SELECT * FROM "+ ProdottoDAOImp.TABLE_NAME +" order by idProdotto desc limit "+ numeroProdotti;
+		String selectSQL = "SELECT * FROM "+ ProductDAOImp.TABLE_NAME +" order by idProdotto desc limit "+ numeroProdotti;
 		
 		try {
 			connection = ds.getConnection();
@@ -327,7 +327,7 @@ public class ProdottoDAOImp implements ProdottoDAO {
 			ResultSet rs = preparedStatement.executeQuery();
 			
 			while (rs.next()) {
-				ProdottoBean singol_product = new ProdottoBean();
+				ProductBean singol_product = new ProductBean();
 				singol_product.setIdProdotto(rs.getInt("idProdotto"));
 				singol_product.setTitolo(rs.getString("titolo"));
 				singol_product.setDescrizione(rs.getString("descrizione"));
@@ -360,12 +360,12 @@ public class ProdottoDAOImp implements ProdottoDAO {
 		return products;
 	}
 	
-	public Collection<ProdottoBean> getProductByTitle(String title) throws SQLException {
+	public Collection<ProductBean> getProductByTitle(String title) throws SQLException {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
-		Collection<ProdottoBean> products = new LinkedList<ProdottoBean>();
+		Collection<ProductBean> products = new LinkedList<ProductBean>();
 		
-		String selectSQL = "SELECT * FROM "+ ProdottoDAOImp.TABLE_NAME +" where titolo like '%"+title+"%'";
+		String selectSQL = "SELECT * FROM "+ ProductDAOImp.TABLE_NAME +" where titolo like '%"+title+"%'";
 		try {
 		connection = ds.getConnection();
 		preparedStatement = connection.prepareStatement(selectSQL);
@@ -373,7 +373,7 @@ public class ProdottoDAOImp implements ProdottoDAO {
 		ResultSet rs = preparedStatement.executeQuery();
 		
 		while (rs.next()) {
-			ProdottoBean singol_product = new ProdottoBean();
+			ProductBean singol_product = new ProductBean();
 			singol_product.setIdProdotto(rs.getInt("idProdotto"));
 			singol_product.setTitolo(rs.getString("titolo"));
 			singol_product.setDescrizione(rs.getString("descrizione"));

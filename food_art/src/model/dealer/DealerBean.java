@@ -1,4 +1,4 @@
-package model.rivenditore;
+package model.dealer;
 
 import java.sql.Date;
 import java.text.SimpleDateFormat;
@@ -7,7 +7,7 @@ import java.util.Locale;
 import java.util.TimeZone;
 
 
-public class RivenditoreBean {
+public class DealerBean {
 
 	private int idUtente;
 	private Date dataNascita;
@@ -25,7 +25,7 @@ public class RivenditoreBean {
 	private String numeroCivicoSedeLegale;
 	private String capSedeLegale;
 	
-	public RivenditoreBean() {
+	public DealerBean() {
 		this.idUtente = -1;
 	}
 	
@@ -149,7 +149,7 @@ public class RivenditoreBean {
 		this.capSedeLegale = capSedeLegale;
 	}
 
-	public static final boolean matches(RivenditoreBean r) {
+	public static final boolean matches(DealerBean r) {
 		if((!r.isMaggiorenne(r.getDataNascita()))
 				|| (!r.getCitta().matches("^[A-Za-z ]{1,45}$"))
 				|| (!r.getProvincia().matches("^[A-Z]{2,2}$"))

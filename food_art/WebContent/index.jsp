@@ -70,8 +70,8 @@
 		  <div class="category-container">
 				<div class="owl-carousel owl-theme category-card">
 					<%
-						if (categorie != null && categorie.size() != 0) {
-							for (CategoriaBean category: categorie) {
+					if (categorie != null && categorie.size() != 0) {
+										for (CategoryBean category: categorie) {
 					%>
 					<div class="category-content">
 						<div class="image-container">
@@ -160,15 +160,15 @@
 	</div>
 	<!-- Ultimi Arrivi -->
 	<%
-		ProdottoDAOImp modelProdotto = new ProdottoDAOImp(); 
-		RivenditoreDAOImp modelRivenditore = new RivenditoreDAOImp();
-		Collection<ProdottoBean> prodotti = modelProdotto.getLastArrivals(8);
+	ProductDAOImp modelProdotto = new ProductDAOImp(); 
+		DealerDAOImp modelRivenditore = new DealerDAOImp();
+		Collection<ProductBean> prodotti = modelProdotto.getLastArrivals(8);
 	%>
 	<h2 class="title">Ultimi Arrivi</h2>
 		<div class="row">
 			<%
 				if (prodotti != null && prodotti.size() != 0) {
-					for(ProdottoBean product: prodotti) {
+					for(ProductBean product: prodotti) {
 			%>
 			<div class="col-4 text-center">
 				<a class="product_link" href="./single_product?idProdotto=<%=product.getIdProdotto()%>">
