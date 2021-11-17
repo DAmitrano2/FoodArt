@@ -43,11 +43,11 @@
 				<div class="row">
 				<%
 					String title = String.valueOf(request.getAttribute("title"));
-					ProdottoDAOImp modelProdotto = new ProdottoDAOImp();
-					Collection<ProdottoBean> prodotti = modelProdotto.getProductByTitle(title);
-					RivenditoreDAOImp modelRivenditore = new RivenditoreDAOImp();
+					ProductDAOImp modelProdotto = new ProductDAOImp();
+					Collection<ProductBean> prodotti = modelProdotto.getProductByTitle(title);
+					DealerDAOImp modelRivenditore = new DealerDAOImp();
 					if (prodotti != null && prodotti.size() != 0) {
-						for (ProdottoBean product: prodotti) {
+						for (ProductBean product: prodotti) {
 				%>
 					<div class="col-4 text-center">
 						<a class="product_link" href="./single_product?idProdotto=<%=product.getIdProdotto()%>">

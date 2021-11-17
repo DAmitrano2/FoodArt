@@ -1,10 +1,10 @@
 package service;
 
-import model.prodotto.ProdottoBean;
+import model.product.ProductBean;
 
 public class ProductItem {
 
-	public ProductItem(ProdottoBean product) {
+	public ProductItem(ProductBean product) {
 		this.product = product;
 	}
 	
@@ -36,10 +36,10 @@ public class ProductItem {
 		return this.product.getQuantitaDisponibile();
 	}
 	
-	public ProdottoBean getProduct() {
+	public ProductBean getProduct() {
 		return product;
 	}
-	public void setProduct(ProdottoBean product) {
+	public void setProduct(ProductBean product) {
 		this.product = product;
 	}
 	public int getQuantita() {
@@ -53,6 +53,6 @@ public class ProductItem {
 		return product.equals(obj);
 	}
 
-	private ProdottoBean product;
+	private ProductBean product;
 	private int quantita = 1;
 }

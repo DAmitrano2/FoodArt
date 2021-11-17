@@ -11,8 +11,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import model.prodotto.ProdottoBean;
-import model.prodotto.ProdottoDAOImp;
+import model.product.ProductBean;
+import model.product.ProductDAOImp;
 import service.ProductItem;
 import service.ShoppingCart;
 
@@ -20,11 +20,11 @@ import service.ShoppingCart;
 @WebServlet(name = "CartControl", urlPatterns = "/cart")
 public class CartControl extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private ProdottoDAOImp model;
+	private ProductDAOImp model;
     
     public CartControl() {
         super();
-        this.model = new ProdottoDAOImp();
+        this.model = new ProductDAOImp();
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -43,7 +43,7 @@ public class CartControl extends HttpServlet {
 			if (action != null) {
 				if (action.equalsIgnoreCase("add")) {
 					int idProdotto = Integer.parseInt(request.getParameter("idProdotto"));
-					ProdottoBean bean = (ProdottoBean) model.doRetrieveByKey(idProdotto);
+					ProductBean bean = (ProductBean) model.doRetrieveByKey(idProdotto);
 					ProductItem prod = new ProductItem(bean);
 					if( !cart.addProductItem(prod) ) {
 			    		response.setStatus(400);
@@ -66,7 +66,7 @@ public class CartControl extends HttpServlet {
 				else if (action.equalsIgnoreCase("set")) {
 					int idProdotto = Integer.parseInt(request.getParameter("idProdotto"));
 					int quantita = Integer.parseInt(request.getParameter("quantita"));
-					ProdottoBean bean = (ProdottoBean) model.doRetrieveByKey(idProdotto);
+					ProductBean bean = (ProductBean) model.doRetrieveByKey(idProdotto);
 					ProductItem prod = new ProductItem(bean);
 					if( !cart.addQuantityProductItem(prod, quantita) ) {
 			    		response.setStatus(400);

@@ -12,12 +12,12 @@
                 </div>
             </div>
             <%
-            	IndirizzoConsegnaDAOImp indirizzoDao = new IndirizzoConsegnaDAOImp();
-       			Collection<IndirizzoConsegnaBean> indirizzi = indirizzoDao.getIndirizzoByIdUser(user.getIdUtente());
-				if (indirizzi != null && indirizzi.size() != 0) {
-					int i=0;
-					for(IndirizzoConsegnaBean address: indirizzi) {
-						i++;
+            AddressDAOImp indirizzoDao = new AddressDAOImp();
+                               			Collection<AddressBean> indirizzi = indirizzoDao.getIndirizzoByIdUser(user.getIdUtente());
+                        		if (indirizzi != null && indirizzi.size() != 0) {
+                        			int i=0;
+                        			for(AddressBean address: indirizzi) {
+                        				i++;
             %>
             <div class="form-check form-check-address my-3">
             	<input class="form-check-input" type="radio" name="flexRadioAddress" id="flexRadioAddress<%=i%>" onclick="setAddress(<%=address.getIdIndirizzoConsegna() %>)">
@@ -41,14 +41,14 @@
 	                </div>
 	            </div>
 	            <div class="pb-3">
-	          	<% 
-	          		MetodoPagamentoDAOImp pagamentoDao = new MetodoPagamentoDAOImp();
-     				Collection<MetodoPagamentoBean> pagamenti = pagamentoDao.getMetodoPagamentoByIdUser(user.getIdUtente());
-					if (pagamenti != null && pagamenti.size() != 0) {
-						int i=0;
-						for(MetodoPagamentoBean paycard: pagamenti) {
-							i++;
-				%>
+	          	<%
+	          	CardDAOImp pagamentoDao = new CardDAOImp();
+	          		          	     				Collection<CardBean> pagamenti = pagamentoDao.getMetodoPagamentoByIdUser(user.getIdUtente());
+	          		          				if (pagamenti != null && pagamenti.size() != 0) {
+	          		          					int i=0;
+	          		          					for(CardBean paycard: pagamenti) {
+	          		          						i++;
+	          	%>
 	                <div class="form-check form-check-paycard my-3">
 					  <input class="form-check-input" type="radio" name="flexRadioCard" id="flexRadioCard<%=i%>" onclick="setCard(<%=paycard.getNumeroCarta() %>)">
 					  <label class="form-check-label ml-2" for="flexRadioCard<%=i%>">

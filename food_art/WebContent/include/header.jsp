@@ -1,4 +1,5 @@
-<%@ page language="java" import="java.util.*,model.utente.*,model.rivenditore.*,model.categoria.*,model.metodoPagamento.*,model.indirizzoConsegna.*,model.prodotto.*,model.immagine.*,service.*,java.sql.Date" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" import="java.util.*,model.user.*,model.dealer.*,model.category.*,model.card.*,model.address.*,model.product.*,model.image.*,service.*,java.sql.Date" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page errorPage = "/400.jsp" %>
 <%
 	// Check user credentials
 	UtenteBean user = (UtenteBean) request.getSession(false).getAttribute("user");
@@ -6,8 +7,6 @@
 	String path = request.getContextPath();
  	ShoppingCart cart = (ShoppingCart) request.getSession().getAttribute("cart");
  	
-	
-	
 	boolean auth;
 	
 	if(user == null)
@@ -19,22 +18,18 @@
 	}
 	
 	if( pagina != null ) {
-		if( (pagina.equalsIgnoreCase("login") ) && (auth) )
-		{
+		if( (pagina.equalsIgnoreCase("login") ) && (auth) ){
+			response.sendRedirect("./index");
+		}else if( (pagina.equalsIgnoreCase("register") ) && (auth) ){
 			response.sendRedirect("./index");
 		}
-		else if( (pagina.equalsIgnoreCase("register") ) && (auth) )
-		{
-			response.sendRedirect("./index");
-		}
-	}
-	else {
+	}else {
 		response.sendRedirect("./index");
 	}
 	
 	//Categorie
-	CategoriaDAOImp modelCategoria = new CategoriaDAOImp();
-	Collection<CategoriaBean> categorie = modelCategoria.doRetrieveAll();
+	CategoryDAOImp modelCategoria = new CategoryDAOImp();
+	Collection<CategoryBean> categorie = modelCategoria.doRetrieveAll();
 %>
 <!DOCTYPE html>
 <html lang="it">
@@ -56,20 +51,20 @@
   <link rel="stylesheet" href="./assets/css/footer_style.css">
   <link rel="stylesheet" href="./assets/css/card_style.css">
   
-  <% if(pagina != null && pagina.equalsIgnoreCase("register")) { %>
+  <%if(pagina != null && pagina.equalsIgnoreCase("register")) {%>
 	  <link rel="stylesheet" href="./assets/css/login_style.css">
 	  <link rel="stylesheet" href="./assets/css/<%=pagina%>_style.css">
-  <% }else if(pagina != null && pagina.equalsIgnoreCase("search_page")) { %>
+  <%}else if(pagina != null && pagina.equalsIgnoreCase("search_page")) {%>
   <link rel="stylesheet" href="./assets/css/category_style.css">
-  <% }else if(pagina != null && pagina.equalsIgnoreCase("error_page")) { %>
+  <%}else if(pagina != null && pagina.equalsIgnoreCase("error_page")) {%>
   <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,900" rel="stylesheet">
   <link type="text/css" rel="stylesheet" href="./assets/css/<%=pagina%>_style.css" />
-	<% }else{ %>
+	<%}else{%>
   	  <link rel="stylesheet" href="./assets/css/<%=pagina%>_style.css">
-  <% } %>
+  <%}%>
   <!-- Icon CSS -->
   <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"/>
-  <link rel="stylesheet" href="./assets/css/all.css">
+  <link rel="stylesheet" href="./assets/css/all.css"/>
   <script src="https://kit.fontawesome.com/2a789f15df.js"></script>
   
   <!-- Intestazione di pagina -->
@@ -95,17 +90,22 @@
 	  <li class="nav-item dropdown">
 	    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user"></i></a>
 	  	<div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-          <% if(!auth){ %>
-          	<a class="dropdown-item" href="<%=path %>/login">Login</a>
+          <%if(!auth){%>
+          	<a class="dropdown-item" href="<%=path%>/login">Login</a>
 		        <div class="dropdown-divider"></div>
-		        <a class="dropdown-item" href="<%=path %>/register">Sei nuovo? Registrati</a>
-          <%}else { %>
-          	<a class="dropdown-item" href="<%=path %>/logout">Logout</a>
-         	<%} %>
+		        <a class="dropdown-item" href="<%=path%>/register">Sei nuovo? Registrati</a>
+          <%}else{%>
+          	<a class="dropdown-item" href="<%=path%>/logout">Logout</a>
+         	<%}%>
         </div>
 	  </li>
 	  <li class="nav-item">
-	    <a class="nav-link" href="<%=path %>/shopping_cart"><i class="fas fa-shopping-cart"></i><%if(cart != null){ %><span class="badge badge-light"><%=cart.getQuantita() %></span><%}else {%><span class="badge badge-light">0</span><%}%></a>
+	    <a class="nav-link" href="<%=path%>/shopping_cart"><i class="fas fa-shopping-cart"></i>
+	    <%if(cart != null){%>
+	   	<span class="badge badge-light"><%=cart.getQuantita()%></span>
+	   	<%}else{%>
+	   	<span class="badge badge-light">0</span>
+	   	<%}%></a>
 	  </li>
     </ul>
   </nav>
@@ -116,9 +116,9 @@
  	<div class="collapse align-content-center navbar-collapse" id="navbarMain">
       <ul class="navbar-nav mx-auto">
       	<%
-					if (categorie != null && categorie.size() != 0) {
-						for (CategoriaBean category: categorie) {
-				%>
+      	if (categorie != null && categorie.size() != 0) {
+			for (CategoryBean category: categorie) {
+      	%>
         <li class="nav-item">
           <a class="nav-link" href="category?idCategoria=<%=category.getIdCategoria()%>"><%=category.getNome()%></a>
         </li>

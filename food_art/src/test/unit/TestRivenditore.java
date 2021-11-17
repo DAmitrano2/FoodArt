@@ -10,16 +10,16 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import junit.framework.TestCase;
-import model.rivenditore.RivenditoreBean;
+import model.dealer.DealerBean;
 
 class TestRivenditore extends TestCase {
-	RivenditoreBean dealerBean;
+	DealerBean dealerBean;
 	Calendar calendar;
 	java.sql.Date dataNascita;
 	
 	@BeforeEach
 	public void setUp() throws Exception {
-		dealerBean = new RivenditoreBean();
+		dealerBean = new DealerBean();
 		calendar = Calendar.getInstance(TimeZone.getTimeZone("Europe/Rome"),Locale.ITALY);
 	}
 
@@ -47,7 +47,7 @@ class TestRivenditore extends TestCase {
 		dealerBean.setNumeroCivicoSedeLegale("14");
 		dealerBean.setNumeroPartitaIva("12345678910");
 		
-		assertEquals(true, RivenditoreBean.matches(dealerBean));
+		assertEquals(true, DealerBean.matches(dealerBean));
 	}
 	
 	@Test
@@ -69,7 +69,7 @@ class TestRivenditore extends TestCase {
 		dealerBean.setNumeroCivicoSedeLegale("14");
 		dealerBean.setNumeroPartitaIva("12345678910");
 		
-		assertEquals(false, RivenditoreBean.matches(dealerBean));
+		assertEquals(false, DealerBean.matches(dealerBean));
 	}
 	
 	@Test
@@ -91,7 +91,7 @@ class TestRivenditore extends TestCase {
 		dealerBean.setNumeroCivicoSedeLegale("14");
 		dealerBean.setNumeroPartitaIva("12345678910");
 		
-		assertEquals(false, RivenditoreBean.matches(dealerBean));
+		assertEquals(false, DealerBean.matches(dealerBean));
 	}
 	
 	@Test
@@ -113,7 +113,7 @@ class TestRivenditore extends TestCase {
 		dealerBean.setNumeroCivicoSedeLegale("14");
 		dealerBean.setNumeroPartitaIva("12345678910");
 		
-		assertEquals(false, RivenditoreBean.matches(dealerBean));
+		assertEquals(false, DealerBean.matches(dealerBean));
 	}
 	
 	@Test
@@ -135,7 +135,7 @@ class TestRivenditore extends TestCase {
 		dealerBean.setNumeroCivicoSedeLegale("14");
 		dealerBean.setNumeroPartitaIva("12345678910");
 		
-		assertEquals(false, RivenditoreBean.matches(dealerBean));
+		assertEquals(false, DealerBean.matches(dealerBean));
 	}
 	
 	@Test
@@ -157,7 +157,7 @@ class TestRivenditore extends TestCase {
 		dealerBean.setNumeroCivicoSedeLegale("14");
 		dealerBean.setNumeroPartitaIva("12345678910");
 		
-		assertEquals(false, RivenditoreBean.matches(dealerBean));
+		assertEquals(false, DealerBean.matches(dealerBean));
 	}
 	
 	@Test
@@ -179,7 +179,7 @@ class TestRivenditore extends TestCase {
 		dealerBean.setNumeroCivicoSedeLegale("14");
 		dealerBean.setNumeroPartitaIva("12345678910");
 		
-		assertEquals(false, RivenditoreBean.matches(dealerBean));
+		assertEquals(false, DealerBean.matches(dealerBean));
 	}
 	
 	@Test
@@ -201,7 +201,7 @@ class TestRivenditore extends TestCase {
 		dealerBean.setNumeroCivicoSedeLegale("Quattordici");
 		dealerBean.setNumeroPartitaIva("12345678910");
 		
-		assertEquals(false, RivenditoreBean.matches(dealerBean));
+		assertEquals(false, DealerBean.matches(dealerBean));
 	}
 	
 	@Test
@@ -223,7 +223,7 @@ class TestRivenditore extends TestCase {
 		dealerBean.setNumeroCivicoSedeLegale("14");
 		dealerBean.setNumeroPartitaIva("1234");
 		
-		assertEquals(false, RivenditoreBean.matches(dealerBean));
+		assertEquals(false, DealerBean.matches(dealerBean));
 	}
 	
 	@Test
@@ -245,6 +245,6 @@ class TestRivenditore extends TestCase {
 		dealerBean.setNumeroCivicoSedeLegale("14");
 		dealerBean.setNumeroPartitaIva("12345678910");
 		
-		assertEquals(false, RivenditoreBean.matches(dealerBean));
+		assertEquals(false, DealerBean.matches(dealerBean));
 	}
 }

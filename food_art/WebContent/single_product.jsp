@@ -5,11 +5,11 @@
 	<div class="row mt-5">
 		<div class="col-lg-5 col-md-12 col-12">
 			<%
-		    	int idProdotto = (int)request.getAttribute("idProdotto");
-					ProdottoDAOImp modelProdotto = new ProdottoDAOImp(); 
-					RivenditoreDAOImp modelRivenditore = new RivenditoreDAOImp();
-					ProdottoBean prodotto = modelProdotto.doRetrieveByKey(idProdotto);
-				%>
+				int idProdotto = (int)request.getAttribute("idProdotto");
+				ProductDAOImp modelProdotto = new ProductDAOImp(); 
+				DealerDAOImp modelRivenditore = new DealerDAOImp();
+				ProductBean prodotto = modelProdotto.doRetrieveByKey(idProdotto);
+			%>
 			<img class="img-fluid w-100 pb-1"
 				src="./getProductImage?idProdotto=<%= prodotto.getIdProdotto() %>"
 				id="MainImg" alt="imageProduct.png">
@@ -65,9 +65,9 @@
 	<h2 class="title">Prodotti Correlati</h2>
 	<div class="row">
 		<%
-				Collection<ProdottoBean> prodottiCategorizzati = modelProdotto.getProductByIdCategory(prodotto.getIdCategoria(), 4, idProdotto);
+				Collection<ProductBean> prodottiCategorizzati = modelProdotto.getProductByIdCategory(prodotto.getIdCategoria(), 4, idProdotto);
 				if (prodottiCategorizzati != null && prodottiCategorizzati.size() != 0) {
-					for(ProdottoBean product: prodottiCategorizzati) {
+					for(ProductBean product: prodottiCategorizzati) {
 			%>
 		<div class="col-4 text-center">
 			<a class="product_link"
@@ -96,14 +96,14 @@
 <section id="testimonials">
 	<div class="small-container justify-content-center">
 		<%
-						FeedbackDAOImp collectionFb = new FeedbackDAOImp();
-						Collection<FeedbackBean> feedback = collectionFb.doRetriveByProduct(idProdotto);
-						if (feedback != null && feedback.size() != 0) {
-							int i=0;
-							for(FeedbackBean fb: feedback) {
-								i++;
-								if(i==1){
-			%>
+			FeedbackDAOImp collectionFb = new FeedbackDAOImp();
+			Collection<FeedbackBean> feedback = collectionFb.doRetriveByProduct(idProdotto);
+			if (feedback != null && feedback.size() != 0) {
+				int i=0;
+				for(FeedbackBean fb: feedback) {
+					i++;
+					if(i==1){
+		%>
 		<h2 class="title">Recensioni in Evidenza</h2>
 		<%} %>
 		<div class="testimonial-box-container">
@@ -112,7 +112,7 @@
 				<div class="box-top">
 					<div class="profile">
 						<div class="profile-img">
-							<img src="./assets/images/default-user-image.png" alt="">
+							<img src="./getUserImage?idUtente=<%=fb.getIdCommentatore() %>" alt="">
 						</div>
 					</div>
 					<div class="user-informations">
@@ -126,9 +126,9 @@
 						</div>
 						<div class="name-user">
 							<%
-									UtenteDAOImp utenteDao = new UtenteDAOImp();
-									UtenteBean utente = utenteDao.doRetrieveById(fb.getIdCommentatore()); 
-								%>
+								UtenteDAOImp utenteDao = new UtenteDAOImp();
+								UtenteBean utente = utenteDao.doRetrieveById(fb.getIdCommentatore()); 
+							%>
 							<span><%= utente.getNome() %> <%= utente.getCognome() %></span>
 						</div>
 					</div>

@@ -21,10 +21,10 @@
 	          </thead>
 	          <tbody>
 					<%
-  					RivenditoreDAOImp modelRivenditore = new RivenditoreDAOImp();
-						if(cart != null && cart.getProducts().size() != 0){
-		          		for(ProductItem product: cart.getProducts()){
-							%>
+					DealerDAOImp modelRivenditore = new DealerDAOImp();
+									if(cart != null && cart.getProducts().size() != 0){
+							          		for(ProductItem product: cart.getProducts()){
+					%>
 	         		<tr class="d-flex align-items-center">
 	              <td>
                   <figure class="itemside align-items-center">

@@ -1,0 +1,17 @@
+Il testing si divide in due tipologie:
+Test delle componenti che viene effettuato mediante:
+-Unit Testing: eseguito dagli sviluppatori su sottoinsiemi individuali, con l'obbiettivo di validare le funzionalità ad essi associate
+-Integration Testing: eseguito dagli sviluppatori su gruppi di sottoinsiemi, con l'obbiettivo di testare le interfacce tra i sottosistemi 
+Test del sistema, invece, viene effettuato mediante:
+-System Testing: eseguito dagli sviluppatori sull’intero sistema, con l’obiettivo di determinare se il sistema rispecchia i requisiti
+-Acceptance Testing: valuta il sistema fornito dagli sviluppatori e viene eseguito dai clienti. Ha l'obbiettivo di dimostrare che il sistema 
+ rispecchia i requisiti del cliente e che è pronto all'uso.
+
+L'Unit Testing può essere effettuato attraverso l'analisi statica o  dinamica. L'analisi statica viene effettuata manulamente, dal programmatore.
+Mentre l'analisi dinamica viene effettuata attraverso il black-box testing(che va a testare tutti i componenti di input/output) o attraverso il
+white-box testing (che va a testare tutte le componenti interne al sottosistema)
+
+Il Black-box Testing si focalizza sul comportamento di I/O, senza preoccuparsi della struttura interna della componente.
+Il White-box Testing Si focalizza sulla completezza. Indipendentemente dall’input, ogni stato nel modello dinamico dell’oggetto e ogni
+interazione tra gli oggetti viene testata.
+

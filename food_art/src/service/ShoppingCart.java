@@ -2,7 +2,7 @@ package service;
 
 import java.util.ArrayList;
 
-import model.prodotto.ProdottoBean;
+import model.product.ProductBean;
 
 public class ShoppingCart {
 
@@ -72,7 +72,7 @@ public class ShoppingCart {
 		//Inizializzazione
 		float tot=0;
 		float prezzo=0;
-		ProdottoBean bean = null;
+		ProductBean bean = null;
 		
 		for(ProductItem p:cart) {
 			//Assegnamento inizializzazione per ogni item
