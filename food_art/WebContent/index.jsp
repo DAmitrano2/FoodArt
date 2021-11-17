@@ -193,7 +193,7 @@
   </div>
   
   <%@include file="./include/footer.html" %>
-	<%@include file="./include/script.html" %>
-	<script src="./assets/js/shoppingCart.js"></script>
+  <%@include file="./include/script.html" %>
+  <script src="./assets/js/shoppingCart.js"></script>
 </body>
 </html>
