@@ -71,6 +71,13 @@ public class RegisterControl extends HttpServlet {
 				user.setNome(nome);
 				user.setCognome(cognome);
 				
+				byte[] bytes = null;
+				
+			    Part filePart = request.getPart("pathname");
+	
+			    bytes = filePart.getInputStream().readAllBytes();
+				user.setPathName(bytes);
+				
 				user.setRivenditore(true);
 				
 				String data = request.getParameter("data");
@@ -102,9 +109,9 @@ public class RegisterControl extends HttpServlet {
 				dealer.setNumeroCivicoSedeLegale(nCivicoSedeLegale);
 				dealer.setNumeroPartitaIva(nPartitaIVA);
 				
-				byte[] bytes = null;
+				bytes = null;
 				
-			    Part filePart = request.getPart("fPartitaIVA");
+			    filePart = request.getPart("fPartitaIVA");
 	
 			    bytes = filePart.getInputStream().readAllBytes();
 				dealer.setFilePartitaIva(bytes);
@@ -120,6 +127,13 @@ public class RegisterControl extends HttpServlet {
 				user.setPassword(encodedPass);
 				user.setNome(nome);
 				user.setCognome(cognome);
+				
+				byte[] bytes = null;
+				
+			    Part filePart = request.getPart("pathname");
+	
+			    bytes = filePart.getInputStream().readAllBytes();
+				user.setPathName(bytes);
 			}
 		}
 
