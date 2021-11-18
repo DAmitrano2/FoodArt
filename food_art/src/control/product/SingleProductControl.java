@@ -22,6 +22,7 @@ public class SingleProductControl extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		idProdotto=Integer.parseInt(request.getParameter("idProdotto"));
 		request.setAttribute("idProdotto", idProdotto);
+		System.out.println("ida");
 		request.setAttribute("page","single_product");
 		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/single_product.jsp");
 		dispatcher.forward(request, response);		
