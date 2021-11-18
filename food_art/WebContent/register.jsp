@@ -8,13 +8,25 @@
 			<div class="card-body">
 				<form action="register" method="post" enctype="multipart/form-data">
 				<!-- user -->
+				<div class="input-group form-group">
+					<input name="fProfilo" type="file" class="form-control" accept=".jpg, .jpeg, .png" id="fProfilo" required/>					
+					<label id="fProfilo" for="fProfilo" class="custom-file-upload form-control">
+						<i class="fas fa-camera"></i> Immagine del Profilo
+					</label>
+				</div>
+				<div class="input-group form-group">
+					<div class="image-preview" id="image-preview">
+						<img src="" alt="Anteprima Immagine" class="image-preview-image">
+						<span class="image-preview-default-text">Anteprima Immagine</span>
+					</div>
+				</div>
 					<div class="input-group form-group">
 						<input name="nome" type="text" class="form-control" placeholder="nome" required>
 						<input name="cognome" type="text" class="form-control" placeholder="cognome" required>
 					</div>
 					<div class="input-group form-group">
-						<input pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" name="email" type="text" class="form-control" placeholder="e-mail" required>
-						<input pattern=".{8,}" name="password" type="password" class="form-control" placeholder="password" required>
+						<input name="email" type="text" class="form-control" placeholder="e-mail" required>
+						<input name="password" type="password" class="form-control" placeholder="password" required>
 					</div>
 					<div class="row align-items-center remember">
 						<input name="rivenditore" type="checkbox" value="rivenditore-check" id="rivenditore-check" onclick="toggle()">

@@ -36,7 +36,7 @@
 							</div>
 							<div class="category-title">
 								<h3><%=category.getNome()%></h3>
-								<a href="./category?idCategoria=<%=category.getIdCategoria()%>" class="btn btn-category">Visualizza prodotti</a>
+								<a href="./category?idCategoria=<%=category.getIdCategoria()%>" id="categoryButton" class="btn bg-cart">Visualizza prodotti</a>
 								<span></span>
 							</div>
 						</div>
