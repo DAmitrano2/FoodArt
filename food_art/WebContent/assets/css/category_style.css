@@ -61,12 +61,10 @@ a.star p:hover{
 	margin-right: 5px;
 }
 
-.category-content .btn-category {
+#categoryButton {
   padding: 0.35rem 1rem;
-  background: #fcba03;
   margin: .25rem;
   border-radius: 25px;
-  color: black!important;
 }
 .category-title h3{
 	font-size: 1rem;
