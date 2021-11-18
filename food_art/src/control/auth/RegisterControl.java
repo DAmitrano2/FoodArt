@@ -60,15 +60,16 @@ public class RegisterControl extends HttpServlet {
 		Base64.Encoder enc = Base64.getEncoder();
 		String encodedPass = enc.encodeToString(password.getBytes());
 		
-		user.setEmail(email);
-		user.setPassword(encodedPass);
-		user.setNome(nome);
-		user.setCognome(cognome);
+		
 		
 		boolean bool = false;
 		DealerBean dealer = new DealerBean();
 		if(rivenditore != null) {	
 			if( rivenditore.equalsIgnoreCase("rivenditore-check") ) {
+				user.setEmail(email);
+				user.setPassword(encodedPass);
+				user.setNome(nome);
+				user.setCognome(cognome);
 				
 				user.setRivenditore(true);
 				
@@ -114,6 +115,11 @@ public class RegisterControl extends HttpServlet {
 				dealer.setFileDocumentoIdentita(bytes);
 				
 				bool = true;
+			}else {
+				user.setEmail(email);
+				user.setPassword(encodedPass);
+				user.setNome(nome);
+				user.setCognome(cognome);
 			}
 		}
 

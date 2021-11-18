@@ -43,8 +43,8 @@ public class UtenteDAOImp implements UtenteDAO {
 		try {
 			connection = ds.getConnection();
 			preparedStatement = connection.prepareStatement(insertSQL);
-			preparedStatement.setString(1, user.getNome());
-			preparedStatement.setBytes(2, user.getPathName());
+			preparedStatement.setBytes(1, user.getPathName());
+			preparedStatement.setString(2, user.getNome());
 			preparedStatement.setString(3, user.getCognome());
 			preparedStatement.setString(4, user.getEmail());
 			preparedStatement.setString(5, user.getPassword());
