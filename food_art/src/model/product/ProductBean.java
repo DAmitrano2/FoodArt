@@ -11,6 +11,7 @@ public class ProductBean {
 	private int quantitaDisponibile;
 	private String cittaProvenienza;
 	private String provinciaProvenienza;
+	private float valutazione;
 	private int idCategoria;
 	private int idUtente;
 
@@ -89,6 +90,15 @@ public class ProductBean {
 	public void setProvinciaProvenienza(String provinciaProvenienza) {
 		this.provinciaProvenienza = provinciaProvenienza;
 	}
+	
+	public float getValutazione() {
+		return valutazione;
+	}
+
+	public void setvalutazione(float valutazione) {
+		this.valutazione = valutazione;
+	}
+
 
 	public int getIdCategoria() {
 		return idCategoria;

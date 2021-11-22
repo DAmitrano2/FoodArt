@@ -64,7 +64,7 @@
     border-color: #404040;
 }
 
-input:focus, button:focus{
+input:focus, button:focus, textarea:focus{
 	outline: 0 0 0 0  !important;
 	box-shadow: 0 0 0 0 !important;
 }
@@ -124,4 +124,8 @@ a.dropdown-item {
 }
 .nav-link{
 	display: flex;
+}
+
+.form-control:focus {
+    border-color: #000;
 }

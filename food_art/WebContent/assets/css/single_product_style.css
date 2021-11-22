@@ -62,14 +62,19 @@ select:focus{
     background-color: white;
     padding: 20px;
     margin: 15px;
-    cursor: pointer;
 }
-.profile-img{
+.profile-img, .profile-img-add{
     width: 50px;
     height: 50px;
     border-radius: 50%;
     overflow: hidden;
     margin-right: 10px;
+}
+.profile-img-add{
+	text-align: center;
+	background-color: #8c8c8c;
+    border: 0;
+	cursor: pointer; 
 }
 .profile-img img{
     width: 100%;
@@ -77,19 +82,55 @@ select:focus{
     object-fit: cover;
     object-position: center;
 }
+.profile-img-add svg{
+	width: 1.5rem!important;
+    height: 1.5rem;
+    color: #000;
+    position:relative;
+    top: calc(50% - 13px);
+}
+.comment_btn {
+    color: #000;
+    background-color: rgb(255, 195, 18);
+    width: 100px;
+}
+.comment_btn:hover {
+	color: #fff;
+}
+.input-group>.form-control:not(:first-child) {
+    border-top-left-radius: 0.2rem!important;
+    border-bottom-left-radius: 0.2rem!important;
+}
+.form-control:focus {
+    border-color: #000;
+}
+.input-group h3{
+	font-weight: 700;
+    font-size: 18px;
+    line-height: 24px;
+}
+input[type="file"] {
+    display: none;
+}
+.form-group input[type="submit"] {
+    margin-top: 0.5rem;
+}
 .profile{
     display:flex;
-    align-items: center;
 }
 .name-user span{
     color: #696969;
     font-weight: bold;
     font-size: 0.9rem;
 }
-.title-review{
+.comment-group{
     display:flex;
+    flex-direction: column;
 }
-.title-review strong{
+.comment-input{
+	width: 100%!important;
+}
+.comment-group strong{
     color: #3d3d3d;
     font-size: 1.1rem;
     letter-spacing: 0.5px;
@@ -101,10 +142,7 @@ select:focus{
 .client-comment p{
     font-size: 0.9rem;
     color: #4b4b4b;
-}
-.testimonial-box:hover{
-    transform: translateY(-10px);
-    transition: all ease 0.3s;
+    margin-bottom: 0!important;
 }
 .bootstrap-select .dropdown-toggle:focus, .bootstrap-select>select.mobile-device:focus+.dropdown-toggle{
 	outline: none!important;
