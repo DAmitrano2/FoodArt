@@ -45,6 +45,5 @@
 	</div>
 </div>
 <script src="./assets/js/login.js"></script>
-<%@include file="./include/footer.html" %>
 </body>
 </html>

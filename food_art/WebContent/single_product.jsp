@@ -103,17 +103,8 @@
 <!-- lavoro qui (da togliere)-->
 <section id="testimonials">
 	<div class="small-container justify-content-center">
-		<%
-			FeedbackDAOImp collectionFb = new FeedbackDAOImp();
-			Collection<FeedbackBean> feedback = collectionFb.doRetriveByProduct(idProdotto);
-			if (feedback != null && feedback.size() != 0) {
-				int i=0;
-				for(FeedbackBean fb: feedback) {
-					i++;
-					if(i==1){
-		%>
-		<h2 class="title">Recensioni in Evidenza</h2>
 		<!-- Feedback form -->
+		<h2 class="title">Lascia una recensione</h2>
 		<div class="testimonial-box-container">
 			<div class="testimonial-box">
 				<div class="box-top">
@@ -139,6 +130,16 @@
 				</div>
 			</div>
 		</div>
+		<%
+			FeedbackDAOImp collectionFb = new FeedbackDAOImp();
+			Collection<FeedbackBean> feedback = collectionFb.doRetriveByProduct(idProdotto);
+			if (feedback != null && feedback.size() != 0) {
+				int i=0;
+				for(FeedbackBean fb: feedback) {
+					i++;
+					if(i==1){
+		%>
+		<h2 class="title">Recensioni</h2>
 		<%} %>
 		<!-- Feedback presi dal db -->
 		<div class="testimonial-box-container">

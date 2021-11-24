@@ -46,5 +46,6 @@ inpFile.addEventListener("change", function(){
 		reader.readAsDataURL(file);
 	} else {
 		previewDefault.style.display = null;
+		previewContainer.style.backgroundImage = null;
 	}
 });

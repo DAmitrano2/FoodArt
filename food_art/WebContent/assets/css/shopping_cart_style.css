@@ -145,3 +145,6 @@ a:hover {
     display: -ms-revert!important;
     display: revert!important;
 }
+#footer{
+	margin-top: 20%;
+}

@@ -13,6 +13,9 @@ import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
 
+import model.product.ProductBean;
+import model.product.ProductDAOImp;
+
 public class FeedbackDAOImp implements FeedbackDAO {
 	
 	public FeedbackDAOImp() {
@@ -47,6 +50,32 @@ public class FeedbackDAOImp implements FeedbackDAO {
 			preparedStatement.executeUpdate();
 
 			connection.commit();
+			//--------------------------------------------------------------
+			connection = null;
+			preparedStatement = null;
+			
+			int idProdotto = feed.getIdProdotto(), i = 0, rating = 0;
+			float finalRating = 0;
+			
+			String selectSQL = "SELECT * FROM " + FeedbackDAOImp.TABLE_NAME +" where idProdotto= ? ";
+			
+			
+			connection = ds.getConnection();
+			preparedStatement = connection.prepareStatement(selectSQL);
+			preparedStatement.setInt(1, idProdotto);
+			
+			ResultSet rs = preparedStatement.executeQuery();
+			
+			while(rs.next()) {
+				i++;
+				rating += rs.getFloat("valutazione");
+			}
+			finalRating = rating/i;
+			ProductDAOImp modelProdotto = new ProductDAOImp();
+			modelProdotto.updateRating(idProdotto, finalRating);
+
+			connection.commit();
+			
 		} finally {
 			try {
 				if (preparedStatement != null)

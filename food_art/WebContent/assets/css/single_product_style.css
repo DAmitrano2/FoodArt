@@ -169,6 +169,9 @@ input[type="file"] {
 #addCart{
 	width: 12rem;
 }
+#footer{
+	margin-top: 10%;
+}
 @media (max-width: 768px){
 	.row {
     text-align: center!important;

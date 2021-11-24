@@ -6,33 +6,37 @@
 	        <table class="table table-borderless table-shopping-cart">
 	          <thead class="text-muted">
 	            <div class="small title-cart">
-	            	<%
-		            	if(cart != null && cart.getQuantita() != 0){
-	            	%>  
-		            		<h3>Carrello</h3>
-		            <%
-	            		}else {
-           			%>  
-    	            	<h3>Il tuo carrello &#232; vuoto</h3>
-   	            	<%
-	            		}
-	            	%>
-	            </div>
-	          </thead>
-	          <tbody>
-					<%
+            	<%
+	            	if(cart != null && cart.getQuantita() != 0){
+            	%>  
+           			<h3>Carrello</h3>
+   			    </div>
+       		  </thead>
+           	  <tbody>
+	            <%
+            		}else {
+       			%>  
+           			<h3>Il tuo carrello &#232; vuoto</h3>
+           	  	</div>
+              </thead>
+              <tbody>
+            	<tr class="d-flex align-items-center">
+	              	<td>Il tuo carrello aspetta solo di essere riempito. Non deluderlo: riempilo di generi alimentari. Continua a fare acquisti su FoodArt.
+            		</td>
+            	</tr>
+            	<%}
 					DealerDAOImp modelRivenditore = new DealerDAOImp();
-									if(cart != null && cart.getProducts().size() != 0){
-							          		for(ProductItem product: cart.getProducts()){
-					%>
-	         		<tr class="d-flex align-items-center">
+						if(cart != null && cart.getProducts().size() != 0){
+	          				for(ProductItem product: cart.getProducts()){
+				%>
+         		<tr class="d-flex align-items-center">
 	              <td>
-                  <figure class="itemside align-items-center">
-	                  <div class="aside"><img src="./getProductImage?idProdotto=<%= product.getIdProdotto() %>" class="img-sm"></div>
-	                  <figcaption class="info"><a href="./single_product?idProdotto=<%=product.getIdProdotto()%>" class="text-dark" data-abc="true"><%= product.getTitolo() %></a>
-                    	<p class="text-muted small">da: <a href=""><%= modelRivenditore.doRetriveNameById(product.getIdUtente()) %></a></p>
-	                  </figcaption>
-                  </figure>
+	                  <figure class="itemside align-items-center">
+		                  <div class="aside"><img src="./getProductImage?idProdotto=<%= product.getIdProdotto() %>" class="img-sm"></div>
+		                  <figcaption class="info"><a href="./single_product?idProdotto=<%=product.getIdProdotto()%>" class="text-dark" data-abc="true"><%= product.getTitolo() %></a>
+	                    	<p class="text-muted small">da: <a href=""><%= modelRivenditore.doRetriveNameById(product.getIdUtente()) %></a></p>
+		                  </figcaption>
+	                  </figure>
 	              </td>
 	              <td onClick="setQuantityCart('set', <%=product.getIdProdotto()%>, '<%=pagina%>', this)" id="quantita">
 		              <select class="selectpicker my-3">
@@ -42,8 +46,7 @@
 					          	int nMax = product.getQuantitaDisponibile();
 					          	for(int i=nMin; i<=nMax; i++){
 					          		if(i!=product.getQuantita()){
-							%>	
-										<!-- %setQuantityCart('set', <-%=product.getIdProdotto() %>, 'shopping_cart', this) %-->
+							%>
 					          <option><%=i %></option>
 					          <%}} %>
 	              	</select>
@@ -56,9 +59,9 @@
 	              	<a href="cart?action=delete&idProdotto=<%=product.getIdProdotto() %>" class="btn" data-abc="true"><i class="fas fa-trash-alt"></i> Rimuovi</a> 
 	              </td>
 	            </tr>
-		          <%
-		          	}}
-		          %>
+	            <%
+	          	  }}
+	            %>
 	          </tbody>
 	        </table>
 	    </div>
