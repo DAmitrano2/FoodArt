@@ -33,7 +33,7 @@ public class ProductDAOImp implements ProductDAO {
 		PreparedStatement preparedStatement = null;
 		
 		String insertSQL = "INSERT INTO " + ProductDAOImp.TABLE_NAME
-				           + "(titolo, descrizione, unitaMisura, prezzo, quantitaMinimaAcquisto, quantitaDisponibile, cittaProvenienza, provinciaProvenienza, idCategoria, idUtente)"
+				           + "(titolo, descrizione, unitaMisura, prezzo, quantitaMinimaAcquisto, quantitaDisponibile, cittaProvenienza, provinciaProvenienza, valutazione, idCategoria, idUtente)"
 				           + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 		try {
 			connection = ds.getConnection();
@@ -46,8 +46,9 @@ public class ProductDAOImp implements ProductDAO {
 			preparedStatement.setInt(6, product.getQuantitaDisponibile());
 			preparedStatement.setString(7, product.getCittaProvenienza());
 			preparedStatement.setString(8, product.getProvinciaProvenienza());
-			preparedStatement.setInt(9, product.getIdCategoria());
-			preparedStatement.setInt(10, product.getIdUtente());
+			preparedStatement.setFloat(9, product.getValutazione());
+			preparedStatement.setInt(10, product.getIdCategoria());
+			preparedStatement.setInt(11, product.getIdUtente());
 
 			preparedStatement.executeUpdate();
 
@@ -117,6 +118,7 @@ public class ProductDAOImp implements ProductDAO {
 			product.setQuantitaDisponibile(rs.getInt("quantitaDisponibile"));
 			product.setCittaProvenienza(rs.getString("cittaProvenienza"));
 			product.setProvinciaProvenienza(rs.getString("provinciaProvenienza"));
+			product.setvalutazione(rs.getFloat("valutazione"));
 			product.setIdCategoria(rs.getInt("idCategoria"));
 			product.setIdUtente(rs.getInt("idUtente"));
 			
@@ -158,21 +160,22 @@ public class ProductDAOImp implements ProductDAO {
 		ResultSet rs = preparedStatement.executeQuery();
 		
 		while (rs.next()) {
-			ProductBean singol_product = new ProductBean();
-			singol_product.setIdProdotto(rs.getInt("idProdotto"));
-			singol_product.setTitolo(rs.getString("titolo"));
-			singol_product.setDescrizione(rs.getString("descrizione"));
-			singol_product.setUnitaMisura(rs.getString("unitaMisura"));
-			singol_product.setPrezzo(rs.getString("prezzo"));
-			singol_product.setQuantitaMinima(rs.getInt("quantitaMinimaAcquisto"));
-			singol_product.setQuantitaDisponibile(rs.getInt("quantitaDisponibile"));
-			singol_product.setCittaProvenienza(rs.getString("cittaProvenienza"));
-			singol_product.setProvinciaProvenienza(rs.getString("provinciaProvenienza"));
-			singol_product.setIdCategoria(rs.getInt("idCategoria"));
-			singol_product.setIdUtente(rs.getInt("idUtente"));
+			ProductBean product = new ProductBean();
+			product.setIdProdotto(rs.getInt("idProdotto"));
+			product.setTitolo(rs.getString("titolo"));
+			product.setDescrizione(rs.getString("descrizione"));
+			product.setUnitaMisura(rs.getString("unitaMisura"));
+			product.setPrezzo(rs.getString("prezzo"));
+			product.setQuantitaMinima(rs.getInt("quantitaMinimaAcquisto"));
+			product.setQuantitaDisponibile(rs.getInt("quantitaDisponibile"));
+			product.setCittaProvenienza(rs.getString("cittaProvenienza"));
+			product.setProvinciaProvenienza(rs.getString("provinciaProvenienza"));
+			product.setvalutazione(rs.getFloat("valutazione"));
+			product.setIdCategoria(rs.getInt("idCategoria"));
+			product.setIdUtente(rs.getInt("idUtente"));
 			
 			
-			products.add(singol_product);
+			products.add(product);
 		}
 			
 		}
@@ -206,21 +209,22 @@ public class ProductDAOImp implements ProductDAO {
 		ResultSet rs = preparedStatement.executeQuery();
 		
 		while (rs.next()) {
-			ProductBean singol_product = new ProductBean();
-			singol_product.setIdProdotto(rs.getInt("idProdotto"));
-			singol_product.setTitolo(rs.getString("titolo"));
-			singol_product.setDescrizione(rs.getString("descrizione"));
-			singol_product.setUnitaMisura(rs.getString("unitaMisura"));
-			singol_product.setPrezzo(rs.getString("prezzo"));
-			singol_product.setQuantitaMinima(rs.getInt("quantitaMinimaAcquisto"));
-			singol_product.setQuantitaDisponibile(rs.getInt("quantitaDisponibile"));
-			singol_product.setCittaProvenienza(rs.getString("cittaProvenienza"));
-			singol_product.setProvinciaProvenienza(rs.getString("provinciaProvenienza"));
-			singol_product.setIdCategoria(rs.getInt("idCategoria"));
-			singol_product.setIdUtente(rs.getInt("idUtente"));
+			ProductBean product = new ProductBean();
+			product.setIdProdotto(rs.getInt("idProdotto"));
+			product.setTitolo(rs.getString("titolo"));
+			product.setDescrizione(rs.getString("descrizione"));
+			product.setUnitaMisura(rs.getString("unitaMisura"));
+			product.setPrezzo(rs.getString("prezzo"));
+			product.setQuantitaMinima(rs.getInt("quantitaMinimaAcquisto"));
+			product.setQuantitaDisponibile(rs.getInt("quantitaDisponibile"));
+			product.setCittaProvenienza(rs.getString("cittaProvenienza"));
+			product.setProvinciaProvenienza(rs.getString("provinciaProvenienza"));
+			product.setvalutazione(rs.getFloat("valutazione"));
+			product.setIdCategoria(rs.getInt("idCategoria"));
+			product.setIdUtente(rs.getInt("idUtente"));
 			
 			
-			products.add(singol_product);
+			products.add(product);
 		}
 			
 		}
@@ -283,6 +287,7 @@ public class ProductDAOImp implements ProductDAO {
 				+ "quantitaDisponibile=?, "
 				+ "cittaProvenienza=?, "
 				+ "provinciaProvenienza=?, "
+				+ "valutazione=?, "
 				+ "idCategoria=?, "
 				+ "WHERE idProdotto=?";
 
@@ -297,7 +302,9 @@ public class ProductDAOImp implements ProductDAO {
 			preparedStatement.setInt(6, product.getQuantitaDisponibile());
 			preparedStatement.setString(7, product.getCittaProvenienza());
 			preparedStatement.setString(8, product.getProvinciaProvenienza());
-			preparedStatement.setInt(9, product.getIdCategoria());
+			preparedStatement.setFloat(9, product.getValutazione());
+			preparedStatement.setInt(10, product.getIdCategoria());
+			preparedStatement.setInt(11, product.getIdUtente());
 			preparedStatement.executeUpdate();
 
 			connection.commit();
@@ -327,21 +334,22 @@ public class ProductDAOImp implements ProductDAO {
 			ResultSet rs = preparedStatement.executeQuery();
 			
 			while (rs.next()) {
-				ProductBean singol_product = new ProductBean();
-				singol_product.setIdProdotto(rs.getInt("idProdotto"));
-				singol_product.setTitolo(rs.getString("titolo"));
-				singol_product.setDescrizione(rs.getString("descrizione"));
-				singol_product.setUnitaMisura(rs.getString("unitaMisura"));
-				singol_product.setPrezzo(rs.getString("prezzo"));
-				singol_product.setQuantitaMinima(rs.getInt("quantitaMinimaAcquisto"));
-				singol_product.setQuantitaDisponibile(rs.getInt("quantitaDisponibile"));
-				singol_product.setCittaProvenienza(rs.getString("cittaProvenienza"));
-				singol_product.setProvinciaProvenienza(rs.getString("provinciaProvenienza"));
-				singol_product.setIdCategoria(rs.getInt("idCategoria"));
-				singol_product.setIdUtente(rs.getInt("idUtente"));
+				ProductBean product = new ProductBean();
+				product.setIdProdotto(rs.getInt("idProdotto"));
+				product.setTitolo(rs.getString("titolo"));
+				product.setDescrizione(rs.getString("descrizione"));
+				product.setUnitaMisura(rs.getString("unitaMisura"));
+				product.setPrezzo(rs.getString("prezzo"));
+				product.setQuantitaMinima(rs.getInt("quantitaMinimaAcquisto"));
+				product.setQuantitaDisponibile(rs.getInt("quantitaDisponibile"));
+				product.setCittaProvenienza(rs.getString("cittaProvenienza"));
+				product.setProvinciaProvenienza(rs.getString("provinciaProvenienza"));
+				product.setvalutazione(rs.getFloat("valutazione"));
+				product.setIdCategoria(rs.getInt("idCategoria"));
+				product.setIdUtente(rs.getInt("idUtente"));
 				
 				
-				products.add(singol_product);
+				products.add(product);
 			}
 			connection.commit();
 		}
@@ -373,21 +381,22 @@ public class ProductDAOImp implements ProductDAO {
 		ResultSet rs = preparedStatement.executeQuery();
 		
 		while (rs.next()) {
-			ProductBean singol_product = new ProductBean();
-			singol_product.setIdProdotto(rs.getInt("idProdotto"));
-			singol_product.setTitolo(rs.getString("titolo"));
-			singol_product.setDescrizione(rs.getString("descrizione"));
-			singol_product.setUnitaMisura(rs.getString("unitaMisura"));
-			singol_product.setPrezzo(rs.getString("prezzo"));
-			singol_product.setQuantitaMinima(rs.getInt("quantitaMinimaAcquisto"));
-			singol_product.setQuantitaDisponibile(rs.getInt("quantitaDisponibile"));
-			singol_product.setCittaProvenienza(rs.getString("cittaProvenienza"));
-			singol_product.setProvinciaProvenienza(rs.getString("provinciaProvenienza"));
-			singol_product.setIdCategoria(rs.getInt("idCategoria"));
-			singol_product.setIdUtente(rs.getInt("idUtente"));
+			ProductBean product = new ProductBean();
+			product.setIdProdotto(rs.getInt("idProdotto"));
+			product.setTitolo(rs.getString("titolo"));
+			product.setDescrizione(rs.getString("descrizione"));
+			product.setUnitaMisura(rs.getString("unitaMisura"));
+			product.setPrezzo(rs.getString("prezzo"));
+			product.setQuantitaMinima(rs.getInt("quantitaMinimaAcquisto"));
+			product.setQuantitaDisponibile(rs.getInt("quantitaDisponibile"));
+			product.setCittaProvenienza(rs.getString("cittaProvenienza"));
+			product.setProvinciaProvenienza(rs.getString("provinciaProvenienza"));
+			product.setvalutazione(rs.getFloat("valutazione"));
+			product.setIdCategoria(rs.getInt("idCategoria"));
+			product.setIdUtente(rs.getInt("idUtente"));
 			
 			
-			products.add(singol_product);
+			products.add(product);
 		}
 			
 		}
@@ -404,6 +413,34 @@ public class ProductDAOImp implements ProductDAO {
 			}
 		}
 		return products;
+	}
+
+	@Override
+	public boolean updateRating(int idProdotto, float valutazione) throws SQLException {
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+		boolean flush = false ;
+		
+		String updateSQL = "UPDATE "+ ProductDAOImp.TABLE_NAME +" SET valutazione = "+valutazione+" where idProdotto = ?";
+
+		try {
+		connection = ds.getConnection();
+		preparedStatement = connection.prepareStatement(updateSQL);
+		preparedStatement.setInt(1, idProdotto);
+		preparedStatement.executeUpdate();
+		flush = true;
+		connection.commit();
+		} finally {
+			try {
+				if (preparedStatement != null)
+				preparedStatement.close();
+		} finally {
+			if (connection != null)
+				connection.close();
+			}
+		}
+		
+		return flush;
 	}
 	
 	private static final String TABLE_NAME = "prodotto";

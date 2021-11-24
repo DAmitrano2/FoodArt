@@ -8,30 +8,30 @@
 			<div class="card-body">
 				<form action="register" method="post" enctype="multipart/form-data">
 				<!-- user -->
-				<div class="input-group form-group">
-					<input name="fProfilo" type="file" class="form-control" accept=".jpg, .jpeg, .png" id="fProfilo" required/>					
-					<label id="fProfilo" for="fProfilo" class="custom-file-upload form-control">
-						<i class="fas fa-camera"></i> Immagine del Profilo
-					</label>
-				</div>
-				<div class="input-group form-group">
-					<div class="image-preview" id="image-preview">
-						<img src="" alt="Anteprima Immagine" class="image-preview-image">
-						<span class="image-preview-default-text">Anteprima Immagine</span>
-					</div>
-				</div>
-					<div class="input-group form-group">
-						<input name="nome" type="text" class="form-control" placeholder="nome" required>
-						<input name="cognome" type="text" class="form-control" placeholder="cognome" required>
+				<div class="box-top">
+					<div class="profile">
+						<input name="fProfilo" type="file" class="form-control" accept=".jpg, .jpeg, .png" id="fProfilo"/>					
+						<label for="fProfilo" class="custom-file-upload form-control profile-img-add" id="preview-image-box">
+						    <i class="preview-default fal fa-plus fa-3x"></i>
+						</label>
 					</div>
 					<div class="input-group form-group">
-						<input name="email" type="text" class="form-control" placeholder="e-mail" required>
-						<input name="password" type="password" class="form-control" placeholder="password" required>
+						<div>
+							<input name="nome" type="text" class="form-control mb-2" placeholder="nome" required>
+							<input name="cognome" type="text" class="form-control" placeholder="cognome" required>
+						</div>
 					</div>
-					<div class="row align-items-center remember">
-						<input name="rivenditore" type="checkbox" value="rivenditore-check" id="rivenditore-check" onclick="toggle()">
-						<label for="rivenditore-check">Registrati come rivenditore.</label>
+					<div class="input-group form-group">
+						<div>
+							<input name="email" type="text" class="form-control mb-2" placeholder="e-mail" required>
+							<input name="password" type="password" class="form-control" placeholder="password" required>
+						</div>
 					</div>
+				</div>
+				<div class="row align-items-center remember">
+					<input name="rivenditore" type="checkbox" value="rivenditore-check" id="rivenditore-check" onclick="toggle()">
+					<label for="rivenditore-check">Registrati come rivenditore.</label>
+				</div>
 				<!-- rivenditore -->
 				<div id="rivenditore-form" style="display: none;">
 					<div class="card-header-sm">
@@ -80,9 +80,7 @@
 						    <i class="fa fa-cloud-upload"></i> Inserisci la carta di identit&#224;
 						</label>
 					</div>
-					
 				</div>
-					
 					<div class="form-group">
 						<input name="submit" type="submit" value="Registrati" class="btn float-right login_btn">
 					</div>

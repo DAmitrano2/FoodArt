@@ -33,22 +33,19 @@ fCartaIdentita.addEventListener('change', (event) => {
 });
 
 const inpFile = document.getElementById("fProfilo");
-const previewContainer = document.getElementById("image-preview");
-const previewImage = previewContainer.querySelector(".image-preview-image");
-const previewDefaultText = previewContainer.querySelector(".image-preview-default-text");
+const previewContainer = document.getElementById("preview-image-box");
+const previewDefault = previewContainer.querySelector(".preview-default");
 inpFile.addEventListener("change", function(){
 	const file = this.files[0];
 	if(file){
 		const reader = new FileReader();
-		previewDefaultText.style.display = "none";
-		previewImage.style.display = "block";
+		previewDefault.style.display = "none";
 		reader.addEventListener("load", function(){
-			previewImage.setAttribute("src", this.result);
+			previewContainer.style.backgroundImage = "url('"+this.result+"')";
 		});
 		reader.readAsDataURL(file);
 	} else {
-		previewDefaultText.style.display = null;
-		previewImage.style.display = null;
-		previewImage.setAttribute("src", "");
+		previewDefault.style.display = null;
+		previewContainer.style.backgroundImage = null;
 	}
 });

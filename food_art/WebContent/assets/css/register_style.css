@@ -65,11 +65,11 @@ color: white;
 #fProfilo{
     margin-left: 0rem!important;
 }
-.image-preview-image{
+.preview-image{
     display: none;
     width: 100%;
 }
-.image-preview{
+.preview-image-box{
     width: 30%;
     min-height: 100px;
     min-width: 110px;
@@ -79,16 +79,6 @@ color: white;
     justify-content: center;
     font-weight: bold;
     color: #cccccc;
-}
-.image-preview img{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-.image-preview-default-text{
-    padding-right: .5rem;
-    padding-left: .5rem;
-    text-align: center;
 }
 .remember input
 {
@@ -168,13 +158,46 @@ input[type="file"] {
 .custom-file-upload {
     cursor: pointer;
 }
+.profile-img, .profile-img-add{
+    width: 84px;
+    height: 84px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-right: 20px;
+}
+.profile-img-add{
+	background-color: #fff;
+    border: 0;
+	cursor: pointer; 
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+.profile-img img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+.profile-img-add i{
+	width: 1.5rem!important;
+    height: 1.5rem;
+    color: #8c8c8c;
+    position:relative;
+    top: calc(50% - 25px);
+    left: calc(50% - 18px);
+}
 
 .card-header-sm h4{
 	color: white;
 	margin-bottom: 1rem;
 }
+.box-top, .profile{
+    display:flex;
+}
+
 @media (max-width: 400px){
-    .image-preview-default-text{
+    .preview-default{
         display: none;
     }
 }

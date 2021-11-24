@@ -155,6 +155,9 @@ section .section-title{
 	margin-bottom: 50px;
 	text-transform: uppercase;
 }
+#footer {
+    margin-top: 10%;
+}
 
 /* Mediaqueries */
 @media (max-width:767px){

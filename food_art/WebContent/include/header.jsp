@@ -90,13 +90,13 @@
 	  <li class="nav-item dropdown">
 	    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user"></i></a>
 	  	<div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-          <%if(!auth){%>
-          	<a class="dropdown-item" href="<%=path%>/login">Login</a>
-		        <div class="dropdown-divider"></div>
-		        <a class="dropdown-item" href="<%=path%>/register">Sei nuovo? Registrati</a>
-          <%}else{%>
+          <%if(auth){%>
           	<a class="dropdown-item" href="<%=path%>/logout">Logout</a>
-         	<%}%>
+          <%}else{%>
+          	<a class="dropdown-item" href="<%=path%>/login">Login</a>
+	        <div class="dropdown-divider"></div>
+	        <a class="dropdown-item" href="<%=path%>/register">Sei nuovo? Registrati</a>
+       	  <%}%>
         </div>
 	  </li>
 	  <li class="nav-item">

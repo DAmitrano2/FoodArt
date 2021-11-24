@@ -73,7 +73,7 @@ public class RegisterControl extends HttpServlet {
 				
 				byte[] bytes = null;
 				
-			    Part filePart = request.getPart("pathname");
+			    Part filePart = request.getPart("fProfilo");
 	
 			    bytes = filePart.getInputStream().readAllBytes();
 				user.setPathName(bytes);
@@ -122,19 +122,19 @@ public class RegisterControl extends HttpServlet {
 				dealer.setFileDocumentoIdentita(bytes);
 				
 				bool = true;
-			}else {
-				user.setEmail(email);
-				user.setPassword(encodedPass);
-				user.setNome(nome);
-				user.setCognome(cognome);
-				
-				byte[] bytes = null;
-				
-			    Part filePart = request.getPart("pathname");
-	
-			    bytes = filePart.getInputStream().readAllBytes();
-				user.setPathName(bytes);
 			}
+		}else {
+			user.setEmail(email);
+			user.setPassword(encodedPass);
+			user.setNome(nome);
+			user.setCognome(cognome);
+			
+			byte[] bytes = null;
+			
+		    Part filePart = request.getPart("fProfilo");
+
+		    bytes = filePart.getInputStream().readAllBytes();
+			user.setPathName(bytes);
 		}
 
 		try {
