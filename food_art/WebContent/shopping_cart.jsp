@@ -3,7 +3,7 @@
   <div class="row">
     <aside class="col-lg-9">
 	    <div class="card">
-	        <table class="table table-borderless table-shopping-cart">
+	        <table class="table table-borderless table-shopping-cart table-responsive">
 	          <thead class="text-muted">
 	            <div class="small title-cart">
 	            	<%
@@ -53,7 +53,7 @@
                   <div class="price-wrap"><var class="price">&#8364; <%= product.getPrezzo()%></var></div>
 	              </td>
 	              <td class="text-right d-md-block">
-	              	<a href="cart?action=delete&idProdotto=<%=product.getIdProdotto() %>" class="btn" data-abc="true"><i class="fas fa-trash-alt"></i> Rimuovi</a> 
+	              	<a href="cart?action=delete&idProdotto=<%=product.getIdProdotto() %>" class="btn" data-abc="true"><i id="responsiveTrash" class="fas fa-trash-alt"></i> <span><i class="fas fa-trash-alt"></i> Rimuovi</span></a> 
 	              </td>
 	            </tr>
 		          <%
@@ -64,7 +64,7 @@
 	    </div>
     </aside>
     <aside class="col-lg-3">
-	    <div class="card">
+	    <div class="card" id="provisionalTotal">
 	      <div class="card-body">
 	        <dl class="dlist-align">
             <dt>Totale provvisorio:</dt>

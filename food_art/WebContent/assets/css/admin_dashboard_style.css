@@ -1,0 +1,28 @@
+#adminCard{
+    background-color: #fff!important;
+    border-color: #000!important;
+}
+.ms-auto{
+    margin-left: 15px;
+}
+.card-footer{
+    cursor: pointer;
+    background-color: #fcba03!important;
+    border-bottom-right-radius: 0.25rem!important;
+    border-bottom-left-radius: 0.25rem!important;
+}
+.py-5{
+    padding-top: 1rem!important;
+}
+.text-white{
+    color: black!important;
+}
+#rowAdmin{
+    margin-top: 80px;
+}
+.card-footer:hover{
+    color: white;
+}
+.blink{
+   color: green;
+}
