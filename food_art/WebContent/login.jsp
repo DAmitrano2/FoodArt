@@ -44,6 +44,7 @@
 		</div>
 	</div>
 </div>
+<%@include file="./include/script.html" %>
 <script src="./assets/js/login.js"></script>
 </body>
 </html>

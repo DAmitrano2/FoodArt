@@ -94,6 +94,7 @@
 		</div>
 	</div>
 </div>
+<%@include file="./include/script.html" %>
 <script src="./assets/js/register.js"></script>
 </body>
 </html>
