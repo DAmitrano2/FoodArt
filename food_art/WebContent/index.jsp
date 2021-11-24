@@ -16,7 +16,7 @@
 		   	  		<h3 class="pb-3">Festival degli Orti</h3>
 		   	  		<div class="border-top border-white mb-3 w-75 ml-auto"></div>
 		   	  		<p class="lead">Tutto ci&#242; che di buono e salutare l'orto ci regala</p>
-		   	  		<a href="#" class="btn btn-primary btn-md">Leggi di Pi&#249;!</a>
+		   	  		<a href="./dealer_dashboard.jsp" class="btn btn-primary btn-md">Leggi di Pi&#249;!</a>
 	  		    </div>
 		      </div>
 		 	  </div>
@@ -31,7 +31,7 @@
 		   	  		<h3 class="pb-3">La dieta mediterranea</h3>
 		   	  		<div class="border-top border-white mb-3 w-75 ml-auto"></div>
 		   	  		<p class="lead">Pi&#249; tendente allo stile vegetariano e da seguire soprattutto con l'avanzare dell'et&#224;.</p>
-		   	  		<a href="#" class="btn btn-primary btn-md">Leggi di Pi&#249;!</a>
+		   	  		<a href="./admin_dashboard.jsp" class="btn btn-primary btn-md">Leggi di Pi&#249;!</a>
   	  		  </div>
  		    	</div>
 	      </div>
