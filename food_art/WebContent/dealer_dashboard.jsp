@@ -9,7 +9,7 @@
                   <img src="./assets/images/default-user-image.png" alt="">
               </a>
           </div>
-            <a class="edit-profile" href="#"> <i class="fa fa-edit"></i> Modifica Profilo</a>
+            <a class="edit-profile" href=""> <i class="fa fa-edit"></i> Modifica Profilo</a>
       </div>
   </div>
   <div class="profile-info col-md-9">

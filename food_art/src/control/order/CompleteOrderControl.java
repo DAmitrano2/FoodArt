@@ -21,7 +21,7 @@ import model.entry.EntryDAOImp;
 import model.order.OrderBean;
 import model.order.OrderDAOImp;
 import model.product.ProductDAOImp;
-import model.user.UtenteBean;
+import model.user.UserBean;
 import service.ProductItem;
 import service.ShoppingCart;
 
@@ -37,7 +37,7 @@ public class CompleteOrderControl extends HttpServlet {
 		
 		request.setAttribute("page","complete_order");
 		
-		UtenteBean user = (UtenteBean) request.getSession(false).getAttribute("user");
+		UserBean user = (UserBean) request.getSession(false).getAttribute("user");
 		ShoppingCart cart = (ShoppingCart) request.getSession().getAttribute("cart");
 		int idIndirizzoConsegna = Integer.parseInt(request.getParameter("address"));
 		String nCarta = request.getParameter("card");

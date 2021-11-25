@@ -15,18 +15,18 @@ import javax.servlet.http.HttpServletRequest;
 
 import com.google.gson.*;
 
-import model.user.UtenteBean;
-import model.user.UtenteDAOImp;
+import model.user.UserBean;
+import model.user.UserDAOImp;
 
 @WebServlet("/login")
 public class LoginControl extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
-	private UtenteDAOImp model;
+	private UserDAOImp model;
 
 	public LoginControl() {
 		super();
-		this.model = new UtenteDAOImp();
+		this.model = new UserDAOImp();
 	}
 	
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -80,7 +80,7 @@ public class LoginControl extends HttpServlet {
 				out.flush();
 				return;
 			}
-			UtenteBean user = model.doRetrieveByKey(email, encodedPass);
+			UserBean user = model.doRetrieveByKey(email, encodedPass);
 			
 			if( user == null ) {
 				PrintWriter out = response.getWriter();

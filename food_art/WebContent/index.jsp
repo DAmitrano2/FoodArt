@@ -71,7 +71,7 @@
 				<div class="owl-carousel owl-theme category-card">
 					<%
 					if (categorie != null && categorie.size() != 0) {
-										for (CategoryBean category: categorie) {
+						for (CategoryBean category: categorie) {
 					%>
 					<div class="category-content">
 						<div class="image-container">

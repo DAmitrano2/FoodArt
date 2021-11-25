@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import model.user.UtenteDAOImp;
+import model.user.UserDAOImp;
 
 @WebServlet("/getUserImage")
 public class ImageUserControl extends HttpServlet {
@@ -24,7 +24,7 @@ public class ImageUserControl extends HttpServlet {
 		int idUtente = Integer.parseInt(request.getParameter("idUtente"));
 		try {
 			byte[] bytes;
-			UtenteDAOImp modelImmagine = new UtenteDAOImp();
+			UserDAOImp modelImmagine = new UserDAOImp();
 			bytes = modelImmagine.doRetrieveImageByKey(idUtente);
 			ServletOutputStream out = response.getOutputStream();
 			if(bytes != null)

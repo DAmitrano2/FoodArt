@@ -7,14 +7,14 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import junit.framework.TestCase;
-import model.user.UtenteBean;
+import model.user.UserBean;
 
 class TestCliente extends TestCase {
-	UtenteBean userBean;
+	UserBean userBean;
 	
 	@BeforeEach
 	public void setUp() throws Exception {
-		userBean = new UtenteBean();
+		userBean = new UserBean();
 	}
 
 	@AfterEach
@@ -28,7 +28,7 @@ class TestCliente extends TestCase {
 		userBean.setEmail("bradpitt63@gmail.com");
 		userBean.setPassword("hollywood18");
 		
-		assertEquals(true, UtenteBean.matches(userBean));
+		assertEquals(true, UserBean.matches(userBean));
 	}
 	
 	@Test
@@ -38,7 +38,7 @@ class TestCliente extends TestCase {
 		userBean.setEmail("bradpitt63@gmail.com");
 		userBean.setPassword("hollywood18");
 		
-		assertEquals(false, UtenteBean.matches(userBean));
+		assertEquals(false, UserBean.matches(userBean));
 	}
 	
 	@Test
@@ -48,7 +48,7 @@ class TestCliente extends TestCase {
 		userBean.setEmail("bradpitt63@gmail.com");
 		userBean.setPassword("hollywood18");
 		
-		assertEquals(false, UtenteBean.matches(userBean));
+		assertEquals(false, UserBean.matches(userBean));
 	}
 	
 	@Test
@@ -58,7 +58,7 @@ class TestCliente extends TestCase {
 		userBean.setEmail("bradpitt63gmail.com");
 		userBean.setPassword("hollywood18");
 		
-		assertEquals(false, UtenteBean.matches(userBean));
+		assertEquals(false, UserBean.matches(userBean));
 	}
 	
 	@Test
@@ -68,6 +68,6 @@ class TestCliente extends TestCase {
 		userBean.setEmail("bradpitt63@gmail.com");
 		userBean.setPassword("hollywo");
 		
-		assertEquals(false, UtenteBean.matches(userBean));
+		assertEquals(false, UserBean.matches(userBean));
 	}
 }

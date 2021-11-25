@@ -18,8 +18,8 @@ import javax.servlet.http.Part;
 
 import model.dealer.DealerBean;
 import model.dealer.DealerDAOImp;
-import model.user.UtenteBean;
-import model.user.UtenteDAOImp;
+import model.user.UserBean;
+import model.user.UserDAOImp;
 
 @WebServlet("/register")
 @MultipartConfig(maxFileSize = 50000000)
@@ -27,12 +27,12 @@ public class RegisterControl extends HttpServlet {
 
 
 	private static final long serialVersionUID = 1L;
-	private UtenteDAOImp modelUser;
+	private UserDAOImp modelUser;
 	private DealerDAOImp modelSeller;
 
     public RegisterControl() {
         super();
-        this.modelUser = new UtenteDAOImp();
+        this.modelUser = new UserDAOImp();
         this.modelSeller = new DealerDAOImp();
     }
 
@@ -54,7 +54,7 @@ public class RegisterControl extends HttpServlet {
 		String cognome = request.getParameter("cognome");
 		String rivenditore = request.getParameter("rivenditore");
 		
-		UtenteBean user = new UtenteBean();
+		UserBean user = new UserBean();
 		
 		//Codifica della password
 		Base64.Encoder enc = Base64.getEncoder();

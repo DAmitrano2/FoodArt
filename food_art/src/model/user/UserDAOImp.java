@@ -16,9 +16,9 @@ import model.category.CategoryDAOImp;
 
 
 
-public class UtenteDAOImp implements UtenteDAO {
+public class UserDAOImp implements UserDAO {
 	
-	public UtenteDAOImp() {
+	public UserDAOImp() {
 		try {
 			Context initCtx = new InitialContext();
 			Context envCtx = (Context) initCtx.lookup("java:comp/env");
@@ -31,12 +31,12 @@ public class UtenteDAOImp implements UtenteDAO {
 	}
 	
 	@Override
-	public int doSave(UtenteBean user) throws SQLException {
+	public int doSave(UserBean user) throws SQLException {
 		
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 
-		String insertSQL = "INSERT INTO " + UtenteDAOImp.TABLE_NAME
+		String insertSQL = "INSERT INTO " + UserDAOImp.TABLE_NAME
 				+ " (pathname, nome, cognome, email, password,amministratore, rivenditore, bloccato)"
 				+ " VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 		
@@ -70,7 +70,7 @@ public class UtenteDAOImp implements UtenteDAO {
 
 		int id=0;
 
-		String selectSQL = "SELECT * FROM " + UtenteDAOImp.TABLE_NAME + " WHERE email = ? ";
+		String selectSQL = "SELECT * FROM " + UserDAOImp.TABLE_NAME + " WHERE email = ? ";
 
 		try {
 			connection = ds.getConnection();
@@ -111,13 +111,13 @@ public class UtenteDAOImp implements UtenteDAO {
 	}
 
 	@Override
-	public UtenteBean doRetrieveByKey(String email, String password) throws SQLException {
+	public UserBean doRetrieveByKey(String email, String password) throws SQLException {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 
-		UtenteBean bean = new UtenteBean();
+		UserBean bean = new UserBean();
 
-		String selectSQL = "SELECT * FROM " + UtenteDAOImp.TABLE_NAME + " WHERE email = ? AND password = ?";
+		String selectSQL = "SELECT * FROM " + UserDAOImp.TABLE_NAME + " WHERE email = ? AND password = ?";
 
 		try {
 			connection = ds.getConnection();
@@ -166,13 +166,13 @@ public class UtenteDAOImp implements UtenteDAO {
 	}
 
 	@Override
-	public Collection<UtenteBean> doRetrieveAll() throws SQLException {
+	public Collection<UserBean> doRetrieveAll() throws SQLException {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 
-		Collection<UtenteBean> users = new LinkedList<UtenteBean>();
+		Collection<UserBean> users = new LinkedList<UserBean>();
 
-		String selectSQL = "SELECT * FROM " + UtenteDAOImp.TABLE_NAME;
+		String selectSQL = "SELECT * FROM " + UserDAOImp.TABLE_NAME;
 
 		try {
 			connection = ds.getConnection();
@@ -181,7 +181,7 @@ public class UtenteDAOImp implements UtenteDAO {
 			ResultSet rs = preparedStatement.executeQuery();
 
 			while (rs.next()) {
-				UtenteBean bean = new UtenteBean();
+				UserBean bean = new UserBean();
 				bean.setIdUtente(rs.getInt("idUtente"));
 				bean.setPathName(rs.getBytes("pathname"));
 				bean.setNome(rs.getString("nome"));
@@ -205,13 +205,13 @@ public class UtenteDAOImp implements UtenteDAO {
 		return users;
 	}
 	
-	public UtenteBean doRetrieveById(int idUtente) throws SQLException {
+	public UserBean doRetrieveById(int idUtente) throws SQLException {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 
-		UtenteBean bean = new UtenteBean();
+		UserBean bean = new UserBean();
 
-		String selectSQL = "SELECT * FROM " + UtenteDAOImp.TABLE_NAME + " WHERE idUtente = ?";
+		String selectSQL = "SELECT * FROM " + UserDAOImp.TABLE_NAME + " WHERE idUtente = ?";
 
 		try {
 			connection = ds.getConnection();
@@ -262,7 +262,7 @@ public class UtenteDAOImp implements UtenteDAO {
 	public boolean isEmail(String email) throws SQLException {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
-		String selectSQL = "SELECT email FROM " + UtenteDAOImp.TABLE_NAME + " WHERE email = ?";
+		String selectSQL = "SELECT email FROM " + UserDAOImp.TABLE_NAME + " WHERE email = ?";
 
 		try {
 			connection = ds.getConnection();
@@ -321,7 +321,7 @@ public class UtenteDAOImp implements UtenteDAO {
 	public boolean isAmministratore(int idUtente) throws SQLException {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
-		String selectSQL = "SELECT * FROM " + UtenteDAOImp.TABLE_NAME + " WHERE idUtente = ?";
+		String selectSQL = "SELECT * FROM " + UserDAOImp.TABLE_NAME + " WHERE idUtente = ?";
 
 		try {
 			connection = ds.getConnection();
@@ -356,7 +356,7 @@ public class UtenteDAOImp implements UtenteDAO {
 	public boolean isRivenditore(int idUtente) throws SQLException {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
-		String selectSQL = "SELECT * FROM " + UtenteDAOImp.TABLE_NAME + " WHERE idUtente = ?";
+		String selectSQL = "SELECT * FROM " + UserDAOImp.TABLE_NAME + " WHERE idUtente = ?";
 
 		try {
 			connection = ds.getConnection();
@@ -394,7 +394,7 @@ public class UtenteDAOImp implements UtenteDAO {
 
 		byte[] path = null;
 
-		String selectSQL = "SELECT * FROM " + UtenteDAOImp.TABLE_NAME + " WHERE idUtente = ?";
+		String selectSQL = "SELECT * FROM " + UserDAOImp.TABLE_NAME + " WHERE idUtente = ?";
 
 		try {
 			connection = ds.getConnection();

@@ -3,7 +3,7 @@ package model.user;
 import java.sql.SQLException;
 import java.util.Collection;
 
-public interface UtenteDAO {
+public interface UserDAO {
 	
 	/**
 	 * Salva i dati di un utente
@@ -11,7 +11,7 @@ public interface UtenteDAO {
 	 * @return null
 	 * @throws SQLException
 	 */
-    public int doSave(UtenteBean user) throws SQLException;
+    public int doSave(UserBean user) throws SQLException;
 	
 	/**
 	 * Controlla se esiste un utente con una determinata email
@@ -27,7 +27,7 @@ public interface UtenteDAO {
 	 * @return un user se email e password corrispondono ad un utente presente nel database, null altrimenti
 	 * @throws SQLException
 	 */
-	public UtenteBean doRetrieveByKey(String email, String password) throws SQLException;
+	public UserBean doRetrieveByKey(String email, String password) throws SQLException;
 	
 	/**
 	 * Carica i dati di tutti gli utenti 
@@ -35,7 +35,7 @@ public interface UtenteDAO {
 	 * @return una collezione di user
 	 * @throws SQLException
 	 */	
-	public Collection<UtenteBean> doRetrieveAll() throws SQLException;
+	public Collection<UserBean> doRetrieveAll() throws SQLException;
 	
 	/**
 	 * Blocca un utente settando a true il suo specifico parametro
@@ -67,7 +67,7 @@ public interface UtenteDAO {
 	 * @return uno specifico utente
 	 * @throws SQLException
 	 */
-	public UtenteBean doRetrieveById(int idUtente) throws SQLException;
+	public UserBean doRetrieveById(int idUtente) throws SQLException;
 	
 	/**
 	 * Restituisce l'immagine di un utente tramite l'id

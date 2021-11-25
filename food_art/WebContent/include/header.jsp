@@ -1,8 +1,8 @@
 <%@ page language="java" import="java.util.*,model.user.*,model.dealer.*,model.category.*,model.card.*,model.address.*,model.product.*,model.image.*,service.*,java.sql.Date" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page errorPage = "/400.jsp" %>
 <%
-	// Check user credentials
-	UtenteBean user = (UtenteBean) request.getSession(false).getAttribute("user");
+// Check user credentials
+	UserBean user = (UserBean) request.getSession(false).getAttribute("user");
 	String pagina = (String) request.getAttribute("page");
 	String path = request.getContextPath();
  	ShoppingCart cart = (ShoppingCart) request.getSession().getAttribute("cart");
@@ -19,12 +19,12 @@
 	
 	if( pagina != null ) {
 		if( (pagina.equalsIgnoreCase("login") ) && (auth) ){
-			response.sendRedirect("./index");
+	response.sendRedirect("./index");
 		}else if( (pagina.equalsIgnoreCase("register") ) && (auth) ){
-			response.sendRedirect("./index");
+	response.sendRedirect("./index");
 		}
 	}else {
-		response.sendRedirect("./index");
+		//response.sendRedirect("./index");
 	}
 	
 	//Categorie

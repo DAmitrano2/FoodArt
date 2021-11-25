@@ -17,12 +17,12 @@
 .text-white{
     color: black!important;
 }
-#rowAdmin{
-    margin-top: 80px;
-}
 .card-footer:hover{
     color: white;
 }
 .blink{
    color: green;
+}
+#footer{
+	margin-top: 25%;
 }

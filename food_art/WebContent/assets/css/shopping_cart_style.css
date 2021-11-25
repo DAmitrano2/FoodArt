@@ -158,6 +158,9 @@ a:hover {
 .row{
     justify-content: center;
 }
+#footer{
+	margin-top: 20%;
+}
 @media (max-width:1173px){
     #responsiveTrash{
         display: block;

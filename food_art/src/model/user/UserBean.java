@@ -1,6 +1,6 @@
 package model.user;
 
-public class UtenteBean {
+public class UserBean {
 
 	private int idUtente;
 	private byte[] pathName;
@@ -12,7 +12,7 @@ public class UtenteBean {
 	private boolean rivenditore;
 	private boolean bloccato;
 	
-	public UtenteBean() {
+	public UserBean() {
 		this.idUtente = -1;
 	}
 	
@@ -101,7 +101,7 @@ public class UtenteBean {
 		this.rivenditore = bloccato;
 	}
 
-	public static final boolean matches(UtenteBean u) {
+	public static final boolean matches(UserBean u) {
 		if(!u.getNome().matches("^[A-Za-z ]{1,25}$")
 				|| (!u.getCognome().matches("^[A-Za-z ]{1,25}$"))
 				|| (!u.getEmail().matches("\\S+@\\S+\\.\\S+"))
