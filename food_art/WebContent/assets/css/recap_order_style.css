@@ -60,6 +60,9 @@ span.number-card {
 input[type=radio]:checked:after {
     background-color: #fcba03;
 }
+#footer{
+	margin-top: 15%;
+}
 @media(max-width: 567px){
     .mobile{
         padding-top: 40px;
