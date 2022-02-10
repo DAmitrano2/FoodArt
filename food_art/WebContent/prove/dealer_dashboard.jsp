@@ -1,4 +1,4 @@
-<%@include file="./include/header.jsp"%>
+<%@include file="../include/header.jsp"%>
 <link rel="stylesheet" href="./assets/css/dealer_dashboard_style.css">
 <div class="container">
 <div class="row">

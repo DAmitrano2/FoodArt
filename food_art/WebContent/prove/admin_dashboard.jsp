@@ -1,4 +1,4 @@
-<%@include file="./include/header.jsp"%>
+<%@include file="../include/header.jsp"%>
 <link rel="stylesheet" href="./assets/css/admin_dashboard_style.css">
 <main class="mt-5 pt-3">
     <div class="container-fluid">
@@ -60,5 +60,5 @@
         </div>
     </div>
 </main>
-<%@include file="./include/footer.html"%>
-<%@include file="./include/script.html"%>
+<%@include file="../include/footer.html"%>
+<%@include file="../include/script.html"%>
