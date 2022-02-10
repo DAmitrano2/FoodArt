@@ -138,18 +138,19 @@ public class RegisterControl extends HttpServlet {
 		}
 
 		try {
-			if(user!=null) {
+			if(user!=null && UserBean.matches(user)) {
 				id=modelUser.doSave(user);
 				request.getSession(true);
 				request.getSession().setAttribute("user", user);
 				response.setStatus(200);
 			}
-			if(bool) {
+			if(bool && DealerBean.matches(dealer)) {
 				dealer.setIdUtente(id);
 				modelSeller.doSave(dealer);
 				request.getSession(true);
 				request.getSession().setAttribute("seller", dealer);
 				response.setStatus(200);
+			
 			}
 			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/index.jsp");
 			dispatcher.forward(request, response);

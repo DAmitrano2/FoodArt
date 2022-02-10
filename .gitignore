@@ -1,0 +1,6 @@
+food_art/.classpath
+food_art/.settings/org.eclipse.wst.common.project.facet.core.xml
+food_art/.settings/org.eclipse.wst.ws.service.policy.prefs
+food_art/WebContent/META-INF/context.xml
+food_art/build/classes/control/cart/CartControl.class
+food_art/build/classes/control/index/IndexControl.class
