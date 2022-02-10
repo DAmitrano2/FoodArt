@@ -1,0 +1,18 @@
+.card-body .row{
+	flex-wrap: nowrap!important;
+}
+.card{
+	border-radius: 8px;
+}
+.card-body .row svg{
+	margin-top: 25px;
+}
+.ms-auto{
+    margin-left: 15px;
+}
+.text-white{
+    color: black!important;
+}
+#footer{
+	margin-top: 25%;
+}

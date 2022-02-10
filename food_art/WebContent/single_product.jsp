@@ -120,7 +120,6 @@
 		<%}}%>
 	</div>
 </div>
-<!-- lavoro qui (da togliere)-->
 <section id="testimonials">
 	<div class="small-container justify-content-center">
 		<!-- Feedback form -->

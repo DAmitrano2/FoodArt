@@ -148,6 +148,11 @@ a:hover {
 .table-responsive{
     overflow-x: scroll;
 }
+@media (min-width: 768px){
+	.table-responsive{
+    	overflow-x: hidden;
+	}
+}
 .bootstrap-select .dropdown-toggle:focus, .bootstrap-select>select.mobile-device:focus+.dropdown-toggle {
     outline: none!important;
 }

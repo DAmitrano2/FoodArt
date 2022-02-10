@@ -38,7 +38,9 @@
 						<h4>Dati Anagrafici</h4>
 					</div>
 					<div class="input-group form-group">
-						<input name="data" id="data" type="date" min="1900-01-01" max="<%=new java.sql.Date(System.currentTimeMillis())%>" class="form-control">
+					<%Calendar calendar = Calendar.getInstance();
+					  calendar.add(Calendar.YEAR, -18); %>
+					<input name="data" id="data" type="date" min="1900-01-01" max="<%=new java.sql.Date(calendar.getTimeInMillis())%>" class="form-control">
 						<select name="sesso" class="form-control" id="sesso">
 							<option id="sessoOption" value="m">Maschio</option>
 							<option id="sessoOption" value="f">Femmina</option>

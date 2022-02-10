@@ -9,18 +9,21 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/dashboard")
-public class DashboardControl extends HttpServlet {
+@WebServlet("/dashboard_general")
+public class DashboardGeneralControl extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    public DashboardControl() {
+    public DashboardGeneralControl() {
         super();
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setAttribute("page","dashboard");
+		request.setAttribute("page","dashboard_general");
+		String title = String.valueOf(request.getParameter("title"));
+
+		request.setAttribute("title", title);
 		
-		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/dashboard.jsp");
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/dashboard_general.jsp");
 		dispatcher.forward(request, response);
 	}
 

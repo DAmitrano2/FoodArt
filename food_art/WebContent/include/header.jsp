@@ -91,9 +91,11 @@
 	    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user"></i></a>
 	  	<div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
           <%if(auth){%>
-          	<a class="dropdown-item" href="<%=path%>/logout">Logout</a>
+          	<a class="dropdown-item" href="<%=path%>/dashboard">Area Utente</a>
+       	    <div class="dropdown-divider"></div>
+          	<a class="dropdown-item" href="<%=path%>/logout">Esci</a>
           <%}else{%>
-          	<a class="dropdown-item" href="<%=path%>/login">Login</a>
+          	<a class="dropdown-item" href="<%=path%>/login">Accedi</a>
 	        <div class="dropdown-divider"></div>
 	        <a class="dropdown-item" href="<%=path%>/register">Sei nuovo? Registrati</a>
        	  <%}%>
@@ -119,8 +121,8 @@
       	if (categorie != null && categorie.size() != 0) {
 			for (CategoryBean category: categorie) {
       	%>
-        <li class="nav-item">
-          <a class="nav-link" href="category?idCategoria=<%=category.getIdCategoria()%>"><%=category.getNome()%></a>
+        <li class="nav-item m-1">
+          <a class="nav-link nav-link-underline" href="category?idCategoria=<%=category.getIdCategoria()%>"><%=category.getNome()%></a>
         </li>
         <%}} %>
       </ul>

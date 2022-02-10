@@ -10,7 +10,7 @@
             -->
         </div>
         <div class="small-container">
-          <h2 class="title">Bentornato, Amministratore</h2>
+          <h2 class="title">Bentornato Amministratore</h2>
         <div id="rowAdmin" class="row">
             <div class="col-md-3 mb-3">
               <div id="adminCard" class="card bg-primary text-white h-100">
