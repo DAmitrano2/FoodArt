@@ -105,7 +105,7 @@ public class UserBean {
 		if(!u.getNome().matches("^[A-Za-z ]{1,25}$")
 				|| (!u.getCognome().matches("^[A-Za-z ]{1,25}$"))
 				|| (!u.getEmail().matches("\\S+@\\S+\\.\\S+"))
-				|| (u.getPassword().length()<8)) {
+				|| (u.getPassword().matches("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{8,16}$"))) {
 				
 			return false;
 				

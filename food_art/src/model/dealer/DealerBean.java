@@ -152,20 +152,23 @@ public class DealerBean {
 	public static final boolean matches(DealerBean r) {
 		if((!r.isMaggiorenne(r.getDataNascita()))
 				|| (!r.getCitta().matches("^[A-Za-z ]{1,45}$"))
-				|| (!r.getProvincia().matches("^[A-Z]{2,2}$"))
+				|| (!r.getProvincia().matches("^[a-zA-Z]{2,2}$"))
 				|| (!r.getCodiceFiscale().matches("^[a-zA-Z]{6}[0-9]{2}[abcdehlmprstABCDEHLMPRST]{1}[0-9]{2}([a-zA-Z]{1}[0-9]{3})[a-zA-Z]{1}$"))
 				|| ((r.getRagioneSociale().length()<1) || (r.getRagioneSociale().length() > 45))
-				|| (!r.getProvinciaSedeLegale().matches("^[A-Z]{2,2}$"))
-				|| (!r.getCittaSedeLegale().matches("^[A-Za-z ]{1,25}$"))
+				|| (!r.getProvinciaSedeLegale().matches("^[a-zA-Z]{2,2}$"))
+				|| (!r.getCittaSedeLegale().matches("^[A-Za-z ]{1,45}$"))
 				|| (!r.getCapSedeLegale().matches("^[0-9]{5,5}$"))
 				|| (!r.getViaSedeLegale().matches("^[A-Za-z ]{1,25}$"))
-				|| (!r.getNumeroCivicoSedeLegale().matches("^[0-9]{1,25}$"))
+				|| (!r.getNumeroCivicoSedeLegale().matches("^[0-9]{1,7}$"))
 				|| (!r.getNumeroPartitaIva().matches("^[0-9]{11,11}$"))
 				) {
-				
+
 			return false;
+			
 				
-		} else return true;
+		}else {
+			return true;
+		}
 	}
 	
 	public boolean isMaggiorenne(java.sql.Date dataNascita) {
