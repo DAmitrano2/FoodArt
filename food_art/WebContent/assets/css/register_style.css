@@ -1,47 +1,47 @@
 html,body{
-background-image: url('');
-background-size: cover;
-background-repeat: no-repeat;
-height: 100%;
+	background-image: url('');
+	background-size: cover;
+	background-repeat: no-repeat;
+	height: 100%;
 }
 
 .container{
-height: 100%;
-align-content: center;
+	height: 100%;
+	align-content: center;
 }
 
 .card{
-height: auto;
-margin-top: 15rem;
-margin-bottom: auto;
-width: 600px;
-background-color: rgba(0,0,0,0.45) !important;
+	height: auto;
+	margin-top: 15rem;
+	margin-bottom: auto;
+	width: 600px;
+	background-color: rgba(0,0,0,0.45) !important;
 }
 
 .card-header h3{
-color: white;
+	color: white;
 }
 
 .input-group-prepend span{
-width: 50px;
-background-color: #fcba03;
-color: black;
-border:0 !important;
+	width: 50px;
+	background-color: #fcba03;
+	color: black;
+	border:0 !important;
 }
 
 .login_btn{
-color: black;
-background-color: #FFC312;
-width: 100px;
+	color: black;
+	background-color: #FFC312;
+	width: 100px;
 }
 
 .login_btn:hover{
-color: black;
-background-color: white;
+	color: black;
+	background-color: white;
 }
 
 .links{
-color: white;
+	color: white;
 }
 
 .links a{
@@ -50,8 +50,8 @@ color: white;
 
 .card-footer a{
 	color: #ffc312;
-    text-decoration: none;
-    background-color: transparent;
+  text-decoration: none;
+  background-color: transparent;
 }
 
 .card-footer a:hover {
@@ -60,7 +60,7 @@ color: white;
 }
 
 .form-group input[type="submit"] {
-	margin-top: .5rem;
+		margin-top: .5rem;
 }
 #fProfilo{
     margin-left: 0rem!important;
@@ -69,22 +69,14 @@ color: white;
     display: none;
     width: 100%;
 }
-.preview-image-box{
-    width: 30%;
-    min-height: 100px;
-    min-width: 110px;
-    border: 2px solid #dddddd;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: bold;
-    color: #cccccc;
+#preview-image-box{
+		position: relative;
 }
 .remember input{
-width: 20px;
-height: 20px;
-margin-left: 15px;
-margin-right: 5px;
+		width: 20px;
+		height: 20px;
+		margin-left: 15px;
+		margin-right: 5px;
 }
 
 .remember input[type="checkbox"] {
@@ -124,13 +116,13 @@ margin-right: 5px;
     cursor: pointer;
 }
 
-form .input-group:not(.has-validation)>.custom-file:not(:last-child) .custom-file-label::after, form .input-group:not(.has-validation)>.custom-select:not(:last-child), form .input-group:not(.has-validation)>.form-control:not(:last-child) {
+form .input-group:not(.has-validation)>.custom-file:not(input:last-child) .custom-file-label::after, form .input-group:not(.has-validation)>.custom-select:not(input:last-child), form .input-group:not(.has-validation)>.form-control:not(input:last-child, label:last-child, select:last-child) {
     border-top-right-radius: 0.25rem;
     border-bottom-right-radius: 0.25rem;
     margin-right: 1rem;
 }
 
-form .input-group>.custom-select:not(:first-child), form .input-group>.form-control:not(:first-child) {
+form .input-group>.custom-select:not(input:first-child), form .input-group>.form-control:not(input:first-child, label:first-child, select:first-child) {
     border-top-left-radius: 0.25rem;
     border-bottom-left-radius: 0.25rem;
     margin-left: 1rem;
@@ -165,12 +157,12 @@ input[type="file"] {
     margin-right: 20px;
 }
 .profile-img-add{
-	background-color: #fff;
+		background-color: #fff;
     border: 0;
-	cursor: pointer; 
-	background-position: center;
-	background-repeat: no-repeat;
-	background-size: cover;
+		cursor: pointer; 
+		background-position: center;
+		background-repeat: no-repeat;
+		background-size: cover;
 }
 .profile-img img{
     width: 100%;
@@ -179,7 +171,7 @@ input[type="file"] {
     object-position: center;
 }
 .profile-img-add i{
-	width: 1.5rem!important;
+		width: 1.5rem!important;
     height: 1.5rem;
     color: #8c8c8c;
     position:relative;
@@ -199,4 +191,62 @@ input[type="file"] {
     .preview-default{
         display: none;
     }
+}
+
+.input-group input:focus {
+    outline: 0;
+}
+
+.form-control.success {
+    border-color: #09c372;
+}
+
+.form-control.error{
+    border-color: rgb(216, 0, 0);
+}
+
+.form-control + .div-error>.error {
+    color: rgb(216, 0, 0);
+    font-size: 11px;
+    height: 13px;
+}
+
+.div-error{
+		justify-content: space-around;
+}
+
+.div-error > .error {
+    color: rgb(216, 0, 0);
+    font-size: 11px;
+    height: 13px;
+}
+
+.form-group{
+		margin-bottom: 0.25rem!important;
+}
+
+.address-plus {
+    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACYAAAAmCAYAAACoPemuAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3gMfFBUB8Kc3yAAAAB1pVFh0Q29tbWVudAAAAAAAQ3JlYXRlZCB3aXRoIEdJTVBkLmUHAAAABmJLR0QA/wD/AP+gvaeTAAAAP0lEQVRYw+3UsQkAMAwDsPz/o29pHkjnlCKDV6PJVb8myZkKBgYGBgYGBvYg7Da+VTAwMD8GBgYGBgYGBraWBpeqjFTlGtDAAAAAAElFTkSuQmCC) left center no-repeat;
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    left: 57%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    display: inline-block;
+}
+@media (max-width: 767){
+	.address-plus{
+		left: 8%!important;
+	}
+}
+@media (max-width: 531){
+	.address-plus{
+		left: 9%!important;
+	}
+}
+@media (max-width: 471){
+	.address-plus{
+		left: 10%!important;
+	}
 }
