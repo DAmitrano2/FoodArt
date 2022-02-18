@@ -22,7 +22,21 @@
         });
         function updateType(e){
             var cardType = payform.parseCardType(e.target.value);
-            type.innerHTML = cardType || 'invalid';
+            if(cardType==='visa'){
+                type.innerHTML = '<i class="fa-brands fa-cc-visa"></i>' || 'invalid';
+            } else if(cardType==='mastercard'){
+                type.innerHTML = '<i class="fa-brands fa-cc-mastercard"></i>' || 'invalid';
+            } else if(cardType==='amex'){
+                type.innerHTML = '<i class="fa-brands fa-cc-amex"></i>' || 'invalid';
+            } else if(cardType==='jcb'){
+                type.innerHTML = '<i class="fa-brands fa-cc-jcb"></i>' || 'invalid';
+            } else if(cardType==='discover'){
+                type.innerHTML = '<i class="fa-brands fa-cc-discover"></i>' || 'invalid';
+            } else if(cardType==='discover'){
+                type.innerHTML = '<i class="fa-brands fa-cc-discover"></i>' || 'invalid';
+            } else if(cardType==='dinersclub'){
+                type.innerHTML = '<i class="fa-brands fa-cc-diners-club"></i>' || 'invalid';
+            } 
         }
         function fieldStatus(input, valid){
             if(valid){

@@ -1,0 +1,12 @@
+#product-card{
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+}
+#image-picker{
+    display:none;
+}
+#image-preview{
+    padding-right: 25px;
+    padding-left: 25px;
+    padding-bottom: 25px;
+}

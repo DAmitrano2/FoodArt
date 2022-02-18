@@ -1,25 +1,17 @@
 #adminCard{
-    background-color: #fff!important;
+    background-color: #fcba03!important;
     border-color: #000!important;
+}
+#adminCardFooter:hover{
+    cursor: pointer;
+    background-color: #e0a500;
 }
 .ms-auto{
     margin-left: 15px;
 }
-.card-footer{
-    cursor: pointer;
-    background-color: #fcba03!important;
-    border-bottom-right-radius: 0.25rem!important;
-    border-bottom-left-radius: 0.25rem!important;
-}
 .text-white{
     color: black!important;
 }
-.card-footer:hover{
-    color: white;
-}
 .blink{
    color: green;
-}
-#footer{
-	margin-top: 25%;
 }

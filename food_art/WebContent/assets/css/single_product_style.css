@@ -159,6 +159,9 @@ input[type="file"] {
 	    max-width: 41.666667%;
 	}
 }
+#textarea-comment{
+    resize: none;
+}
 .row{
 	margin: 0;
  	justify-content: center;
