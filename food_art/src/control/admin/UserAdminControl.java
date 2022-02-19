@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 import model.user.UserBean;
 import model.user.UserDAOImp;
 
-@WebServlet("/admin/dashboard")
+@WebServlet("/admin_dashboard")
 public class UserAdminControl extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -39,7 +39,7 @@ public class UserAdminControl extends HttpServlet {
 			return;
 		}
 				
-		request.setAttribute("pageControl", "utenti");
+		request.setAttribute("page", "admin_dashboard");
 
 		try {
 				Collection<UserBean> users = (Collection<UserBean>) modelUser.doRetrieveAll();
@@ -53,7 +53,7 @@ public class UserAdminControl extends HttpServlet {
 			return;
 		}
 
-		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/admin/dashboard/users.jsp");
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/admin_dashboard.jsp");
 		dispatcher.forward(request, response);	
 	}
 
