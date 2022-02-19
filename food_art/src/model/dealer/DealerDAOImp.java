@@ -79,50 +79,45 @@ public class DealerDAOImp implements DealerDAO {
 		
 		DealerBean bean = new DealerBean();
 
-		String selectSQL = "SELECT * FROM "+ DealerDAOImp.TABLE_NAME +" where idUtente = ? ";
+		String selectSQL = "SELECT * FROM "+ DealerDAOImp.TABLE_NAME +" where idUtente = ?";
+		
 		try {
 			connection = ds.getConnection();
 			preparedStatement = connection.prepareStatement(selectSQL);
 			preparedStatement.setInt(1, idUtente);
 			ResultSet rs = preparedStatement.executeQuery();
-
-			boolean flag=false;
-		
-		while (rs.next()) {
-			bean.setIdUtente(rs.getInt("idUtente"));
-			bean.setDataNascita(rs.getDate("dataNascita"));
-			bean.setCitta(rs.getString("citta"));
-			bean.setProvincia(rs.getString("provincia"));
-			bean.setSesso(rs.getString("sesso"));
-			bean.setCodiceFiscale(rs.getString("codiceFiscale"));
-			bean.setNumeroPartitaIva(rs.getString("numeropartitaIva"));
-			Blob filePartitaIva = rs.getBlob("filePartitaIva");
-			bean.setFilePartitaIva(filePartitaIva.getBytes(idUtente, (int)filePartitaIva.length()));
-			Blob fileDocumentoIdentita = rs.getBlob("fileDocumentoIdentita");
-			bean.setFileDocumentoIdentita(fileDocumentoIdentita.getBytes(idUtente, (int)fileDocumentoIdentita.length()));
-			bean.setRagioneSociale(rs.getString("ragioneSociale"));
-			bean.setProvinciaSedeLegale(rs.getString("provinciaSedeLegale"));
-			bean.setCittaSedeLegale(rs.getString("cittaSedeLegale"));
-			bean.setViaSedeLegale(rs.getString("viaSedeLegale"));
-			bean.setNumeroCivicoSedeLegale(rs.getString("nCivicoSedeLegale"));
-			bean.setCapSedeLegale(rs.getString("CapSedeLegale"));
 			
-			flag=true;
-		}
-		
+			boolean flag=false;
+			while (rs.next()) {
+				bean.setIdUtente(rs.getInt("idUtente"));
+				bean.setDataNascita(rs.getDate("dataNascita"));
+				bean.setCitta(rs.getString("citta"));
+				bean.setProvincia(rs.getString("provincia"));
+				bean.setSesso(rs.getString("sesso"));
+				bean.setCodiceFiscale(rs.getString("codiceFiscale"));
+				bean.setNumeroPartitaIva(rs.getString("numeropartitaIva"));
+				bean.setFilePartitaIva(rs.getBytes("filePartitaIva"));
+				bean.setFileDocumentoIdentita(rs.getBytes("fileDocumentoIdentita"));
+				bean.setRagioneSociale(rs.getString("ragioneSociale"));
+				bean.setProvinciaSedeLegale(rs.getString("provinciaSedeLegale"));
+				bean.setCittaSedeLegale(rs.getString("cittaSedeLegale"));
+				bean.setViaSedeLegale(rs.getString("viaSedeLegale"));
+				bean.setNumeroCivicoSedeLegale(rs.getString("nCivicoSedeLegale"));
+				bean.setCapSedeLegale(rs.getString("CapSedeLegale"));
+				flag=true;
+			}
+			
 		if( !flag ) {
 			return null;
 		}
 		
-	}
-	catch(SQLException e) {
+	}catch(SQLException e) {
 		return null;
-	}
-	finally {
+	}finally {
 		try {
 			if (preparedStatement != null)
 				preparedStatement.close();
-		} finally {
+		}finally {
 			if (connection != null)
 				connection.close();
 		}
@@ -180,10 +175,6 @@ public class DealerDAOImp implements DealerDAO {
 		return dealers;
 	}
 
-    private static final String TABLE_NAME = "rivenditore";
-	
-	private DataSource ds;
-
 	@Override
 	public String doRetriveNameById(int idUtente) throws SQLException {
 		Connection connection = null;
@@ -225,4 +216,7 @@ public class DealerDAOImp implements DealerDAO {
 		}
 		return nome;
 	}
+	private static final String TABLE_NAME = "rivenditore";
+
+	private DataSource ds;
 }

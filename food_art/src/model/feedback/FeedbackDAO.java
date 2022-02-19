@@ -44,4 +44,12 @@ public interface FeedbackDAO {
 	 * @throws SQLException
 	 */
 	public Collection<FeedbackBean> doRetriveByProduct (int idProdotto) throws SQLException;
+
+	/**
+	 * Restituisce il feedback di valutazione migliore di un determinato rivenditore
+	 * @param idUser
+	 * @return FeedbackBean
+	 * @throws SQLException
+	 */
+	public FeedbackBean doRetriveBestFeedbackByUser(int idUser) throws SQLException;
 }

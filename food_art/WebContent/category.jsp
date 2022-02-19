@@ -1,6 +1,6 @@
 	<%@include file="./include/header.jsp"%>
 	<%
-	int idCategoria = (int)request.getAttribute("idCategoria");
+		int idCategoria = (int)request.getAttribute("idCategoria");
 		ProductDAOImp modelProdotto = new ProductDAOImp();
 		DealerDAOImp modelRivenditore = new DealerDAOImp();
 		Collection<ProductBean> prodotti = modelProdotto.getProductByIdCategory(idCategoria);
@@ -55,8 +55,8 @@
 							<img src="./getProductImage?idProdotto=<%=product.getIdProdotto() %>" alt="imageProduct.png">
 							<h4><%= product.getTitolo() %></h4>
 						</a>
-						<span><%= modelRivenditore.doRetriveNameById(product.getIdUtente()) %></span>
-						<div class="rating"> 
+						<h6><a href="./dealer_info?idDealer=<%=product.getIdUtente() %>"><%= modelRivenditore.doRetriveNameById(product.getIdUtente()) %></a></h6>
+						<div class="rating">
 					 	<% if(product.getValutazione() > 0){
 					 	float rating = product.getValutazione();
 					 	if(rating>=1 && rating<2){				//1 stella%>

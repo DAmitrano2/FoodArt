@@ -24,29 +24,29 @@
 	              	<td>Il tuo carrello aspetta solo di essere riempito. Non deluderlo: riempilo di generi alimentari. Continua a fare acquisti su FoodArt.
             		</td>
             	</tr>
-            	<%}
-					DealerDAOImp modelRivenditore = new DealerDAOImp();
+            		<%}
+						DealerDAOImp modelRivenditore = new DealerDAOImp();
 						if(cart != null && cart.getProducts().size() != 0){
-	          				for(ProductItem product: cart.getProducts()){
-				%>
-         		<tr class="d-flex align-items-center">
+							for(ProductItem product: cart.getProducts()){
+					%>
+         			<tr class="d-flex align-items-center">
 	              <td>
 	                  <figure class="itemside align-items-center">
 		                  <div class="aside"><img src="./getProductImage?idProdotto=<%= product.getIdProdotto() %>" class="img-sm"></div>
 		                  <figcaption class="info"><a href="./single_product?idProdotto=<%=product.getIdProdotto()%>" class="text-dark" data-abc="true"><%= product.getTitolo() %></a>
-	                    	<p class="text-muted small">da: <a href=""><%= modelRivenditore.doRetriveNameById(product.getIdUtente()) %></a></p>
+	                    	<p class="text-muted small">da: <a href="./dealer_info?idDealer=<%=product.getIdUtente() %>"><%= modelRivenditore.doRetriveNameById(product.getIdUtente()) %></a></p>
 		                  </figcaption>
 	                  </figure>
 	              </td>
 	              <td onClick="setQuantityCart('set', <%=product.getIdProdotto()%>, '<%=pagina%>', this)" id="quantita">
 		              <select class="selectpicker my-3">
 	         	 			<option active><%=product.getQuantita() %></option>
-                  			<%
+               			<%
 					          	int nMin = product.getQuantitaMinima();
 					          	int nMax = product.getQuantitaDisponibile();
 					          	for(int i=nMin; i<=nMax; i++){
 					          		if(i!=product.getQuantita()){
-							%>
+										%>
 					          <option><%=i %></option>
 					          <%}} %>
 	              	</select>

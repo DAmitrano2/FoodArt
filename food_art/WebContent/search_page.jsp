@@ -54,7 +54,7 @@
 							<img src="./getProductImage?idProdotto=<%= product.getIdProdotto() %>" alt="imageProduct.png">
 							<h4><%= product.getTitolo() %></h4>
 						</a>
-						<span><%= modelRivenditore.doRetriveNameById(product.getIdUtente()) %></span>
+						<h6><a href="./dealer_info?idDealer=<%=product.getIdUtente() %>"><%= modelRivenditore.doRetriveNameById(product.getIdUtente()) %></a></h6>
 						<div class="rating">
 							<i class="fas fa-star"></i>
 							<i class="fas fa-star"></i>

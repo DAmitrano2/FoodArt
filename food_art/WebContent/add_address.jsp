@@ -1,9 +1,9 @@
 <%@include file="./include/header.jsp"%>
-<div class="container">
+<div class="container mt-5 mb-5">
     <div class="d-flex justify-content-center">
         <div class="col-sm-6">
             <div class="card">
-                <div class="cc-card-header">
+                <div class="card-header">
                     <strong>Inserisci un nuovo indirizzo</strong>
                 </div>
                 <div class="card-body">
@@ -68,9 +68,8 @@
                         <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Piano, interno, ecc" style="resize: none;"></textarea>
                       </div>
                 </div>
-                <div class="cc-card-footer">
-                    <button class="btn float-right" id="btnsub" type="submit">Invia</button>
-                    <div id="result" class="emoji"></div>
+                <div class="card-footer">
+                    <button class="btn float-right" type="submit">Invia</button>
                 </div>
             </div>
         </div>

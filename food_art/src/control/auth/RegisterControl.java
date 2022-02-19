@@ -136,7 +136,7 @@ public class RegisterControl extends HttpServlet {
 		}
 
 		try {
-			if(user!=null && UserBean.matches(user)) {
+			if(user != null && UserBean.matches(user)) {
 				id=modelUser.doSave(user);
 				request.getSession(true);
 				request.getSession().setAttribute("user", user);
@@ -148,7 +148,6 @@ public class RegisterControl extends HttpServlet {
 				request.getSession(true);
 				request.getSession().setAttribute("seller", dealer);
 				response.setStatus(200);
-			
 			}
 			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/index.jsp");
 			dispatcher.forward(request, response);

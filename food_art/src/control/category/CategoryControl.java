@@ -20,10 +20,11 @@ public class CategoryControl extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.setAttribute("page","category");
 		
 		idCategoria=Integer.parseInt(request.getParameter("idCategoria"));
 		request.setAttribute("idCategoria", idCategoria);
-		request.setAttribute("page","category");
+		
 		if(idCategoria>0) {
 			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/category.jsp");
 			dispatcher.forward(request, response);

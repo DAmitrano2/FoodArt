@@ -1,7 +1,7 @@
-<%@ page language="java" import="java.util.*,model.user.*,model.dealer.*,model.category.*,model.card.*,model.address.*,model.product.*,model.image.*,service.*,java.sql.Date" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" import="java.util.*,model.user.*,model.dealer.*,model.category.*,model.feedback.*,model.card.*,model.address.*,model.product.*,model.image.*,model.order.*,model.entry.*,service.*,java.sql.Date" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page errorPage = "/400.jsp" %>
 <%
-// Check user credentials
+	// Check user credentials
 	UserBean user = (UserBean) request.getSession(false).getAttribute("user");
 	String pagina = (String) request.getAttribute("page");
 	String path = request.getContextPath();
@@ -19,9 +19,9 @@
 	
 	if( pagina != null ) {
 		if( (pagina.equalsIgnoreCase("login") ) && (auth) ){
-	response.sendRedirect("./index");
+			response.sendRedirect("./index");
 		}else if( (pagina.equalsIgnoreCase("register") ) && (auth) ){
-	response.sendRedirect("./index");
+			response.sendRedirect("./index");
 		}
 	}else {
 		//response.sendRedirect("./index");
@@ -63,7 +63,7 @@
   	  <link rel="stylesheet" href="./assets/css/<%=pagina%>_style.css">
   <%}%>
   <!-- Icon CSS -->
-  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"/>
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.15.4/css/all.css"/>
   <link rel="stylesheet" href="./assets/css/all.css"/>
   <script src="https://kit.fontawesome.com/2a789f15df.js"></script>
   

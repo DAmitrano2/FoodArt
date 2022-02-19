@@ -1,4 +1,4 @@
-package control.auth;
+package control.userArea;
 
 import java.io.IOException;
 

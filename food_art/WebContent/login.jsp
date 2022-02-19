@@ -6,6 +6,15 @@
 				<h3>Accedi</h3>
 			</div>
 			<div class="card-body">
+				<%
+					String error = String.valueOf(request.getAttribute("errorMessage"));
+					if(error != "null"){
+				%>
+				<div class="alert alert-danger" role="alert">
+				  <h4 class="alert-heading">Accesso fallito</h4>
+				  <p><%=error %></p>
+				</div>
+				<%} %>
 				<form action="login" method="post">
 					<div class="input-group form-group">
 						<div class="input-group-prepend">
@@ -23,10 +32,9 @@
 						<input type="checkbox" name="remember" id="remember-check">
 						<label for="remember-check">Resta connesso</label>
 					</div>
-						
 					<div class="row align-items-center remember">
-						  <input type="checkbox" onclick="showPassword()">
-	                      <label for="Pass">Mostra Password</label>
+					  <input type="checkbox" onclick="showPassword()">
+            <label for="Pass">Mostra Password</label>
 					</div>
 					<div class="form-group">
 						<input type="submit" value="Accedi" class="btn float-right login_btn">

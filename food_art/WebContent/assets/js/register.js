@@ -107,27 +107,17 @@ const setSuccessR = element => {
 };
 
 const isValidEmail = email => {
-    const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    const re = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
     return re.test(String(email).toLowerCase());
 };
 
-const isValidPassword = pass => {
-    const re = /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{8,16}$/;
-		return re.test(String(pass));
-};
 /** Farlo funzionare */
 function isMaggiorenne(dateString) {
-	console.log('dateString: '+ dateString);
 	var today = new Date();
-	console.log('today: '+ today);
 	var birthDate = new Date(dateString);
-	console.log('birthDate: '+ birthDate);
 	var age = today.getFullYear() - birthDate.getFullYear();
-	console.log('age: '+ age);
 	var m = today.getMonth() - birthDate.getMonth();
-	console.log('m: '+ m);
 	var d = today.getDay() - birthDate.getDay();
-	console.log('d: '+ d);
 	if (age > 18 || (age == 18 && (m > 0 || (m == 0 && d >= 0 )))) {
 		return true;
 	}
@@ -193,12 +183,21 @@ const validateInputs = () => {
     } else if (passwordValue.length < 8 ) {
 				boolPassword = false;
         setError(password, '*La password deve contenere almeno 8 caratteri')
-    } else if (passwordValue.length > 25 ) {
+    } else if (passwordValue.length > 16 ) {
 				boolPassword = false;
         setError(password, '*La password deve contenere massimo 25 caratteri')
-//    } else if (!isValidPassword(passwordValue)) {
-//				boolPassword = false;
-//        setError(password, '*Fornire una password valida');
+    } else if (!passwordValue.match(/[a-z]/g)) {
+				boolPassword = false;
+        setError(password, '*La password deve contenere almeno una lettera minuscola');
+    }	else if (!passwordValue.match(/[A-Z]/g)) {
+				boolPassword = false;
+        setError(password, '*La password deve contenere almeno una lettera maiuscola');
+    }	else if (!passwordValue.match(/[0-9]/g)) {
+				boolPassword = false;
+        setError(password, '*La password deve contenere almeno un numero');
+    }	else if (!passwordValue.match(/[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/g)) {
+				boolPassword = false;
+        setError(password, '*La password deve contenere almeno un carattere speciale');
     } else {
 				boolPassword = true;
         setSuccess(password);

@@ -56,6 +56,12 @@
     border-top: none!important;
     width: 30%;
 }
+.profile-img img{
+    width: 175px;
+    cursor: pointer;
+    padding-bottom: 0.5em;
+    height: 50%;
+}
 @media (max-width:768px){
     .profile-head{
         text-align:center

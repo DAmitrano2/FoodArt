@@ -12,7 +12,7 @@
 .breadcrumb-item a:hover {
 	color: #3c3c3c;
 }
-#first-card {
+.first-card {
 	border-style: dashed;
 }
 .card {
@@ -25,7 +25,7 @@
   display: table-cell;
   vertical-align: middle;
 }
-#first-card-body {
+.first-card-body {
 	border-radius: 8px;
   position: relative;
   padding: 14px 18px;

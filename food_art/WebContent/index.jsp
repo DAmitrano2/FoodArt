@@ -98,7 +98,7 @@
 				<img src="./getProductImage?idProdotto=1" alt="">
 				<h4>Confettura Albicocche</h4>
 			</a>
-			<span>SOCIET&#192; AGRICOLA AMITRANO</span>
+			<h6><a href="./dealer_info?idDealer=6">Societ&#224; Agricola Amitrano</a></h6>
 			<div class="rating">
 				<i class="fas fa-star"></i>
 				<i class="fas fa-star"></i>
@@ -114,7 +114,7 @@
 				<img src="./getProductImage?idProdotto=2" alt="">
 				<h4>Salame Toscano</h4>
 			</a>
-			<span>SALUMERIA GROSSETANA</span>
+			<h6><a href="./dealer_info?idDealer=14">La Salumeria dello Zio</a></h6>
 			<div class="rating">
 				<i class="fas fa-star"></i>
 				<i class="fas fa-star"></i>
@@ -130,7 +130,7 @@
 				<img src="./getProductImage?idProdotto=3" alt="">
 				<h4>Pere Santa Maria</h4>
 			</a>
-			<span>FRUTTETO ZAPPIA</span>
+			<h6><a href="./dealer_info?idDealer=7">Frutta & Verdura Zappia</a></h6>
 			<div class="rating">
 				<i class="fas fa-star"></i>
 				<i class="fas fa-star"></i>
@@ -146,7 +146,7 @@
 				<img src="./getProductImage?idProdotto=4" alt="">
 				<h4>Birra Artigianale 0,3l</h4>
 			</a>
-			<span>BIRRIFICIO MIRANDA</span>
+			<h6><a href="./dealer_info?idDealer=19">Cantina Marrazzo</a></h6>
 			<div class="rating">
 				<i class="fas fa-star"></i>
 				<i class="fas fa-star"></i>
@@ -160,7 +160,7 @@
 	</div>
 	<!-- Ultimi Arrivi -->
 	<%
-	ProductDAOImp modelProdotto = new ProductDAOImp(); 
+		ProductDAOImp modelProdotto = new ProductDAOImp(); 
 		DealerDAOImp modelRivenditore = new DealerDAOImp();
 		Collection<ProductBean> prodotti = modelProdotto.getLastArrivals(8);
 	%>
@@ -175,11 +175,11 @@
 					<img src="./getProductImage?idProdotto=<%= product.getIdProdotto() %>" alt="imageProduct.png">
 					<h4><%= product.getTitolo() %></h4>
 				</a>
-				<span><%= modelRivenditore.doRetriveNameById(product.getIdUtente()) %></span>
+				<h6><a href="./dealer_info?idDealer=<%=product.getIdUtente() %>"><%= modelRivenditore.doRetriveNameById(product.getIdUtente()) %></a></h6>
 				<div class="rating"> 
 			 	<% if(product.getValutazione() > 0){
-			 	float rating = product.getValutazione();
-			 	if(rating>=1 && rating<2){				//1 stella%>
+				 	float rating = product.getValutazione();
+				 	if(rating>=1 && rating<2){				//1 stella%>
 		    		<i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
 			   	<%}else if(rating>=2 && rating<3){		//2 stelle%>
 		    		<i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>

@@ -260,6 +260,53 @@ public class FeedbackDAOImp implements FeedbackDAO {
 		return feedback;
 	}
 	
+	@Override
+	public FeedbackBean doRetriveBestFeedbackByUser(int idUser) throws SQLException {
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+		FeedbackBean feed = new FeedbackBean();
+
+		String selectSQL = "SELECT * FROM " + FeedbackDAOImp.TABLE_NAME + " where idRivenditore = ? group by idRivenditore having max(feedback.valutazione);";
+		
+		try {
+			connection = ds.getConnection();
+			preparedStatement = connection.prepareStatement(selectSQL);
+			preparedStatement.setInt(1, idUser);
+			
+			ResultSet rs = preparedStatement.executeQuery();
+			
+			boolean flag = false;
+			
+			while(rs.next()) {
+				feed.setIdFeedback(rs.getInt("idFeedback"));
+				feed.setTitolo(rs.getString("titolo"));
+				feed.setCommento(rs.getString("commento"));
+				feed.setValutazione(rs.getFloat("valutazione"));
+				feed.setIdCommentatore(rs.getInt("idCommentatore"));
+				feed.setIdProdotto(rs.getInt("idProdotto"));
+				feed.setIdRivenditore(rs.getInt("idRivenditore"));
+				
+				flag = true;
+			}
+			
+			if( !flag ) {
+				return null;
+			}
+
+			connection.commit();
+		} finally {
+			try {
+				if (preparedStatement != null)
+					preparedStatement.close();
+			} finally {
+				if (connection != null)
+					connection.close();
+			}
+		}
+		return feed;
+	}
+
+	
 	private static final String TABLE_NAME = "feedback";
 	
 	private DataSource ds;

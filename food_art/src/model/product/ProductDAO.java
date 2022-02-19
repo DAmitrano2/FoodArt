@@ -80,6 +80,14 @@ public interface ProductDAO {
 	public Collection<ProductBean> getProductByTitle(String title) throws SQLException;
 	
 	/**
+	 * Ricerca dei prodotti in base al rivenditore
+	 * @param filter
+	 * @return collezione di ProdottoBean
+	 * @throws SQLException
+	 */
+	public Collection<ProductBean> getProductByIdUser(int idUser) throws SQLException;
+	
+	/**
 	 * Modifica il rating di un prodotto 
 	 * @param idProdotto e il rating
 	 * @return
@@ -87,4 +95,12 @@ public interface ProductDAO {
 	 */
 	public boolean updateRating(int idProdotto, float valutazione) throws SQLException;
 
+	
+	/**
+	 * Restituisce il numero di prodotti di un utente
+	 * @param idUser
+	 * @return numero prodotti
+	 * @throws SQLException
+	 */
+	public int getNumProductByIdUser(int idUser) throws SQLException;
 }

@@ -13,8 +13,8 @@
 				<%if(title.equals("Indirizzi")){ %>
 				<div class="row justify-content-center">
 	      	<div class="col-md-4 mb-3">
-	      		<div id="first-card" class="card">
-	      			<div id="first-card-body" class="card-body">
+	      		<div class="card first-card">
+	      			<div class="card-body first-card-body">
 	      				<div class="address-plus"></div>
 	      				<h2 style="color: #565959!important;">Aggiungi indirizzo</h2>
 	      			</div>
@@ -49,8 +49,8 @@
       	<%}else if(title.equals("I miei pagamenti")){ %>
       	<div class="row justify-content-center">
 	      	<div class="col-md-4 mb-3">
-	      		<div id="first-card" class="card">
-	      			<div id="first-card-body" class="card-body">
+	      		<div class="card first-card">
+	      			<div class="card-body first-card-body">
 	      				<div class="address-plus"></div>
 	      				<h2 style="color: #565959!important;">Aggiungi carta</h2>
 	      			</div>
@@ -81,47 +81,12 @@
          	</div>
 					<%}}%>
       	</div>
-      	<%}else  if(title.equals("I miei ordini")){%>
-      	<div class="row justify-content-center">
-	      	<div class="col-md-4 mb-3">
-	      		<div id="first-card" class="card">
-	      			<div id="first-card-body" class="card-body">
-	      				<div class="address-plus"></div>
-	      				<h2 style="color: #565959!important;">Aggiungi carta</h2>
-	      			</div>
-      			</div>
-	      	</div>
-	      	<%
-         		CardDAOImp pagamentoDao = new CardDAOImp();
-	   				Collection<CardBean> pagamenti = pagamentoDao.getMetodoPagamentoByIdUser(user.getIdUtente());
-	   				if (pagamenti != null && pagamenti.size() != 0) {
-	   					int i=0;
-	   					for(CardBean paycard: pagamenti) {
-	   						i++;
-         	%>
-         	<div class="col-md-4 mb-3">
-	      		<div class="card position-relative">
-	      			<div class="card-body">
-			          <div class="form-check form-check-paycard my-3">
-								  <label class="form-check-label ml-2">
-								    <span class="title-card"><%=paycard.getIntestatario() %></span>
-								    <span class="number-card">Carta di debito che termina con ****<%=paycard.getNumeroCarta(4) %></span>
-								  </label>
-								</div>
-								<div class="position-absolute">
-		            	<a type="button" class="btn btn-sm">Modifica</a> | <a type="button" class="btn btn-sm">Rimuovi</a>
-	            	</div>
-            	</div>
-           	</div>
-         	</div>
-					<%}}%>
-      	</div>
-      	<%} %>
+      	<%}%>
 	    </div>
 		</div>
 	</main>
-<%@include file="./include/footer.html"%>
-<%@include file="./include/script.html"%>
-<script src="./assets/js/dashboardGeneral.js"></script>
+	<%@include file="./include/footer.html"%>
+	<%@include file="./include/script.html"%>
+	<script src="./assets/js/dashboardGeneral.js"></script>
 </body>
 </html>

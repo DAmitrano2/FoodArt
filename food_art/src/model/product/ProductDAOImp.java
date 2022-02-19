@@ -26,7 +26,7 @@ public class ProductDAOImp implements ProductDAO {
 			System.out.println("Error:" + e.getMessage());
 		}
 	}
-
+	
 	@Override
 	public void doSave(ProductBean product) throws SQLException {
 		Connection connection = null;
@@ -443,7 +443,88 @@ public class ProductDAOImp implements ProductDAO {
 		return flush;
 	}
 	
+	@Override
+	public Collection<ProductBean> getProductByIdUser(int idUser) throws SQLException {
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+		Collection<ProductBean> products = new LinkedList<ProductBean>();
+		
+		String selectSQL = "SELECT * FROM "+ ProductDAOImp.TABLE_NAME +" where idUtente = ?";
+		try {
+		connection = ds.getConnection();
+		preparedStatement = connection.prepareStatement(selectSQL);
+		preparedStatement.setInt(1, idUser);
+		
+		ResultSet rs = preparedStatement.executeQuery();
+		
+		while (rs.next()) {
+			ProductBean product = new ProductBean();
+			product.setIdProdotto(rs.getInt("idProdotto"));
+			product.setTitolo(rs.getString("titolo"));
+			product.setDescrizione(rs.getString("descrizione"));
+			product.setUnitaMisura(rs.getString("unitaMisura"));
+			product.setPrezzo(rs.getString("prezzo"));
+			product.setQuantitaMinima(rs.getInt("quantitaMinimaAcquisto"));
+			product.setQuantitaDisponibile(rs.getInt("quantitaDisponibile"));
+			product.setCittaProvenienza(rs.getString("cittaProvenienza"));
+			product.setProvinciaProvenienza(rs.getString("provinciaProvenienza"));
+			product.setvalutazione(rs.getFloat("valutazione"));
+			product.setIdCategoria(rs.getInt("idCategoria"));
+			product.setIdUtente(rs.getInt("idUtente"));
+			
+			products.add(product);
+		}
+			
+		}
+		catch(SQLException e) {
+			return null;
+		}
+		finally {
+			try {
+				if (preparedStatement != null)
+					preparedStatement.close();
+			} finally {
+				if (connection != null)
+					connection.close();
+			}
+		}
+		return products;
+	}
+	
+	@Override
+	public int getNumProductByIdUser(int idUser) throws SQLException {
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+		int numProduct = 0;
+		
+		String selectSQL = "SELECT COUNT('idProdotto') FROM "+ ProductDAOImp.TABLE_NAME +" where idUtente = ?";;
+
+		try {
+			connection = ds.getConnection();
+			preparedStatement = connection.prepareStatement(selectSQL);
+			preparedStatement.setInt(1, idUser);
+			
+			ResultSet rs = preparedStatement.executeQuery();
+			
+			while (rs.next()) {
+				numProduct = rs.getInt(1);
+			}
+		}catch(SQLException e) {
+			return 0;
+		}finally {
+			try {
+				if (preparedStatement != null)
+					preparedStatement.close();
+			} finally {
+				if (connection != null)
+					connection.close();
+			}
+		}
+		return numProduct;
+	}
+	
 	private static final String TABLE_NAME = "prodotto";
 	
 	private DataSource ds;
+
 }

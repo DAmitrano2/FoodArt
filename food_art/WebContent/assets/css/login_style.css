@@ -1,56 +1,55 @@
 html,body{
-background-image: url('');
-background-size: cover;
-background-repeat: no-repeat;
-height: 100%;
+		background-image: url('');
+		background-size: cover;
+		background-repeat: no-repeat;
+		height: 100%;
 }
 
 .container{
-height: 100%;
-align-content: center;
+		height: 100%;
+		align-content: center;
 }
 
 .card{
-height: 370px;
-margin-top: auto;
-margin-bottom: auto;
-width: 400px;
-transform: translateY(-25%);
-background-color: rgba(0,0,0,0.45) !important;
+		margin-top: auto;
+		margin-bottom: auto;
+		width: 400px;
+		transform: translateY(-25%);
+		background-color: rgba(0,0,0,0.45) !important;
 }
 
 .card-header h3{
-color: white;
+		color: white;
 }
 
 .input-group-prepend span{
-width: 50px;
-background-color: #fcba03;
-color: black;
-border:0 !important;
+		width: 50px;
+		background-color: #fcba03;
+		color: black;
+		border:0 !important;
 }
 
 .login_btn{
-color: black;
-background-color: #FFC312;
-width: 100px;
+		color: black;
+		background-color: #FFC312;
+		width: 100px;
 }
 
 .login_btn:hover{
-color: black;
-background-color: white;
+		color: black;
+		background-color: white;
 }
 
 .links{
-color: white;
+		color: white;
 }
 
 .links a{
-	margin-left: 4px;
+		margin-left: 4px;
 }
 
 .card-footer a{
-	color: #ffc312;
+		color: #ffc312;
     text-decoration: none;
     background-color: transparent;
 }
@@ -61,19 +60,19 @@ color: white;
 }
 
 .form-group input[type="submit"] {
-	margin-top: .5rem;
+		margin-top: .5rem;
 }
 
 .remember{
-color: white;
+		color: white;
 }
 
 .remember input
 {
-width: 20px;
-height: 20px;
-margin-left: 15px;
-margin-right: 5px;
+		width: 20px;
+		height: 20px;
+		margin-left: 15px;
+		margin-right: 5px;
 }
 
 

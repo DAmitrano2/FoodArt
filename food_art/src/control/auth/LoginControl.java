@@ -1,7 +1,6 @@
 package control.auth;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.util.Base64;
 
@@ -12,8 +11,6 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpServletRequest;
-
-import com.google.gson.*;
 
 import model.user.UserBean;
 import model.user.UserDAOImp;
@@ -53,59 +50,47 @@ public class LoginControl extends HttpServlet {
 		
 	}
 
-	public void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String email = request.getParameter("email");
 		String password = request.getParameter("password");
 		String remember = request.getParameter("remember");
 		
 		Base64.Encoder enc = Base64.getEncoder();
 		String encodedPass = enc.encodeToString(password.getBytes());
-		String jsonMessage = null;
 		
 		try {
 			if( !model.isEmail(email) ) {
-				PrintWriter out = response.getWriter();
 				response.setContentType("application/json");
 				response.setCharacterEncoding("UTF-8");
 				response.setStatus(401);
 				
-				request.setAttribute("errorMessage", "email non esistente");
+				request.setAttribute("errorMessage", "E-mail non esistente");
 				
-				Gson json = new Gson();
-				jsonMessage = "{\"message\":\"Email non esistente\"}";
-				String jsonString = json.toJson(jsonMessage);
+				request.setAttribute("page", "login");
 				
-				out.print(jsonString);
-				out.flush();
-				return;
+				RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/login.jsp");
+				dispatcher.forward(request, response);
 			}
-			UserBean user = model.doRetrieveByKey(email, encodedPass);
 			
+			UserBean user = model.doRetrieveByKey(email, encodedPass);
+
 			if( user == null ) {
-				PrintWriter out = response.getWriter();
 				response.setContentType("application/json");
 				response.setCharacterEncoding("UTF-8");
 				response.setStatus(401);
 				
-				request.setAttribute("errorMessage", "email e password non coincidono");
+				request.setAttribute("errorMessage", "E-mail o password non sono corrette");
 				
-				Gson json = new Gson();
+				request.setAttribute("page", "login");
 				
-				jsonMessage = "{\"message\":\"Email e password non coincidono\"}";
-				String jsonString = json.toJson(jsonMessage);
-				
-				out.print(jsonString);
-				out.flush();
-				
-				return;
+				RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/login.jsp");
+				dispatcher.forward(request, response);
 			}
-			if(user!=null) {
-				
-				if(remember!=null) {
+			if(user != null) {
+				if(remember!= null) {
 					if( remember.equalsIgnoreCase("remember-me") ) {
-						Cookie ckEmail = new Cookie ("email",email);
-						Cookie ckPassword = new Cookie ("password",password);
+						Cookie ckEmail = new Cookie ("email", email);
+						Cookie ckPassword = new Cookie ("password", password);
 						
 						response.addCookie(ckEmail);
 						response.addCookie(ckPassword);
@@ -117,9 +102,11 @@ public class LoginControl extends HttpServlet {
 				request.getSession().setAttribute("user", user);
 				response.setStatus(200);
 				
-				request.setAttribute("errorMessage", "Login va");
+				request.setAttribute("errorMessage", "Accesso effettuato");
 				
-				RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/index");
+				request.setAttribute("page", "index");
+				
+				RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/index.jsp");
 				dispatcher.forward(request, response);
 			}
 		} catch (SQLException e) {
