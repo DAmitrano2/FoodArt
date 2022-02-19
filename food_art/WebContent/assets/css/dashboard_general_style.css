@@ -1,17 +1,6 @@
 #footer {
 	margin-top: 25%;
 }
-.breadcrumb {
-	background-color: #fff;
-	margin-bottom: 0;
-}
-.breadcrumb-item a {
-	color: #000;
-	font-weight: bold;
-}
-.breadcrumb-item a:hover {
-	color: #3c3c3c;
-}
 .first-card {
 	border-style: dashed;
 }

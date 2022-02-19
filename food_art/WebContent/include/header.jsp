@@ -39,43 +39,43 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
   <!-- Owl Carousel CDN-->
-  <link rel="stylesheet" href="./assets/css/owl.carousel.min.css">
-  <link rel="stylesheet" href="./assets/css/owl.theme.default.min.css">
+  <link rel="stylesheet" href="<%=path%>/assets/css/owl.carousel.min.css">
+  <link rel="stylesheet" href="<%=path%>/assets/css/owl.theme.default.min.css">
     
   <!-- Bootstrap CSS CDN-->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
   
   <!-- Default CSS -->
-  <link rel="stylesheet" href="./assets/css/header_style.css">
-  <link rel="stylesheet" href="./assets/css/footer_style.css">
-  <link rel="stylesheet" href="./assets/css/card_style.css">
+  <link rel="stylesheet" href="<%=path%>/assets/css/header_style.css">
+  <link rel="stylesheet" href="<%=path%>/assets/css/footer_style.css">
+  <link rel="stylesheet" href="<%=path%>/assets/css/card_style.css">
   
   <%if(pagina != null && pagina.equalsIgnoreCase("register")) {%>
-	  <link rel="stylesheet" href="./assets/css/login_style.css">
-	  <link rel="stylesheet" href="./assets/css/<%=pagina%>_style.css">
+	  <link rel="stylesheet" href="<%=path%>/assets/css/login_style.css">
+	  <link rel="stylesheet" href="<%=path%>/assets/css/<%=pagina%>_style.css">
   <%}else if(pagina != null && pagina.equalsIgnoreCase("search_page")) {%>
-  <link rel="stylesheet" href="./assets/css/category_style.css">
+  <link rel="stylesheet" href="<%=path%>/assets/css/category_style.css">
   <%}else if(pagina != null && pagina.equalsIgnoreCase("error_page")) {%>
   <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,900" rel="stylesheet">
-  <link type="text/css" rel="stylesheet" href="./assets/css/<%=pagina%>_style.css" />
+  <link type="text/css" rel="stylesheet" href="<%=path%>/assets/css/<%=pagina%>_style.css" />
 	<%}else{%>
-  	  <link rel="stylesheet" href="./assets/css/<%=pagina%>_style.css">
+  	  <link rel="stylesheet" href="<%=path%>/assets/css/<%=pagina%>_style.css">
   <%}%>
   <!-- Icon CSS -->
   <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.15.4/css/all.css"/>
-  <link rel="stylesheet" href="./assets/css/all.css"/>
+  <link rel="stylesheet" href="<%=path%>/assets/css/all.css"/>
   <script src="https://kit.fontawesome.com/2a789f15df.js"></script>
   
   <!-- Intestazione di pagina -->
-  <link rel="icon" href="./assets/images/icon.png" type="image/icon type">
+  <link rel="icon" href="<%=path%>/assets/images/icon.png" type="image/icon type">
   <title>FoodArt</title>
 </head>
 <body>
 <div class="sticky-top">
   <nav class="navbar navbar-light" style="background-color:  #fcba03;">
  	<a class="navbar-brand" href="<%=path%>/index">
-   	  <img src="./assets/images/logoLungoBordo.png" width="auto" height="45" class="d-inline-block align-top" alt="">
+   	  <img src="<%=path%>/assets/images/logoLungoBordo.png" width="auto" height="45" class="d-inline-block align-top" alt="">
 	</a>
 	<div class="input-group mainNavBar">
 	  <input type="text" id="searchBar" class="form-control">
@@ -119,12 +119,12 @@
       <ul class="navbar-nav mx-auto">
       	<%
       	if (categorie != null && categorie.size() != 0) {
-			for (CategoryBean category: categorie) {
+					for (CategoryBean category: categorie) {
       	%>
         <li class="nav-item m-1">
-          <a class="nav-link nav-link-underline" href="category?idCategoria=<%=category.getIdCategoria()%>"><%=category.getNome()%></a>
+          <a class="nav-link nav-link-underline" href="${pageContext.request.contextPath}/category?idCategoria=<%=category.getIdCategoria()%>"><%=category.getNome()%></a>
         </li>
-        <%}} %>
+        <%}} %>  
       </ul>
     </div>
   </nav>

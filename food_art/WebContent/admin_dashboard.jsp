@@ -59,6 +59,6 @@
         </div>
     </div>
 </main>
-<script src="./assets/js/admin_dashboard.js"></script>
+<script src="<%=path%>/assets/js/admin_dashboard.js"></script>
 <%@include file="./include/footer.html"%>
-<%@include file="./include/script.html"%>
+<%@include file="./include/script.jsp"%>

@@ -136,7 +136,7 @@
 		</div>
 	</div>
 </div>
-<%@include file="./include/script.html" %>
-<script src="./assets/js/register.js"></script>
+<%@include file="./include/script.jsp" %>
+<script src="<%=path%>/assets/js/register.js"></script>
 </body>
 </html>

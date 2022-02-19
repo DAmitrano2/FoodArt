@@ -98,6 +98,6 @@
   </div>
 </div>
 <%@include file="./include/footer.html" %>
-<%@include file="./include/script.html" %>
+<%@include file="./include/script.jsp" %>
 </body>
 </html>

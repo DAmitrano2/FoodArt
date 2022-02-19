@@ -38,7 +38,7 @@
 			              <div class="card-body">
 			                <div class="row">
 			                  <div class="col-md-2">
-			                    <img src="./getProductImage?idProdotto=<%=product.getIdProdotto() %>" alt="imageProduct.png" class="img-fluid">
+			                    <img src="<%=path%>/getProductImage?idProdotto=<%=product.getIdProdotto() %>" alt="imageProduct.png" class="img-fluid">
 			                  </div>
 			                  <div class="col-md-2 text-center d-flex justify-content-center align-items-center">
 			                    <p class="text-muted mb-0"><%= product.getTitolo() %></p>
@@ -94,6 +94,6 @@
 		</div>
 	</div>
 	<%@include file="./include/footer.html" %>
-  <%@include file="./include/script.html" %>
+  <%@include file="./include/script.jsp" %>
 </body>
 </html>

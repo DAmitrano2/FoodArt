@@ -9,7 +9,7 @@
                 <div class="card-body">
                     <div class="row justify-content-center">
                         <label for="image-picker">
-                            <img class="img-fluid" id="image-preview" src="./assets/images/default-background.jpg" alt="your image" />
+                            <img class="img-fluid" id="image-preview" src="<%=path%>/assets/images/default-background.jpg" alt="your image" />
                         </label>
                         <input id="image-picker" type="file" accept="image/*" />
                         <!--
@@ -92,6 +92,6 @@
     </div>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<script src="./assets/js/add_product.js"></script>
+<script src="<%=path%>/assets/js/add_product.js"></script>
 <%@include file="./include/footer.html"%>
-<%@include file="./include/script.html"%>
+<%@include file="./include/script.jsp"%>

@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/dashboard_general")
+@WebServlet("/dashboard/dashboard_general")
 public class DashboardGeneralControl extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -18,7 +18,7 @@ public class DashboardGeneralControl extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setAttribute("page","dashboard_general");
+		request.setAttribute("page", "dashboard_general");
 		String title = String.valueOf(request.getParameter("title"));
 
 		request.setAttribute("title", title);

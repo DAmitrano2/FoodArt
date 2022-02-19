@@ -136,7 +136,7 @@
     	</div>
     </div>
 	<%@include file="./include/footer.html" %>
-	<%@include file="./include/script.html" %>
-	<script src="./assets/js/completeOrder.js"></script>
+	<%@include file="./include/script.jsp" %>
+	<script src="<%=path%>/assets/js/completeOrder.js"></script>
 </body>
 </html>

@@ -8,7 +8,7 @@
 	</ol>
 	<div class="carousel-inner">
 	  <div class="carousel-item active">
-	    <img class="d-block w-100" src="./assets/images/slider1.png" alt="Prima slide">
+	    <img class="d-block w-100" src="<%=path%>/assets/images/slider1.png" alt="Prima slide">
 	    <div class="carousel-caption">
 			  <div class="container">
 					<div class="row justify-content-end">
@@ -23,7 +23,7 @@
 	 		</div>
 	  </div>
 	  <div class="carousel-item">
-	  	<img class="d-block w-100" src="./assets/images/slider2.jpg" alt="Seconda slide">
+	  	<img class="d-block w-100" src="<%=path%>/assets/images/slider2.jpg" alt="Seconda slide">
 	    <div class="carousel-caption">
 			  <div class="container">
 					<div class="row justify-content-end">
@@ -38,7 +38,7 @@
 	 		</div>
 	  </div>
 	  <div class="carousel-item">
-	    <img class="d-block w-100" src="./assets/images/slider3.jpg" alt="Terza slide">
+	    <img class="d-block w-100" src="<%=path%>/assets/images/slider3.jpg" alt="Terza slide">
 	    <div class="carousel-caption">
 		  	<div class="container">
 					<div class="row justify-content-end">
@@ -200,6 +200,6 @@
 		</div>
   </div>
   <%@include file="./include/footer.html" %>
-  <%@include file="./include/script.html" %>
+  <%@include file="./include/script.jsp" %>
 </body>
 </html>

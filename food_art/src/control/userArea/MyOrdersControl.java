@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 
-@WebServlet("/my_orders")
+@WebServlet("/dashboard/my_orders")
 public class MyOrdersControl extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

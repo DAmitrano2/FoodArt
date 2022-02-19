@@ -52,7 +52,7 @@
 		</div>
 	</div>
 </div>
-<%@include file="./include/script.html" %>
-<script src="./assets/js/login.js"></script>
+<%@include file="./include/script.jsp" %>
+<script src="<%=path%>/assets/js/login.js"></script>
 </body>
 </html>

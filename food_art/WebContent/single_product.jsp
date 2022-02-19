@@ -28,7 +28,7 @@
 		</div>
 		<div class="col-lg-6 col-md-12 col-12">
 			<h2><%=prodotto.getTitolo()%></h2>
-			<h6>da <a href="#"><%=modelRivenditore.doRetriveNameById(prodotto.getIdUtente())%></a></h6>
+			<h6>da <a href="./dealer_info?idDealer=<%=prodotto.getIdUtente() %>"><%=modelRivenditore.doRetriveNameById(prodotto.getIdUtente())%></a></h6>
 			<div class="rating"> 
 		 	<%
  		 	 	if(prodotto.getValutazione() > 0.0){
@@ -86,7 +86,8 @@
 			<a class="product_link"	href="./single_product?idProdotto=<%=product.getIdProdotto()%>">
 				<img src="./getProductImage?idProdotto=<%=product.getIdProdotto()%>" alt="prodottiCategorizzati.png">
 				<h4><%=product.getTitolo()%></h4>
-			</a> <span><%=modelRivenditore.doRetriveNameById(product.getIdUtente())%></span>
+			</a>
+			<h6><a href="./dealer_info?idDealer=<%=product.getIdUtente() %>"><%=modelRivenditore.doRetriveNameById(product.getIdUtente())%></a></h6>
 			<div class="rating"> 
 		 	<%
  		 	 if(product.getValutazione() > 0){
@@ -216,7 +217,7 @@
 	</div>
 </section>
 <%@include file="./include/footer.html"%>
-<%@include file="./include/script.html"%>
-<script src="./assets/js/feedback.js"></script>
+<%@include file="./include/script.jsp"%>
+<script src="<%=path%>/assets/js/feedback.js"></script>
 </body>
 </html>
