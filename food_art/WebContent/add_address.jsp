@@ -18,13 +18,19 @@
             <div class="col-sm-6">
               <div class="form-group">
                 <label for="name">Nome</label>
-                <input class="form-control" name="name" type="text" placeholder="Inserisci il nome">
+                <input class="form-control" id="nome" name="name" type="text">
+                <div class="div-error">
+                  <div class="error"></div>
+                </div>
               </div>
             </div>
             <div class="col-sm-6">
               <div class="form-group">
                 <label for="surname">Cognome</label>
-                <input class="form-control" name="surname" type="text" placeholder="Inserisci il cognome">
+                <input class="form-control" id="cognome" name="surname" type="text">
+                <div class="div-error">
+                  <div class="error"></div>
+                </div>
               </div>
             </div>
           </div>
@@ -32,13 +38,19 @@
             <div class="col-sm-6">
               <div class="form-group">
                 <label for="road">Via</label>
-                <input class="form-control" name="road" type="text" placeholder="Inserisci il nome della strada">
+                <input class="form-control" id="via" name="road" type="text">
+                <div class="div-error">
+                  <div class="error"></div>
+                </div>
               </div>
             </div>
             <div class="col-sm-6">
               <div class="form-group">
                 <label for="hnumber">Nr&#176; Civico</label>
-                <input class="form-control" name="hnumber" type="text" placeholder="Inserisci il numero civico">
+                <input class="form-control" id="ncivico" name="hnumber" type="text">
+                <div class="div-error">
+                  <div class="error"></div>
+                </div>
               </div>
             </div>
           </div>
@@ -46,13 +58,19 @@
 	          <div class="col-sm-6">
 	             <div class="form-group">
 	               <label for="city">Citt&#224;</label>
-	               <input class="form-control" name="city" type="text" placeholder="Inserisci la citt&#224;">
+	               <input class="form-control" id="citta" name="city" type="text">
+                 <div class="div-error">
+                  <div class="error"></div>
+                </div>
 	             </div>
 	          </div>
 	          <div class="col-sm-6">
 	             <div class="form-group">
 	               <label for="cap">CAP</label>
-	               <input class="form-control" name="cap" type="text" placeholder="Inserisci il codice postale">
+	               <input class="form-control" id="cap" name="cap" type="text">
+                 <div class="div-error">
+                  <div class="error"></div>
+                </div>
 	             </div>
 	          </div>
 	        </div>
@@ -60,13 +78,19 @@
             <div class="col-sm-6">
               <div class="form-group">
                 <label for="province">Provincia</label>
-                <input class="form-control" name="province" type="text" placeholder="Inserisci la provincia (AA)">
+                <input class="form-control" id="provincia" name="province" type="text" placeholder="AA">
+                <div class="div-error">
+                  <div class="error"></div>
+                </div>
               </div>
             </div>
 	          <div class="col-sm-6">
 	            <div class="form-group">
                 <label for="tnumber">Nr&#176; di Telefono</label>
-                <input class="form-control" name="tnumber" type="text" placeholder="Inserisci il numero di telefono">
+                <input class="form-control" id="ntelefono" name="tnumber" type="text">
+                <div class="div-error">
+                  <div class="error"></div>
+                </div>
 	            </div>
 	          </div>
           </div>
@@ -76,11 +100,12 @@
 	        </div>
 	      </div>
 	      <div class="card-footer">
-          <button class="btn float-right" type="submit">Invia</button>
+          <button class="btn float-right" id="addressSubmit" type="submit">Invia</button>
 	      </div>
 	    </div>
 	  </div>
   </div>
 </div>
+<script src="<%=path%>/assets/js/add_address.js"></script>
 <%@include file="./include/footer.html"%>
 <%@include file="./include/script.jsp"%>
