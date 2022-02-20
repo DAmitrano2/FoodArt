@@ -87,19 +87,25 @@
 	  <li class="nav-item" id="nav-search">
 	    <a class="nav-link" href="#"><i class="fa fa-search"></i></a>
 	  </li>
-	  <li class="nav-item dropdown">
-	    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user"></i></a>
+		<li class="nav-item dropdown">
+	  	<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user"></i></a>
 	  	<div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-          <%if(auth){%>
-          	<a class="dropdown-item" href="<%=path%>/dashboard">Area Utente</a>
-       	    <div class="dropdown-divider"></div>
-          	<a class="dropdown-item" href="<%=path%>/logout">Esci</a>
-          <%}else{%>
-          	<a class="dropdown-item" href="<%=path%>/login">Accedi</a>
-	        <div class="dropdown-divider"></div>
-	        <a class="dropdown-item" href="<%=path%>/register">Sei nuovo? Registrati</a>
-       	  <%}%>
-        </div>
+      	<%
+        	if(auth){
+        		if(user.isAmministratore()){
+        %>
+        <a class="dropdown-item" href="<%=path%>/admin_dashboard">Area Utente</a>
+				<%}else { %>
+       	<a class="dropdown-item" href="<%=path%>/dashboard">Area Utente</a>
+       	<%}%>
+   	    <div class="dropdown-divider"></div>
+       	<a class="dropdown-item" href="<%=path%>/logout">Esci</a>
+        <%}else{%>
+        <a class="dropdown-item" href="<%=path%>/login">Accedi</a>
+       	<div class="dropdown-divider"></div>
+       	<a class="dropdown-item" href="<%=path%>/register">Sei nuovo? Registrati</a>
+     		<%}%>
+			</div>
 	  </li>
 	  <li class="nav-item">
 	    <a class="nav-link" href="<%=path%>/shopping_cart"><i class="fas fa-shopping-cart"></i>
@@ -124,7 +130,7 @@
         <li class="nav-item m-1">
           <a class="nav-link nav-link-underline" href="${pageContext.request.contextPath}/category?idCategoria=<%=category.getIdCategoria()%>"><%=category.getNome()%></a>
         </li>
-        <%}} %>  
+        <%}} %>
       </ul>
     </div>
   </nav>
