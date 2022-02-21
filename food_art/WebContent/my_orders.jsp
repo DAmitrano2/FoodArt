@@ -54,21 +54,6 @@
 			                    <%tot += entry.getPrezzo()*entry.getQuantita();%>
 			                  </div>
 			                </div>
-			                <hr class="mb-4" style="background-color: #e0e0e0; opacity: 1;">
-			                <div class="row d-flex align-items-center">
-			                  <div class="col-md-2">
-			                    <p class="text-muted mb-0 small">Traccia Ordine</p>
-			                  </div>
-			                  <div class="col-md-10">
-			                    <div class="progress" style="height: 6px; border-radius: 16px;">
-			                      <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-			                    </div>
-			                    <div class="d-flex justify-content-around mb-1">
-			                      <p class="text-muted mt-1 mb-0 small ms-xl-5">In Elaborazione</p>
-			                      <p class="text-muted mt-1 mb-0 small ms-xl-5">Consegnato</p>
-			                    </div>
-			                  </div>
-			                </div>
 			              </div>
 			            </div>
 			            <%}} %>

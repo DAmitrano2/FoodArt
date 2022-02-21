@@ -9,9 +9,14 @@
 .ms-auto{
     margin-left: 15px;
 }
-.text-white{
-    color: black!important;
+.table td img{
+    display: block;
+    width: 10%;
 }
-.blink{
-   color: green;
+
+#users{
+    display:none;
+}
+#products{
+    display: none;
 }

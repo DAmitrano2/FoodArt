@@ -45,6 +45,7 @@
   <!-- Bootstrap CSS CDN-->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css">
   
   <!-- Default CSS -->
   <link rel="stylesheet" href="<%=path%>/assets/css/header_style.css">
