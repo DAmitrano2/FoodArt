@@ -9,8 +9,8 @@
 	</nav>
 	<div class="d-flex justify-content-center">
   	<div class="col-sm-6">
-	    <div class="card">
-        <div class="cc-card-header">
+	    <div class="card cc-card">
+        <div class="card-header py-3">
         	<strong>Inserisci una nuova carta di credito</strong>
         </div>
         <div class="card-body">

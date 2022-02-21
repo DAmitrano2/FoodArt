@@ -1,9 +1,10 @@
 <%@include file="./include/header.jsp"%>
+<link rel="stylesheet" href="./assets/css/add_product_style.css">
 <div class="container">
     <div class="d-flex justify-content-center">
         <div class="col-sm-6">
             <div class="card" id="product-card">
-                <div class="card-header">
+                <div class="card-header py-3">
                     <strong>Inserisci un nuovo prodotto</strong>
                 </div>
                 <div class="card-body">
@@ -12,20 +13,18 @@
                             <img class="img-fluid" id="image-preview" src="<%=path%>/assets/images/default-background.jpg" alt="your image" />
                         </label>
                         <input id="image-picker" type="file" accept="image/*" />
-                        <!--
-                        <div class="profile">
-                            <input name="fProfilo" type="file" class="form-control" accept=".jpg, .jpeg, .png" id="fProfilo"/>					
-                            <label for="fProfilo" class="custom-file-upload form-control profile-img-add" id="preview-image-box">
-                                <div class="address-plus preview-default"></div>
-                            </label>
-                        </div>
-                        -->
+                        <div class="div-error">
+                            <div class="error"></div>
+                          </div>
                     </div>
                     <div class="row">
                         <div class="col-sm-12">
                             <div class="form-group">
                                 <label for="name">Titolo</label>
-                                <input class="form-control" name="name" type="text">
+                                <input class="form-control" id="productName" name="name" type="text">
+                                <div class="div-error">
+                                    <div class="error"></div>
+                                  </div>
                             </div>
                         </div>
                     </div>
@@ -50,12 +49,18 @@
                     <div class="form-group">
                         <label for="addInfo">Descrizione</label>
                         <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Una breve descrizione del prodotto" style="resize: none;"></textarea>
+                        <div class="div-error">
+                            <div class="error"></div>
+                          </div>
                       </div>
                     <div class="row">
                         <div class="col-sm-6">
                             <div class="form-group">
                                 <label for="cap">Prezzo</label>
-                                <input class="form-control" name="cap" type="text" placeholder="&#8364;">
+                                <input class="form-control" id="price" name="cap" type="text" placeholder="&#8364;">
+                                <div class="div-error">
+                                    <div class="error"></div>
+                                  </div>
                             </div>
                         </div>
                         <div class="col-sm-6">
@@ -85,7 +90,7 @@
                     </div>
                 </div>
                 <div class="card-footer">
-                    <button class="btn float-right" type="submit">Invia</button>
+                    <button class="btn float-right" id="productSub" type="submit">Invia</button>
                 </div>
             </div>
         </div>

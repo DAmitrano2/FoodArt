@@ -87,8 +87,9 @@
 	   				if (prodotti != null && prodotti.size() != 0) {
 	   					for(ProductBean product: prodotti) {%>
           <tr>
-            <th scope="row"><img src="./getProductImage?idProdotto=<%=product.getIdProdotto() %>" alt="imageProduct.png" class="img-fluid img-thumbnail" ></th>
-            <td><button type="button" class="btn bg-cart"><i class="fas fa-cart-plus mr-2"></i>Aggiungi al Carrello</button></td>
+            <td><img src="./getProductImage?idProdotto=<%=product.getIdProdotto() %>" alt="imageProduct.png" class="img-fluid img-thumbnail" ></td>
+			<td><%=product.getTitolo()%></td>
+			<td><%=product.getPrezzo() %> &#8364; al <%=product.getUnitaMisura() %></td>
           </tr>
          	<%}} %>
         </tbody>
