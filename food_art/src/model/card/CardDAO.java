@@ -47,4 +47,6 @@ public interface CardDAO {
 	 */
 	CardBean getMetodoPagamentoByCard (String card) throws SQLException;
 
+	void doSave(CardBean card) throws SQLException;
+
 }

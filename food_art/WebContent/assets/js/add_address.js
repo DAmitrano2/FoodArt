@@ -1,3 +1,4 @@
+const form = document.getElementById('form');
 const nome = document.getElementById('nome');
 const cognome = document.getElementById('cognome');
 const via = document.getElementById('via');
@@ -9,7 +10,6 @@ const ntelefono = document.getElementById('ntelefono');
 const btnsub = document.getElementById('addressSubmit');
 
 addressSubmit.addEventListener('click', e =>{
-    e.preventDefault();
     if(!validateInputs()){
         e.preventDefault();
     }

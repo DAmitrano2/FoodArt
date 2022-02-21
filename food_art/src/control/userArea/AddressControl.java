@@ -36,9 +36,8 @@ public class AddressControl extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		UserBean user = (UserBean) request.getSession().getAttribute("user");
 		
-		
-		String nome = request.getParameter("nome");
-		String cognome = request.getParameter("cognome");
+		String nome = request.getParameter("name");
+		String cognome = request.getParameter("surname");
 		String via = request.getParameter("road");
 		String nCivico = request.getParameter("hnumber");
 		String citta = request.getParameter("city");

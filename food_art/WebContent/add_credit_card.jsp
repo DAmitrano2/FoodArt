@@ -10,6 +10,7 @@
 	<div class="d-flex justify-content-center">
   	<div class="col-sm-6">
 	    <div class="card cc-card">
+	    <form id="form" action="add_credit_card" method="post">
         <div class="card-header py-3">
         	<strong>Inserisci una nuova carta di credito</strong>
         </div>
@@ -18,7 +19,7 @@
 	          <div class="col-sm-12">
 	            <div class="form-group">
 	              <label for="name">Nome dell'intestatario</label>
-	              <input class="form-control" id="nm" type="text" placeholder="Inserisci nome e cognome" autocomplete="cc-name">
+	              <input name="name" class="form-control" id="nm" type="text" placeholder="Inserisci nome e cognome" autocomplete="cc-name">
 	            </div>
 	          </div>
 	        </div>
@@ -27,7 +28,7 @@
 	            <div class="form-group">
 	              <label for="ccnumber">Numero della carta</label>
 	              <div class="input-group">
-	                <input class="form-control" type="text" id="ccnum" placeholder="0000 0000 0000 0000" autocomplete="cc-number">
+	                <input name="nCard" class="form-control" type="text" id="ccnum" placeholder="0000 0000 0000 0000" autocomplete="cc-number">
 	                <div class="input-group-append">
 	                  <span id="ct" class="input-group-text">
 	                  </span>
@@ -40,23 +41,24 @@
 	          <div class="col-sm-4">
 	            <div class="form-group">
 	              <label for="cvv">Data di Scadenza</label>
-	              <input class="form-control" id="ex" type="text" placeholder="MM / YY">
+	              <input name="date" class="form-control" id="ex" type="text" placeholder="MM / YYYY">
 	            </div>
 	          </div>
 	          <div class="col-sm-4">
 	            <div class="form-group">
 	              <label for="cvv">CVV/CVC</label>
-	              <input class="form-control" id="cv" type="text" placeholder="123">
+	              <input name="cvv" class="form-control" id="cv" type="text" placeholder="123">
 	            </div>
 	          </div>
 	        </div>
         </div>
         <div class="cc-card-footer">
-	        <button class="btn float-right" id="btnsub" type="submit">Invia</button>
-	        <div id="result" class="emoji"></div>
+	        <input name="submit" type="submit" value="Invia" class="btn float-right" id="btnsub">
+					<div id="result" class="emoji"></div>
         </div>
-	    </div>
-		</div>
+      </form>
+	  </div>
+	</div>
   </div>
 </div>
 <script src="<%=path%>/assets/js/payform.min.js"></script>

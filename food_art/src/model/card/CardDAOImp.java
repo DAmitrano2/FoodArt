@@ -12,6 +12,9 @@ import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
 
+import model.order.OrderBean;
+import model.order.OrderDAOImp;
+
 public class CardDAOImp implements CardDAO {
 	
 	public CardDAOImp() {
@@ -191,6 +194,38 @@ public class CardDAOImp implements CardDAO {
 		}
 		
 		return bean;
+	}
+	
+	@Override
+	public synchronized void doSave(CardBean card) throws SQLException {
+
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+
+		String insertSQL = "INSERT INTO " + CardDAOImp.TABLE_NAME + " (nCarta, intestatario, dataScadenza, cvv, idUtente)"
+				+ " VALUES (?, ?, ?, ?, ?)";
+
+		try {
+			connection = ds.getConnection();
+			preparedStatement = connection.prepareStatement(insertSQL);
+			preparedStatement.setString(1, card.getNumeroCarta());
+			preparedStatement.setString(2, card.getIntestatario());
+			preparedStatement.setDate(3, card.getDataScadenza());
+			preparedStatement.setString(4, card.getCvv());
+			preparedStatement.setInt(5, card.getIdUtente());
+
+			preparedStatement.executeUpdate();
+
+			connection.commit();
+		} finally {
+			try {
+				if (preparedStatement != null)
+					preparedStatement.close();
+			} finally {
+				if (connection != null)
+					connection.close();
+			}
+		}
 	}
 	
 	private static final String TABLE_NAME = "metodopagamento";

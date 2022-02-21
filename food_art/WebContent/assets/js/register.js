@@ -64,7 +64,6 @@ const nCivicoSedeLegale = document.getElementById('nCivicoSedeLegale');
 const nPartitaIVA = document.getElementById('nPartitaIVA');
 
 form.addEventListener('submit', e => {
-		e.preventDefault();    
 		if(!validateInputs()){
 				e.preventDefault();
 		}
