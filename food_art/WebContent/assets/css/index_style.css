@@ -167,6 +167,9 @@ section .section-title{
     padding-bottom: 0px;
     margin-bottom: 10px;
 }
+.owl-nav{
+	display: none;
+}
 }
 @media (max-width: 1200px){
 	.carousel-caption h3{
