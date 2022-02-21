@@ -40,7 +40,7 @@
                 </label>
             	</div>
 	            <div class="position-absolute">
-	            	<a type="button" class="btn btn-sm">Modifica</a> | <a type="button" class="btn btn-sm">Rimuovi</a>
+	            	<a type="button" class="btn btn-sm">Rimuovi</a>
             	</div>
            	</div>
 	      	</div>
@@ -74,7 +74,7 @@
 								  </label>
 								</div>
 								<div class="position-absolute">
-		            	<a type="button" class="btn btn-sm">Modifica</a> | <a type="button" class="btn btn-sm">Rimuovi</a>
+		            	<a type="button" class="btn btn-sm">Rimuovi</a>
 	            	</div>
             	</div>
            	</div>
