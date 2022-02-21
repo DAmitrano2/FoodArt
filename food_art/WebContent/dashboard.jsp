@@ -1,4 +1,5 @@
 <%@include file="./include/header.jsp"%>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <main class="mt-3 pt-3">
 	<div class="container-fluid">
 		<div class="small-container">
@@ -43,19 +44,23 @@
 						</div>
 	       	</div>
 	    	</div>
+	    	<%
+	    		if(user.isRivenditore()){
+	    	%>
 	    	<div class="col-md-4 mb-3">
          	<div class="card text-white h-100">
 						<div class="card-body">
 							<div class="row">
-								<i class="fad fa-pencil-ruler fa-3x ml-3"></i>
+								<i class="fad fa-carrot fa-3x ml-3"></i>
 								<div class="card-body">
-									<h5 class="card-title">I miei dati</h5>
-									<p class="card-text">Visualizza le informazioni riguardanti il tuo account</p>
+									<h5 class="card-title">I miei prodotti</h5>
+									<p class="card-text">Aggiungi ed elimina i tuoi prodotti in modo che siano sempre aggiornati</p>
 								</div>
 							</div>
 						</div>
 	       	</div>
 	    	</div>
+	    	<%} %>
 	    </div>
 	 	</div>
 	</div>
