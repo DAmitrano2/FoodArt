@@ -1,142 +1,178 @@
 <%@include file="./include/header.jsp"%>
 <main class="mt-5 pt-3">
     <div class="container-fluid">
-        <div class="row">
-        </div>
+        <div class="row"></div>
         <div class="small-container">
           <h2 class="title">Bentornato Amministratore</h2>
-        <div id="rowAdmin" class="row justify-content-center">
-            <div class="col-md-3 mb-3">
-              <div id="adminCard" class="card bg-primary text-white h-100">
-                <div class="card-body py-5">Prodotti #count </div>
-                <div onclick="hideProductsList()" id="adminCardFooter" class="card-footer d-flex">
-                  Vedi i dettagli
-                  <span class="ms-auto">
-                    <i class="fas fa-chevron-right"></i>
-                  </span>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-3 mb-3">
-              <div id="adminCard" class="card bg-warning text-white h-100">
-                <div class="card-body py-5">Utenti #count</div>
-                <div onclick="hideUsersList()" id="adminCardFooter" class="card-footer d-flex">
-                  Vedi i dettagli
-                  <span class="ms-auto">
-                    <i class="fas fa-chevron-right"></i>
-                  </span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-       
-        <div class="table-container m-3">
-        <table id="users" class="table table-striped table-bordered">
-          <thead>
-              <tr>
-                  <th>#ID</th>
-                  <th>Profilo</th>
-                  <th>Nome</th>
-                  <th>Cognome</th>
-                  <th>E-mail</th>
-                  <th>Rivenditore</th>
-                  <th>Azione</th>
-              </tr>
-          </thead>
-          <tbody>
-              <tr>
-                  <td>1</td>
-                  <td><img src="./assets/images/default-user-image.png" width="100%"></td>
-                  <td>Alfonso</td>
-                  <td>Zappia</td>
-                  <td>alfonsozappia00@gmail.com</td>
-                  <td>No</td>
-                  <td><input type='button' style='width:100%; height:100%;' value='Elimina'></td>
-              </tr>
-              <tr>
-                <td>2</td>
-                <td><img src="./assets/images/default-user-image.png" width="100%"></td>
-                <td>Davide</td>
-                <td>Amitrano</td>
-                <td>davideamitrano98@gmail.com</td>
-                <td>No</td>
-                <td><input type='button' style='width:100%; height:100%;' value='Elimina'></td>
-              </tr>
-              <tr>
-                <td>3</td>
-                <td><img src="./assets/images/default-user-image.png" width="100%"></td>
-                <td>Donato</td>
-                <td>Miranda</td>
-                <td>donatomirando93@gmail.com</td>
-                <td>No</td>
-                <td><input type='button' style='width:100%; height:100%;' value='Elimina'></td>
-              </tr>
-              <tr>
-                <td>4</td>
-                <td><img src="./assets/images/default-user-image.png" width="100%"></td>
-                <td>Harry</td>
-                <td>Potter</td>
-                <td>harrypotter98@gmail.com</td>
-                <td>No</td>
-                <td><input type='button' style='width:100%; height:100%;' value='Elimina'></td>
-              </tr>
-              <tr>
-                <td>5</td>
-                <td><img src="./assets/images/default-user-image.png" width="100%"></td>
-                <td>Ron</td>
-                <td>Weasley</td>
-                <td>ronweasley99@gmail.com</td>
-                <td>No</td>
-                <td><input type='button' style='width:100%; height:100%;' value='Elimina'></td>
-              </tr>
-          </tbody>
-      </table>
-    </div>
-
-      <table id="products" class="table table-striped table-bordered" style="width:100%">
-        <thead>
-            <tr>
-                <th>#ID</th>
-                <th>Foto</th>
-                <th>Titolo</th>
-                <th>Categoria</th>
-                <th>Prezzo</th>
-                <th>Unit&#224; di misura</th>
-                <th>Qt. Disponibile</th>
-                <th>Qt. Minima</th>
-                <th>Provenienza</th>
-                <th>Azione</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>1</td>
-                <td><img src="./assets/images/default-user-image.png" width="100%"></td>
-                <td>Confettura di Albiccoche</td>
-                <td>Frutta & Verdura</td>
-                <td>6 &#8364;</td>
-                <td>pezzo</td>
-                <td>5</td>
-                <td>1</td>
-                <td>Pontecagnano Faiano, SA</td>
-                <td><input type='button' style='width:100%; height:100%;' value='Elimina'></td>
-            </tr>
-            <tr>
-              <td>2</td>
-                <td><img src="./assets/images/default-user-image.png" width="100%"></td>
-                <td>Salame Toscano</td>
-                <td>Carne</td>
-                <td>11.5 &#8364;</td>
-                <td>pezzo</td>
-                <td>6</td>
-                <td>1</td>
-                <td>Grosseto, GR</td>
-                <td><input type='button' style='width:100%; height:100%;' value='Elimina'></td>
-            </tr>
-        </tbody>
-    </table>
-        
+	        <div id="rowAdmin" class="row justify-content-center">
+		        <%
+	          	ProductDAOImp prodDao = new ProductDAOImp();
+	          	Collection<ProductBean> prodotti = prodDao.doRetrieveAll();
+	          %>
+		        <div class="col-md-3 mb-3">
+		          <div id="adminCard" class="card bg-primary text-white h-100">
+		            <div class="card-body py-4">Prodotti <span class="badge bg-secondary"><%=prodotti.size() %></span></div>
+		            <div onclick="hideProductsList()" id="adminCardFooter" class="card-footer d-flex">
+		              Vedi i dettagli
+		              <span class="ms-auto">
+		                <i class="fas fa-chevron-right"></i>
+		              </span>
+		            </div>
+		          </div>
+		        </div>
+		        <%
+	          	DealerDAOImp dealerDao = new DealerDAOImp();
+	          	Collection<DealerBean> rivenditori = dealerDao.doRetrieveAll();
+	          %>
+		        <div class="col-md-3 mb-3">
+		          <div id="adminCard" class="card bg-primary text-white h-100">
+		            <div class="card-body py-4">Rivenditori <span class="badge bg-secondary"><%=rivenditori.size() %></span></div>
+		            <div onclick="hideDealersList()" id="adminCardFooter" class="card-footer d-flex">
+		              Vedi i dettagli
+		              <span class="ms-auto">
+		                <i class="fas fa-chevron-right"></i>
+		              </span>
+		            </div>
+		          </div>
+		        </div>
+		        <%
+	          	FeedbackDAOImp fbDao = new FeedbackDAOImp();
+	          	Collection<FeedbackBean> feedback = fbDao.doRetrieveAll();
+	          %>
+	          <div class="col-md-3 mb-3">
+	            <div id="adminCard" class="card bg-warning text-white h-100">
+	              <div class="card-body py-4">Commenti <span class="badge bg-secondary"><%=feedback.size() %></span></div>
+	              <div onclick="hideFeedbackList()" id="adminCardFooter" class="card-footer d-flex">
+	                Vedi i dettagli
+	                <span class="ms-auto">
+	                  <i class="fas fa-chevron-right"></i>
+	                </span>
+	              </div>
+	            </div>
+	          </div>
+	        </div>
+	      </div>
+	      <div class="card">
+	        <div id="products" class="table-container m-3">
+		        <table class="table table-striped table-bordered responsive">
+		          <thead>
+	              <tr>
+	                 <th>idProdotto</th>
+	                 <th>titolo</th>
+	                 <th>descrizione</th>
+	                 <th>unitaMisura</th>
+	                 <th>prezzo</th>
+	                 <th>quantitaMinimaAcquisto</th>
+	                 <th>quantitaDisponibile</th>
+	                 <th>cittaProvenienza</th>
+	                 <th>provinciaProvenienza</th>
+	                 <th>valutazione</th>
+	                 <th>idCategoria</th>
+	                 <th>idUtente</th>
+	              </tr>
+		          </thead>
+		          <tbody>
+		          	<% 
+		          		if ( prodotti != null &&  prodotti.size() != 0) {
+										for ( ProductBean product : prodotti) {
+								%>
+	              <tr>
+	                 <th><%=product.getIdUtente() %></th>
+	                 <th><%=product.getTitolo() %></th>
+	                 <th><%=product.getDescrizione() %></th>
+	                 <th><%=product.getUnitaMisura() %></th>
+	                 <th><%=product.getPrezzo() %></th>
+	                 <th><%=product.getQuantitaMinima() %></th>
+	                 <th><%=product.getQuantitaDisponibile() %></th>
+	                 <th><%=product.getCittaProvenienza() %></th>
+	                 <th><%=product.getProvinciaProvenienza() %></th>
+	                 <th><%=product.getValutazione() %></th>
+	                 <th><%=product.getIdCategoria() %></th>
+	                 <th><%=product.getIdUtente() %></th> 
+	              </tr>
+	              <%}} %>
+		          </tbody>
+		      </table>
+	    	</div>
+	    	<div id="dealers" class="table-container m-3">
+		      <table class="table table-striped table-bordered responsive">
+		        <thead>
+	            <tr>
+	              <th>idUtente</th>
+	              <th>dataNascita</th>
+	              <th>citta</th>
+	              <th>provincia</th>
+	              <th>sesso</th>
+	              <th>codiceFiscale</th>
+	              <th>nPartitaIva</th>
+	              <th>filePartitaIva</th>
+	              <th>fileDocuIdentita</th>
+	              <th>ragioneSociale</th>
+	              <th>provinciaSedeLegale</th>
+	              <th>cittaSedeLegale</th>
+	              <th>viaSedeLegale</th>
+	              <th>nCivicoSedeLegale</th>
+	              <th>capSedeLegale</th>
+	            </tr>
+		        </thead>
+		        <tbody>
+		       		<% 
+		       			if ( rivenditori != null &&  rivenditori.size() != 0) {
+									for ( DealerBean  dealer: rivenditori) {
+							%>
+		          <tr>
+	              <th><%=dealer.getIdUtente() %></th>
+	              <th><%=dealer.getDataNascita() %></th>
+	              <th><%=dealer.getCitta() %></th>
+	              <th><%=dealer.getProvincia() %></th>
+	              <th><%=dealer.getSesso() %></th>
+	              <th><%=dealer.getCodiceFiscale() %></th>
+	              <th><%=dealer.getNumeroPartitaIva() %></th>
+	              <th><%=dealer.getFilePartitaIva() %></th>
+	              <th><%=dealer.getFileDocumentoIdentita() %></th>
+	              <th><%=dealer.getRagioneSociale() %></th>
+	              <th><%=dealer.getProvinciaSedeLegale() %></th>
+	              <th><%=dealer.getCittaSedeLegale() %></th>
+	              <th><%=dealer.getViaSedeLegale() %></th>
+	              <th><%=dealer.getNumeroCivicoSedeLegale() %></th>
+	              <th><%=dealer.getCapSedeLegale() %></th>
+	            </tr>
+		          <%}} %>
+		        </tbody>
+		    	</table>
+	    	</div>
+	      <div id="feedback" class="table-container m-3">
+		      <table class="table table-striped table-bordered responsive">
+		        <thead>
+	            <tr>
+                <th>idFeedback</th>
+                <th>titolo</th>
+                <th>commento</th>
+                <th>valutazione</th>
+                <th>idCommentatore</th>
+                <th>idProdotto</th>
+                <th>idRivenditore</th>
+	            </tr>
+		        </thead>
+		        <tbody>
+		       		<% 
+		       			if ( feedback != null &&  feedback.size() != 0) {
+									for ( FeedbackBean  fb: feedback) {
+							%>
+		          <tr>
+                <th><%=fb.getIdFeedback() %></th>
+                <th><%=fb.getTitolo() %></th>
+                <th><%=fb.getCommento() %></th>
+                <th><%=fb.getValutazione() %></th>
+                <th><%=fb.getIdCommentatore() %></th>
+                <th><%=fb.getIdProdotto() %></th>
+                <th><%=fb.getIdRivenditore() %></th>
+	            </tr>
+		          <%}} %>
+		        </tbody>
+		    	</table>
+	    	</div>
+    	</div>
     </div>
 </main>
 <%@include file="./include/footer.html"%>

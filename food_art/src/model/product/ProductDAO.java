@@ -3,8 +3,6 @@ package model.product;
 import java.sql.SQLException;
 import java.util.Collection;
 
-
-
 public interface ProductDAO {
 	
 	/**
@@ -103,4 +101,13 @@ public interface ProductDAO {
 	 * @throws SQLException
 	 */
 	public int getNumProductByIdUser(int idUser) throws SQLException;
+	
+	/**
+	 * Carica i dati di tutti i prodotti
+	 * @param 
+	 * @return una collezione di prodotti
+	 * @throws SQLException
+	 */	
+	public Collection<ProductBean> doRetrieveAll() throws SQLException;
+	
 }

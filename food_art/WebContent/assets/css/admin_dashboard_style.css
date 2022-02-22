@@ -1,10 +1,14 @@
 #adminCard{
-    background-color: #fcba03!important;
+    background-color: #fff!important;
     border-color: #000!important;
+    color: #000!important;
+}
+#adminCardFooter{
+		background-color: #fcba03!important;
 }
 #adminCardFooter:hover{
     cursor: pointer;
-    background-color: #e0a500;
+    background-color: rgba(0, 0, 0, .3);
 }
 .ms-auto{
     margin-left: 15px;
@@ -19,4 +23,7 @@
 }
 #products{
     display: none;
+}
+.bg-secondary{
+	background-color: #fcba03!important;
 }

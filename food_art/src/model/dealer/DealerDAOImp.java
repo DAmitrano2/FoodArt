@@ -150,10 +150,8 @@ public class DealerDAOImp implements DealerDAO {
 				bean.setSesso(rs.getString("sesso"));
 				bean.setCodiceFiscale(rs.getString("codiceFiscale"));
 				bean.setNumeroPartitaIva(rs.getString("numeropartitaIva"));
-				Blob filePartitaIva = rs.getBlob("filePartitaIva");
-				bean.setFilePartitaIva(filePartitaIva.getBytes(idUtente, (int)filePartitaIva.length()));
-				Blob fileDocumentoIdentita = rs.getBlob("fileDocumentoIdentita");
-				bean.setFileDocumentoIdentita(fileDocumentoIdentita.getBytes(idUtente, (int)fileDocumentoIdentita.length()));
+				bean.setFilePartitaIva(rs.getBytes("filePartitaIva"));
+				bean.setFileDocumentoIdentita(rs.getBytes("fileDocumentoIdentita"));
 				bean.setRagioneSociale(rs.getString("ragioneSociale"));
 				bean.setProvinciaSedeLegale(rs.getString("provinciaSedeLegale"));
 				bean.setCittaSedeLegale(rs.getString("cittaSedeLegale"));

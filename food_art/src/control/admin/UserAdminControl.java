@@ -42,8 +42,7 @@ public class UserAdminControl extends HttpServlet {
 		request.setAttribute("page", "admin_dashboard");
 
 		try {
-				Collection<UserBean> users = (Collection<UserBean>) modelUser.doRetrieveAll();
-
+				Collection<UserBean> users = modelUser.doRetrieveAll();
 
 				request.setAttribute("utenti", users);
 
@@ -54,7 +53,7 @@ public class UserAdminControl extends HttpServlet {
 		}
 
 		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/admin_dashboard.jsp");
-		dispatcher.forward(request, response);	
+		dispatcher.forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
