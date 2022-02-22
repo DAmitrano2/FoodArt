@@ -33,6 +33,7 @@ public class AddressControl extends HttpServlet {
 		dispatcher.forward(request, response);
 	}
 
+	@SuppressWarnings("unused")
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		UserBean user = (UserBean) request.getSession().getAttribute("user");
 		
@@ -46,27 +47,43 @@ public class AddressControl extends HttpServlet {
 		String nTelefono = request.getParameter("tnumber");
 		String info = request.getParameter("addInfo");
 		
-		AddressBean address = new AddressBean();
-		address.setNome(nome);
-		address.setCognome(cognome);
-		address.setVia(via);
-		address.setNumeroCivico(nCivico);
-		address.setCitta(citta);
-		address.setCap(cap);
-		address.setProvincia(provincia);
-		address.setNumeroTelefono(nTelefono);
-		address.setDescrizione(info);
-		address.setIdUtente(user.getIdUtente());
-		
 		try {
+			AddressBean address = new AddressBean();
+			address.setNome(nome);
+			address.setCognome(cognome);
+			address.setVia(via);
+			address.setNumeroCivico(nCivico);
+			address.setCitta(citta);
+			address.setCap(cap);
+			address.setProvincia(provincia);
+			address.setNumeroTelefono(nTelefono);
+			address.setDescrizione(info);
+			address.setIdUtente(user.getIdUtente());
+			
+			if(address == null ) {
+				response.setContentType("application/json");
+				response.setCharacterEncoding("UTF-8");
+				response.setStatus(401);
+				
+				request.setAttribute("errorMessage", "Dati non corretti");
+				
+				request.setAttribute("page", "add_address");
+				RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/add_address.jsp");
+				dispatcher.forward(request, response);
+			}
 			if(address != null) {
 				modelAddress.doSave(address);
 				response.setStatus(200);
+				
+				request.setAttribute("page","dashboard");
+				RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/dashboard.jsp");
+				dispatcher.forward(request, response);
 			}
-			request.setAttribute("page","dashboard");
-			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/dashboard.jsp");
-			dispatcher.forward(request, response);
 		} catch (SQLException e) {
+			request.setAttribute("errorMessage", "Dati non corretti");
+			request.setAttribute("page", "add_address");
+			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/add_address.jsp");
+			dispatcher.forward(request, response);
 			System.out.println("Error: "+e.getMessage());
 			return;
 		}

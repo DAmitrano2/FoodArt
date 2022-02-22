@@ -15,6 +15,15 @@
         	<strong>Inserisci una nuova carta di credito</strong>
         </div>
         <div class="card-body">
+	        <%
+						String error = String.valueOf(request.getAttribute("errorMessage"));
+						if(error != "null"){
+					%>
+					<div class="alert alert-danger" role="alert">
+					  <h4 class="alert-heading">Invio fallito</h4>
+					  <p><%=error %></p>
+					</div>
+					<%} %>
 	        <div class="row">
 	          <div class="col-sm-12">
 	            <div class="form-group">

@@ -33,7 +33,7 @@ public class UserDAOImp implements UserDAO {
 		PreparedStatement preparedStatement = null;
 
 		String insertSQL = "INSERT INTO " + UserDAOImp.TABLE_NAME
-				+ " (pathname, nome, cognome, email, password,amministratore, rivenditore, bloccato)"
+				+ " (pathname, nome, cognome, email, password, amministratore, rivenditore, bloccato)"
 				+ " VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 		
 		try {
@@ -133,6 +133,7 @@ public class UserDAOImp implements UserDAO {
 				bean.setEmail(rs.getString("email"));
 				bean.setPassword(rs.getString("password"));
 				bean.setAmministratore(rs.getBoolean("amministratore"));
+				System.out.println("rs.getBool: "+rs.getBoolean("rivenditore"));
 				bean.setRivenditore(rs.getBoolean("rivenditore"));
 				bean.setBloccato(rs.getBoolean("bloccato"));
 				

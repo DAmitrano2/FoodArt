@@ -1,27 +1,45 @@
 $('document').ready(function() {
-    $('#users').DataTable({
-        responsive: true
-    });
+    $('#dealers').DataTable();
 } );
 
 $(document).ready(function() {
     $('#products').DataTable();
 } );
 
-function hideUsersList(){
-    var x = document.getElementById("users");
-    if(x.style.display==="none"){
-        x.style.display="table";
+$(document).ready(function() {
+    $('#feednìback').DataTable();
+} );
+
+var products = document.getElementById("products");
+var dealers = document.getElementById("dealers");
+var fb = document.getElementById("feedback");
+
+function hideDealersList(){
+    if(dealers.style.display==="none"){
+        dealers.style.display = "table";
+				products.style.display = "none";
+				fb.style.display = "none";
     } else {
-        x.style.display = "none";
+        dealers.style.display = "none";
     }
 };
 
 function hideProductsList(){
-    var x = document.getElementById("products");
-    if(x.style.display==="none"){
-        x.style.display="table";
+    if(products.style.display==="none"){
+        products.style.display = "table";
+				dealers.style.display = "none";
+				fb.style.display = "none";
     } else {
-        x.style.display = "none";
+        products.style.display = "none";
+    }
+};
+
+function hideFeedbackList(){
+    if(fb.style.display==="none"){
+        fb.style.display = "table";
+				dealers.style.display = "none";
+				products.style.display = "none";
+    } else {
+        fb.style.display = "none";
     }
 };

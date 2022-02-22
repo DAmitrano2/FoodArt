@@ -96,12 +96,11 @@ public class LoginControl extends HttpServlet {
 						response.addCookie(ckPassword);
 					}
 				}
-				
 				request.getSession(true);
 				
 				request.getSession().setAttribute("user", user);
 				response.setStatus(200);
-				
+			
 				request.setAttribute("errorMessage", "Accesso effettuato");
 				
 				request.setAttribute("page", "index");

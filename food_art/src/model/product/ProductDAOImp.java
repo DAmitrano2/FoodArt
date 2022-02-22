@@ -12,7 +12,6 @@ import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
 
-
 public class ProductDAOImp implements ProductDAO {
 	
 	public ProductDAOImp() {
@@ -526,5 +525,50 @@ public class ProductDAOImp implements ProductDAO {
 	private static final String TABLE_NAME = "prodotto";
 	
 	private DataSource ds;
+
+	@Override
+	public Collection<ProductBean> doRetrieveAll() throws SQLException {
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+
+		Collection<ProductBean> products = new LinkedList<ProductBean>();
+
+		String selectSQL = "SELECT * FROM " + ProductDAOImp.TABLE_NAME;
+
+		try {
+			connection = ds.getConnection();
+			preparedStatement = connection.prepareStatement(selectSQL);
+
+			ResultSet rs = preparedStatement.executeQuery();
+
+			while (rs.next()) {
+				ProductBean product = new ProductBean();
+				product.setIdProdotto(rs.getInt("idProdotto"));
+				product.setTitolo(rs.getString("titolo"));
+				product.setDescrizione(rs.getString("descrizione"));
+				product.setUnitaMisura(rs.getString("unitaMisura"));
+				product.setPrezzo(rs.getString("prezzo"));
+				product.setQuantitaMinima(rs.getInt("quantitaMinimaAcquisto"));
+				product.setQuantitaDisponibile(rs.getInt("quantitaDisponibile"));
+				product.setCittaProvenienza(rs.getString("cittaProvenienza"));
+				product.setProvinciaProvenienza(rs.getString("provinciaProvenienza"));
+				product.setvalutazione(rs.getFloat("valutazione"));
+				product.setIdCategoria(rs.getInt("idCategoria"));
+				product.setIdUtente(rs.getInt("idUtente"));
+				
+				products.add(product);
+			}
+
+		} finally {
+			try {
+				if (preparedStatement != null)
+					preparedStatement.close();
+			} finally {
+				if (connection != null)
+					connection.close();
+			}
+		}
+		return products;
+	}
 
 }

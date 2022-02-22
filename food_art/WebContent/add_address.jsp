@@ -15,6 +15,15 @@
 	      </div>
 	     	<form id="form" action="add_address" method="post">
 	      	<div class="card-body">
+	      	<%
+						String error = String.valueOf(request.getAttribute("errorMessage"));
+						if(error != "null"){
+					%>
+					<div class="alert alert-danger" role="alert">
+					  <h4 class="alert-heading">Invio fallito</h4>
+					  <p><%=error %></p>
+					</div>
+					<%} %>
 	          <div class="row">
 	            <div class="col-sm-6">
 	              <div class="form-group">

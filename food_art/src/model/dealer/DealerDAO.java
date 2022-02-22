@@ -30,7 +30,7 @@ public interface DealerDAO {
 	public DealerBean doRetriveById(int idUtente) throws SQLException;
 	
 	/**
-	 * Carica i dati di tutti gli rivenditori
+	 * Carica i dati di tutti i rivenditori
 	 * @param 
 	 * @return una collezione di rivenditori
 	 * @throws SQLException

@@ -37,6 +37,7 @@ public class CreditCardControl extends HttpServlet {
 		dispatcher.forward(request, response);
 	}
 
+	@SuppressWarnings("unused")
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		UserBean user = (UserBean) request.getSession().getAttribute("user");
 		
@@ -53,22 +54,40 @@ public class CreditCardControl extends HttpServlet {
         
 		Date date = new Date(ts.getTime());
         
-		CardBean card = new CardBean();
-		card.setIntestatario(nome);
-		card.setNumeroCarta(nCarta);
-		card.setDataScadenza(date);
-		card.setCvv(cvv);
-		card.setIdUtente(user.getIdUtente());
 		
 		try {
+			CardBean card = new CardBean();
+			card.setIntestatario(nome);
+			card.setNumeroCarta(nCarta);
+			card.setDataScadenza(date);
+			card.setCvv(cvv);
+			card.setIdUtente(user.getIdUtente());
+			
+			if(card == null ) {
+				response.setContentType("application/json");
+				response.setCharacterEncoding("UTF-8");
+				response.setStatus(401);
+				
+				request.setAttribute("errorMessage", "Dati non corretti");
+				
+				request.setAttribute("page", "add_credit_card");
+				
+				RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/add_credit_card.jsp");
+				dispatcher.forward(request, response);
+			}
 			if(card != null) {
 				modelCard.doSave(card);
 				response.setStatus(200);
+				
+				request.setAttribute("page","dashboard");
+				RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/dashboard.jsp");
+				dispatcher.forward(request, response);
 			}
-			request.setAttribute("page","dashboard");
-			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/dashboard.jsp");
-			dispatcher.forward(request, response);
 		} catch (SQLException e) {
+			request.setAttribute("errorMessage", "Dati non corretti");
+			request.setAttribute("page", "add_credit_card");
+			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/add_credit_card.jsp");
+			dispatcher.forward(request, response);
 			System.out.println("Error: "+e.getMessage());
 			return;
 		}

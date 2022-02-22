@@ -52,4 +52,13 @@ public interface FeedbackDAO {
 	 * @throws SQLException
 	 */
 	public FeedbackBean doRetriveBestFeedbackByUser(int idUser) throws SQLException;
+	
+	/**
+	 * Carica i dati di tutti i feedback
+	 * @param 
+	 * @return una collezione di feedback
+	 * @throws SQLException
+	 */	
+	public Collection<FeedbackBean> doRetrieveAll() throws SQLException;
+	
 }

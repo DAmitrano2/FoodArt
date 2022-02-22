@@ -75,7 +75,7 @@
 					%>
 					<div class="category-content">
 						<div class="image-container">
-							<img src="./getCategoryImage?idCategoria=<%= category.getIdCategoria() %>" alt="imageCategory.png">
+							<img src="./getCategoryImage?idCategoria=<%=category.getIdCategoria() %>" alt="imageCategory.png">
 						</div>
 						<div class="category-title">
 							<h3><%=category.getNome()%></h3>

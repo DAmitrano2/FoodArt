@@ -13,7 +13,6 @@ import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
 
-import model.product.ProductBean;
 import model.product.ProductDAOImp;
 
 public class FeedbackDAOImp implements FeedbackDAO {
@@ -305,10 +304,56 @@ public class FeedbackDAOImp implements FeedbackDAO {
 		}
 		return feed;
 	}
+	
+	@Override
+	public Collection<FeedbackBean> doRetrieveAll() throws SQLException {
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
 
+		Collection<FeedbackBean> feedback = new LinkedList<FeedbackBean>();
+
+		String selectSQL = "SELECT * FROM " + FeedbackDAOImp.TABLE_NAME;
+		
+
+		try {
+			connection = ds.getConnection();
+			preparedStatement = connection.prepareStatement(selectSQL);
+
+			ResultSet rs = preparedStatement.executeQuery();
+			
+			boolean flag = false;
+			
+			while (rs.next()) {
+				FeedbackBean feed = new FeedbackBean();
+				feed.setIdFeedback(rs.getInt("idFeedback"));
+				feed.setTitolo(rs.getString("titolo"));
+				feed.setCommento(rs.getString("commento"));
+				feed.setValutazione(rs.getFloat("valutazione"));
+				feed.setIdCommentatore(rs.getInt("idCommentatore"));
+				feed.setIdProdotto(rs.getInt("idProdotto"));
+				feed.setIdRivenditore(rs.getInt("idRivenditore"));
+				
+				feedback.add(feed);
+				flag = true;
+			}
+			
+			if( !flag ) {
+				return null;
+			}
+
+		} finally {
+			try {
+				if (preparedStatement != null)
+					preparedStatement.close();
+			} finally {
+				if (connection != null)
+					connection.close();
+			}
+		}
+		return feedback;
+	}
 	
 	private static final String TABLE_NAME = "feedback";
 	
 	private DataSource ds;
-
 }
