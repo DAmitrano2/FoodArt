@@ -49,4 +49,6 @@ public interface CardDAO {
 
 	void doSave(CardBean card) throws SQLException;
 
+	boolean doDelete(String code) throws SQLException;
+
 }

@@ -44,7 +44,7 @@
                 </label>
             	</div>
 	            <div class="position-absolute">
-	            	<a type="button" class="btn btn-sm">Rimuovi</a>
+	            	<a type="button" onclick="remove('Indirizzi', 'delete', '<%=address.getIdIndirizzoConsegna() %>')" class="btn btn-sm">Rimuovi</a>
             	</div>
            	</div>
 	      	</div>
@@ -78,7 +78,7 @@
 								  </label>
 								</div>
 								<div class="position-absolute">
-		            	<a type="button" class="btn btn-sm">Rimuovi</a>
+		            	<a type="button" onclick="remove('I miei pagamenti', 'delete', '<%=paycard.getNumeroCarta() %>')" class="btn btn-sm">Rimuovi</a>
 	            	</div>
             	</div>
            	</div>
