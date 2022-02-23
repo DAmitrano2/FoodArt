@@ -24,7 +24,7 @@
 			</div>
 			<h2>400 - Bad Request</h2>
 			<p><%= exception.getMessage()%></p>
-			<a href="index">Vai alla pagina iniziale</a>
+			<a href="${pageContext.request.contextPath}/index">Vai alla pagina iniziale</a>
 		</div>
 	</div>
 

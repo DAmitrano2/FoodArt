@@ -23,7 +23,7 @@
 			</div>
 			<h2>401 - Unauthorized</h2>
 			<p>Impossibile accedere senza autorizzazione.</p>
-			<a href="index">Vai alla pagina iniziale</a>
+			<a href="${pageContext.request.contextPath}/index">Vai alla pagina iniziale</a>
 		</div>
 	</div>
 
