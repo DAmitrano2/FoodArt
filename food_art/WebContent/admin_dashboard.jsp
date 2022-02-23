@@ -1,9 +1,10 @@
 <%@include file="./include/header.jsp"%>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <main class="mt-5 pt-3">
     <div class="container-fluid">
         <div class="row"></div>
         <div class="small-container">
-          <h2 class="title">Bentornato Amministratore</h2>
+          <h2 class="title">Bentornato, Admin <%=user.getNome()%> </h2>
 	        <div id="rowAdmin" class="row justify-content-center">
 		        <%
 	          	ProductDAOImp prodDao = new ProductDAOImp();
@@ -52,23 +53,19 @@
 	          </div>
 	        </div>
 	      </div>
-	      <div class="card">
-	        <div id="products" class="table-container m-3">
-		        <table class="table table-striped table-bordered responsive">
+	        <div id="div-products" class="container">
+				<div class="row py-5">
+					<div class="col-12">
+		        <table id="products" class="table table-striped table-bordered responsive" style="width: 100%;">
 		          <thead>
 	              <tr>
-	                 <th>idProdotto</th>
-	                 <th>titolo</th>
-	                 <th>descrizione</th>
-	                 <th>unitaMisura</th>
-	                 <th>prezzo</th>
-	                 <th>quantitaMinimaAcquisto</th>
-	                 <th>quantitaDisponibile</th>
-	                 <th>cittaProvenienza</th>
-	                 <th>provinciaProvenienza</th>
-	                 <th>valutazione</th>
-	                 <th>idCategoria</th>
-	                 <th>idUtente</th>
+	                 <th>#ID</th>
+	                 <th>Titolo</th>
+	                 <th width="60%">Descrizione</th>
+					 <th>Prezzo</th>
+	                 <th>Provenienza</th>
+	                 <th>Categoria</th>
+					 <th>Azione</th>
 	              </tr>
 		          </thead>
 		          <tbody>
@@ -77,42 +74,32 @@
 										for ( ProductBean product : prodotti) {
 								%>
 	              <tr>
-	                 <th><%=product.getIdUtente() %></th>
-	                 <th><%=product.getTitolo() %></th>
-	                 <th><%=product.getDescrizione() %></th>
-	                 <th><%=product.getUnitaMisura() %></th>
-	                 <th><%=product.getPrezzo() %></th>
-	                 <th><%=product.getQuantitaMinima() %></th>
-	                 <th><%=product.getQuantitaDisponibile() %></th>
-	                 <th><%=product.getCittaProvenienza() %></th>
-	                 <th><%=product.getProvinciaProvenienza() %></th>
-	                 <th><%=product.getValutazione() %></th>
-	                 <th><%=product.getIdCategoria() %></th>
-	                 <th><%=product.getIdUtente() %></th> 
+	                 <td><%=product.getIdProdotto() %></td>
+	                 <td><%=product.getTitolo() %></td>
+	                 <td><div class="scrollable"><%=product.getDescrizione() %></div></td>
+					 <td><%=product.getPrezzo() %> &#8364; al <%=product.getUnitaMisura() %></td>
+	                 <td><%=product.getCittaProvenienza() %>, <%=product.getProvinciaProvenienza() %> </td>
+	                 <td><%=product.getIdCategoria() %></td>
+					 <td><button type="button" class="btn bg-cart">Elimina</button></td> 
 	              </tr>
 	              <%}} %>
 		          </tbody>
 		      </table>
+			</div>
+			</div>
 	    	</div>
-	    	<div id="dealers" class="table-container m-3">
-		      <table class="table table-striped table-bordered responsive">
+	    	<div id="div-dealers" class="container">
+				<div class="row py-5">
+					<div class="col-12">
+		      <table id="dealers" class="table table-striped table-bordered responsive" style="width: 100%;">
 		        <thead>
 	            <tr>
-	              <th>idUtente</th>
-	              <th>dataNascita</th>
-	              <th>citta</th>
-	              <th>provincia</th>
-	              <th>sesso</th>
-	              <th>codiceFiscale</th>
-	              <th>nPartitaIva</th>
-	              <th>filePartitaIva</th>
-	              <th>fileDocuIdentita</th>
-	              <th>ragioneSociale</th>
-	              <th>provinciaSedeLegale</th>
-	              <th>cittaSedeLegale</th>
-	              <th>viaSedeLegale</th>
-	              <th>nCivicoSedeLegale</th>
-	              <th>capSedeLegale</th>
+	              <th>#ID</th>
+	              <th>Codice Fiscale</th>
+	              <th>Partita IVA</th>
+	              <th>Documento</th>
+	              <th>Ragione Sociale</th>
+				  <th>Azione</th>
 	            </tr>
 		        </thead>
 		        <tbody>
@@ -121,58 +108,50 @@
 									for ( DealerBean  dealer: rivenditori) {
 							%>
 		          <tr>
-	              <th><%=dealer.getIdUtente() %></th>
-	              <th><%=dealer.getDataNascita() %></th>
-	              <th><%=dealer.getCitta() %></th>
-	              <th><%=dealer.getProvincia() %></th>
-	              <th><%=dealer.getSesso() %></th>
-	              <th><%=dealer.getCodiceFiscale() %></th>
-	              <th><%=dealer.getNumeroPartitaIva() %></th>
-	              <th><%=dealer.getFilePartitaIva() %></th>
-	              <th><%=dealer.getFileDocumentoIdentita() %></th>
-	              <th><%=dealer.getRagioneSociale() %></th>
-	              <th><%=dealer.getProvinciaSedeLegale() %></th>
-	              <th><%=dealer.getCittaSedeLegale() %></th>
-	              <th><%=dealer.getViaSedeLegale() %></th>
-	              <th><%=dealer.getNumeroCivicoSedeLegale() %></th>
-	              <th><%=dealer.getCapSedeLegale() %></th>
+	              <td><%=dealer.getIdUtente() %></td>
+	              <td><%=dealer.getCodiceFiscale() %></td>
+	              <td><%=dealer.getFilePartitaIva() %></td>
+	              <td><%=dealer.getFileDocumentoIdentita() %></td>
+	              <td><%=dealer.getRagioneSociale() %></td>
+				  <td><button type="button" class="btn bg-cart">Elimina</button></td> 
 	            </tr>
 		          <%}} %>
 		        </tbody>
 		    	</table>
+					</div>
+			</div>
 	    	</div>
-	      <div id="feedback" class="table-container m-3">
-		      <table class="table table-striped table-bordered responsive">
-		        <thead>
-	            <tr>
-                <th>idFeedback</th>
-                <th>titolo</th>
-                <th>commento</th>
-                <th>valutazione</th>
-                <th>idCommentatore</th>
-                <th>idProdotto</th>
-                <th>idRivenditore</th>
-	            </tr>
-		        </thead>
+	      <div id="div-feedback" class="container">
+			  <div class="row py-5">
+				  <div class="col-12">
+		      		<table id="feedback" class="table table-striped table-bordered responsive" style="width: 100%;">
+		        		<thead>
+	            			<tr>
+                				<th>#ID</th>
+                				<th>Titolo</th>
+                				<th>Commento</th>
+                				<th>Valutazione</th>
+								<th>Azione</th>
+	           				 </tr>
+		        		</thead>
 		        <tbody>
 		       		<% 
 		       			if ( feedback != null &&  feedback.size() != 0) {
 									for ( FeedbackBean  fb: feedback) {
 							%>
-		          <tr>
-                <th><%=fb.getIdFeedback() %></th>
-                <th><%=fb.getTitolo() %></th>
-                <th><%=fb.getCommento() %></th>
-                <th><%=fb.getValutazione() %></th>
-                <th><%=fb.getIdCommentatore() %></th>
-                <th><%=fb.getIdProdotto() %></th>
-                <th><%=fb.getIdRivenditore() %></th>
-	            </tr>
+		        	<tr>
+                		<td><%=fb.getIdFeedback() %></td>
+                		<td><%=fb.getTitolo() %></td>
+                		<td><%=fb.getCommento() %></td>
+                		<td><%=fb.getValutazione() %></td>
+						<td><button type="button" class="btn bg-cart">Elimina</button></td>
+	            	</tr>
 		          <%}} %>
 		        </tbody>
-		    	</table>
-	    	</div>
-    	</div>
+		    		</table>
+				</div>
+			</div>
+	    </div>
     </div>
 </main>
 <%@include file="./include/footer.html"%>

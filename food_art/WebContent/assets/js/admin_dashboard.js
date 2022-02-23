@@ -1,18 +1,60 @@
-$('document').ready(function() {
-    $('#dealers').DataTable();
+$(document).ready(function() {
+    $("#dealers").DataTable({
+        aaSorting: [],
+        responsive: true,
+        columnDefs: [
+            {
+                responsivePriority: 1,
+                targets: 0
+            },
+            {
+                responsivePriority: 2,
+                targets: -1
+            }
+        ]
+    });
+ $('[data-toggle="tooltip"]').tooltip();
 } );
 
 $(document).ready(function() {
-    $('#products').DataTable();
+    $("#products").DataTable({
+        aaSorting: [],
+        responsive: true,
+        columnDefs: [
+            {
+                responsivePriority: 1,
+                targets: 0
+            },
+            {
+                responsivePriority: 2,
+                targets: -1
+            }
+        ]
+    });
+ $('[data-toggle="tooltip"]').tooltip();
 } );
 
 $(document).ready(function() {
-    $('#feednìback').DataTable();
+    $("#feedback").DataTable({
+        aaSorting: [],
+        responsive: true,
+        columnDefs: [
+            {
+                responsivePriority: 1,
+                targets: 0
+            },
+            {
+                responsivePriority: 2,
+                targets: -1
+            }
+        ]
+    });
+    $('[data-toggle="tooltip"]').tooltip();
 } );
 
-var products = document.getElementById("products");
-var dealers = document.getElementById("dealers");
-var fb = document.getElementById("feedback");
+var products = document.getElementById("div-products");
+var dealers = document.getElementById("div-dealers");
+var fb = document.getElementById("div-feedback");
 
 function hideDealersList(){
     if(dealers.style.display==="none"){

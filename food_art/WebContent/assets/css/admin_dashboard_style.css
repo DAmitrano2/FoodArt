@@ -13,16 +13,48 @@
 .ms-auto{
     margin-left: 15px;
 }
-.table td img{
-    display: block;
-    width: 10%;
+.scrollable{
+    width: 100%;
+    max-height: 150px;
+    margin: 0;
+    padding: 0;
+    overflow: auto;
 }
-
-#users{
+#products_info{
+    display: none;
+}
+#dealers_info{
+    display: none;
+}
+#feedback_info{
+    display: none;
+}
+.page-item.active .page-link{
+    background-color: #fcba03!important;
+    color: white!important;
+    border: none;
+}
+.page-link{
+    color: #fcba03!important;
+}
+.page-link:focus{
+    outline: none!important;
+    box-shadow: none!important;
+}
+.custom-select:focus{
+    box-shadow: none!important;
+}
+#div-products{
     display:none;
 }
-#products{
+#div-dealers{
     display: none;
+}
+#div-feedback{
+    display: none;
+}
+#footer{
+    margin-top: 25%;
 }
 .bg-secondary{
 	background-color: #fcba03!important;
