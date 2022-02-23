@@ -24,7 +24,7 @@
 			</div>
 			<h2>404 - Not Found</h2>
 			<p>La pagina che stai cercando non esiste!</p>
-			<a href="index">Vai alla pagina iniziale</a>
+			<a href="${pageContext.request.contextPath}/index">Vai alla pagina iniziale</a>
 		</div>
 	</div>
 

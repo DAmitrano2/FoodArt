@@ -34,7 +34,11 @@
 	            	<label class="form-check-label ml-2">
 	                <span class="address title-card"><%=address.getNome()+" "+address.getCognome() %></span>
 	                <span class="address"><%=address.getVia()+" "+address.getNumeroCivico() %></span>
+	                <%
+	                	if(address.getDescrizione() != null){
+	                %>
 	                <span class="address"><%=address.getDescrizione() %></span>
+	                <%} %>
 	                <span class="address"><%=address.getCitta()+", "+address.getProvincia()+", "+address.getCap() %></span>
 	                <span class="address"><%=address.getNumeroTelefono() %></span>
                 </label>
