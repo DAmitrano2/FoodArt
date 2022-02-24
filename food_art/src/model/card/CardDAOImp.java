@@ -228,6 +228,36 @@ public class CardDAOImp implements CardDAO {
 		}
 	}
 	
+	@Override
+	public synchronized boolean doDelete(String code) throws SQLException {
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+
+		int result = 0;
+
+		String deleteSQL = "DELETE FROM " + CardDAOImp.TABLE_NAME + " WHERE nCarta = ?";
+
+		try {
+			connection = ds.getConnection();
+			preparedStatement = connection.prepareStatement(deleteSQL);
+			preparedStatement.setString(1, code);
+
+			result = preparedStatement.executeUpdate();
+			
+			connection.commit();
+
+		} finally {
+			try {
+				if (preparedStatement != null)
+					preparedStatement.close();
+			} finally {
+				if (connection != null)
+					connection.close();
+			}
+		}
+		return (result != 0);
+	}
+	
 	private static final String TABLE_NAME = "metodopagamento";
 	private DataSource ds;
 }

@@ -79,6 +79,7 @@ public class RegisterControl extends HttpServlet {
 				user.setRivenditore(true);
 				
 				String data = request.getParameter("data");
+				System.out.println("data: "+data);
 				String sesso = request.getParameter("sesso");
 				String citta = request.getParameter("citta");
 				String provincia = request.getParameter("provincia");

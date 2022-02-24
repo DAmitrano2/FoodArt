@@ -28,7 +28,7 @@
          			for(AddressBean address: indirizzi) {
      					i++;
           %>
-	      	<div class="col-md-4 mb-3">
+	      	<div id="address<%=address.getIdIndirizzoConsegna() %>" class="col-md-4 mb-3">
 	      		<div class="card position-relative">
 	      			<div class="card-body">
 	            	<label class="form-check-label ml-2">
@@ -44,7 +44,7 @@
                 </label>
             	</div>
 	            <div class="position-absolute">
-	            	<a type="button" class="btn btn-sm">Rimuovi</a>
+	            	<a type="button" onclick="remove('Indirizzi', 'delete', '<%=address.getIdIndirizzoConsegna() %>')" class="btn btn-sm">Rimuovi</a>
             	</div>
            	</div>
 	      	</div>
@@ -68,7 +68,7 @@
 	   					for(CardBean paycard: pagamenti) {
 	   						i++;
          	%>
-         	<div class="col-md-4 mb-3">
+         	<div id="card<%=paycard.getNumeroCarta() %>" class="col-md-4 mb-3">
 	      		<div class="card position-relative">
 	      			<div class="card-body">
 			          <div class="form-check form-check-paycard my-3">
@@ -78,7 +78,58 @@
 								  </label>
 								</div>
 								<div class="position-absolute">
-		            	<a type="button" class="btn btn-sm">Rimuovi</a>
+		            	<a type="button" onclick="remove('I miei pagamenti', 'delete', '<%=paycard.getNumeroCarta() %>')" class="btn btn-sm">Rimuovi</a>
+	            	</div>
+            	</div>
+           	</div>
+         	</div>
+					<%}}%>
+      	</div>
+      	<%}else if(title.equals("I miei prodotti")){ %>
+      	<div class="row justify-content-center">
+	      	<div class="col-md-4 mb-3">
+	      		<div class="card first-card">
+	      			<div class="card-body first-card-body">
+	      				<div class="address-plus"></div>
+	      				<h2 style="color: #565959!important;">Aggiungi prodotto</h2>
+	      			</div>
+      			</div>
+	      	</div>
+	      	<%
+         		ProductDAOImp prodottoDao = new ProductDAOImp();
+	   				Collection<ProductBean> prodotti = prodottoDao.getProductByIdUser(user.getIdUtente());
+	   				if (prodotti != null && prodotti.size() != 0) {
+	   					for(ProductBean product: prodotti) {
+         	%>
+         	<div id="product<%=product.getIdProdotto() %>" class="col-md-4 mb-3">
+	      		<div class="card position-relative">
+	      			<div class="card-body">
+			          <div class="form-check form-check-paycard my-3">
+								  <label class="form-check-label">
+								    <a class="product_link" href="<%=path %>/single_product?idProdotto=<%=product.getIdProdotto()%>">
+											<img src="<%=path %>/getProductImage?idProdotto=<%=product.getIdProdotto() %>" alt="imageProduct.png">
+											<h4><%= product.getTitolo() %></h4>
+										</a>
+										<div class="rating">
+									 	<% if(product.getValutazione() > 0){
+									 	float rating = product.getValutazione();
+									 	if(rating>=1 && rating<2){				//1 stella%>
+								    		<i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
+									   	<%}else if(rating>=2 && rating<3){		//2 stelle%>
+								    		<i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
+									   	<%}else if(rating>=3 && rating<4){		//3 stelle%>
+								    		<i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
+									   	<%}else if(rating>=4 && rating<5){		//4 stelle%>
+								    		<i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+									   	<%}else if(rating==5){					//5 stelle%>
+											<i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+								    	<%}}%>
+								    	</div>
+										<p><%= product.getPrezzo()%> &#8364; al <%= product.getUnitaMisura()%></p>
+								  </label>
+								</div>
+								<div class="position-absolute">
+		            	<a type="button" onclick="remove('I miei prodotti', 'delete', '<%=product.getIdProdotto() %>')" class="btn btn-sm">Rimuovi</a>
 	            	</div>
             	</div>
            	</div>

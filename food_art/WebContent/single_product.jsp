@@ -11,25 +11,11 @@
 				ProductBean prodotto = modelProdotto.doRetrieveByKey(idProdotto);
 			%>
 			<img class="img-fluid w-100 pb-1" src="./getProductImage?idProdotto=<%=prodotto.getIdProdotto() %>" id="MainImg" alt="imageProduct.png">
-			<!-- div class="small-img-group">
-	        <div class="small-img-col">
-            <img src="images/primaprodottosingolo.jpg" width="100%" class="small-img" alt="">
-	        </div>
-	        <div class="small-img-col">
-            <img src="images/secondaprodottosingolo.jpg" width="100%" class="small-img" alt="">
-	        </div>
-	        <div class="small-img-col">
-            <img src="images/terzaprodottosingolo.jpg" width="100%" class="small-img" alt="">
-	        </div>
-	        <div class="small-img-col">
-            <img src="images/quartaprodottosingolo.jpg" width="100%" class="small-img" alt="">
-	        </div>
-	      </div-->
 		</div>
 		<div class="col-lg-6 col-md-12 col-12">
 			<h2><%=prodotto.getTitolo()%></h2>
 			<h6>da <a href="./dealer_info?idDealer=<%=prodotto.getIdUtente() %>"><%=modelRivenditore.doRetriveNameById(prodotto.getIdUtente())%></a></h6>
-			<div class="rating"> 
+			<div class="rating">
 		 	<%
  		 	 	if(prodotto.getValutazione() > 0.0){
 	 			 	float rating = prodotto.getValutazione();
@@ -124,8 +110,9 @@
 <section id="testimonials">
 	<div class="small-container justify-content-center">
 		<!-- Feedback form -->
+		<%if(auth){ %>
 		<h2 class="title">Lascia una recensione</h2>
-		<div class="testimonial-box-container">
+		<div id="testimonial-id" data-id-prod="<%=idProdotto %>" data-id-user="<%=prodotto.getIdUtente() %>" class="testimonial-box-container">
 			<div class="testimonial-box">
 				<div class="box-top">
 					<div class="user-informations">
@@ -139,18 +126,19 @@
 				</div>
 				<div class="comment-group input-group input-group-sm mb-3">
 					<h3 class="mr-3">Aggiungi un titolo</h3>
-					<input type="text" id="title-comment" class="comment-input form-control mt-2" placeholder="Quali sono le cose più importanti da sapere?">
+					<input type="text" name="title" id="title-comment" class="comment-input form-control mt-2" placeholder="Quali sono le cose più importanti da sapere?">
 				</div>
 				<div class="comment-group client-comment input-group input-group-sm">
 					<h3 class="mr-3">Aggiungi una recensione scritta</h3>
-					<textarea id="textarea-comment" class="comment-input form-control mt-2" placeholder="Che cosa ti è piaciuto e cosa non ti è piaciuto?"></textarea>
+					<textarea id="textarea-comment" name="comment" class="comment-input form-control mt-2" placeholder="Che cosa ti è piaciuto e cosa non ti è piaciuto?"></textarea>
 				</div>
 				<div class="form-group" style="display: flow-root;">
 					<button type="button" class="btn float-right comment_btn mt-3">Invia</button>
 				</div>
 			</div>
 		</div>
-		<%
+		<%}
+		
 			FeedbackDAOImp collectionFb = new FeedbackDAOImp();
 			Collection<FeedbackBean> feedback = collectionFb.doRetriveByProduct(idProdotto);
 			if (feedback != null && feedback.size() != 0) {

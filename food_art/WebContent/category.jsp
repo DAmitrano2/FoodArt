@@ -11,7 +11,7 @@
 				<div class="title-left-div">
 					<a class="title-left" href="category?idCategoria=0"><i class="fas fa-arrow-circle-left"></i>Tutte le categorie</a>
 				</div>
-				<ul class="list-group"  id="left-list-group">
+				<!-- <ul class="list-group"  id="left-list-group">
 					<li class="list-group-item">
 						<div class="mini-title">
 							<p class="h6">Media recensioni clienti</p>
@@ -41,15 +41,15 @@
 							</label>
 						</div>
 					</li>
-				</ul>
+				</ul> -->
 			</div>
 			<div class="col-lg-9">
 				<h2 class="title"><%= modelCategoria.doRetrieveByKey(idCategoria).getNome() %></h2>
 				<div class="row">
-				<%
-					if (prodotti != null && prodotti.size() != 0) {
-						for(ProductBean product: prodotti) {
-				%>
+					<%
+						if (prodotti != null && prodotti.size() != 0) {
+							for(ProductBean product: prodotti) {
+					%>
 					<div class="col-4 text-center">
 						<a class="product_link" href="./single_product?idProdotto=<%=product.getIdProdotto()%>">
 							<img src="./getProductImage?idProdotto=<%=product.getIdProdotto() %>" alt="imageProduct.png">

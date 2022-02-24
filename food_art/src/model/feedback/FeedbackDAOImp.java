@@ -13,6 +13,7 @@ import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
 
+import model.dealer.DealerDAOImp;
 import model.product.ProductDAOImp;
 
 public class FeedbackDAOImp implements FeedbackDAO {
@@ -44,7 +45,7 @@ public class FeedbackDAOImp implements FeedbackDAO {
 			preparedStatement.setFloat(3, feed.getValutazione());
 			preparedStatement.setInt(4, feed.getIdCommentatore());
 			preparedStatement.setInt(5, feed.getIdProdotto());
-			preparedStatement.setInt(5, feed.getIdRivenditore());
+			preparedStatement.setInt(6, feed.getIdRivenditore());
 			
 			preparedStatement.executeUpdate();
 
@@ -88,21 +89,23 @@ public class FeedbackDAOImp implements FeedbackDAO {
 	}
 
 	@Override
-	public void doDelete(int idFeedback) throws SQLException {
+	public boolean doDelete(int idFeedback) throws SQLException {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
-		
-		String deleteSQL = "DELETE FROM "+ FeedbackDAOImp.TABLE_NAME + "where idFeedback= ?";
-		
+
+		int result = 0;
+
+		String deleteSQL = "DELETE FROM " + FeedbackDAOImp.TABLE_NAME + " WHERE idFeedback = ?";
+
 		try {
 			connection = ds.getConnection();
 			preparedStatement = connection.prepareStatement(deleteSQL);
 			preparedStatement.setInt(1, idFeedback);
-			
-			
-			preparedStatement.executeUpdate();
 
+			result = preparedStatement.executeUpdate();
+			
 			connection.commit();
+
 		} finally {
 			try {
 				if (preparedStatement != null)
@@ -112,7 +115,7 @@ public class FeedbackDAOImp implements FeedbackDAO {
 					connection.close();
 			}
 		}
-
+		return (result != 0);
 	}
 	
 	@Override

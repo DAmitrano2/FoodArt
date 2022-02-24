@@ -87,7 +87,6 @@ public class UserBean {
 		return rivenditore;
 	}
 
-
 	public void setRivenditore(boolean rivenditore) {
 		this.rivenditore = rivenditore;
 	}

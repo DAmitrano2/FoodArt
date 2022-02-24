@@ -21,7 +21,6 @@ $("#image-picker").change(function(event) {
   const submit = document.getElementById('productSub');
   
   submit.addEventListener('click', e =>{
-    e.preventDefault();
     if(!validateInputs()){
       e.preventDefault();
     }
