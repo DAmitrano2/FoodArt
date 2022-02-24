@@ -3,4 +3,5 @@ FoodArt è una web-application che permette al settore del Food&Grocery di cresc
 A project by:
 Amitrano Davide
 Miranda Donato
+Dalia Antonio
 and Zappia Alfonso
