@@ -11,45 +11,6 @@
                     <p class="text-primary" data-toggle="collapse" href="#collapseAddress" role="button" aria-expanded="false" aria-controls="collapseAddress"><i class="fa fa-plus-circle text-primary"></i> Aggiungi un nuovo indirizzo </p>
                 </div>
             </div>
-            <div class="small-container justify-content-center collapse" id="collapseAddress">
-				<div class="testimonial-box-container">
-					<div class="testimonial-box">
-						<div class="mb-3">
-							<p>Indirizzo</p>
-							<div class="form-row">
-								<div class="comment-group input-group-sm col-md-9">
-									<input type="text" id="via-address" class="comment-input form-control" placeholder="via">
-								</div>
-								<div class="comment-group input-group-sm col-md-3">
-									<input type="text" id="num-address" class="comment-input form-control" placeholder="civico">
-								</div>
-							</div>
-						</div>
-						<div class="mb-3">
-							<p>Aggiungi un titolo</p>
-							<div class="form-row">
-								<div class="comment-group input-group-sm col-md-12">
-									<input type="text" id="citta-address" class="comment-input form-control" placeholder="citta">
-								</div>
-							</div>
-						</div>
-						<div>
-							<p>Aggiungi una recensione scritta</p>
-							<div class="form-row">
-								<div class="comment-group input-group-sm col-md-6">
-									<input type="text" id="provincia-address" class="comment-input form-control" placeholder="provincia">	
-								</div>
-								<div class="comment-group input-group-sm col-md-6">
-									<input type="text" id="cap-address" class="comment-input form-control" placeholder="cap" maxlength="5">	
-								</div>
-							</div>
-						</div>
-						<div class="form-group" style="display: flow-root;">
-							<button type="button" class="btn btn-primary float-right comment_btn mt-3">Invia</button>
-						</div>
-					</div>
-				</div>
-           	</div>
             <%
             	AddressDAOImp indirizzoDao = new AddressDAOImp();
       				Collection<AddressBean> indirizzi = indirizzoDao.getIndirizzoByIdUser(user.getIdUtente());
