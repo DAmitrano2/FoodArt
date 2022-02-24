@@ -53,19 +53,17 @@
 	          </div>
 	        </div>
 	      </div>
-	        <div id="div-products" class="container">
-				<div class="row py-5">
-					<div class="col-12">
-		        <table id="products" class="table table-striped table-bordered responsive" style="width: 100%;">
+	        <div id="div-products" class="container wrapper">
+		        <table id="products" class="table table-bordered" cellspacing="0" width="100%">
 		          <thead>
 	              <tr>
-	                 <th>#ID</th>
-	                 <th>Titolo</th>
-	                 <th width="60%">Descrizione</th>
-					 <th>Prezzo</th>
-	                 <th>Provenienza</th>
-	                 <th>Categoria</th>
-					 <th>Azione</th>
+	                 <th class="col-md-2">#ID</th>
+	                 <th class="col-md-2">Titolo</th>
+	                 <th class="col-md-2">Descrizione</th>
+					 <th class="col-md-2">Prezzo</th>
+	                 <th class="col-md-2">Provenienza</th>
+	                 <th class="col-md-2">Categoria</th>
+					 <th class="col-md-2">Azione</th>
 	              </tr>
 		          </thead>
 		          <tbody>
@@ -85,21 +83,17 @@
 	              <%}} %>
 		          </tbody>
 		      </table>
-			</div>
-			</div>
 	    	</div>
-	    	<div id="div-dealers" class="container">
-				<div class="row py-5">
-					<div class="col-12">
-		      <table id="dealers" class="table table-striped table-bordered responsive" style="width: 100%;">
+	    	<div id="div-dealers" class="container wrapper">
+		      <table id="dealers" class="table table-bordered" cellspacing="0" width="100%">
 		        <thead>
 	            <tr>
-	              <th>#ID</th>
-	              <th>Codice Fiscale</th>
-	              <th>Partita IVA</th>
-	              <th>Documento</th>
-	              <th>Ragione Sociale</th>
-				  <th>Azione</th>
+	              <th class="col-md-2">#ID</th>
+	              <th class="col-md-2">Codice Fiscale</th>
+	              <th class="col-md-2">Partita IVA</th>
+	              <th class="col-md-2">Documento</th>
+	              <th class="col-md-2">Ragione Sociale</th>
+				  <th class="col-md-2">Azione</th>
 	            </tr>
 		        </thead>
 		        <tbody>
@@ -118,40 +112,34 @@
 		          <%}} %>
 		        </tbody>
 		    	</table>
-					</div>
-			</div>
 	    	</div>
-	      <div id="div-feedback" class="container">
-			  <div class="row py-5">
-				  <div class="col-12">
-		      		<table id="feedback" class="table table-striped table-bordered responsive" style="width: 100%;">
-		        		<thead>
-	            			<tr>
-                				<th>#ID</th>
-                				<th>Titolo</th>
-                				<th>Commento</th>
-                				<th>Valutazione</th>
-								<th>Azione</th>
-	           				 </tr>
-		        		</thead>
-		        <tbody>
-		       		<% 
-		       			if ( feedback != null &&  feedback.size() != 0) {
-									for ( FeedbackBean  fb: feedback) {
-							%>
-		        	<tr>
-                		<td><%=fb.getIdFeedback() %></td>
-                		<td><%=fb.getTitolo() %></td>
-                		<td><%=fb.getCommento() %></td>
-                		<td><%=fb.getValutazione() %></td>
-						<td><button type="button" class="btn bg-cart">Elimina</button></td>
-	            	</tr>
-		          <%}} %>
-		        </tbody>
-		    		</table>
-				</div>
-			</div>
-	    </div>
+	      <div id="div-feedback" class="container wrapper">
+		      		  		<table id="feedback" class="table table-bordered" cellspacing="0" width="100%">
+		        				<thead>
+	            					<tr>
+                						<th class="col-md-2">#ID</th>
+                						<th class="col-md-2">Titolo</th>
+                						<th class="col-md-2">Commento</th>
+                						<th class="col-md-2">Valutazione</th>
+										<th class="col-md-2">Azione</th>
+	           				 		</tr>
+		        				</thead>
+		        				<tbody>
+		       						<% 
+		       							if ( feedback != null &&  feedback.size() != 0) {
+										for ( FeedbackBean  fb: feedback) {
+									%>
+		        					<tr>
+                						<td><%=fb.getIdFeedback() %></td>
+                						<td><%=fb.getTitolo() %></td>
+                						<td><%=fb.getCommento() %></td>
+                						<td><%=fb.getValutazione() %></td>
+										<td><button type="button" class="btn bg-cart">Elimina</button></td>
+	            					</tr>
+		          					<%}} %>
+		        				</tbody>
+		    				</table>
+	    	</div>
     </div>
 </main>
 <%@include file="./include/footer.html"%>

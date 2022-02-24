@@ -110,7 +110,7 @@
 		        </div>
 		      </div>
 		      <div class="card-footer">
-		      	<input name="submit" type="submit" value="Invia" class="btn float-right" id="addressSubmit">
+		      	<input name="submit" type="submit" value="Invia" class="btn bg-cart float-right" id="addressSubmit">
 		      </div>
 	      </form>
 	    </div>

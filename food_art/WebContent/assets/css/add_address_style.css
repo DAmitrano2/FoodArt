@@ -32,12 +32,9 @@
 .address-card{
     margin-bottom: 2rem;
 }
-
-#addressSubmit{
-    background-color: #fcba03;
-    padding: .7rem 2rem;
+.card-footer{
+    background-color: #fff!important;
 }
-
-#addressSubmit:hover{
-    color: white;
+.card-footer .btn{
+    margin-bottom: 0.75rem;
 }

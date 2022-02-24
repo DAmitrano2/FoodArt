@@ -41,18 +41,9 @@
     outline: 0;
     box-shadow: 0 0 0 #F44336
 }
-.cc-card-footer{
-    background-color: #f0f3f5;
-    padding: 10px;
+.card-footer{
+    background-color: #fff!important;
 }
-.cc-card-footer .btn{
-    color: black;
-    background-color: #FFC312;
-    width: 100px;
-    border: none!important;
-    padding: 10px;
-    }
-    
-.cc-card-footer .btn:hover{
-    color: white;
+.card-footer .btn{
+    margin-bottom: 0.75rem;
 }

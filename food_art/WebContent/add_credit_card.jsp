@@ -61,9 +61,8 @@
 	          </div>
 	        </div>
         </div>
-        <div class="cc-card-footer">
-	        <input name="submit" type="submit" value="Invia" class="btn float-right" id="btnsub">
-					<div id="result" class="emoji"></div>
+        <div class="card-footer">
+	        <input name="submit" type="submit" value="Invia" class="btn bg-cart float-right" id="btnsub">
         </div>
       </form>
 	  </div>

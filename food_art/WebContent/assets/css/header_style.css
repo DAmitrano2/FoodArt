@@ -165,3 +165,11 @@ h6 a {
 .breadcrumb-item a:hover {
 	color: #3c3c3c;
 }
+.dropdown-menu{
+    min-width: 11rem!important;
+}
+@media(max-width: 331px){
+    .navbar-nav .dropdown-menu{
+        left: 8px;
+    }
+}

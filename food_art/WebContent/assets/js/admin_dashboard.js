@@ -1,57 +1,14 @@
 $(document).ready(function() {
-    $("#dealers").DataTable({
-        aaSorting: [],
-        responsive: true,
-        columnDefs: [
-            {
-                responsivePriority: 1,
-                targets: 0
-            },
-            {
-                responsivePriority: 2,
-                targets: -1
-            }
-        ]
-    });
- $('[data-toggle="tooltip"]').tooltip();
-} );
+    $("#dealers").DataTable();
+});
 
 $(document).ready(function() {
-    $("#products").DataTable({
-        aaSorting: [],
-        responsive: true,
-        columnDefs: [
-            {
-                responsivePriority: 1,
-                targets: 0
-            },
-            {
-                responsivePriority: 2,
-                targets: -1
-            }
-        ]
-    });
- $('[data-toggle="tooltip"]').tooltip();
-} );
+    $("#products").DataTable();
+});
 
-$(document).ready(function() {
-    $("#feedback").DataTable({
-        aaSorting: [],
-        responsive: true,
-        columnDefs: [
-            {
-                responsivePriority: 1,
-                targets: 0
-            },
-            {
-                responsivePriority: 2,
-                targets: -1
-            }
-        ]
-    });
-    $('[data-toggle="tooltip"]').tooltip();
-} );
-
+$(document).ready(function(){
+    $("#feedback").DataTable();
+});
 var products = document.getElementById("div-products");
 var dealers = document.getElementById("div-dealers");
 var fb = document.getElementById("div-feedback");
