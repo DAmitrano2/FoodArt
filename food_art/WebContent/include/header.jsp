@@ -43,9 +43,9 @@
   <link rel="stylesheet" href="<%=path%>/assets/css/owl.theme.default.min.css">
     
   <!-- Bootstrap CSS CDN-->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
-  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css">
+  <link rel="stylesheet" href="<%=path%>/assets/css/bootstrap/bootstrap.min.css">
+  <link rel="stylesheet" href="<%=path%>/assets/css/bootstrap/bootstrap-select.min.css">
+  <link rel="stylesheet" href="<%=path%>/assets/css/dataTables.bootstrap4.min.css">
   
   <!-- Default CSS -->
   <link rel="stylesheet" href="<%=path%>/assets/css/header_style.css">
@@ -64,9 +64,8 @@
   	  <link rel="stylesheet" href="<%=path%>/assets/css/<%=pagina%>_style.css">
   <%}%>
   <!-- Icon CSS -->
-  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.15.4/css/all.css"/>
   <link rel="stylesheet" href="<%=path%>/assets/css/all.css"/>
-  <script src="https://kit.fontawesome.com/2a789f15df.js"></script>
+  <script src="${pageContext.request.contextPath}/assets/js/2a789f15df.js"></script>
   
   <!-- Intestazione di pagina -->
   <link rel="icon" href="<%=path%>/assets/images/icon.png" type="image/icon type">
