@@ -10,7 +10,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import model.address.AddressDAOImp;
 import model.feedback.FeedbackBean;
 import model.feedback.FeedbackDAOImp;
 import model.user.UserBean;

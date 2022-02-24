@@ -21,7 +21,7 @@ function fiveStar() {
 }
 
 $('document').ready(()=>{
-	$('button[type="button"]').click(()=>{
+	$('#inviaFb').click(()=>{
 		var rating = $('#rating-comment').attr('data-value');
 		var title = $('#title-comment').val();
 		var comment = $('#textarea-comment').val();

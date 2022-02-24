@@ -133,7 +133,7 @@
 					<textarea id="textarea-comment" name="comment" class="comment-input form-control mt-2" placeholder="Che cosa ti è piaciuto e cosa non ti è piaciuto?"></textarea>
 				</div>
 				<div class="form-group" style="display: flow-root;">
-					<button type="button" class="btn float-right comment_btn mt-3">Invia</button>
+					<button id="inviaFb" type="button" class="btn float-right comment_btn mt-3">Invia</button>
 				</div>
 			</div>
 		</div>
