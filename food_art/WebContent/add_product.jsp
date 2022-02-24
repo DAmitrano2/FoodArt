@@ -106,7 +106,7 @@
             </div>
 				</div>
 				<div class="card-footer">
-	      	<input name="submit" type="submit" value="Invia" class="btn float-right" id="productSub">
+	      	<input name="submit" type="submit" value="Invia" class="btn bg-cart float-right" id="productSub">
 	      </div>
 			</form>
         </div>
