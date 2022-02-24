@@ -25,8 +25,10 @@ $('document').ready(()=>{
 		var rating = $('#rating-comment').attr('data-value');
 		var title = $('#title-comment').val();
 		var comment = $('#textarea-comment').val();
+		var idProd = $('#testimonial-id').attr('data-id-prod');
+		var idUser = $('#testimonial-id').attr('data-id-user');
 		if($('#rating-comment').attr('data-value')!=''){
-			window.location.href='feedback?reating='+rating+'&title='+title+'&comment='+comment;
+			window.location.href='feedback?rating='+rating+'&title='+title+'&comment='+comment+'&idProd='+idProd+'&idUser='+idUser;
 		}
 	})
 })

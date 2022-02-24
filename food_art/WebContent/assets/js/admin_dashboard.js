@@ -85,3 +85,23 @@ function hideFeedbackList(){
         fb.style.display = "none";
     }
 };
+
+function remove(type, action, id) {
+	$.ajax({
+	       type: "GET",
+	       url: './admin_dashboard?type='+type+'&action='+action+'&id='+id,
+	       success: function(data)
+	       {
+    	   		if(type === "Prodotto"){
+							$('#idProduct'+id).remove();
+						}else if(type === "Rivenditore"){
+							$('#idDealer'+id).remove();
+						}else if(type === "Commento"){
+							$('#idFeedback'+id).remove();
+						}
+	       },
+	       error: function(data, status) {
+						console.log("Errore");
+	       }
+	   });
+}

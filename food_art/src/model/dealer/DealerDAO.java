@@ -36,5 +36,7 @@ public interface DealerDAO {
 	 * @throws SQLException
 	 */	
 	public Collection<DealerBean> doRetrieveAll() throws SQLException;
+
+	boolean doDelete(int code) throws SQLException;
 	
 }

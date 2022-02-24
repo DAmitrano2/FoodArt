@@ -13,6 +13,8 @@ import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
 
+import model.card.CardDAOImp;
+
 
 public class DealerDAOImp implements DealerDAO {
 
@@ -41,25 +43,25 @@ public class DealerDAOImp implements DealerDAO {
 		preparedStatement = connection.prepareStatement(insertSQL);
 		
 		try {
-		preparedStatement.setInt(1, dealer.getIdUtente());
-		preparedStatement.setDate(2, dealer.getDataNascita());
-		preparedStatement.setString(3, dealer.getCitta());
-		preparedStatement.setString(4, dealer.getProvincia());
-		preparedStatement.setString(5, dealer.getSesso());
-		preparedStatement.setString(6, dealer.getCodiceFiscale());
-		preparedStatement.setString(7, dealer.getNumeroPartitaIva());
-		preparedStatement.setBytes(8, dealer.getFilePartitaIva());
-		preparedStatement.setBytes(9, dealer.getFileDocumentoIdentita());
-		preparedStatement.setString(10, dealer.getRagioneSociale());
-		preparedStatement.setString(11, dealer.getProvinciaSedeLegale());
-		preparedStatement.setString(12, dealer.getCittaSedeLegale());
-		preparedStatement.setString(13, dealer.getViaSedeLegale());
-		preparedStatement.setString(14, dealer.getNumeroCivicoSedeLegale());
-		preparedStatement.setString(15, dealer.getCapSedeLegale());
-		
-		preparedStatement.executeUpdate();
-
-		connection.commit();
+			preparedStatement.setInt(1, dealer.getIdUtente());
+			preparedStatement.setDate(2, dealer.getDataNascita());
+			preparedStatement.setString(3, dealer.getCitta());
+			preparedStatement.setString(4, dealer.getProvincia());
+			preparedStatement.setString(5, dealer.getSesso());
+			preparedStatement.setString(6, dealer.getCodiceFiscale());
+			preparedStatement.setString(7, dealer.getNumeroPartitaIva());
+			preparedStatement.setBytes(8, dealer.getFilePartitaIva());
+			preparedStatement.setBytes(9, dealer.getFileDocumentoIdentita());
+			preparedStatement.setString(10, dealer.getRagioneSociale());
+			preparedStatement.setString(11, dealer.getProvinciaSedeLegale());
+			preparedStatement.setString(12, dealer.getCittaSedeLegale());
+			preparedStatement.setString(13, dealer.getViaSedeLegale());
+			preparedStatement.setString(14, dealer.getNumeroCivicoSedeLegale());
+			preparedStatement.setString(15, dealer.getCapSedeLegale());
+			
+			preparedStatement.executeUpdate();
+	
+			connection.commit();
 		} finally {
 			try {
 				if (preparedStatement != null)
@@ -70,6 +72,36 @@ public class DealerDAOImp implements DealerDAO {
 			}
 		}
 		
+	}
+	
+	@Override
+	public synchronized boolean doDelete(int code) throws SQLException {
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+
+		int result = 0;
+
+		String deleteSQL = "DELETE FROM " + DealerDAOImp.TABLE_NAME + " WHERE idUtente = ?";
+
+		try {
+			connection = ds.getConnection();
+			preparedStatement = connection.prepareStatement(deleteSQL);
+			preparedStatement.setInt(1, code);
+
+			result = preparedStatement.executeUpdate();
+			
+			connection.commit();
+
+		} finally {
+			try {
+				if (preparedStatement != null)
+					preparedStatement.close();
+			} finally {
+				if (connection != null)
+					connection.close();
+			}
+		}
+		return (result != 0);
 	}
 
 	@Override
@@ -217,4 +249,5 @@ public class DealerDAOImp implements DealerDAO {
 	private static final String TABLE_NAME = "rivenditore";
 
 	private DataSource ds;
+	
 }

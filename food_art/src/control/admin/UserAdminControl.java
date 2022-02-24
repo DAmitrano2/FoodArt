@@ -11,7 +11,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-
+import model.dealer.DealerDAOImp;
+import model.feedback.FeedbackDAOImp;
+import model.product.ProductDAOImp;
 import model.user.UserBean;
 import model.user.UserDAOImp;
 
@@ -50,6 +52,41 @@ public class UserAdminControl extends HttpServlet {
 			response.setStatus(400);
 			response.getWriter().append("Errore "+e);
 			return;
+		}
+		
+		String type = request.getParameter("type");
+		String action = request.getParameter("action");
+		
+		try {
+			if (action != null) {
+				if(type.equals("Prodotto")) {
+					if (action.equalsIgnoreCase("delete")) {
+						
+						int id = Integer.parseInt(request.getParameter("id"));
+						
+						ProductDAOImp productDao = new ProductDAOImp();
+						productDao.doDelete(id);
+					}
+				}else if(type.equals("Rivenditore")) {
+					if (action.equalsIgnoreCase("delete")) {
+						
+						int id = Integer.parseInt(request.getParameter("id"));
+
+						DealerDAOImp dealerDao = new DealerDAOImp();
+						dealerDao.doDelete(id);
+					}
+				}else if(type.equals("Commento")) {
+					if (action.equalsIgnoreCase("delete")) {
+						
+						int id = Integer.parseInt(request.getParameter("id"));
+ 
+						FeedbackDAOImp feedbackDao = new FeedbackDAOImp();
+						feedbackDao.doDelete(id);
+					}
+				}
+			}
+		} catch (SQLException e) {
+			response.setStatus(400);
 		}
 
 		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/admin_dashboard.jsp");

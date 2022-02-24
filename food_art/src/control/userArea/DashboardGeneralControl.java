@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import model.address.AddressDAOImp;
 import model.card.CardDAOImp;
 import model.product.ProductBean;
+import model.product.ProductDAOImp;
 import service.ProductItem;
 import service.ShoppingCart;
 
@@ -48,6 +49,14 @@ public class DashboardGeneralControl extends HttpServlet {
 						
 						CardDAOImp cardDao = new CardDAOImp();
 						cardDao.doDelete(nCarta);
+					}
+				}else if(title.equals("I miei prodotti")) {
+					if (action.equalsIgnoreCase("delete")) {
+						
+						int idProdotto = Integer.parseInt(request.getParameter("id"));
+						
+						ProductDAOImp productDao = new ProductDAOImp();
+						productDao.doDelete(idProdotto);
 					}
 				}
 			}

@@ -33,7 +33,7 @@ public class ProductDAOImp implements ProductDAO {
 		
 		String insertSQL = "INSERT INTO " + ProductDAOImp.TABLE_NAME
 				           + "(titolo, descrizione, unitaMisura, prezzo, quantitaMinimaAcquisto, quantitaDisponibile, cittaProvenienza, provinciaProvenienza, valutazione, idCategoria, idUtente)"
-				           + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+				           + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 		try {
 			connection = ds.getConnection();
 			preparedStatement = connection.prepareStatement(insertSQL);
@@ -68,27 +68,30 @@ public class ProductDAOImp implements ProductDAO {
 	public boolean doDelete(int idProdotto) throws SQLException {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
-		boolean deleted = false ;
-		
-		String updateSQL = "UPDATE "+ ProductDAOImp.TABLE_NAME +" SET quantita = -1 where idProdotto = ?";
+
+		int result = 0;
+
+		String deleteSQL = "UPDATE "+ProductDAOImp.TABLE_NAME+" SET quantitaDisponibile = '0' WHERE idProdotto = ?";
+
 		try {
-		connection = ds.getConnection();
-		preparedStatement = connection.prepareStatement(updateSQL);
-		preparedStatement.setInt(1, idProdotto);
-		preparedStatement.executeUpdate();
-		deleted = true;
-		connection.commit();
+			connection = ds.getConnection();
+			preparedStatement = connection.prepareStatement(deleteSQL);
+			preparedStatement.setInt(1, idProdotto);
+
+			result = preparedStatement.executeUpdate();
+			
+			connection.commit();
+
 		} finally {
 			try {
 				if (preparedStatement != null)
-				preparedStatement.close();
-		} finally {
-			if (connection != null)
-				connection.close();
+					preparedStatement.close();
+			} finally {
+				if (connection != null)
+					connection.close();
 			}
 		}
-		
-		return deleted;
+		return (result != 0);
 	}
 
 	@Override
@@ -97,7 +100,7 @@ public class ProductDAOImp implements ProductDAO {
 		PreparedStatement preparedStatement = null;
 		ProductBean product = new ProductBean();
 		
-		String selectSQL = "SELECT * FROM "+ ProductDAOImp.TABLE_NAME +" where idProdotto = ?";
+		String selectSQL = "SELECT * FROM "+ ProductDAOImp.TABLE_NAME +" where idProdotto = ? and quantitaDisponibile > 0";
 		try {
 		connection = ds.getConnection();
 		preparedStatement = connection.prepareStatement(selectSQL);
@@ -150,7 +153,7 @@ public class ProductDAOImp implements ProductDAO {
 		PreparedStatement preparedStatement = null;
 		Collection<ProductBean> products = new LinkedList<ProductBean>();
 		
-		String selectSQL = "SELECT * FROM "+ ProductDAOImp.TABLE_NAME +" where idCategoria = ?";
+		String selectSQL = "SELECT * FROM "+ ProductDAOImp.TABLE_NAME +" where idCategoria = ? and quantitaDisponibile > 0";
 		try {
 		connection = ds.getConnection();
 		preparedStatement = connection.prepareStatement(selectSQL);
@@ -199,7 +202,7 @@ public class ProductDAOImp implements ProductDAO {
 		PreparedStatement preparedStatement = null;
 		Collection<ProductBean> products = new LinkedList<ProductBean>();
 		
-		String selectSQL = "SELECT * FROM "+ ProductDAOImp.TABLE_NAME +" where idCategoria = ? and idProdotto != "+idProdotto+" limit "+ numeroProdotti;
+		String selectSQL = "SELECT * FROM "+ ProductDAOImp.TABLE_NAME +" where idCategoria = ? and quantitaDisponibile > 0 and idProdotto != "+idProdotto+" limit "+ numeroProdotti;
 		try {
 		connection = ds.getConnection();
 		preparedStatement = connection.prepareStatement(selectSQL);
@@ -324,7 +327,7 @@ public class ProductDAOImp implements ProductDAO {
 		PreparedStatement preparedStatement = null;
 		Collection<ProductBean> products = new LinkedList<ProductBean>();
 		
-		String selectSQL = "SELECT * FROM "+ ProductDAOImp.TABLE_NAME +" order by idProdotto desc limit "+ numeroProdotti;
+		String selectSQL = "SELECT * FROM "+ ProductDAOImp.TABLE_NAME +" where quantitaDisponibile > 0 order by idProdotto desc limit "+ numeroProdotti;
 		
 		try {
 			connection = ds.getConnection();
@@ -372,7 +375,7 @@ public class ProductDAOImp implements ProductDAO {
 		PreparedStatement preparedStatement = null;
 		Collection<ProductBean> products = new LinkedList<ProductBean>();
 		
-		String selectSQL = "SELECT * FROM "+ ProductDAOImp.TABLE_NAME +" where titolo like '%"+title+"%'";
+		String selectSQL = "SELECT * FROM "+ ProductDAOImp.TABLE_NAME +" where quantitaDisponibile > 0 and titolo like '%"+title+"%'";
 		try {
 		connection = ds.getConnection();
 		preparedStatement = connection.prepareStatement(selectSQL);
@@ -448,7 +451,7 @@ public class ProductDAOImp implements ProductDAO {
 		PreparedStatement preparedStatement = null;
 		Collection<ProductBean> products = new LinkedList<ProductBean>();
 		
-		String selectSQL = "SELECT * FROM "+ ProductDAOImp.TABLE_NAME +" where idUtente = ?";
+		String selectSQL = "SELECT * FROM "+ ProductDAOImp.TABLE_NAME +" where idUtente = ? and quantitaDisponibile > 0";
 		try {
 		connection = ds.getConnection();
 		preparedStatement = connection.prepareStatement(selectSQL);
@@ -522,10 +525,6 @@ public class ProductDAOImp implements ProductDAO {
 		return numProduct;
 	}
 	
-	private static final String TABLE_NAME = "prodotto";
-	
-	private DataSource ds;
-
 	@Override
 	public Collection<ProductBean> doRetrieveAll() throws SQLException {
 		Connection connection = null;
@@ -533,7 +532,7 @@ public class ProductDAOImp implements ProductDAO {
 
 		Collection<ProductBean> products = new LinkedList<ProductBean>();
 
-		String selectSQL = "SELECT * FROM " + ProductDAOImp.TABLE_NAME;
+		String selectSQL = "SELECT * FROM " + ProductDAOImp.TABLE_NAME +" where quantitaDisponibile > 0";
 
 		try {
 			connection = ds.getConnection();
@@ -570,5 +569,9 @@ public class ProductDAOImp implements ProductDAO {
 		}
 		return products;
 	}
+	
+	private static final String TABLE_NAME = "prodotto";
+	
+	private DataSource ds;
 
 }

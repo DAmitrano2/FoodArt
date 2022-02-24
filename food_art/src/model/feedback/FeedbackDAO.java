@@ -19,7 +19,7 @@ public interface FeedbackDAO {
 	 * @param idFeedback
 	 * @throws SQLException
 	 */
-	public void doDelete (int idFeedback) throws SQLException;
+	public boolean doDelete (int idFeedback) throws SQLException;
 	
 	/**
 	 * Restituisce tutti i feedback inseriti da un determinato utente

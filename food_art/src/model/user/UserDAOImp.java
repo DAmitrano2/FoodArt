@@ -133,7 +133,6 @@ public class UserDAOImp implements UserDAO {
 				bean.setEmail(rs.getString("email"));
 				bean.setPassword(rs.getString("password"));
 				bean.setAmministratore(rs.getBoolean("amministratore"));
-				System.out.println("rs.getBool: "+rs.getBoolean("rivenditore"));
 				bean.setRivenditore(rs.getBoolean("rivenditore"));
 				bean.setBloccato(rs.getBoolean("bloccato"));
 				
@@ -353,7 +352,7 @@ public class UserDAOImp implements UserDAO {
 	public boolean isRivenditore(int idUtente) throws SQLException {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
-		String selectSQL = "SELECT * FROM " + UserDAOImp.TABLE_NAME + " WHERE idUtente = ?";
+		String selectSQL = "SELECT * FROM food_art.rivenditore WHERE idUtente = ?";
 
 		try {
 			connection = ds.getConnection();

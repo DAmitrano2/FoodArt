@@ -10,13 +10,15 @@ $('.card:first').click(function(){
 });
 if($('.title')[0].innerText == 'Indirizzi'){
 	$('.first-card').click(function(){
-		console.log(window.location.href);
 		window.location.href='dashboard_general/add_address';
 	});
 }else if($('.title')[0].innerText == 'I miei pagamenti'){
 	$('.first-card').click(function(){
-		console.log(window.location.href);
 		window.location.href='dashboard_general/add_credit_card';
+	});
+}else if($('.title')[0].innerText == 'I miei prodotti'){
+	$('.first-card').click(function(){
+		window.location.href='dashboard_general/add_product';
 	});
 }
 function remove(title, action, id) {
@@ -25,7 +27,13 @@ function remove(title, action, id) {
 	       url: './dashboard_general?title='+title+'&action='+action+'&id='+id,
 	       success: function(data)
 	       {
-	    	   	console.log("Rimosso");
+	    	   	if(title === "Indirizzi"){
+							$('#address'+id).remove();
+						}else if(title === "I miei pagamenti"){
+							$('#card'+id).remove();
+						}else if(title === "I miei prodotti"){
+							$('#product'+id).remove();
+						}
 	       },
 	       error: function(data, status) {
 	    	   if( data.status === 400 ) {

@@ -12,7 +12,15 @@
 	          %>
 		        <div class="col-md-3 mb-3">
 		          <div id="adminCard" class="card bg-primary text-white h-100">
-		            <div class="card-body py-4">Prodotti <span class="badge bg-secondary"><%=prodotti.size() %></span></div>
+		          	<%
+	            		if ( prodotti != null && prodotti.size() != 0) {
+	            	%>
+	              <div class="card-body py-4">Prodotti <span class="badge bg-secondary"><%=prodotti.size() %></span></div>
+	              <%
+	            		}else {
+	              %>
+	              <div class="card-body py-4">Prodotti <span class="badge bg-secondary">0</span></div>
+	              <%} %>
 		            <div onclick="hideProductsList()" id="adminCardFooter" class="card-footer d-flex">
 		              Vedi i dettagli
 		              <span class="ms-auto">
@@ -27,7 +35,15 @@
 	          %>
 		        <div class="col-md-3 mb-3">
 		          <div id="adminCard" class="card bg-primary text-white h-100">
-		            <div class="card-body py-4">Rivenditori <span class="badge bg-secondary"><%=rivenditori.size() %></span></div>
+		          	<%
+	            		if ( rivenditori != null && rivenditori.size() != 0) {
+	            	%>
+	              <div class="card-body py-4">Rivenditori <span class="badge bg-secondary"><%=rivenditori.size() %></span></div>
+	              <%
+	            		}else {
+	              %>
+	              <div class="card-body py-4">Rivenditori <span class="badge bg-secondary">0</span></div>
+	              <%} %>
 		            <div onclick="hideDealersList()" id="adminCardFooter" class="card-footer d-flex">
 		              Vedi i dettagli
 		              <span class="ms-auto">
@@ -42,7 +58,15 @@
 	          %>
 	          <div class="col-md-3 mb-3">
 	            <div id="adminCard" class="card bg-warning text-white h-100">
+	            	<%
+	            		if ( feedback != null &&  feedback.size() != 0) {
+	            	%>
 	              <div class="card-body py-4">Commenti <span class="badge bg-secondary"><%=feedback.size() %></span></div>
+	              <%
+	            		}else {
+	              %>
+	              <div class="card-body py-4">Commenti <span class="badge bg-secondary">0</span></div>
+	              <%} %>
 	              <div onclick="hideFeedbackList()" id="adminCardFooter" class="card-footer d-flex">
 	                Vedi i dettagli
 	                <span class="ms-auto">
@@ -62,10 +86,10 @@
 	                 <th>#ID</th>
 	                 <th>Titolo</th>
 	                 <th width="60%">Descrizione</th>
-					 <th>Prezzo</th>
+					 				 <th>Prezzo</th>
 	                 <th>Provenienza</th>
 	                 <th>Categoria</th>
-					 <th>Azione</th>
+					 				 <th>Azione</th>
 	              </tr>
 		          </thead>
 		          <tbody>
@@ -73,14 +97,14 @@
 		          		if ( prodotti != null &&  prodotti.size() != 0) {
 										for ( ProductBean product : prodotti) {
 								%>
-	              <tr>
+	              <tr id="idProduct<%=product.getIdProdotto() %>">
 	                 <td><%=product.getIdProdotto() %></td>
 	                 <td><%=product.getTitolo() %></td>
 	                 <td><div class="scrollable"><%=product.getDescrizione() %></div></td>
-					 <td><%=product.getPrezzo() %> &#8364; al <%=product.getUnitaMisura() %></td>
+					 				 <td><%=product.getPrezzo() %> &#8364; al <%=product.getUnitaMisura() %></td>
 	                 <td><%=product.getCittaProvenienza() %>, <%=product.getProvinciaProvenienza() %> </td>
 	                 <td><%=product.getIdCategoria() %></td>
-					 <td><button type="button" class="btn bg-cart">Elimina</button></td> 
+					 				 <td><button type="button" onclick="remove('Prodotto', 'delete', '<%=product.getIdProdotto() %>')" class="btn bg-cart">Elimina</button></td>
 	              </tr>
 	              <%}} %>
 		          </tbody>
@@ -99,7 +123,7 @@
 	              <th>Partita IVA</th>
 	              <th>Documento</th>
 	              <th>Ragione Sociale</th>
-				  <th>Azione</th>
+				  			<th>Azione</th>
 	            </tr>
 		        </thead>
 		        <tbody>
@@ -107,13 +131,13 @@
 		       			if ( rivenditori != null &&  rivenditori.size() != 0) {
 									for ( DealerBean  dealer: rivenditori) {
 							%>
-		          <tr>
+		          <tr id="idDealer<%=dealer.getIdUtente()%>">
 	              <td><%=dealer.getIdUtente() %></td>
 	              <td><%=dealer.getCodiceFiscale() %></td>
 	              <td><%=dealer.getFilePartitaIva() %></td>
 	              <td><%=dealer.getFileDocumentoIdentita() %></td>
 	              <td><%=dealer.getRagioneSociale() %></td>
-				  <td><button type="button" class="btn bg-cart">Elimina</button></td> 
+				  			<td><button type="button" onclick="remove('Rivenditore', 'delete', '<%=dealer.getIdUtente() %>')" class="btn bg-cart">Elimina</button></td> 
 	            </tr>
 		          <%}} %>
 		        </tbody>
@@ -131,7 +155,7 @@
                 				<th>Titolo</th>
                 				<th>Commento</th>
                 				<th>Valutazione</th>
-								<th>Azione</th>
+												<th>Azione</th>
 	           				 </tr>
 		        		</thead>
 		        <tbody>
@@ -139,12 +163,12 @@
 		       			if ( feedback != null &&  feedback.size() != 0) {
 									for ( FeedbackBean  fb: feedback) {
 							%>
-		        	<tr>
+		        	<tr id="idFeedback<%=fb.getIdFeedback()%>">
                 		<td><%=fb.getIdFeedback() %></td>
                 		<td><%=fb.getTitolo() %></td>
                 		<td><%=fb.getCommento() %></td>
                 		<td><%=fb.getValutazione() %></td>
-						<td><button type="button" class="btn bg-cart">Elimina</button></td>
+										<td><button type="button" onclick="remove('Commento', 'delete', '<%=fb.getIdFeedback() %>')" class="btn bg-cart">Elimina</button></td>
 	            	</tr>
 		          <%}} %>
 		        </tbody>

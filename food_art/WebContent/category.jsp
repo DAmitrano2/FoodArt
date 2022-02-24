@@ -46,10 +46,10 @@
 			<div class="col-lg-9">
 				<h2 class="title"><%= modelCategoria.doRetrieveByKey(idCategoria).getNome() %></h2>
 				<div class="row">
-				<%
-					if (prodotti != null && prodotti.size() != 0) {
-						for(ProductBean product: prodotti) {
-				%>
+					<%
+						if (prodotti != null && prodotti.size() != 0) {
+							for(ProductBean product: prodotti) {
+					%>
 					<div class="col-4 text-center">
 						<a class="product_link" href="./single_product?idProdotto=<%=product.getIdProdotto()%>">
 							<img src="./getProductImage?idProdotto=<%=product.getIdProdotto() %>" alt="imageProduct.png">

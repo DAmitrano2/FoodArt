@@ -45,7 +45,8 @@
 	       	</div>
 	    	</div>
 	    	<%
-	    		if(user.isRivenditore()){
+	    		UserDAOImp userDao = new UserDAOImp();
+	    		if(userDao.isRivenditore(user.getIdUtente())){
 	    	%>
 	    	<div class="col-md-4 mb-3">
          	<div class="card text-white h-100">
