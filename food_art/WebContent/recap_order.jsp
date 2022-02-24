@@ -6,10 +6,10 @@
                 <div>
                     <p><b>SELEZIONA INDIRIZZO</b></p>
                 </div>
-                <div class="ml-auto">
+                <a href="<%=path %>/dashboard/dashboard_general/add_address" class="ml-auto">
                     <p id="media-plus"><i class="fa fa-plus-circle text-primary"></i></p>
-                    <p class="text-primary" data-toggle="collapse" href="#collapseAddress" role="button" aria-expanded="false" aria-controls="collapseAddress"><i class="fa fa-plus-circle text-primary"></i> Aggiungi un nuovo indirizzo </p>
-                </div>
+                    <p class="text-primary" data-toggle="collapse"  role="button" aria-expanded="false" aria-controls="collapseAddress"><i class="fa fa-plus-circle text-primary"></i> Aggiungi un nuovo indirizzo </p>
+                </a>
             </div>
             <div class="small-container justify-content-center collapse" id="collapseAddress">
 				<div class="testimonial-box-container">
@@ -63,7 +63,11 @@
             	<label class="form-check-label ml-2" for="flexRadioAddress<%=i%>">
 	                <span class="address title-card"><%=address.getNome()+" "+address.getCognome() %></span>
 	                <span class="address"><%=address.getVia()+" "+address.getNumeroCivico() %></span>
+	                <%
+	                	if(address.getDescrizione() != null){
+	                %>
 	                <span class="address"><%=address.getDescrizione() %></span>
+	                <%} %>
 	                <span class="address"><%=address.getCitta()+", "+address.getProvincia()+", "+address.getCap() %></span>
               	</label>
             </div>
@@ -73,10 +77,10 @@
                 <div>
                     <p><b>SELEZIONA PAGAMENTO</b></p>
                 </div>
-                <div class="ml-auto">
+                <a href="<%=path %>/dashboard/dashboard_general/add_credit_card" class="ml-auto">
                     <p id="media-plus"><i class="fa fa-plus-circle text-primary"></i></p>
-                    <p class="text-primary" data-toggle="collapse" href="#collapseCard" role="button" aria-expanded="false" aria-controls="collapseCard"><i class="fa fa-plus-circle text-primary"></i> Aggiungi metodo di pagamento</p>
-                </div>
+                    <p class="text-primary" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="collapseCard"><i class="fa fa-plus-circle text-primary"></i> Aggiungi metodo di pagamento</p>
+                </a>
             </div>
             <div class="small-container justify-content-center collapse" id="collapseCard">
 				<div class="testimonial-box-container">
