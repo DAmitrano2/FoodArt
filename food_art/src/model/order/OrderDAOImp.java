@@ -12,9 +12,6 @@ import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
 
-import model.dealer.DealerDAOImp;
-
-
 public class OrderDAOImp implements OrderDAO {
 
 	public OrderDAOImp() {

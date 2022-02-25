@@ -1,7 +1,6 @@
 package control.userArea;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.sql.SQLException;
 
 import javax.servlet.RequestDispatcher;
@@ -13,10 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import model.address.AddressDAOImp;
 import model.card.CardDAOImp;
-import model.product.ProductBean;
 import model.product.ProductDAOImp;
-import service.ProductItem;
-import service.ShoppingCart;
 
 @WebServlet("/dashboard/dashboard_general")
 public class DashboardGeneralControl extends HttpServlet {
