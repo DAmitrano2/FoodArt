@@ -20,10 +20,9 @@
   padding: 14px 18px;
 }
 .product_link img {
-    width: 100%;
     cursor: pointer;
     padding-bottom: 0.5em;
-    height: 115px;
+    height: 100px;
 }
 .product_link {
     flex-basis: 25%;

@@ -6,6 +6,7 @@
 				<div class="title-left-div">
 					<a class="title-left" href="category?idCategoria=0"><i class="fas fa-arrow-circle-left"></i>Tutte le categorie</a>
 				</div>
+				<!-- 
 				<ul class="list-group"  id="left-list-group">
 					<li class="list-group-item">
 						<div class="mini-title">
@@ -37,6 +38,7 @@
 						</div>
 					</li>
 				</ul>
+				 -->
 			</div>
 			<div class="col-lg-9">
 				<h2 class="title">Risultati della Ricerca</h2>
