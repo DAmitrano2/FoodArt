@@ -12,9 +12,6 @@ import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
 
-import model.order.OrderBean;
-import model.order.OrderDAOImp;
-
 public class CardDAOImp implements CardDAO {
 	
 	public CardDAOImp() {

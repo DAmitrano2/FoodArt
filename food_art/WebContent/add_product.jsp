@@ -13,7 +13,7 @@
          <div class="card-header py-3">
             <strong>Inserisci un nuovo prodotto</strong>
          </div>
-         <form id="form" action="add_product" method="post">
+         <form id="form" action="add_product" method="post" enctype="multipart/form-data">
           <div class="card-body">
 	          <%
 							String error = String.valueOf(request.getAttribute("errorMessage"));
@@ -48,7 +48,7 @@
               <div class="col-sm-12">
                 <div class="form-group">
                   <label for="name">Categoria</label>
-                  <select name="category" class="form-control" id="category">
+                  <select name="categoria" class="form-control" id="category">
                     <option id="categoryOption" value="1">Carne</option>
                     <option id="categoryOption" value="2">Pesce</option>
                     <option id="categoryOption" value="3">Cereali e Derivate</option>

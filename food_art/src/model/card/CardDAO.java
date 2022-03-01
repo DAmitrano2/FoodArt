@@ -3,8 +3,6 @@ package model.card;
 import java.sql.SQLException;
 import java.util.Collection;
 
-import model.address.AddressBean;
-
 public interface CardDAO {
 	
 	/**

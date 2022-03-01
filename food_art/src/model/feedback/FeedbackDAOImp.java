@@ -1,7 +1,6 @@
 package model.feedback;
 
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.Collection;
 import java.util.LinkedList;
 import java.sql.Connection;
@@ -13,7 +12,6 @@ import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
 
-import model.dealer.DealerDAOImp;
 import model.product.ProductDAOImp;
 
 public class FeedbackDAOImp implements FeedbackDAO {
@@ -29,6 +27,7 @@ public class FeedbackDAOImp implements FeedbackDAO {
 		}
 	}
 
+	@SuppressWarnings("resource")
 	@Override
 	public void doSave(FeedbackBean feed) throws SQLException {
 		Connection connection = null;

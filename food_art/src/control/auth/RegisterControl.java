@@ -1,8 +1,6 @@
 package control.auth;
 
 import java.io.IOException;
-import java.io.InputStream;
-import java.nio.file.Paths;
 import java.sql.Date;
 import java.sql.SQLException;
 import java.util.Base64;
