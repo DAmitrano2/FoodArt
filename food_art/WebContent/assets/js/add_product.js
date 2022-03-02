@@ -1,4 +1,4 @@
-$("#image-picker").change(function(event) {
+$("#fProduct").change(function(event) {
     readURL(this);
   });
   
@@ -17,7 +17,7 @@ $("#image-picker").change(function(event) {
   const titolo = document.getElementById('productName');
   const prezzo = document.getElementById('price');
   const descrizione = document.getElementById('exampleFormControlTextarea1');
-  const immagine = document.getElementById('image-picker')
+  const immagine = document.getElementById('fProduct')
   const submit = document.getElementById('productSub');
   
   submit.addEventListener('click', e =>{
@@ -106,6 +106,10 @@ const validateInputs = () =>{
   }
 
   if(boolTitolo && boolPrezzo && boolDescrizione && boolImmagine){
-    return true;
+		console.log('titoloValue: '+titoloValue);
+	  console.log('prezzoValue: '+prezzoValue);
+	  console.log('descrizioneValue: '+descrizioneValue);
+	  console.log('immagineValue: '+immagineValue);
+		return true;
   }
 }

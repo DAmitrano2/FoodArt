@@ -34,8 +34,8 @@ public class ImageDAOImp implements ImageDAO {
 		PreparedStatement preparedStatement = null;
 
 		String insertSQL = "INSERT INTO " + ImageDAOImp.TABLE_NAME
-				+ " (pathname, idProdotto, predefinito)"
-				+ " VALUES (?, ?, ?)";
+				+ " (pathname, idProdotto)"
+				+ " VALUES (?, ?)";
 
 		try {
 			connection = ds.getConnection();

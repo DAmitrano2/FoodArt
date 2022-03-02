@@ -27,7 +27,6 @@ public class FeedbackDAOImp implements FeedbackDAO {
 		}
 	}
 
-	@SuppressWarnings("resource")
 	@Override
 	public void doSave(FeedbackBean feed) throws SQLException {
 		Connection connection = null;
@@ -56,7 +55,7 @@ public class FeedbackDAOImp implements FeedbackDAO {
 			int idProdotto = feed.getIdProdotto(), i = 0, rating = 0;
 			float finalRating = 0;
 			
-			String selectSQL = "SELECT * FROM " + FeedbackDAOImp.TABLE_NAME +" where idProdotto= ? ";
+			String selectSQL = "SELECT * FROM " + FeedbackDAOImp.TABLE_NAME +" where idProdotto= ?";
 			
 			
 			connection = ds.getConnection();
