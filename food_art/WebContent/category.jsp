@@ -9,7 +9,7 @@
 		<div class="row">
 			<div class="col-lg-3">
 				<div class="title-left-div">
-					<a class="title-left" href="category?idCategoria=0"><i class="fas fa-arrow-circle-left"></i>Tutte le categorie</a>
+					<a class="title-left" href="category?idCategoria=0"><i class="fas fa-arrow-circle-left"></i> Tutte le categorie</a>
 				</div>
 				<!-- <ul class="list-group"  id="left-list-group">
 					<li class="list-group-item">

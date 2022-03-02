@@ -11,7 +11,7 @@
 				</nav>
 				<h2 class="title"><%=title %></h2>
 				<%if(title.equals("Indirizzi")){ %>
-				<div class="row justify-content-center">
+				<div class="row justify-content-start">
 	      	<div class="col-md-4 mb-3">
 	      		<div class="card first-card">
 	      			<div class="card-body first-card-body">
@@ -107,7 +107,7 @@
 			          <div class="form-check form-check-paycard my-3">
 								  <label class="form-check-label">
 								    <a class="product_link" href="<%=path %>/single_product?idProdotto=<%=product.getIdProdotto()%>">
-											<img src="<%=path %>/getProductImage?idProdotto=<%=product.getIdProdotto() %>" alt="imageProduct.png">
+											<img src="<%=path %>/getProductImage?idProdotto=<%=product.getIdProdotto() %>" class="img-fluid" alt="imageProduct.png">
 											<h4><%= product.getTitolo() %></h4>
 										</a>
 										<div class="rating">
