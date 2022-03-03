@@ -101,7 +101,7 @@
 				<i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
 	    	<%}}%>
 	    	</div>
-			<p><%=product.getPrezzo()%>&#8364; al<%=product.getUnitaMisura()%></p>
+			<p><%=product.getPrezzo()%>&#8364; al <%=product.getUnitaMisura()%></p>
 			<button type="button" class="btn bg-cart" onclick="addCart('add', <%=product.getIdProdotto()%>, '<%=pagina+"?idProdotto="+idProdotto%>')">
 				<i class="fas fa-cart-plus mr-2"></i>Aggiungi al Carrello
 			</button>

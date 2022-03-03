@@ -58,11 +58,19 @@
 						</a>
 						<h6><a href="./dealer_info?idDealer=<%=product.getIdUtente() %>"><%= modelRivenditore.doRetriveNameById(product.getIdUtente()) %></a></h6>
 						<div class="rating">
-							<i class="fas fa-star"></i>
-							<i class="fas fa-star"></i>
-							<i class="fas fa-star"></i>
-							<i class="fas fa-star"></i>
-							<i class="far fa-star"></i>
+							<% if(product.getValutazione() > 0){
+						 	float rating = product.getValutazione();
+						 	if(rating>=1 && rating<2){				//1 stella%>
+				    		<i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
+					   	<%}else if(rating>=2 && rating<3){		//2 stelle%>
+				    		<i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
+					   	<%}else if(rating>=3 && rating<4){		//3 stelle%>
+				    		<i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
+					   	<%}else if(rating>=4 && rating<5){		//4 stelle%>
+				    		<i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+					   	<%}else if(rating==5){					//5 stelle%>
+							<i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+				    	<%}}%>
 						</div>
 						<p><%= product.getPrezzo()%> &#8364; al <%= product.getUnitaMisura()%></p>
 						<button type="button" class="btn bg-cart" onclick="addCart('add', <%=product.getIdProdotto()%>, '<%=pagina+"?title="+title%>')"><i class="fas fa-cart-plus mr-2"></i>Aggiungi al Carrello</button>
