@@ -30,25 +30,18 @@ public class DashboardGeneralControl extends HttpServlet {
 		
 		try {
 			if (action != null) {
-				if(title.equals("Indirizzi")) {
-					if (action.equalsIgnoreCase("delete")) {
-						
+				if (action.equalsIgnoreCase("delete")) {
+					if(title.equals("Indirizzi")) {
 						int idIndirizzo = Integer.parseInt(request.getParameter("id"));
 						
 						AddressDAOImp addressDao = new AddressDAOImp();
 						addressDao.doDelete(idIndirizzo);
-					}
-				}else if(title.equals("I miei pagamenti")) {
-					if (action.equalsIgnoreCase("delete")) {
-						
+					}else if(title.equals("I miei pagamenti")) {
 						String nCarta = request.getParameter("id");
 						
 						CardDAOImp cardDao = new CardDAOImp();
 						cardDao.doDelete(nCarta);
-					}
-				}else if(title.equals("I miei prodotti")) {
-					if (action.equalsIgnoreCase("delete")) {
-						
+					}else if(title.equals("I miei prodotti")) {
 						int idProdotto = Integer.parseInt(request.getParameter("id"));
 						
 						ProductDAOImp productDao = new ProductDAOImp();

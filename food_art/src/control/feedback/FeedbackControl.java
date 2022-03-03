@@ -43,7 +43,6 @@ public class FeedbackControl extends HttpServlet {
 			fb.setValutazione(rating);
 			fb.setIdCommentatore(user.getIdUtente());
 			fb.setIdProdotto(idProdotto);
-			fb.setIdRivenditore(idRivenditore);
 			
 			if(fb == null ) {
 				response.setContentType("application/json");

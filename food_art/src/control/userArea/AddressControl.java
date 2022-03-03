@@ -72,6 +72,7 @@ public class AddressControl extends HttpServlet {
 				dispatcher.forward(request, response);
 			}
 			if(address != null) {
+				
 				modelAddress.doSave(address);
 				response.setStatus(200);
 				

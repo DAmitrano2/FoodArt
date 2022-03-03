@@ -13,7 +13,7 @@
          <div class="card-header py-3">
             <strong>Inserisci un nuovo prodotto</strong>
          </div>
-         <form id="form" action="add_product" method="post" enctype="multipart/form-data">
+         <form id="form" action="add_product" method="post" enctype="multipart/form-data"><!--  -->
           <div class="card-body">
 	          <%
 							String error = String.valueOf(request.getAttribute("errorMessage"));
@@ -25,10 +25,10 @@
 						</div>
 						<%} %>
             <div class="row justify-content-center">
-              <label for="image-picker">
+              <label for="fProduct">
                 <img class="img-fluid" id="image-preview" src="<%=path%>/assets/images/default-background.jpg" alt="your image" />
               </label>
-              <input id="image-picker" type="file" name="fProduct" accept="image/*" />
+              <input id="fProduct" type="file" name="fProduct" accept=".jpg, .jpeg, .png"/>
               <div class="div-error">
                 <div class="error"></div>
               </div>
@@ -37,7 +37,7 @@
              <div class="col-sm-12">
                 <div class="form-group">
                   <label for="name">Titolo</label>
-                  <input class="form-control" id="productName" name="title" type="text">
+                  <input class="form-control" id="productName" name="productName" type="text">
                   <div class="div-error">
                     <div class="error"></div>
                   </div>
@@ -48,7 +48,7 @@
               <div class="col-sm-12">
                 <div class="form-group">
                   <label for="name">Categoria</label>
-                  <select name="categoria" class="form-control" id="category">
+                  <select name="category" class="form-control" id="category">
                     <option id="categoryOption" value="1">Carne</option>
                     <option id="categoryOption" value="2">Pesce</option>
                     <option id="categoryOption" value="3">Cereali e Derivate</option>
@@ -64,7 +64,7 @@
             </div>
             <div class="form-group">
              <label for="addInfo">Descrizione</label>
-             <textarea class="form-control" name="feedback" id="exampleFormControlTextarea1" rows="3" placeholder="Una breve descrizione del prodotto" style="resize: none;"></textarea>
+             <textarea class="form-control" name="exampleFormControlTextarea1" id="exampleFormControlTextarea1" rows="3" placeholder="Una breve descrizione del prodotto" style="resize: none;"></textarea>
              <div class="div-error">
                <div class="error"></div>
              </div>
@@ -84,8 +84,8 @@
                   <label for="city">Unit&#224; di misura</label>
                   <select name="unmeasure" class="form-control" id="unmeasure">
                     <option id="unmeasureOption" value="pz">Pezzo</option>
-                    <option id="unmeasureOption" value="kg">Litro</option>
-                    <option id="unmeasureOption" value="lt">Chilo</option>
+                    <option id="unmeasureOption" value="lt">Litro</option>
+                    <option id="unmeasureOption" value="kg">Chilo</option>
                   </select>
                 </div>
               </div>

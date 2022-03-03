@@ -43,6 +43,6 @@ public interface ImageDAO {
 	 * @return Collezione di ImmagineBean
 	 * @throws SQLException
 	 */
-	public Collection<ImageBean> getImagesByProdotto(int idProdotto) throws SQLException;
+	public ImageBean getImagesByProdotto(int idProdotto) throws SQLException;
 
 }
