@@ -94,10 +94,9 @@
         	if(auth){
         		if(user.isAmministratore()){
         %>
-        <a class="dropdown-item" href="<%=path%>/admin_dashboard">Area Utente</a>
-				<%}else { %>
+        <a class="dropdown-item" href="<%=path%>/admin_dashboard">Area Amministratore</a>
+				<%} %>
        	<a class="dropdown-item" href="<%=path%>/dashboard">Area Utente</a>
-       	<%}%>
    	    <div class="dropdown-divider"></div>
        	<a class="dropdown-item" href="<%=path%>/logout">Esci</a>
         <%}else{%>

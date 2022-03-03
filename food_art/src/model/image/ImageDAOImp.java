@@ -122,11 +122,11 @@ public class ImageDAOImp implements ImageDAO {
 	}
 
 	@Override
-	public Collection<ImageBean> getImagesByProdotto(int idProdotto) throws SQLException {
+	public ImageBean getImagesByProdotto(int idProdotto) throws SQLException {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 
-		Collection<ImageBean> images = new LinkedList<ImageBean>();
+		ImageBean bean = new ImageBean();
 
 		String selectSQL = "SELECT * FROM "+ ImageDAOImp.TABLE_NAME +" WHERE idProdotto = ?";
 
@@ -137,14 +137,21 @@ public class ImageDAOImp implements ImageDAO {
 
 			ResultSet rs = preparedStatement.executeQuery();
 
+			boolean flag = false;
+			
 			while (rs.next()) {
-				ImageBean bean = new ImageBean();
 				bean.setIdImmagine(rs.getInt("idImmagine"));
 				bean.setPathName(rs.getBytes("pathname"));
 				bean.setIdProdotto(rs.getInt("idProdotto"));
-				images.add(bean);
-			}
 
+				flag=true;
+			}
+			
+			if( !flag ) {
+				return null;
+			}
+			
+			connection.commit();
 		} finally {
 			try {
 				if (preparedStatement != null)
@@ -154,7 +161,7 @@ public class ImageDAOImp implements ImageDAO {
 					connection.close();
 			}
 		}
-		return images;
+		return bean;
 	}
 	
 	private static final String TABLE_NAME = "immagine";

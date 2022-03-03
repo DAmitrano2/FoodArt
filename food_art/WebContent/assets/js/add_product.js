@@ -106,10 +106,6 @@ const validateInputs = () =>{
   }
 
   if(boolTitolo && boolPrezzo && boolDescrizione && boolImmagine){
-		console.log('titoloValue: '+titoloValue);
-	  console.log('prezzoValue: '+prezzoValue);
-	  console.log('descrizioneValue: '+descrizioneValue);
-	  console.log('immagineValue: '+immagineValue);
 		return true;
   }
 }

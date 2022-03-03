@@ -57,6 +57,8 @@
 			</button>
 			<h4 class="mt-3 mb-2">Dettagli sul Prodotto</h4>
 			<span><%=prodotto.getDescrizione()%></span>
+			<h4 class="mt-3 mb-2">Provenienza</h4>
+			<span><%=prodotto.getCittaProvenienza() %>, <%=prodotto.getProvinciaProvenienza() %></span>
 		</div>
 	</div>
 </section>

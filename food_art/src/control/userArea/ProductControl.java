@@ -42,25 +42,16 @@ public class ProductControl extends HttpServlet {
 	@SuppressWarnings("unused")
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		UserBean user = (UserBean) request.getSession().getAttribute("user");
-		System.out.println("sto dentro: "+user.getIdUtente());
-		
-		ProductDAOImp productDao = new ProductDAOImp();
-		ImageDAOImp imageDao = new ImageDAOImp();
-		System.out.println("title: "+request.getParameter("productName")+" categoria: "+request.getParameter("category")+" desc: "+request.getParameter("exampleFormControlTextarea1")+" price: "+request.getParameter("price")+" quant disp: "+request.getParameter("qtydisp"));
-		String descrizione = request.getParameter("exampleFormControlTextarea1");
-		System.out.println("descrizione: "+descrizione);
-		String prezzo = request.getParameter("price");
-		System.out.println("prezzo: "+prezzo);
-		String uMisura = request.getParameter("unmeasure");
-		System.out.println("uMisura: "+uMisura);
-		int quantitaMin = Integer.parseInt(request.getParameter("qtymin"));
-		System.out.println("quantitaMin: "+quantitaMin);
-		int quantitaDisponibile = Integer.parseInt(request.getParameter("qtydisp"));
-		System.out.println("quantitaDisponibile: "+quantitaDisponibile);
 		
 		String titolo = request.getParameter("productName");
 		int categoria = Integer.parseInt(request.getParameter("category"));
-		System.out.println("categoria: "+categoria);
+		ProductDAOImp productDao = new ProductDAOImp();
+		ImageDAOImp imageDao = new ImageDAOImp();
+		String descrizione = request.getParameter("exampleFormControlTextarea1");
+		String prezzo = request.getParameter("price");
+		String uMisura = request.getParameter("unmeasure");
+		int quantitaMin = Integer.parseInt(request.getParameter("qtymin"));
+		int quantitaDisponibile = Integer.parseInt(request.getParameter("qtydisp"));
 		
 		byte[] bytes = null;
 		

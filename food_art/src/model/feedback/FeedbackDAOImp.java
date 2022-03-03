@@ -32,7 +32,7 @@ public class FeedbackDAOImp implements FeedbackDAO {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 		
-		String insertSQL = "INSERT INTO "+ FeedbackDAOImp.TABLE_NAME + "(titolo, commento, valutazione, idCommentatore, idProdotto, idRivenditore)"+
+		String insertSQL = "INSERT INTO "+ FeedbackDAOImp.TABLE_NAME + "(titolo, commento, valutazione, idCommentatore, idProdotto)"+
 		"values(?, ?, ?, ?, ?, ?)";
 		
 		try {
@@ -43,7 +43,6 @@ public class FeedbackDAOImp implements FeedbackDAO {
 			preparedStatement.setFloat(3, feed.getValutazione());
 			preparedStatement.setInt(4, feed.getIdCommentatore());
 			preparedStatement.setInt(5, feed.getIdProdotto());
-			preparedStatement.setInt(6, feed.getIdRivenditore());
 			
 			preparedStatement.executeUpdate();
 
@@ -141,7 +140,6 @@ public class FeedbackDAOImp implements FeedbackDAO {
 				feed.setValutazione(rs.getFloat("valutazione"));
 				feed.setIdCommentatore(rs.getInt("idCommentatore"));
 				feed.setIdProdotto(rs.getInt("idProdotto"));
-				feed.setIdRivenditore(rs.getInt("idRivenditore"));
 				
 				feedback.add(feed);
 				flag = true;
@@ -189,7 +187,6 @@ public class FeedbackDAOImp implements FeedbackDAO {
 				feed.setValutazione(rs.getFloat("valutazione"));
 				feed.setIdCommentatore(rs.getInt("idCommentatore"));
 				feed.setIdProdotto(rs.getInt("idProdotto"));
-				feed.setIdRivenditore(rs.getInt("idRivenditore"));
 				
 				feedback.add(feed);
 				flag = true;
@@ -237,7 +234,6 @@ public class FeedbackDAOImp implements FeedbackDAO {
 				feed.setValutazione(rs.getFloat("valutazione"));
 				feed.setIdCommentatore(rs.getInt("idCommentatore"));
 				feed.setIdProdotto(rs.getInt("idProdotto"));
-				feed.setIdRivenditore(rs.getInt("idRivenditore"));
 				
 				feedback.add(feed);
 				flag = true;
@@ -284,7 +280,6 @@ public class FeedbackDAOImp implements FeedbackDAO {
 				feed.setValutazione(rs.getFloat("valutazione"));
 				feed.setIdCommentatore(rs.getInt("idCommentatore"));
 				feed.setIdProdotto(rs.getInt("idProdotto"));
-				feed.setIdRivenditore(rs.getInt("idRivenditore"));
 				
 				flag = true;
 			}
@@ -332,7 +327,6 @@ public class FeedbackDAOImp implements FeedbackDAO {
 				feed.setValutazione(rs.getFloat("valutazione"));
 				feed.setIdCommentatore(rs.getInt("idCommentatore"));
 				feed.setIdProdotto(rs.getInt("idProdotto"));
-				feed.setIdRivenditore(rs.getInt("idRivenditore"));
 				
 				feedback.add(feed);
 				flag = true;

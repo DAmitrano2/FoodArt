@@ -44,9 +44,9 @@ public class UserAdminControl extends HttpServlet {
 		request.setAttribute("page", "admin_dashboard");
 
 		try {
-				Collection<UserBean> users = modelUser.doRetrieveAll();
+			Collection<UserBean> users = modelUser.doRetrieveAll();
 
-				request.setAttribute("utenti", users);
+			request.setAttribute("utenti", users);
 
 		} catch (SQLException e) {
 			response.setStatus(400);

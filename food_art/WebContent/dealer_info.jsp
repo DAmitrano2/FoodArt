@@ -33,15 +33,15 @@
           <li><i class="fa-solid fa-hashtag"></i> <%=numProduct %> prodotti</li>
           <li><i class="fa-solid fa-envelope"></i> <%=userDealer.getEmail() %></li>
         </ul>
-        <%
+        <!--%
         	FeedbackDAOImp modelFb = new FeedbackDAOImp();
 	    		FeedbackBean fbTitle = modelFb.doRetriveBestFeedbackByUser(idDealer);
 	    		if(fbTitle != null){
 	    	%>
         <hr>
         
-        <h5>Dicono di <%=dealer.getRagioneSociale() %></h5>
-        <%
+        <h5>Dicono di < %=dealer.getRagioneSociale() %></h5>
+        < %
         	float rate = 0;
         	int c = 0;
 	        
@@ -55,21 +55,21 @@
 		    	rate = rate / c;
 				%>
         <div class="rating">
-				 	<%
+				 	< %
 				 		if(rate>=1 && rate<2){				//1 stella%>
 				    		<i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
-					   	<%}else if(rate>=2 && rate<3){		//2 stelle%>
+					   	< %}else if(rate>=2 && rate<3){		//2 stelle%>
 				    		<i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
-					   	<%}else if(rate>=3 && rate<4){		//3 stelle%>
+					   	< %}else if(rate>=3 && rate<4){		//3 stelle%>
 				    		<i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
-					   	<%}else if(rate>=4 && rate<5){		//4 stelle%>
+					   	< %}else if(rate>=4 && rate<5){		//4 stelle%>
 				    		<i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
-					   	<%}else if(rate==5){					//5 stelle%>
+					   	< %}else if(rate==5){					//5 stelle%>
 							<i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-		    	<% }%>
+		    	< % }%>
 		    	</div>
-	        <h6><a href=""><i class="fa-solid fa-quote-left"></i> <%=fbTitle.getTitolo() %></a><br/></h6>
-	        <%} %>
+	        <h6><a href=""><i class="fa-solid fa-quote-left"></i> < %=fbTitle.getTitolo() %></a><br/></h6>
+	        < %} %-->
 			</div>
 		</div>
     <div class="col-md-8">
