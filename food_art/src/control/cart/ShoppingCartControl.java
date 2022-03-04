@@ -22,7 +22,7 @@ public class ShoppingCartControl extends HttpServlet {
 		request.setAttribute("page","shopping_cart");
 		
 		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/shopping_cart.jsp");
-		dispatcher.forward(request, response);	
+		dispatcher.forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

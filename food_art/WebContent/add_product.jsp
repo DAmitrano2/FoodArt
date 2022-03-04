@@ -36,7 +36,7 @@
             <div class="row">
              <div class="col-sm-12">
                 <div class="form-group">
-                  <label for="name">Titolo</label>
+                  <label for="productName">Titolo</label>
                   <input class="form-control" id="productName" name="productName" type="text">
                   <div class="div-error">
                     <div class="error"></div>
@@ -63,7 +63,7 @@
               </div>
             </div>
             <div class="form-group">
-             <label for="addInfo">Descrizione</label>
+             <label for="exampleFormControlTextarea1">Descrizione</label>
              <textarea class="form-control" name="exampleFormControlTextarea1" id="exampleFormControlTextarea1" rows="3" placeholder="Una breve descrizione del prodotto" style="resize: none;"></textarea>
              <div class="div-error">
                <div class="error"></div>
@@ -72,7 +72,27 @@
             <div class="row">
               <div class="col-sm-6">
                 <div class="form-group">
-                  <label for="cap">Prezzo</label>
+                  <label for="city">Citt&#224;</label>
+                  <input class="form-control" id="city" name="city" type="text">
+                  <div class="div-error">
+                    <div class="error"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <label for="province">Provincia</label>
+                  <input class="form-control" id="province" name="province" type="text" placeholder="AA">
+                  <div class="div-error">
+                    <div class="error"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <label for="price">Prezzo</label>
                   <input class="form-control" id="price" name="price" type="text" placeholder="&#8364;">
                   <div class="div-error">
                     <div class="error"></div>
@@ -81,7 +101,7 @@
               </div>
               <div class="col-sm-6">
                 <div class="form-group">
-                  <label for="city">Unit&#224; di misura</label>
+                  <label for="unmeasure">Unit&#224; di misura</label>
                   <select name="unmeasure" class="form-control" id="unmeasure">
                     <option id="unmeasureOption" value="pz">Pezzo</option>
                     <option id="unmeasureOption" value="lt">Litro</option>
@@ -93,14 +113,14 @@
             <div class="row">
               <div class="col-sm-6">
                 <div class="form-group">
-                  <label for="province">Quantit&#224;</label>
-                  <input class="form-control" name="qtymin" type="number" value="1" min="1">
+                  <label for="qtydisp">Quantit&#224;</label>
+                  <input id="qtydisp" class="form-control" name="qtydisp" type="number" value="1" min="1">
                 </div>
               </div>
               <div class="col-sm-6">
                 <div class="form-group">
-                  <label for="tnumber">Quantit&#224; minima di acquisto</label>
-                  <input class="form-control" name="qtydisp" type="number" value="1" min="1">
+                  <label for="qtymin">Quantit&#224; minima di acquisto</label>
+                  <input id="qtymin" class="form-control" name="qtymin" type="number" value="1" min="1">
                 </div>
               </div>
             </div>

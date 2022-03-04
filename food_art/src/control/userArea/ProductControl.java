@@ -45,26 +45,29 @@ public class ProductControl extends HttpServlet {
 		
 		String titolo = request.getParameter("productName");
 		int categoria = Integer.parseInt(request.getParameter("category"));
-		ProductDAOImp productDao = new ProductDAOImp();
-		ImageDAOImp imageDao = new ImageDAOImp();
 		String descrizione = request.getParameter("exampleFormControlTextarea1");
+		String citta = request.getParameter("city");
+		String provincia = request.getParameter("province");
 		String prezzo = request.getParameter("price");
 		String uMisura = request.getParameter("unmeasure");
 		int quantitaMin = Integer.parseInt(request.getParameter("qtymin"));
 		int quantitaDisponibile = Integer.parseInt(request.getParameter("qtydisp"));
 		
 		byte[] bytes = null;
-		
 	    Part filePart = request.getPart("fProduct");
-
 	    bytes = filePart.getInputStream().readAllBytes();
-		
+
+	    ProductDAOImp productDao = new ProductDAOImp();
+		ImageDAOImp imageDao = new ImageDAOImp();
+	    
 		try {
 			ProductBean product = new ProductBean();
 			product.setTitolo(titolo);
 			product.setIdCategoria(categoria);
 			product.setPrezzo(prezzo);
 			product.setDescrizione(descrizione);
+			product.setCittaProvenienza(citta);
+			product.setProvinciaProvenienza(provincia);
 			product.setUnitaMisura(uMisura);
 			product.setQuantitaMinima(quantitaMin);
 			product.setQuantitaDisponibile(quantitaDisponibile);
