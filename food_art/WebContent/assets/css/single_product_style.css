@@ -175,6 +175,32 @@ input[type="file"] {
 #footer{
 	margin-top: 10%;
 }
+.input-group input:focus {
+    outline: 0;
+}
+.form-control.success {
+    border-color: #09c372;
+}
+
+.form-control.error{
+    border-color: rgb(216, 0, 0);
+}
+
+.form-control + .div-error>.error {
+    color: rgb(216, 0, 0);
+    font-size: 11px;
+    height: 13px;
+}
+
+.div-error{
+		justify-content: space-around;
+}
+
+.div-error > .error {
+    color: rgb(216, 0, 0);
+    font-size: 11px;
+    height: 13px;
+}
 @media (max-width: 768px){
 	.row {
     text-align: center!important;

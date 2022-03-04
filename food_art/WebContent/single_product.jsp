@@ -122,17 +122,26 @@
 							<h3 class="mr-3">Seleziona la valutazione</h3>
 							<div class="rating mt-1" id="rating-comment" data-value="">
 								<i class="far fa-star" onclick="oneStar()"></i><i class="far fa-star" onclick="twoStar()"></i><i class="far fa-star" onclick="threeStar()"></i><i class="far fa-star" onclick="fourStar()"></i><i class="far fa-star" onclick="fiveStar()"></i>
-					    	</div>					    	
+					    	</div>
+							<div class="div-error">
+								<div class="error"></div>
+							  </div>					    	
 						</div>
 					</div>
 				</div>
 				<div class="comment-group input-group input-group-sm mb-3">
 					<h3 class="mr-3">Aggiungi un titolo</h3>
-					<input type="text" name="title" id="title-comment" class="comment-input form-control mt-2" placeholder="Quali sono le cose più importanti da sapere?">
+					<input type="text" name="title" id="title-comment" class="comment-input form-control mt-2" placeholder="Quali sono le cose pi&#249; importanti da sapere?">
+					<div class="div-error">
+						<div class="error"></div>
+					  </div>
 				</div>
 				<div class="comment-group client-comment input-group input-group-sm">
 					<h3 class="mr-3">Aggiungi una recensione scritta</h3>
-					<textarea id="textarea-comment" name="comment" class="comment-input form-control mt-2" placeholder="Che cosa ti è piaciuto e cosa non ti è piaciuto?"></textarea>
+					<textarea id="textarea-comment" name="comment" class="comment-input form-control mt-2" placeholder="Che cosa ti &#232; piaciuto e cosa non ti &#232; piaciuto?"></textarea>
+					<div class="div-error">
+						<div class="error"></div>
+					  </div>
 				</div>
 				<div class="form-group" style="display: flow-root;">
 					<button id="inviaFb" type="button" class="btn float-right comment_btn mt-3">Invia</button>

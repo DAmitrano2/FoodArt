@@ -17,7 +17,9 @@ $("#fProduct").change(function(event) {
   const titolo = document.getElementById('productName');
   const prezzo = document.getElementById('price');
   const descrizione = document.getElementById('exampleFormControlTextarea1');
-  const immagine = document.getElementById('fProduct')
+  const immagine = document.getElementById('fProduct');
+  const citta = document.getElementById('city');
+  const provincia = document.getElementById('province');
   const submit = document.getElementById('productSub');
   
   submit.addEventListener('click', e =>{
@@ -62,7 +64,9 @@ const validateInputs = () =>{
   const prezzoValue = prezzo.value.trim();
   const descrizioneValue = descrizione.value.trim();
   const immagineValue = immagine.value.trim();
-  var boolTitolo, boolPrezzo, boolDescrizione, boolImmagine;
+  const cittaValue = citta.value.trim();
+  const provinciaValue = provincia.value.trim();
+  var boolTitolo, boolPrezzo, boolDescrizione, boolImmagine, boolCitta, boolProvincia;
 
   if(titoloValue===''){
     boolTitolo = false;
@@ -105,7 +109,38 @@ const validateInputs = () =>{
     setSuccess(immagine);
   }
 
-  if(boolTitolo && boolPrezzo && boolDescrizione && boolImmagine){
+  if(cittaValue===''){
+    boolCitta = false;
+    setError(citta, '*Città necessaria*');
+  } else if(cittaValue.length>45){
+    boolCitta = false;
+    setError(citta, '*Lunghezza massima raggiunta*');
+  } else if(cittaValue.match(/[0-9]/g)){
+    boolCitta = false;
+    setError(citta, '*La città non può contenere numeri*');
+  } else {
+    boolCitta = true;
+    setSuccess(citta);
+  }
+
+  if(provinciaValue===''){
+    boolProvincia = false;
+    setError(provincia, '*Provincia necessaria*');
+  } else if((provinciaValue.length>2) || (provinciaValue.length<2)){
+    boolProvincia = false;
+    setError(provincia, '*La provincia deve essere in formato AA*');
+  } else if(provinciaValue.match(/[0-9]/g)){
+    boolProvincia = false;
+    setError(provincia, '*La provincia deve contenere solo lettere*');
+  } else if(provinciaValue.match(/[a-z]/g)){
+    boolProvincia = false;
+    setError(provincia, '*La provincia deve essere scritta in maiuscolo');
+  } else {
+    boolProvincia = true;
+    setSuccess(provincia);
+  }
+
+  if(boolTitolo && boolPrezzo && boolDescrizione && boolImmagine && boolCitta && boolProvincia){
 		return true;
   }
 }

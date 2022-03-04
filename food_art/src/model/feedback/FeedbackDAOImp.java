@@ -33,7 +33,7 @@ public class FeedbackDAOImp implements FeedbackDAO {
 		PreparedStatement preparedStatement = null;
 		
 		String insertSQL = "INSERT INTO "+ FeedbackDAOImp.TABLE_NAME + "(titolo, commento, valutazione, idCommentatore, idProdotto)"+
-		"values(?, ?, ?, ?, ?, ?)";
+		"values(?, ?, ?, ?, ?)";
 		
 		try {
 			connection = ds.getConnection();
